@@ -5,11 +5,10 @@ website:
   title: "DV2023"
   navbar:
     right:
-      - about.qmd
       - icon: github
-        href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
+        href: https://github.com/guebin/DV2023
+      - icon: youtube
+        href: https://www.youtube.com/channel/UCQk9RyBNgXc7ORIsYlOfQrg/playlists?view=50&sort=dd&shelf_id=2
 format:
   html:
     theme: cosmo
