@@ -120,6 +120,8 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -246,13 +248,13 @@ div.csl-indent {
 </section>
 <section id="import" class="level1">
 <h1>Import</h1>
-<div id="52ff0d3a-6bea-469f-a211-95c68ec9f087" class="cell" data-execution_count="3">
+<div id="52ff0d3a-6bea-469f-a211-95c68ec9f087" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">#!pip install opencv-python</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> cv2 </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="247ae564-cedd-42e2-80ee-010b13f119b9" class="cell" data-execution_count="4">
+<div id="247ae564-cedd-42e2-80ee-010b13f119b9" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'figure.figsize'</span>] <span class="op">=</span> (<span class="dv">3</span>, <span class="dv">2</span>)  <span class="co"># 가로 6, 세로 4 크기의 그림</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'figure.dpi'</span>] <span class="op">=</span> <span class="dv">150</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -266,17 +268,51 @@ div.csl-indent {
 <p><code>-</code> 평균 좋아해요?</p>
 <p><strong><code># 예제1</code> – 전북고등학교: 평균은 좋은 측정값인가?</strong></p>
 <p><code>-</code> 전북고등학교에서 통계학을 수업하는 A선생님과 B선생님의 있다.</p>
-<div id="86dcb865-9275-4d84-b370-ef48e5240a0a" class="cell" data-execution_count="5">
+<div id="86dcb865-9275-4d84-b370-ef48e5240a0a" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>y1<span class="op">=</span>[<span class="dv">75</span>,<span class="dv">75</span>,<span class="dv">76</span>,<span class="dv">76</span>,<span class="dv">77</span>,<span class="dv">77</span>,<span class="dv">78</span>,<span class="dv">79</span>,<span class="dv">79</span>,<span class="dv">98</span>] <span class="co"># A선생님에게 통계학을 배운 학생의 점수들</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y2<span class="op">=</span>[<span class="dv">76</span>,<span class="dv">76</span>,<span class="dv">77</span>,<span class="dv">77</span>,<span class="dv">78</span>,<span class="dv">78</span>,<span class="dv">79</span>,<span class="dv">80</span>,<span class="dv">80</span>,<span class="dv">81</span>] <span class="co"># B선생님에게 통계학을 배운 학생의 점수들 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p><code>-</code> 어떤반이 더 공부를 잘할까?, 누가 더 잘 가르칠까?</p>
+<div id="d6b6d617-e721-4696-a763-af5e42e24c18" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>np.mean(y1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>79.0</code></pre>
+</div>
+</div>
+<div id="64d8bd45-57ce-4efd-b8db-327f77a7cc21" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>np.mean(y2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="15">
+<pre><code>78.2</code></pre>
+</div>
+</div>
+<p><code>-</code> 의사결정: A선생님에게 배운 학생들의 평균이 더 높다. -&gt; A선생님이 더 강의를 잘 하셨다?</p>
+<p><code>-</code> 반론: 평균은 A반(=A선생님에게 통계학을 배운 반)이 더 높다. 그런데 98점을 받은 학생이 A반에 포함되어서 A반이 전체평균이 높게 나온것이고 나머지 학생들은 전체적으로 B반 학생들이 더 시험을 잘 보았다고 해석할 수 있다.</p>
+<p><code>-</code> 교훈: 단순한 평균비교보다 학생들이 받은 점수의 분포를 비교해보는 것이 중요하다. 분포를 살펴보는 방법 중 유용한 방법이 박스플랏이다.</p>
 <p><code>#</code></p>
 </section>
 <section id="matplotlib으로-boxplot-그리기" class="level2">
 <h2 class="anchored" data-anchor-id="matplotlib으로-boxplot-그리기">matplotlib으로 boxplot 그리기</h2>
 <p><code>-</code> A반 학생들의 박스플랏 그리기</p>
+<div id="970fdfff-95de-445d-a4e8-94a5f12e967a" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plt.boxplot(y1)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
 <p><code>-</code> B반 학생들의 박스플랏 그리기</p>
+<div id="1e5f4357-5f73-49a6-b626-853d85cce9f3" class="cell" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>plt.boxplot(y2)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
 <p><code>-</code> A반 학생들의 점수와 B반 학생들의 점수를 나란히 박스플랏으로 그리자.</p>
+<div id="edb04572-7858-453b-a6c0-ef51b4443562" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>plt.boxplot([y1,y2])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+</div>
+</div>
 </section>
 <section id="boxplot이란" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="boxplot이란">boxplot이란?</h2>
@@ -289,61 +325,61 @@ Galarnyk, Michael. 2023. <span>“Python_tutorials.”</span> <a href="https://g
 <div id="952fb354-b3b5-4000-90e6-87c8a7e7482a" class="cell" data-execution_count="10">
 <details>
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">916170</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># connection path is here: https://stackoverflow.com/questions/6146290/plotting-a-line-over-several-graphs</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>mu, sigma <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span> <span class="co"># mean and standard deviation</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> np.random.normal(mu, sigma, <span class="dv">1000</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(nrows <span class="op">=</span> <span class="dv">1</span>, ncols <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># rectangular box plot</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>bplot <span class="op">=</span> axes.boxplot(s,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>                vert<span class="op">=</span><span class="va">False</span>,</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>                patch_artist<span class="op">=</span><span class="va">True</span>, </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>                showfliers<span class="op">=</span><span class="va">True</span>, <span class="co"># This would show outliers (the remaining .7% of the data)</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>                positions <span class="op">=</span> [<span class="dv">0</span>],</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>                boxprops <span class="op">=</span> <span class="bu">dict</span>(linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">'Black'</span>, facecolor <span class="op">=</span> <span class="st">'red'</span>, alpha <span class="op">=</span> <span class="fl">.4</span>),</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                medianprops <span class="op">=</span> <span class="bu">dict</span>(linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">'Yellow'</span>),</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                whiskerprops <span class="op">=</span> <span class="bu">dict</span>(linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">'Blue'</span>, alpha <span class="op">=</span> <span class="fl">.4</span>),</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>                capprops <span class="op">=</span> <span class="bu">dict</span>(linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">'Black'</span>),</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                flierprops <span class="op">=</span> <span class="bu">dict</span>(marker<span class="op">=</span><span class="st">'o'</span>, markerfacecolor<span class="op">=</span><span class="st">'green'</span>, markersize<span class="op">=</span><span class="dv">10</span>,</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                  linestyle<span class="op">=</span><span class="st">'none'</span>, alpha <span class="op">=</span> <span class="fl">.4</span>),</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                widths <span class="op">=</span> <span class="fl">.3</span>,</span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>                zorder <span class="op">=</span> <span class="dv">1</span>)   </span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>axes.set_xlim(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>)</span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>plt.xticks(fontsize <span class="op">=</span> <span class="dv">14</span>)</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>axes.set_yticks([])</span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>axes.annotate(<span class="vs">r''</span>,</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>            xy<span class="op">=</span>(<span class="op">-</span><span class="fl">.73</span>, <span class="fl">.205</span>), xycoords<span class="op">=</span><span class="st">'data'</span>,</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>            xytext<span class="op">=</span>(<span class="fl">.66</span>, <span class="fl">.205</span>), textcoords<span class="op">=</span><span class="st">'data'</span>,</span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">"|-|"</span>,</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>                            connectionstyle<span class="op">=</span><span class="st">"arc3"</span>)</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>            )<span class="op">;</span></span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="dv">0</span>, <span class="fl">.25</span>, <span class="st">"Interquartile Range </span><span class="ch">\n</span><span class="st">(IQR)"</span>,  horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="dv">0</span>, <span class="op">-</span><span class="fl">.21</span>, <span class="vs">r"Median"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="fl">2.65</span>, <span class="op">-</span><span class="fl">.15</span>, <span class="st">"</span><span class="ch">\"</span><span class="st">Maximum</span><span class="ch">\"</span><span class="st">"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="op">-</span><span class="fl">2.65</span>, <span class="op">-</span><span class="fl">.15</span>, <span class="st">"</span><span class="ch">\"</span><span class="st">Minimum</span><span class="ch">\"</span><span class="st">"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="op">-</span><span class="fl">.68</span>, <span class="op">-</span><span class="fl">.24</span>, <span class="vs">r"Q1"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="op">-</span><span class="fl">2.65</span>, <span class="op">-</span><span class="fl">.21</span>, <span class="vs">r"(Q1 - 1.5*IQR)"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="fl">.6745</span>, <span class="op">-</span><span class="fl">.24</span>, <span class="vs">r"Q3"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="fl">.6745</span>, <span class="op">-</span><span class="fl">.30</span>, <span class="vs">r"(75th Percentile)"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)<span class="op">;</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="op">-</span><span class="fl">.68</span>, <span class="op">-</span><span class="fl">.30</span>, <span class="vs">r"(25th Percentile)"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)<span class="op">;</span></span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="fl">2.65</span>, <span class="op">-</span><span class="fl">.21</span>, <span class="vs">r"(Q3 + 1.5*IQR)"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>axes.annotate(<span class="st">'Outliers'</span>, xy<span class="op">=</span>(<span class="fl">2.93</span>,<span class="fl">0.015</span>), xytext<span class="op">=</span>(<span class="fl">2.52</span>,<span class="fl">0.20</span>), fontsize <span class="op">=</span> <span class="dv">18</span>,</span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span>{<span class="st">'arrowstyle'</span>: <span class="st">'-&gt;'</span>, <span class="st">'color'</span>: <span class="st">'black'</span>, <span class="st">'lw'</span>: <span class="dv">2</span>},</span>
-<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>            va<span class="op">=</span><span class="st">'center'</span>)<span class="op">;</span></span>
-<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>axes.annotate(<span class="st">'Outliers'</span>, xy<span class="op">=</span>(<span class="op">-</span><span class="fl">3.01</span>,<span class="fl">0.015</span>), xytext<span class="op">=</span>(<span class="op">-</span><span class="fl">3.41</span>,<span class="fl">0.20</span>), fontsize <span class="op">=</span> <span class="dv">18</span>,</span>
-<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span>{<span class="st">'arrowstyle'</span>: <span class="st">'-&gt;'</span>, <span class="st">'color'</span>: <span class="st">'black'</span>, <span class="st">'lw'</span>: <span class="dv">2</span>},</span>
-<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>            va<span class="op">=</span><span class="st">'center'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">916170</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># connection path is here: https://stackoverflow.com/questions/6146290/plotting-a-line-over-several-graphs</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>mu, sigma <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span> <span class="co"># mean and standard deviation</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> np.random.normal(mu, sigma, <span class="dv">1000</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(nrows <span class="op">=</span> <span class="dv">1</span>, ncols <span class="op">=</span> <span class="dv">1</span>, figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">5</span>))</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="co"># rectangular box plot</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>bplot <span class="op">=</span> axes.boxplot(s,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>                vert<span class="op">=</span><span class="va">False</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>                patch_artist<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>                showfliers<span class="op">=</span><span class="va">True</span>, <span class="co"># This would show outliers (the remaining .7% of the data)</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>                positions <span class="op">=</span> [<span class="dv">0</span>],</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>                boxprops <span class="op">=</span> <span class="bu">dict</span>(linestyle<span class="op">=</span><span class="st">'--'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">'Black'</span>, facecolor <span class="op">=</span> <span class="st">'red'</span>, alpha <span class="op">=</span> <span class="fl">.4</span>),</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>                medianprops <span class="op">=</span> <span class="bu">dict</span>(linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">'Yellow'</span>),</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>                whiskerprops <span class="op">=</span> <span class="bu">dict</span>(linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">'Blue'</span>, alpha <span class="op">=</span> <span class="fl">.4</span>),</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>                capprops <span class="op">=</span> <span class="bu">dict</span>(linestyle<span class="op">=</span><span class="st">'-'</span>, linewidth<span class="op">=</span><span class="dv">2</span>, color<span class="op">=</span><span class="st">'Black'</span>),</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>                flierprops <span class="op">=</span> <span class="bu">dict</span>(marker<span class="op">=</span><span class="st">'o'</span>, markerfacecolor<span class="op">=</span><span class="st">'green'</span>, markersize<span class="op">=</span><span class="dv">10</span>,</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>                  linestyle<span class="op">=</span><span class="st">'none'</span>, alpha <span class="op">=</span> <span class="fl">.4</span>),</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>                widths <span class="op">=</span> <span class="fl">.3</span>,</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>                zorder <span class="op">=</span> <span class="dv">1</span>)   </span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>axes.set_xlim(<span class="op">-</span><span class="dv">4</span>, <span class="dv">4</span>)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>plt.xticks(fontsize <span class="op">=</span> <span class="dv">14</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>axes.set_yticks([])</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>axes.annotate(<span class="vs">r''</span>,</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a>            xy<span class="op">=</span>(<span class="op">-</span><span class="fl">.73</span>, <span class="fl">.205</span>), xycoords<span class="op">=</span><span class="st">'data'</span>,</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>            xytext<span class="op">=</span>(<span class="fl">.66</span>, <span class="fl">.205</span>), textcoords<span class="op">=</span><span class="st">'data'</span>,</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span><span class="bu">dict</span>(arrowstyle<span class="op">=</span><span class="st">"|-|"</span>,</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>                            connectionstyle<span class="op">=</span><span class="st">"arc3"</span>)</span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>            )<span class="op">;</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="dv">0</span>, <span class="fl">.25</span>, <span class="st">"Interquartile Range </span><span class="ch">\n</span><span class="st">(IQR)"</span>,  horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="dv">0</span>, <span class="op">-</span><span class="fl">.21</span>, <span class="vs">r"Median"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="fl">2.65</span>, <span class="op">-</span><span class="fl">.15</span>, <span class="st">"</span><span class="ch">\"</span><span class="st">Maximum</span><span class="ch">\"</span><span class="st">"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="op">-</span><span class="fl">2.65</span>, <span class="op">-</span><span class="fl">.15</span>, <span class="st">"</span><span class="ch">\"</span><span class="st">Minimum</span><span class="ch">\"</span><span class="st">"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="op">-</span><span class="fl">.68</span>, <span class="op">-</span><span class="fl">.24</span>, <span class="vs">r"Q1"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="op">-</span><span class="fl">2.65</span>, <span class="op">-</span><span class="fl">.21</span>, <span class="vs">r"(Q1 - 1.5*IQR)"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="fl">.6745</span>, <span class="op">-</span><span class="fl">.24</span>, <span class="vs">r"Q3"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="fl">.6745</span>, <span class="op">-</span><span class="fl">.30</span>, <span class="vs">r"(75th Percentile)"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)<span class="op">;</span></span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="op">-</span><span class="fl">.68</span>, <span class="op">-</span><span class="fl">.30</span>, <span class="vs">r"(25th Percentile)"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)<span class="op">;</span></span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>axes.text(<span class="fl">2.65</span>, <span class="op">-</span><span class="fl">.21</span>, <span class="vs">r"(Q3 + 1.5*IQR)"</span>, horizontalalignment<span class="op">=</span><span class="st">'center'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>axes.annotate(<span class="st">'Outliers'</span>, xy<span class="op">=</span>(<span class="fl">2.93</span>,<span class="fl">0.015</span>), xytext<span class="op">=</span>(<span class="fl">2.52</span>,<span class="fl">0.20</span>), fontsize <span class="op">=</span> <span class="dv">18</span>,</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span>{<span class="st">'arrowstyle'</span>: <span class="st">'-&gt;'</span>, <span class="st">'color'</span>: <span class="st">'black'</span>, <span class="st">'lw'</span>: <span class="dv">2</span>},</span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>            va<span class="op">=</span><span class="st">'center'</span>)<span class="op">;</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>axes.annotate(<span class="st">'Outliers'</span>, xy<span class="op">=</span>(<span class="op">-</span><span class="fl">3.01</span>,<span class="fl">0.015</span>), xytext<span class="op">=</span>(<span class="op">-</span><span class="fl">3.41</span>,<span class="fl">0.20</span>), fontsize <span class="op">=</span> <span class="dv">18</span>,</span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>            arrowprops<span class="op">=</span>{<span class="st">'arrowstyle'</span>: <span class="st">'-&gt;'</span>, <span class="st">'color'</span>: <span class="st">'black'</span>, <span class="st">'lw'</span>: <span class="dv">2</span>},</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>            va<span class="op">=</span><span class="st">'center'</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-display">
-<p><img src="01wk-1-lecture_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+<p><img src="01wk-1-lecture_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
@@ -352,23 +388,56 @@ Galarnyk, Michael. 2023. <span>“Python_tutorials.”</span> <a href="https://g
 </section>
 <section id="boxplot을-언제-쓰면-좋을까" class="level2">
 <h2 class="anchored" data-anchor-id="boxplot을-언제-쓰면-좋을까">boxplot을 언제 쓰면 좋을까?</h2>
-<p><code>-</code> 박스플랏의 장점</p>
-<p><code>-</code> 박스플랏이 이용되는 범위</p>
-<p><code>-</code> 박스플랏을 쓰는 경우</p>
+<p><code>-</code> 박스플랏의 장점: 단순히 평균을 주는 것보다 데이터를 파악하고 직관을 얻기에 유리하다.</p>
+<p><code>-</code> 박스플랏이 이용되는 범위:</p>
+<ul>
+<li>초기 자료 분포를 파악하기 용이</li>
+<li>두개이상의 방법을 비교</li>
+</ul>
 </section>
 </section>
 <section id="histogram" class="level1 page-columns page-full">
 <h1>Histogram</h1>
 <section id="motivating-example-1" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="motivating-example-1">motivating example</h2>
-<p><code>-</code> 전북고예제에서 우리의 소망:</p>
+<p><code>-</code> 전북고예제에서 우리의 소망: “A반 B반 중에 어떤 반이 공부를 더 잘하냐?”, “A선생님과 B선생님 중 어떤 분의 강의가 효과적이었다고 평할 수 있는가?” 와 같은 단순한 질문에 대한 대답</p>
+<ul>
+<li>보통 이러한 질문은 중심경향값 중 하나를 골라서 비교하면 되었다.</li>
+<li>여기에서 중심경향값이란 데이터 분포의 중심을 보여주는 값으로 자료 전체를 대표할 수 있는 값을 말함. 평균, 중앙값등이 대표적인 중심경향값이다.</li>
+</ul>
+<p><code>-</code> 전북고예제에서는 “A반 B반 중에서 어떤 반이 공부를 더 잘하냐?” 라는 질문의 대답으로 단순평균비교로는 의미가 없었다. 오히려 결과론적으로 보면 중앙값이 더 타당해 보인다.</p>
+<p><code>-</code> 그런데 생각해보면 중앙값을 기준으로 B반이 공부를 더 잘했다고 주장하는 것도 애매하다. 어쨌든 가장 공부잘한 학생은 A반에 있으니까</p>
+<ul>
+<li>에이 한명 뿐이잖아요? 라고 생각할 수 있는데 그 한명이 2명 3명으로 점점 늘어난다고 생각해보자, 합리적인 기준을 제시할 수 있는가?-</li>
+<li>그리고 A반을 지도한 선생님이 영재를 지도하는데 특화된 선생님일수도 있잖아요?</li>
+</ul>
+<p><code>-</code> 사실 “A반 B반중에 누가 더 공부를 잘하냐?” 라는 질문은 굉장히 대답하기 곤란한 질문이다. 왜냐하면</p>
+<ul>
+<li>이슈1: 단순 평균비교로 이러한 질문에 답을 하기 어렵다.</li>
+<li>이슈2: 박스플랏으로 전체분포를 파악해도 어떠한 반이 더 공부를 잘한다는 기준을 잡는게 애매하다.</li>
+</ul>
+<p><code>-</code> <strong>그런데 특수한 경우에는 “A반 B반중에 누가 더 공부를 잘하냐?” 라는 질문에 대한 대답을 깔끔하게 할 수 있다.</strong></p>
 <p><strong><code># 예제2</code> – 정규분포 전북고등학교: 평균은 좋은 측정값인가?</strong></p>
 <p><code>-</code> A반과 B반의 통계학 성적이 아래와 같다고 하자.</p>
-<div id="f7f49521-f07a-4cba-992b-26fbf48bbcf9" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.random.randn(<span class="dv">10000</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> np.random.randn(<span class="dv">10000</span>) <span class="op">+</span> <span class="fl">0.5</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f7f49521-f07a-4cba-992b-26fbf48bbcf9" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.random.randn(<span class="dv">10000</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> np.random.randn(<span class="dv">10000</span>) <span class="op">+</span> <span class="fl">0.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div id="bfc32a20-bc9e-4eb3-a701-37ee5a600fef" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>plt.boxplot([y1,y2])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<ul>
+<li>분포의 모양이 거의 비슷, 왼쪽그림을 컨트롤+C 하여 오른쪽에 붙인다음 0.5정도 y축으로 올린느낌이다!</li>
+</ul>
+<p><code>-</code> 여기에서는 “B반의 성적 <span class="math inline">\(\approx\)</span> A반의 성적 + 0.5” 라고 주장해도 큰 무리가 없어보인다. 따라서 이 경우에는 “A반 B반 중에 어떤반이 더 공부를 잘하냐?” 라는 질문에 대하여 “B반이 평균적으로 0.5점정도 더 공부를 잘합니다” 라고 대답해도 괜찮다.</p>
+<ul>
+<li>이 예제에서는 우연히 극단적인 학생이 없었음.</li>
+<li>그렇지만 혹시 극단적인 학생이 나오면? 너무 극단적인 값이 많이 나오면 정규분포가 아님 + 만약에 나온다면 똑같은 확률로 다른반 역시 그러한 극단적 학생이 나올것</li>
+</ul>
 <p><code>#</code></p>
 <p><code>-</code> 정규분포가정은 어떻게 할 수 있나? (= 데이터를 보고 어떻게 정규분포라고 알 수 있는가?): 데이터의 히스토그램을 그려서 종 모양이 되는지 확인해본다.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 <div class="no-row-height column-margin column-container"><li id="fn1"><p><sup>1</sup>&nbsp;아직 초보단계라서 이것밖에 모를 수 있어요</p></li></div><section id="histogram-이란" class="level3">
@@ -378,29 +447,63 @@ Galarnyk, Michael. 2023. <span>“Python_tutorials.”</span> <a href="https://g
 <section id="histogram-그리기" class="level3">
 <h3 class="anchored" data-anchor-id="histogram-그리기">histogram 그리기</h3>
 <p><code>-</code> 히스토그램의 예시1 – 기본플랏, <code>;</code>으로 결과 생략하기</p>
-<div id="5f9bff46-0b3c-416b-a4ae-1f94552aaccc" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span>[<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5f9bff46-0b3c-416b-a4ae-1f94552aaccc" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>y<span class="op">=</span>[<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">20</span>,<span class="dv">21</span>,<span class="dv">22</span>,<span class="dv">23</span>,<span class="dv">24</span>,<span class="dv">25</span>]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.hist(y)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+</div>
 </div>
 <p><code>-</code> 히스토그램 예시2 – bins 옵션이용</p>
-<div id="8f464620-6987-4b2d-b45a-9652a0b1e48d" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.hist(y,bins<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div id="8f464620-6987-4b2d-b45a-9652a0b1e48d" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plt.hist(y,bins<span class="op">=</span><span class="dv">3</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p><code>-</code> 히스토그램 예시3 – bins=3 옵션의 결과값 해석</p>
+<div id="23f7e829-cc20-44e5-ba48-b26d29c62a71" class="cell" data-execution_count="41">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>plt.hist(y,bins<span class="op">=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="41">
 <pre><code>(array([3., 2., 6.]),
  array([10., 15., 20., 25.]),
  &lt;BarContainer object of 3 artists&gt;)</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01wk-1-lecture_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
+<p><img src="01wk-1-lecture_files/figure-html/cell-15-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>-</code> 히스토그램 예시3 – bins=3 옵션의 결과값 해석</p>
 <p><code>-</code> 히스토그램 예시4 – bins=7 옵션의 결과값 해석</p>
+<div id="56a351df-492c-4f4f-b167-8782ba25932e" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.hist(y,bins<span class="op">=</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="46">
+<pre><code>(array([3., 0., 2., 0., 1., 2., 3.]),
+ array([10.        , 12.14285714, 14.28571429, 16.42857143, 18.57142857,
+        20.71428571, 22.85714286, 25.        ]),
+ &lt;BarContainer object of 7 artists&gt;)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+</div>
+</div>
 <p><code>-</code> 히스토그램 예시5 – range 옵션</p>
+<div id="80c80f59-941a-4123-a4d6-9d956b2ae6d2" class="cell" data-execution_count="50">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>plt.hist(y,bins<span class="op">=</span><span class="dv">7</span>,<span class="bu">range</span><span class="op">=</span>[<span class="dv">0</span>,<span class="dv">30</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
+</div>
+</div>
 <p><code>-</code> 히스토그램 예시6 – 나란히 그리기</p>
 <div id="53202b80-75a7-4563-8a4e-c1e093cef3cc" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.random.randn(<span class="dv">10000</span>)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> np.random.randn(<span class="dv">10000</span>) <span class="op">+</span> <span class="fl">0.5</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> np.random.randn(<span class="dv">10000</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> np.random.randn(<span class="dv">10000</span>) <span class="op">+</span> <span class="fl">0.5</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="aac9eed3-9db1-42a5-8036-297aa9d1b158" class="cell" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>plt.hist([y1,y2],bins<span class="op">=</span><span class="dv">50</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+</div>
 </div>
 </section>
 </section>
@@ -410,22 +513,31 @@ Galarnyk, Michael. 2023. <span>“Python_tutorials.”</span> <a href="https://g
 <section id="예비학습1-이미지자료-다운로드" class="level2">
 <h2 class="anchored" data-anchor-id="예비학습1-이미지자료-다운로드">예비학습1: 이미지자료 다운로드</h2>
 <p><code>-</code> ref: <a href="https://en.wikipedia.org/wiki/Histogram_equalization" class="uri">https://en.wikipedia.org/wiki/Histogram_equalization</a></p>
-<div id="2f676e0c-41f7-424c-b83a-343e038c08c3" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget https:<span class="op">//</span>upload.wikimedia.org<span class="op">/</span>wikipedia<span class="op">/</span>commons<span class="op">/</span><span class="dv">0</span><span class="op">/</span><span class="dv">0</span><span class="er">8</span><span class="op">/</span>Unequalized_Hawkes_Bay_NZ.jpg</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> cv2.imread(<span class="st">'Unequalized_Hawkes_Bay_NZ.jpg'</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>rm Unequalized_Hawkes_Bay_NZ.jpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="2f676e0c-41f7-424c-b83a-343e038c08c3" class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>wget https:<span class="op">//</span>upload.wikimedia.org<span class="op">/</span>wikipedia<span class="op">/</span>commons<span class="op">/</span><span class="dv">0</span><span class="op">/</span><span class="dv">0</span><span class="er">8</span><span class="op">/</span>Unequalized_Hawkes_Bay_NZ.jpg</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> cv2.imread(<span class="st">'Unequalized_Hawkes_Bay_NZ.jpg'</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>rm Unequalized_Hawkes_Bay_NZ.jpg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>--2023-09-04 13:00:14--  https://upload.wikimedia.org/wikipedia/commons/0/08/Unequalized_Hawkes_Bay_NZ.jpg
+<pre><code>--2023-09-04 17:18:38--  https://upload.wikimedia.org/wikipedia/commons/0/08/Unequalized_Hawkes_Bay_NZ.jpg
 Resolving upload.wikimedia.org (upload.wikimedia.org)... 103.102.166.240, 2001:df2:e500:ed1a::2:b
 Connecting to upload.wikimedia.org (upload.wikimedia.org)|103.102.166.240|:443... connected.
 HTTP request sent, awaiting response... 200 OK
 Length: 110895 (108K) [image/jpeg]
 Saving to: ‘Unequalized_Hawkes_Bay_NZ.jpg’
 
-Unequalized_Hawkes_ 100%[===================&gt;] 108.30K   553KB/s    in 0.2s    
+Unequalized_Hawkes_ 100%[===================&gt;] 108.30K   543KB/s    in 0.2s    
 
-2023-09-04 13:00:15 (553 KB/s) - ‘Unequalized_Hawkes_Bay_NZ.jpg’ saved [110895/110895]
+2023-09-04 17:18:39 (543 KB/s) - ‘Unequalized_Hawkes_Bay_NZ.jpg’ saved [110895/110895]
 </code></pre>
+</div>
+</div>
+<div id="0ad3f814-7ea4-49d1-ab10-1232cb389b89" class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="69">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7fd838568f10&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-21-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -434,62 +546,62 @@ Unequalized_Hawkes_ 100%[===================&gt;] 108.30K   553KB/s    in 0.2s
 <section id="비밀1-이미지는-사실-숫자들의-집합이었음." class="level3">
 <h3 class="anchored" data-anchor-id="비밀1-이미지는-사실-숫자들의-집합이었음.">비밀1: 이미지는 사실 숫자들의 집합이었음.</h3>
 <p><code>-</code> 예시1 – 2d array = 흑백이미지</p>
-<div id="8475a4a1-8df9-4fb6-87e1-3db2bf249d8a" class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>_img1 <span class="op">=</span> np.array([<span class="dv">0</span>,<span class="dv">30</span>,<span class="dv">90</span>,<span class="dv">120</span>,<span class="dv">150</span>,<span class="dv">180</span>,<span class="dv">210</span>,<span class="dv">240</span>,<span class="dv">255</span>]).reshape(<span class="dv">3</span>,<span class="dv">3</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>_img1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="5">
+<div id="8475a4a1-8df9-4fb6-87e1-3db2bf249d8a" class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>_img1 <span class="op">=</span> np.array([<span class="dv">0</span>,<span class="dv">30</span>,<span class="dv">90</span>,<span class="dv">120</span>,<span class="dv">150</span>,<span class="dv">180</span>,<span class="dv">210</span>,<span class="dv">240</span>,<span class="dv">255</span>]).reshape(<span class="dv">3</span>,<span class="dv">3</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>_img1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="72">
 <pre><code>array([[  0,  30,  90],
        [120, 150, 180],
        [210, 240, 255]])</code></pre>
 </div>
 </div>
-<div id="c61185f2-9c77-4da1-ab4f-b47f956006ae" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(_img1,cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7f385a14c450&gt;</code></pre>
+<div id="c61185f2-9c77-4da1-ab4f-b47f956006ae" class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(_img1,cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="73">
+<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7fd83e5b46d0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01wk-1-lecture_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
+<p><img src="01wk-1-lecture_files/figure-html/cell-23-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 예시2 – 2d array = 흑백이미지</p>
-<div id="532513b1-c263-4e73-929e-740c91564da4" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>_img2 <span class="op">=</span> np.array([<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">100</span>,<span class="dv">120</span>,<span class="dv">140</span>,<span class="dv">160</span>]).reshape(<span class="dv">3</span>,<span class="dv">3</span>)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>_img2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
+<div id="532513b1-c263-4e73-929e-740c91564da4" class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>_img2 <span class="op">=</span> np.array([<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">100</span>,<span class="dv">120</span>,<span class="dv">140</span>,<span class="dv">160</span>]).reshape(<span class="dv">3</span>,<span class="dv">3</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>_img2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="74">
 <pre><code>array([[  0,  20,  40],
        [ 60,  80, 100],
        [120, 140, 160]])</code></pre>
 </div>
 </div>
-<div id="560acc79-810c-467c-8336-0c92eac9d8ce" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(_img2,cmap<span class="op">=</span><span class="st">'gray'</span>,vmin<span class="op">=</span><span class="dv">0</span>,vmax<span class="op">=</span><span class="dv">255</span>)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7f385a04e590&gt;</code></pre>
+<div id="560acc79-810c-467c-8336-0c92eac9d8ce" class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(_img2,cmap<span class="op">=</span><span class="st">'gray'</span>,vmin<span class="op">=</span><span class="dv">0</span>,vmax<span class="op">=</span><span class="dv">255</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="75">
+<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7fd8394403d0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01wk-1-lecture_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
+<p><img src="01wk-1-lecture_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 예시3 – 나란히 그리기</p>
-<div id="237f4c98-b72d-4828-a291-0efb68ad3d43" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>_img3 <span class="op">=</span> np.concatenate([_img1,_img2],axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>_img3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div id="237f4c98-b72d-4828-a291-0efb68ad3d43" class="cell" data-execution_count="83">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>_img3 <span class="op">=</span> np.concatenate([_img1,_img2],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>_img3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="83">
 <pre><code>array([[  0,  30,  90,   0,  20,  40],
        [120, 150, 180,  60,  80, 100],
        [210, 240, 255, 120, 140, 160]])</code></pre>
 </div>
 </div>
-<div id="55fb4071-2384-4566-9e6f-91867d21f8a9" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(_img3,cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="10">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f3859fda8d0&gt;</code></pre>
+<div id="55fb4071-2384-4566-9e6f-91867d21f8a9" class="cell" data-execution_count="84">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(_img3,cmap<span class="op">=</span><span class="st">'gray'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="84">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7fd836408650&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01wk-1-lecture_files/figure-html/cell-16-output-2.png" class="img-fluid"></p>
+<p><img src="01wk-1-lecture_files/figure-html/cell-27-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -503,110 +615,110 @@ Unequalized_Hawkes_ 100%[===================&gt;] 108.30K   553KB/s    in 0.2s
 </figure>
 </div>
 <p><code>-</code> 예시1 – 3d array = 칼라이미지</p>
-<div id="5874a382-8a7c-45fd-a591-b6a461acce2c" class="cell" data-execution_count="95">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.array(</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    [[<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>,  <span class="dv">0</span>,   <span class="dv">0</span>],</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>,  <span class="dv">0</span>,   <span class="dv">0</span>],</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>,  <span class="dv">0</span>,   <span class="dv">0</span>],</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,  <span class="dv">0</span>,   <span class="dv">0</span>],</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,  <span class="dv">0</span>,   <span class="dv">0</span>]]</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> np.array(</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    [[  <span class="dv">0</span>,   <span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>],</span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>],</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>],</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>],</span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>]]</span>
-<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array(</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>    [[  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>],</span>
-<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>],</span>
-<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>],</span>
-<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>],</span>
-<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>]]</span>
-<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.array(</span>
-<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a>    [[ <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>],</span>
-<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a>     [ <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>],</span>
-<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a>     [ <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>],</span>
-<span id="cb24-26"><a href="#cb24-26" aria-hidden="true" tabindex="-1"></a>     [ <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>],</span>
-<span id="cb24-27"><a href="#cb24-27" aria-hidden="true" tabindex="-1"></a>     [ <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>]]</span>
-<span id="cb24-28"><a href="#cb24-28" aria-hidden="true" tabindex="-1"></a>)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="5874a382-8a7c-45fd-a591-b6a461acce2c" class="cell" data-execution_count="85">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.array(</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    [[  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>],</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>],</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>],</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>],</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>]]</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> np.array(</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    [[<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>,  <span class="dv">0</span>,   <span class="dv">0</span>],</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>,  <span class="dv">0</span>,   <span class="dv">0</span>],</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>,  <span class="dv">0</span>,   <span class="dv">0</span>],</span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,  <span class="dv">0</span>,   <span class="dv">0</span>],</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,  <span class="dv">0</span>,   <span class="dv">0</span>]]</span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array(</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>    [[  <span class="dv">0</span>,   <span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>],</span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>],</span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>, <span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>],</span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>],</span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>     [  <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>,   <span class="dv">0</span>]]</span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> np.array(</span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>    [[ <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>],</span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>     [ <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>],</span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>     [ <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>],</span>
+<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a>     [ <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>],</span>
+<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a>     [ <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>,  <span class="dv">0</span>]]</span>
+<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a>)    </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="13fbecd7-899f-4ed7-9b02-a97ea71a64fc" class="cell" data-execution_count="100">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>red <span class="op">=</span> np.stack([r,z,z],axis<span class="op">=-</span><span class="dv">1</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>green <span class="op">=</span> np.stack([z,g,z],axis<span class="op">=-</span><span class="dv">1</span>)</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>blue <span class="op">=</span> np.stack([z,z,b],axis<span class="op">=-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="be210374-f0bd-48bd-a37a-8ae8cfc6929e" class="cell" data-execution_count="91">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>red <span class="op">=</span> np.stack([r,z,z],axis<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>green <span class="op">=</span> np.stack([z,g,z],axis<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>blue <span class="op">=</span> np.stack([z,z,b],axis<span class="op">=-</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="6d3fa21a-7b4a-4584-ba40-158de108e503" class="cell" data-execution_count="101">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(red)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="101">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f52f5735890&gt;</code></pre>
+<div id="6d3fa21a-7b4a-4584-ba40-158de108e503" class="cell" data-execution_count="97">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(blue<span class="op">+</span>green<span class="op">+</span>red)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="97">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7fd836269ed0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01wk-1-lecture_files/figure-html/cell-19-output-2.png" class="img-fluid"></p>
+<p><img src="01wk-1-lecture_files/figure-html/cell-30-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div id="9bf7b9eb-3630-423e-9762-887c1477ba2a" class="cell" data-execution_count="102">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(green)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(green)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="102">
 <pre><code>&lt;matplotlib.image.AxesImage at 0x7f52f57794d0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01wk-1-lecture_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
+<p><img src="01wk-1-lecture_files/figure-html/cell-31-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div id="18fce189-0bfb-4496-8950-f99da1327129" class="cell" data-execution_count="104">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(blue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(blue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="104">
 <pre><code>&lt;matplotlib.image.AxesImage at 0x7f52f57f0ed0&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01wk-1-lecture_files/figure-html/cell-21-output-2.png" class="img-fluid"></p>
+<p><img src="01wk-1-lecture_files/figure-html/cell-32-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <div id="3cd16687-edff-4a29-a43b-9e2cb5c31796" class="cell" data-execution_count="105">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(red<span class="op">+</span>green<span class="op">+</span>blue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(red<span class="op">+</span>green<span class="op">+</span>blue)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="105">
 <pre><code>&lt;matplotlib.image.AxesImage at 0x7f52f5740c90&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01wk-1-lecture_files/figure-html/cell-22-output-2.png" class="img-fluid"></p>
+<p><img src="01wk-1-lecture_files/figure-html/cell-33-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 예시2: R,G,B를 같은 비율로 섞으면 다시 흑백이미지가 된다.</p>
-<div id="7fc329a9-81a7-4d96-9162-ec3092e388f0" class="cell" data-execution_count="143">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>arr2 <span class="op">=</span> np.array(</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    [[<span class="dv">10</span>,  <span class="dv">40</span>],</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">80</span>,  <span class="dv">60</span>]]</span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>arr2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="143">
+<div id="7fc329a9-81a7-4d96-9162-ec3092e388f0" class="cell" data-execution_count="98">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>arr2 <span class="op">=</span> np.array(</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    [[<span class="dv">10</span>,  <span class="dv">40</span>],</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>     [<span class="dv">80</span>,  <span class="dv">60</span>]]</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>arr2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="98">
 <pre><code>array([[10, 40],
        [80, 60]])</code></pre>
 </div>
 </div>
-<div id="1f289366-c637-448d-bc91-55c33c318165" class="cell" data-execution_count="144">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>arr3 <span class="op">=</span> np.stack([arr2,arr2,arr2],axis<span class="op">=-</span><span class="dv">1</span>)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(arr3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="144">
-<pre><code>&lt;matplotlib.image.AxesImage at 0x7f52ef74a550&gt;</code></pre>
+<div id="1f289366-c637-448d-bc91-55c33c318165" class="cell" data-execution_count="99">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>arr3 <span class="op">=</span> np.stack([arr2,arr2,arr2],axis<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(arr3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="99">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7fd8362cbb90&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01wk-1-lecture_files/figure-html/cell-24-output-2.png" class="img-fluid"></p>
+<p><img src="01wk-1-lecture_files/figure-html/cell-35-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
 <li>arr3은 칼라이미지인데(=3d array 인데), RGB가 같은 비율로 섞여서 흑백처럼 보임</li>
 </ul>
-<div id="389bcdfb-6d9f-428d-b8de-2d0982c6d45a" class="cell" data-execution_count="147">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(arr2,cmap<span class="op">=</span><span class="st">'gray'</span>,vmin<span class="op">=</span><span class="dv">0</span>,vmax<span class="op">=</span><span class="dv">255</span>)</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="147">
-<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7f52ef5011d0&gt;</code></pre>
+<div id="389bcdfb-6d9f-428d-b8de-2d0982c6d45a" class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(arr2,cmap<span class="op">=</span><span class="st">'gray'</span>,vmin<span class="op">=</span><span class="dv">0</span>,vmax<span class="op">=</span><span class="dv">255</span>)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="101">
+<pre><code>&lt;matplotlib.colorbar.Colorbar at 0x7fd836166c90&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="01wk-1-lecture_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
+<p><img src="01wk-1-lecture_files/figure-html/cell-36-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
@@ -616,9 +728,72 @@ Unequalized_Hawkes_ 100%[===================&gt;] 108.30K   553KB/s    in 0.2s
 </section>
 <section id="히스토그램-이퀄라이제이션" class="level2">
 <h2 class="anchored" data-anchor-id="히스토그램-이퀄라이제이션">히스토그램 이퀄라이제이션</h2>
+<p><code>-</code> 우리가 관심있었던 이미지</p>
+<div id="d50069d1-ed0d-411e-a12c-47aead984650" class="cell" data-execution_count="104">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="104">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7fd835dd4890&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-37-output-2.png" class="img-fluid"></p>
+</div>
+</div>
 <p><code>-</code> 이미지를 rgb로 각각 분리하고 각 색깔들의 히스토그램을 그려보자.</p>
+<div id="0ad3ee27-10f1-4839-8bdd-4e0713b7df22" class="cell" data-execution_count="110">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> img[:,:,<span class="dv">0</span>]</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> img[:,:,<span class="dv">1</span>]</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> img[:,:,<span class="dv">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="8222efdc-8f39-4005-a089-7421cd082cf4" class="cell" data-execution_count="115">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>plt.hist(r.reshape(<span class="op">-</span><span class="dv">1</span>),<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">255</span>),bins<span class="op">=</span><span class="dv">255</span>)<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
+</div>
+</div>
 <p><code>-</code> <code>cv2.equalizeHist()</code>를 이용하여 분포의 모양은 대략적으로 유지하면서 값을 퍼트리자!</p>
+<div id="13c1500d-58fa-48fd-b470-d969a1615ebf" class="cell" data-execution_count="131">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>rr <span class="op">=</span> cv2.equalizeHist(r)</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>gg <span class="op">=</span> cv2.equalizeHist(g)</span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>bb <span class="op">=</span> cv2.equalizeHist(b)</span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>plt.hist(r.reshape(<span class="op">-</span><span class="dv">1</span>),<span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">255</span>),bins<span class="op">=</span><span class="dv">255</span>,label<span class="op">=</span><span class="st">'before'</span>)<span class="op">;</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>plt.hist(rr.reshape(<span class="op">-</span><span class="dv">1</span>), <span class="bu">range</span><span class="op">=</span>(<span class="dv">0</span>,<span class="dv">255</span>), bins<span class="op">=</span><span class="dv">255</span>,label<span class="op">=</span><span class="st">'after'</span>)<span class="op">;</span></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>plt.legend()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="131">
+<pre><code>&lt;matplotlib.legend.Legend at 0x7fd7e20c0710&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-40-output-2.png" class="img-fluid"></p>
+</div>
+</div>
 <p><code>-</code> 변환이후의 그림을 그려본다면?</p>
+<div id="d41d3c94-5912-4573-8685-ff7bb5dc9e98" class="cell" data-execution_count="134">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(img)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="134">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7fd7e1d1b550&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-41-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div id="28f52f14-38e7-4acc-8667-7eb4f0eeef91" class="cell" data-execution_count="133">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>img2 <span class="op">=</span> np.stack([rr,gg,bb],axis<span class="op">=-</span><span class="dv">1</span>)</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>plt.imshow(img2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="133">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7fd7e3a00650&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-42-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div id="eab0b601-af66-4bfa-a198-b2542f022de1" class="cell" data-execution_count="139">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(np.concatenate([img,img2],axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="139">
+<pre><code>&lt;matplotlib.image.AxesImage at 0x7fd7e1d73190&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="01wk-1-lecture_files/figure-html/cell-43-output-2.png" class="img-fluid"></p>
+</div>
+</div>
 </section>
 </section>
 <section id="숙제" class="level1">
