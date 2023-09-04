@@ -270,9 +270,6 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>y1<span class="op">=</span>[<span class="dv">75</span>,<span class="dv">75</span>,<span class="dv">76</span>,<span class="dv">76</span>,<span class="dv">77</span>,<span class="dv">77</span>,<span class="dv">78</span>,<span class="dv">79</span>,<span class="dv">79</span>,<span class="dv">98</span>] <span class="co"># A선생님에게 통계학을 배운 학생의 점수들</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>y2<span class="op">=</span>[<span class="dv">76</span>,<span class="dv">76</span>,<span class="dv">77</span>,<span class="dv">77</span>,<span class="dv">78</span>,<span class="dv">78</span>,<span class="dv">79</span>,<span class="dv">80</span>,<span class="dv">80</span>,<span class="dv">81</span>] <span class="co"># B선생님에게 통계학을 배운 학생의 점수들 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>-</code> 의사결정: A선생님에게 배운 학생들의 평균이 더 높다. -&gt; A선생님이 더 강의를 잘 하셨다?</p>
-<p><code>-</code> 반론: 평균은 A반(=A선생님에게 통계학을 배운 반)이 더 높다. 그런데 98점을 받은 학생이 A반에 포함되어서 A반이 전체평균이 높게 나온것이고 나머지 학생들은 전체적으로 B반 학생들이 더 시험을 잘 보았다고 해석할 수 있다.</p>
-<p><code>-</code> 교훈: 단순한 평균비교보다 학생들이 받은 점수의 분포를 비교해보는 것이 중요하다. 분포를 살펴보는 방법 중 유용한 방법이 박스플랏이다.</p>
 <p><code>#</code></p>
 </section>
 <section id="matplotlib으로-boxplot-그리기" class="level2">
@@ -364,23 +361,7 @@ Galarnyk, Michael. 2023. <span>“Python_tutorials.”</span> <a href="https://g
 <h1>Histogram</h1>
 <section id="motivating-example-1" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="motivating-example-1">motivating example</h2>
-<p><code>-</code> 전북고예제에서 우리의 소망: “A반 B반 중에 어떤 반이 공부를 더 잘하냐?”, “A선생님과 B선생님 중 어떤 분의 강의가 효과적이었다고 평할 수 있는가?” 와 같은 단순한 질문에 대한 대답</p>
-<ul>
-<li>보통 이러한 질문은 <strong>중심경향값</strong> 중 하나를 골라서 비교하면 되었다.</li>
-<li>여기에서 <strong>중심경향값</strong>이란 데이터 분포의 중심을 보여주는 값으로 자료 전체를 대표할 수 있는 값을 말함. 평균, 중앙값등이 대표적인 중심경향값이다.</li>
-</ul>
-<p><code>-</code> 전북고예제에서는 “A반 B반 중에서 어떤 반이 공부를 더 잘하냐?” 라는 질문의 대답으로 단순평균비교로는 의미가 없었다. 오히려 결과론적으로 보면 중앙값이 더 타당해 보인다.</p>
-<p><code>-</code> 그런데 사실 생각해보면 중앙값을 기준으로 B반이 공부를 더 잘했다고 주장하는 것도 애매하다. 어쨌든 가장 공부잘한 학생은 A반에 있으니까!</p>
-<ul>
-<li>에이 한명 뿐이잖아요? 라고 생각할 수 있는데 그 한명이 2명 3명으로 점점 늘어난다고 생각해보자, 합리적인 기준을 제시할 수 있는가?</li>
-<li>그리고 A반을 지도한 선생님이 영재를 지도하는데 특화된 선생님일수도 있잖아요?</li>
-</ul>
-<p><code>-</code> 사실 “A반 B반중에 누가 더 공부를 잘하냐?” 라는 질문은 굉장히 대답하기 곤란한 질문이다. 왜냐하면</p>
-<ul>
-<li>이슈1: 단순 평균비교로 이러한 질문에 답을 하기 어렵다.</li>
-<li>이슈2: 박스플랏으로 전체분포를 파악해도 어떠한 반이 더 공부를 잘한다는 기준을 잡는게 애매하다.</li>
-</ul>
-<p><code>-</code> <strong>그런데 특수한 경우에는 “A반 B반중에 누가 더 공부를 잘하냐?” 라는 질문에 대한 대답을 깔끔하게 할 수 있다.</strong></p>
+<p><code>-</code> 전북고예제에서 우리의 소망:</p>
 <p><strong><code># 예제2</code> – 정규분포 전북고등학교: 평균은 좋은 측정값인가?</strong></p>
 <p><code>-</code> A반과 B반의 통계학 성적이 아래와 같다고 하자.</p>
 <div id="f7f49521-f07a-4cba-992b-26fbf48bbcf9" class="cell" data-execution_count="14">
@@ -452,7 +433,7 @@ Unequalized_Hawkes_ 100%[===================&gt;] 108.30K   553KB/s    in 0.2s
 <h2 class="anchored" data-anchor-id="예비학습2-이미지자료의-이해">예비학습2: 이미지자료의 이해</h2>
 <section id="비밀1-이미지는-사실-숫자들의-집합이었음." class="level3">
 <h3 class="anchored" data-anchor-id="비밀1-이미지는-사실-숫자들의-집합이었음.">비밀1: 이미지는 사실 숫자들의 집합이었음.</h3>
-<p><code>-</code> 예시1</p>
+<p><code>-</code> 예시1 – 2d array = 흑백이미지</p>
 <div id="8475a4a1-8df9-4fb6-87e1-3db2bf249d8a" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>_img1 <span class="op">=</span> np.array([<span class="dv">0</span>,<span class="dv">30</span>,<span class="dv">90</span>,<span class="dv">120</span>,<span class="dv">150</span>,<span class="dv">180</span>,<span class="dv">210</span>,<span class="dv">240</span>,<span class="dv">255</span>]).reshape(<span class="dv">3</span>,<span class="dv">3</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>_img1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -472,7 +453,7 @@ Unequalized_Hawkes_ 100%[===================&gt;] 108.30K   553KB/s    in 0.2s
 <p><img src="01wk-1-lecture_files/figure-html/cell-12-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>-</code> 예시2</p>
+<p><code>-</code> 예시2 – 2d array = 흑백이미지</p>
 <div id="532513b1-c263-4e73-929e-740c91564da4" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>_img2 <span class="op">=</span> np.array([<span class="dv">0</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">80</span>,<span class="dv">100</span>,<span class="dv">120</span>,<span class="dv">140</span>,<span class="dv">160</span>]).reshape(<span class="dv">3</span>,<span class="dv">3</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>_img2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -492,7 +473,7 @@ Unequalized_Hawkes_ 100%[===================&gt;] 108.30K   553KB/s    in 0.2s
 <p><img src="01wk-1-lecture_files/figure-html/cell-14-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>-</code> 예시3</p>
+<p><code>-</code> 예시3 – 나란히 그리기</p>
 <div id="237f4c98-b72d-4828-a291-0efb68ad3d43" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>_img3 <span class="op">=</span> np.concatenate([_img1,_img2],axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>_img3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -521,7 +502,7 @@ Unequalized_Hawkes_ 100%[===================&gt;] 108.30K   553KB/s    in 0.2s
 <figcaption class="figure-caption margin-caption">그림 ??: 위키에서 긁은 그림, 빛의 3원색을 표현하고 있음</figcaption>
 </figure>
 </div>
-<p><code>-</code> 예시1</p>
+<p><code>-</code> 예시1 – 3d array = 칼라이미지</p>
 <div id="5874a382-8a7c-45fd-a591-b6a461acce2c" class="cell" data-execution_count="95">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>r <span class="op">=</span> np.array(</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>    [[<span class="dv">255</span>, <span class="dv">255</span>, <span class="dv">255</span>,  <span class="dv">0</span>,   <span class="dv">0</span>],</span>
@@ -615,6 +596,9 @@ Unequalized_Hawkes_ 100%[===================&gt;] 108.30K   553KB/s    in 0.2s
 <p><img src="01wk-1-lecture_files/figure-html/cell-24-output-2.png" class="img-fluid"></p>
 </div>
 </div>
+<ul>
+<li>arr3은 칼라이미지인데(=3d array 인데), RGB가 같은 비율로 섞여서 흑백처럼 보임</li>
+</ul>
 <div id="389bcdfb-6d9f-428d-b8de-2d0982c6d45a" class="cell" data-execution_count="147">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>plt.imshow(arr2,cmap<span class="op">=</span><span class="st">'gray'</span>,vmin<span class="op">=</span><span class="dv">0</span>,vmax<span class="op">=</span><span class="dv">255</span>)</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>plt.colorbar()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -625,6 +609,9 @@ Unequalized_Hawkes_ 100%[===================&gt;] 108.30K   553KB/s    in 0.2s
 <p><img src="01wk-1-lecture_files/figure-html/cell-25-output-2.png" class="img-fluid"></p>
 </div>
 </div>
+<ul>
+<li>arr2는 원래 흑백이미지 였음 (=원래 2d array 였음)</li>
+</ul>
 </section>
 </section>
 <section id="히스토그램-이퀄라이제이션" class="level2">

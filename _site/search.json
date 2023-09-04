@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "데이터 시각화 (2023)",
     "section": "",
-    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n강의노트\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 4, 2023\n\n\n01wk-1 – draft\n\n\n최규빈 \n\n\n\n\n\nNo matching items"
+    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n기출문제\n\n2021-중간: https://guebin.github.io/DV2021/2021/11/08/midsol.html\n2021-기말: https://guebin.github.io/DV2021/2021/12/03/데이터시각화-기말고사.html, 1~2번 풀이\n2022-중간: https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html\n2022-기말: https://guebin.github.io/DV2022/posts/2022-12-19-final.html\n\n강의노트\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 4, 2023\n\n\n01wk-1 – draft\n\n\n최규빈 \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/01wk-1.html",
@@ -35,11 +35,11 @@
     "text": "boxplot이란?\n- Galarnyk (2023)\n\nGalarnyk, Michael. 2023. “Python_tutorials.” https://github.com/mGalarnyk/Python_Tutorials.\n\nhttps://github.com/mGalarnyk/Python_Tutorials/blob/master/Statistics/boxplot/box_plot.ipynb\n\n\n\nCode\nnp.random.seed(916170)\n\n# connection path is here: https://stackoverflow.com/questions/6146290/plotting-a-line-over-several-graphs\nmu, sigma = 0, 1 # mean and standard deviation\ns = np.random.normal(mu, sigma, 1000)\n\nfig, axes = plt.subplots(nrows = 1, ncols = 1, figsize=(10, 5))\n\n# rectangular box plot\nbplot = axes.boxplot(s,\n                vert=False,\n                patch_artist=True, \n                showfliers=True, # This would show outliers (the remaining .7% of the data)\n                positions = [0],\n                boxprops = dict(linestyle='--', linewidth=2, color='Black', facecolor = 'red', alpha = .4),\n                medianprops = dict(linestyle='-', linewidth=2, color='Yellow'),\n                whiskerprops = dict(linestyle='-', linewidth=2, color='Blue', alpha = .4),\n                capprops = dict(linestyle='-', linewidth=2, color='Black'),\n                flierprops = dict(marker='o', markerfacecolor='green', markersize=10,\n                  linestyle='none', alpha = .4),\n                widths = .3,\n                zorder = 1)   \n\naxes.set_xlim(-4, 4)\nplt.xticks(fontsize = 14)\n\naxes.set_yticks([])\naxes.annotate(r'',\n            xy=(-.73, .205), xycoords='data',\n            xytext=(.66, .205), textcoords='data',\n            arrowprops=dict(arrowstyle=\"|-|\",\n                            connectionstyle=\"arc3\")\n            );\n\naxes.text(0, .25, \"Interquartile Range \\n(IQR)\",  horizontalalignment='center', fontsize=18)\naxes.text(0, -.21, r\"Median\", horizontalalignment='center', fontsize=16);\naxes.text(2.65, -.15, \"\\\"Maximum\\\"\", horizontalalignment='center', fontsize=18);\naxes.text(-2.65, -.15, \"\\\"Minimum\\\"\", horizontalalignment='center', fontsize=18);\naxes.text(-.68, -.24, r\"Q1\", horizontalalignment='center', fontsize=18);\naxes.text(-2.65, -.21, r\"(Q1 - 1.5*IQR)\", horizontalalignment='center', fontsize=16);\naxes.text(.6745, -.24, r\"Q3\", horizontalalignment='center', fontsize=18);\naxes.text(.6745, -.30, r\"(75th Percentile)\", horizontalalignment='center', fontsize=12);\naxes.text(-.68, -.30, r\"(25th Percentile)\", horizontalalignment='center', fontsize=12);\naxes.text(2.65, -.21, r\"(Q3 + 1.5*IQR)\", horizontalalignment='center', fontsize=16);\n\naxes.annotate('Outliers', xy=(2.93,0.015), xytext=(2.52,0.20), fontsize = 18,\n            arrowprops={'arrowstyle': '-&gt;', 'color': 'black', 'lw': 2},\n            va='center');\n\naxes.annotate('Outliers', xy=(-3.01,0.015), xytext=(-3.41,0.20), fontsize = 18,\n            arrowprops={'arrowstyle': '-&gt;', 'color': 'black', 'lw': 2},\n            va='center');"
   },
   {
-    "objectID": "posts/01wk-1.html#plotly로-boxplot-그리기",
-    "href": "posts/01wk-1.html#plotly로-boxplot-그리기",
+    "objectID": "posts/01wk-1.html#boxplot을-언제-쓰면-좋을까",
+    "href": "posts/01wk-1.html#boxplot을-언제-쓰면-좋을까",
     "title": "01wk-1 – draft",
-    "section": "plotly로 boxplot 그리기",
-    "text": "plotly로 boxplot 그리기\n- 로컬에서 하기 위해서는 아래를 설치 (코랩은 필요없음)\n!pip install plotly \n!pip install ipywidgets\n!pip install jupyter-dash\n!pip install dash \n!pip install pandas \n\nimport plotly.express as px \nimport pandas as pd\n\n\ndf= pd.DataFrame({'score':y1+y2,'class':['A']*len(y1) + ['B']*len(y2)})\ndf\n\n\n\n\n\n\n\n\nscore\nclass\n\n\n\n\n0\n75\nA\n\n\n1\n75\nA\n\n\n2\n76\nA\n\n\n3\n76\nA\n\n\n4\n77\nA\n\n\n5\n77\nA\n\n\n6\n79\nA\n\n\n7\n79\nA\n\n\n8\n79\nA\n\n\n9\n98\nA\n\n\n10\n76\nB\n\n\n11\n76\nB\n\n\n12\n77\nB\n\n\n13\n77\nB\n\n\n14\n78\nB\n\n\n15\n78\nB\n\n\n16\n80\nB\n\n\n17\n80\nB\n\n\n18\n80\nB\n\n\n19\n81\nB\n\n\n\n\n\n\n\n\npx.box(df,x='class',y='score')"
+    "section": "boxplot을 언제 쓰면 좋을까?",
+    "text": "boxplot을 언제 쓰면 좋을까?\n- 박스플랏의 장점\n- 박스플랏이 이용되는 범위\n- 박스플랏을 쓰는 경우"
   },
   {
     "objectID": "posts/01wk-1.html#motivating-example-1",
@@ -61,27 +61,6 @@
     "title": "01wk-1 – draft",
     "section": "예비학습2: 이미지자료의 이해",
     "text": "예비학습2: 이미지자료의 이해\n\n비밀1: 이미지는 사실 숫자들의 집합이었음.\n- 예시1\n\n_img1 = np.array([0,30,90,120,150,180,210,240,255]).reshape(3,3)\n_img1\n\narray([[  0,  30,  90],\n       [120, 150, 180],\n       [210, 240, 255]])\n\n\n\nplt.imshow(_img1,cmap='gray')\nplt.colorbar()\n\n&lt;matplotlib.colorbar.Colorbar at 0x7f385a14c450&gt;\n\n\n\n\n\n- 예시2\n\n_img2 = np.array([0,20,40,60,80,100,120,140,160]).reshape(3,3)\n_img2\n\narray([[  0,  20,  40],\n       [ 60,  80, 100],\n       [120, 140, 160]])\n\n\n\nplt.imshow(_img2,cmap='gray',vmin=0,vmax=255)\nplt.colorbar()\n\n&lt;matplotlib.colorbar.Colorbar at 0x7f385a04e590&gt;\n\n\n\n\n\n- 예시3\n\n_img3 = np.concatenate([_img1,_img2],axis=1)\n_img3\n\narray([[  0,  30,  90,   0,  20,  40],\n       [120, 150, 180,  60,  80, 100],\n       [210, 240, 255, 120, 140, 160]])\n\n\n\nplt.imshow(_img3,cmap='gray')\n\n&lt;matplotlib.image.AxesImage at 0x7f3859fda8d0&gt;\n\n\n\n\n\n\n\n비밀2: 칼라이미지는 red + green + blue 의 조합으로 표현가능 (다른방식도 가능)\n- ref: https://en.wikipedia.org/wiki/RGB_color_model\n\n\n\n그림 ??: 위키에서 긁은 그림, 빛의 3원색을 표현하고 있음\n\n\n- 예시1\n\nr = np.array(\n    [[255, 255, 255,  0,   0],\n     [255, 255, 255,  0,   0],\n     [255, 255, 255,  0,   0],\n     [  0,   0,   0,  0,   0],\n     [  0,   0,   0,  0,   0]]\n)\ng = np.array(\n    [[  0,   0, 255, 255, 255],\n     [  0,   0, 255, 255, 255],\n     [  0,   0, 255, 255, 255],\n     [  0,   0,   0,   0,   0],\n     [  0,   0,   0,   0,   0]]\n)\nb = np.array(\n    [[  0,   0,   0,   0,   0],\n     [  0,   0,   0,   0,   0],\n     [255, 255, 255, 255, 255],\n     [255, 255, 255, 255, 255],\n     [255, 255, 255, 255, 255]]\n)\nz = np.array(\n    [[ 0,  0,  0,  0,  0],\n     [ 0,  0,  0,  0,  0],\n     [ 0,  0,  0,  0,  0],\n     [ 0,  0,  0,  0,  0],\n     [ 0,  0,  0,  0,  0]]\n)    \n\n\nred = np.stack([r,z,z],axis=-1)\ngreen = np.stack([z,g,z],axis=-1)\nblue = np.stack([z,z,b],axis=-1)\n\n\nplt.imshow(red)\n\n&lt;matplotlib.image.AxesImage at 0x7f52f5735890&gt;\n\n\n\n\n\n\nplt.imshow(green)\n\n&lt;matplotlib.image.AxesImage at 0x7f52f57794d0&gt;\n\n\n\n\n\n\nplt.imshow(blue)\n\n&lt;matplotlib.image.AxesImage at 0x7f52f57f0ed0&gt;\n\n\n\n\n\n\nplt.imshow(red+green+blue)\n\n&lt;matplotlib.image.AxesImage at 0x7f52f5740c90&gt;\n\n\n\n\n\n- 예시2: R,G,B를 같은 비율로 섞으면 다시 흑백이미지가 된다.\n\narr2 = np.array(\n    [[10,  40],\n     [80,  60]]\n)\narr2\n\narray([[10, 40],\n       [80, 60]])\n\n\n\narr3 = np.stack([arr2,arr2,arr2],axis=-1)\nplt.imshow(arr3)\n\n&lt;matplotlib.image.AxesImage at 0x7f52ef74a550&gt;\n\n\n\n\n\n\nplt.imshow(arr2,cmap='gray',vmin=0,vmax=255)\nplt.colorbar()\n\n&lt;matplotlib.colorbar.Colorbar at 0x7f52ef5011d0&gt;"
-  },
-  {
-    "objectID": "posts/01wk-1.html#히스토그램-이퀄라이제이션-칼라",
-    "href": "posts/01wk-1.html#히스토그램-이퀄라이제이션-칼라",
-    "title": "01wk-1 – draft",
-    "section": "히스토그램 이퀄라이제이션 (칼라)",
-    "text": "히스토그램 이퀄라이제이션 (칼라)\n- 이미지를 rgb로 각각 분리하고 각 색깔들의 히스토그램을 그려보자.\n\nplt.hist(img[:,:,0].reshape(-1))\n\n(array([  3691.,  56282., 235628., 170392., 120545.,  60511.,  22052.,\n         14354.,  15246.,    691.]),\n array([114. , 123.4, 132.8, 142.2, 151.6, 161. , 170.4, 179.8, 189.2,\n        198.6, 208. ]),\n &lt;BarContainer object of 10 artists&gt;)\n\n\n\n\n\n\n히스토그램 그림1\n\n\n_fig = plt.hist(img[:,:,0].reshape(-1),bins=255, range=[0,255])\n\n\n\n\n\n히스토그램 그림2\n120-200 사이에 값이 몰려있음\n그런데 컴퓨터가 표현가능한 색은 0~255..\n만약에 120-200까지의 분포된 모양은 그대로 유지하면서 range를 0-255 까지 늘린다면?\n\n- 분포의 모양은 대략적으로 유지하면서 값을 퍼트리자!\n\nimg2_red = cv2.equalizeHist(img[...,0])\n\n\nplt.hist(img2_red.reshape(-1))\n\n(array([59973., 57426., 82721., 73706., 61999., 76539., 72114., 72030.,\n        72601., 70283.]),\n array([  0. ,  25.5,  51. ,  76.5, 102. , 127.5, 153. , 178.5, 204. ,\n        229.5, 255. ]),\n &lt;BarContainer object of 10 artists&gt;)\n\n\n\n\n\n\n_fig=plt.hist(img2_red.reshape(-1),bins=255,range=(0,255))\n\n\n\n\n- red말고 다른채널에도 이와 같은 변환을 정의한다면?\n\nimg2 = np.stack([img2_red,img2_red,img2_red],axis=-1)\n\n\nplt.imshow(img2)\n\n&lt;matplotlib.image.AxesImage at 0x7f3848570810&gt;\n\n\n\n\n\n\nplt.imshow(img)\n\n&lt;matplotlib.image.AxesImage at 0x7f38484eea90&gt;\n\n\n\n\n\n\nplt.imshow(np.concatenate([img,img2],axis=1))\n\n&lt;matplotlib.image.AxesImage at 0x7f3848446ad0&gt;"
-  },
-  {
-    "objectID": "posts/01wk-1.html#히스토그램-이퀄라이제이션-흑백",
-    "href": "posts/01wk-1.html#히스토그램-이퀄라이제이션-흑백",
-    "title": "01wk-1 – draft",
-    "section": "히스토그램 이퀄라이제이션 (흑백)",
-    "text": "히스토그램 이퀄라이제이션 (흑백)\n\nimg_black =  cv2.imread('Unequalized_Hawkes_Bay_NZ.jpg',0)\n\n\nimg_black2 = cv2.equalizeHist(img_black)\n\n\nplt.imshow(np.concatenate([img_black,img_black2],axis=1),cmap='gray')\n\n&lt;matplotlib.image.AxesImage at 0x7f384840bc90&gt;"
-  },
-  {
-    "objectID": "posts/01wk-1.html#boxplot을-언제-쓰면-좋을까",
-    "href": "posts/01wk-1.html#boxplot을-언제-쓰면-좋을까",
-    "title": "01wk-1 – draft",
-    "section": "boxplot을 언제 쓰면 좋을까?",
-    "text": "boxplot을 언제 쓰면 좋을까?\n- 박스플랏의 장점\n- 박스플랏이 이용되는 범위\n- 박스플랏을 쓰는 경우"
   },
   {
     "objectID": "posts/01wk-1.html#히스토그램-이퀄라이제이션",
