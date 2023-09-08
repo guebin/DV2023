@@ -1,0 +1,42 @@
+{
+  "posts/post-with-code/index.qmd": {
+    "index.html": "462f3332"
+  },
+  "posts/welcome/index.qmd": {
+    "index.html": "47c2b103"
+  },
+  "about.qmd": {
+    "about.html": "379dfd8c"
+  },
+  "index.qmd": {
+    "index.html": "9f05af99"
+  },
+  "posts/2022-09-10-1wk-1.ipynb": {
+    "2022-09-10-1wk-1.html": "7de960e0",
+    "2022-09-10-1wk-1.out.ipynb": "141b1b47"
+  },
+  "posts/1wk-1.ipynb": {
+    "1wk-1.html": "ab4274cc",
+    "1wk-1.out.ipynb": "b562db0d"
+  },
+  "posts/01wk-1.ipynb": {
+    "01wk-1.html": "265f3f1f",
+    "01wk-1.out.ipynb": "a5cd6529"
+  },
+  "posts/01wk-1-lecture.ipynb": {
+    "01wk-1-lecture.html": "29ac6452",
+    "01wk-1-lecture.out.ipynb": "4bb89a82"
+  },
+  "posts/01wk-2.ipynb": {
+    "01wk-2.html": "c6c92206",
+    "01wk-2.out.ipynb": "65a6353e"
+  },
+  "posts/lecture.ipynb": {
+    "lecture.html": "6a7b2c35",
+    "lecture.out.ipynb": "5f64a841"
+  },
+  "posts/02wk-1.ipynb": {
+    "02wk-1.html": "914b2beb",
+    "02wk-1.out.ipynb": "41f6c224"
+  }
+}
