@@ -86,106 +86,127 @@
   {
     "objectID": "posts/01wk-2.html#a.-기본플랏",
     "href": "posts/01wk-2.html#a.-기본플랏",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
     "section": "A. 기본플랏",
     "text": "A. 기본플랏\n\nplt.plot([1,2,3,2])"
   },
   {
     "objectID": "posts/01wk-2.html#b.-모양변경",
     "href": "posts/01wk-2.html#b.-모양변경",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
     "section": "B. 모양변경",
     "text": "B. 모양변경\n\nplt.plot([1,2,3,2],'--')"
   },
   {
     "objectID": "posts/01wk-2.html#c.-색상변경",
     "href": "posts/01wk-2.html#c.-색상변경",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
     "section": "C. 색상변경",
     "text": "C. 색상변경\n- 예시1\n\nplt.plot([1,2,3,2],'r')\n\n\n\n\n- 예시2\n\nplt.plot([1,2,3,2],'b')"
   },
   {
     "objectID": "posts/01wk-2.html#d.-모양-색상변경",
     "href": "posts/01wk-2.html#d.-모양-색상변경",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
     "section": "D. 모양 + 색상변경",
     "text": "D. 모양 + 색상변경\n- 예시1\n\nplt.plot([1,2,3,2],'--r')\n\n\n\n\n- 예시2: 순서변경 가능\n\nplt.plot([1,2,3,2],'r--')"
   },
   {
     "objectID": "posts/01wk-2.html#e.-원리",
     "href": "posts/01wk-2.html#e.-원리",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
     "section": "E. 원리?",
     "text": "E. 원리?\n- r--등의 옵션은 Markers + Line Styles + Colors 의 조합으로 표현가능\nref: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html\n\n--r: 점선(dashed)스타일 + 빨간색\nr--: 빨간색 + 점선(dashed)스타일\n:k: 점선(dotted)스타일 + 검은색\nk:: 검은색 + 점선(dotted)스타일\n\n- 우선 Marker를 무시하면 Line Styles + Color로 표현가능한 조합은 \\(4\\times 8=32\\) 개\n\nLine StylesColorsMarkers\n\n\n\n\n\ncharacter\ndescription\n\n\n\n\n‘-’\nsolid line style\n\n\n‘–’\ndashed line style\n\n\n‘-.’\ndash-dot line style\n\n\n‘:’\ndotted line style\n\n\n\n\n\n\n\n\ncharacter\ncolor\n\n\n\n\n‘b’\nblue\n\n\n‘g’\ngreen\n\n\n‘r’\nred\n\n\n‘c’\ncyan\n\n\n‘m’\nmagenta\n\n\n‘y’\nyellow\n\n\n‘k’\nblack\n\n\n‘w’\nwhite\n\n\n\n\n\n\n\n\ncharacter\ndescription\n\n\n\n\n‘.’\npoint marker\n\n\n‘,’\npixel marker\n\n\n‘o’\ncircle marker\n\n\n‘v’\ntriangle_down marker\n\n\n‘^’\ntriangle_up marker\n\n\n‘&lt;’\ntriangle_left marker\n\n\n‘&gt;’\ntriangle_right marker\n\n\n‘1’\ntri_down marker\n\n\n‘2’\ntri_up marker\n\n\n‘3’\ntri_left marker\n\n\n‘4’\ntri_right marker\n\n\n‘8’\noctagon marker\n\n\n‘s’\nsquare marker\n\n\n‘p’\npentagon marker\n\n\n‘P’\nplus (filled) marker\n\n\n’*’\nstar marker\n\n\n‘h’\nhexagon1 marker\n\n\n‘H’\nhexagon2 marker\n\n\n‘+’\nplus marker\n\n\n‘x’\nx marker\n\n\n‘X’\nx (filled) marker\n\n\n‘D’\ndiamond marker\n\n\n‘d’\nthin_diamond marker\n\n\n‘|’\nvline marker\n\n\n’_’\nhline marker\n\n\n\n\n\n\n- 예시1\n\nplt.plot([1,2,4,3],'b-.')\n\n\n\n\n- 예시2\n\nplt.plot([1,2,4,3],'k:')\n\n\n\n\n- 예시3: line style + color 조합으로 사용하든 color + line style 조합으로 사용하든 상관없음\n\nplt.plot([1,2,4,3],'-.b')\n\n\n\n\n\nplt.plot([1,2,4,3],':k')\n\n\n\n\n- 예시4: line style을 중복으로 사용하거나 color를 중복으로 쓸 수 는 없다.\n\nplt.plot([1,2,4,3],'br')\n\nValueError: 'br' is not a valid format string (two color symbols)\n\n\n\n\n\n- 예시5: 색이 사실 8개만 있는건 아니다.\nref: https://matplotlib.org/2.0.2/examples/color/named_colors.html\n\nplt.plot([1,2,4,3],color='lime')\n\n\n\n\n- 예시6: 색을 바꾸려면 hex코드를 넣는 방법이 젤 깔끔함\nref: https://htmlcolorcodes.com/\n\nplt.plot([1,2,4,3],color='#7E277E')\n\n\n\n\n- 예시7: 당연히 라인스타일도 4개만 있진 않음\nref: https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html\n\nplt.plot([1,2,4,3],linestyle=(0, (10, 1)))"
   },
   {
     "objectID": "posts/01wk-2.html#a.-원리",
     "href": "posts/01wk-2.html#a.-원리",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
     "section": "A. 원리",
     "text": "A. 원리\n- 그냥 마커를 설정하면 끝!\n\nplt.plot(x,y,'o')"
   },
   {
     "objectID": "posts/01wk-2.html#b.-기본플랏",
     "href": "posts/01wk-2.html#b.-기본플랏",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
     "section": "B. 기본플랏",
     "text": "B. 기본플랏\n- 예시1\n\nplt.plot([1,2,4,3],'x')\n\n\n\n\n- 예시2\n\nplt.plot([1,2,4,3],'D')"
   },
   {
     "objectID": "posts/01wk-2.html#c.-색깔변경",
     "href": "posts/01wk-2.html#c.-색깔변경",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
     "section": "C. 색깔변경",
     "text": "C. 색깔변경\n- 예시1\n\nplt.plot(x,y,'or')\n\n\n\n\n- 예시2\n\nplt.plot(x,y,'db')\n\n\n\n\n- 예시3\n\nplt.plot(x,y,'bx')"
   },
   {
     "objectID": "posts/01wk-2.html#d.-dot-connected-plot",
     "href": "posts/01wk-2.html#d.-dot-connected-plot",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
     "section": "D. dot-connected plot",
     "text": "D. dot-connected plot\n- 예시1: 마커와 라인스타일을 동시에 사용하면 dot-connected plot이 된다.\n\nplt.plot([1,2,4,3],'--o')\n\n\n\n\n- 예시2: 당연히 색도 적용가능함\n\nplt.plot([1,2,4,3],'--or')\n\n\n\n\n- 예시3: 서로 순서를 바꿔도 상관없다.\n\nplt.plot([1,2,4,3],'r--o')\n\n\n\n\n- 예시4: 색만 따로 바꾸고싶다면?\n\nplt.plot([1,2,4,3],'--o',color='lime')"
   },
   {
     "objectID": "posts/01wk-2.html#a.-예비학습",
     "href": "posts/01wk-2.html#a.-예비학습",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
     "section": "A. 예비학습",
     "text": "A. 예비학습\n# 예비학습1 – 그림을 저장했다가 꺼내보고 싶다.\n- 그림을 그리고 저장하자.\n\nplt.plot([1,2,4,3])\nfig = plt.gcf()\n\n\n\n\n- 다른그림을 그려보자.\n\nplt.plot([1,2,4,3],'--o')\n\n\n\n\n- 저장한 그림은 언제든지 꺼내볼 수 있음\n\nfig\n\n\n\n\n#\n# 예비학습2 – fig 는 뭐야?\n\n#fig??\ntype(fig)\n\nmatplotlib.figure.Figure\n\n\n\nFigure라는 클래스에서 찍힌 인스턴스\n\n- 여러가지 값, 기능이 저장되어 있겠음.\n\nfig.axes\n\n[&lt;Axes: &gt;]\n\n\n\nax = fig.axes[0]\n\n\nyaxis= ax.yaxis\nxaxis= ax.xaxis\n\n\nlines = ax.get_lines()\nline = lines[0]\n\n- 계층구조: Figure \\(\\supset\\) [Axes,…] \\(\\supset\\) YAxis, XAxis, [Line2D,…]\n\ntype(fig)\n\nmatplotlib.figure.Figure\n\n\n1. .axes 로 Axes 를 끄집어냄\n\nax = fig.axes[0]\ntype(ax)\n\nmatplotlib.axes._axes.Axes\n\n\n2. .xaxis, .yaxis 로 Axis 를 끄집어냄\n\nyaxis = ax.yaxis\nxaxis = ax.xaxis\ntype(yaxis), type(xaxis)\n\n(matplotlib.axis.YAxis, matplotlib.axis.XAxis)\n\n\n3. .get_lines()로 Line2D를 끄집어냄\n\nlines = ax.get_lines()\nline=lines[0]\ntype(line)\n\nmatplotlib.lines.Line2D\n\n\n- 오브젝트내용 확인 (그닥 필요 없음)\n\nline.properties()['data']\n\n(array([0., 1., 2., 3.]), array([1, 2, 4, 3]))\n\n\n- matplotlib의 설명\nref: https://matplotlib.org/stable/gallery/showcase/anatomy.html#sphx-glr-gallery-showcase-anatomy-py"
   },
   {
-    "objectID": "posts/02wk-1.html#목표",
-    "href": "posts/02wk-1.html#목표",
-    "title": "02wk-1: ㅁㄴㅇㄹㅁㄴㄹ",
-    "section": "목표",
-    "text": "목표\n- 아래와 똑같은 그림을 plt.plot()을 쓰지 않고 만든다.\n\nfig"
+    "objectID": "posts/02wk-1.html#a.-예비학습",
+    "href": "posts/02wk-1.html#a.-예비학습",
+    "title": "02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3",
+    "section": "A. 예비학습",
+    "text": "A. 예비학습\n# 예비학습1 – 그림을 저장했다가 꺼내보고 싶다.\n- 그림을 그리고 저장하자.\n\nplt.plot([1,2,4,3])\nfig = plt.gcf()\n\n\n\n\n- 다른그림을 그려보자.\n\nplt.plot([1,2,4,3],'--o')\n\n\n\n\n- 저장한 그림은 언제든지 꺼내볼 수 있음\n\nfig\n\n\n\n\n#\n# 예비학습2 – fig 는 뭐야?\n\n#fig??\ntype(fig)\n\nmatplotlib.figure.Figure\n\n\n\nFigure라는 클래스에서 찍힌 인스턴스\n\n- 여러가지 값, 기능이 저장되어 있겠음.\n\nfig.axes\n\n[&lt;Axes: &gt;]\n\n\n\nax = fig.axes[0]\n\n\nyaxis= ax.yaxis\nxaxis= ax.xaxis\n\n\nlines = ax.get_lines()\nline = lines[0]\n\n- 계층구조: Figure \\(\\supset\\) [Axes,…] \\(\\supset\\) YAxis, XAxis, [Line2D,…]\n\ntype(fig)\n\nmatplotlib.figure.Figure\n\n\n1. .axes 로 Axes 를 끄집어냄\n\nax = fig.axes[0]\ntype(ax)\n\nmatplotlib.axes._axes.Axes\n\n\n2. .xaxis, .yaxis 로 Axis 를 끄집어냄\n\nyaxis = ax.yaxis\nxaxis = ax.xaxis\ntype(yaxis), type(xaxis)\n\n(matplotlib.axis.YAxis, matplotlib.axis.XAxis)\n\n\n3. .get_lines()로 Line2D를 끄집어냄\n\nlines = ax.get_lines()\nline=lines[0]\ntype(line)\n\nmatplotlib.lines.Line2D\n\n\n- 오브젝트내용 확인 (그닥 필요 없음)\n\nline.properties()['data']\n\n(array([0., 1., 2., 3.]), array([1, 2, 4, 3]))\n\n\n- matplotlib의 설명\nref: https://matplotlib.org/stable/gallery/showcase/anatomy.html#sphx-glr-gallery-showcase-anatomy-py"
   },
   {
-    "objectID": "posts/02wk-1.html#figure",
-    "href": "posts/02wk-1.html#figure",
-    "title": "02wk-1: ㅁㄴㅇㄹㅁㄴㄹ",
-    "section": "Figure",
-    "text": "Figure\n\nfig2 = plt.Figure()"
+    "objectID": "posts/02wk-1.html#b.-plt.plot-쓰지-않고-그림그리기",
+    "href": "posts/02wk-1.html#b.-plt.plot-쓰지-않고-그림그리기",
+    "title": "02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3",
+    "section": "B. plt.plot 쓰지 않고 그림그리기",
+    "text": "B. plt.plot 쓰지 않고 그림그리기\n- 개념:\n\nFigure(fig): 도화지\nAxes(ax): 도화지에 존재하는 그림틀\nAxis, Lines: 그림틀 위에 올려지는 물체(object)\n\n- 목표: 아래와 똑같은 그림을 plt.plot()을 쓰지 않고 만든다.\n\nplt.plot([1,2,3,2],'--o')\n\n\n\n\n\nFigure\n\nfig2 = plt.Figure() \n\n\n클래스를 모른다면: plt.Figure()는 도화지를 만드는 함수라 생각할 수 있음\n클래스문법에 익숙하다면: 이 과정은 사실 클래스 -&gt; 인스턴스의 과정임 (plt라는 모듈안에 Figure라는 클래스가 있는데, 그 클래스에서 인스턴스를 만드는 과정임)\n\n\nfig2\n\n&lt;Figure size 450x300 with 0 Axes&gt;\n\n\n\nfig1과는 다르게 fig2를 출력하면 아무것도 없음.\n\n\n\nAxes\n\nax2 = fig2.add_axes([0.125, 0.11, 0.775, 0.77])\n\n\nfig2.add_axes는 fig2에 소속된 함수이며, 도화지에서 그림틀을 ‘추가하는’ 함수이다.\n\n\nfig2\n\n\n\n\n\n이제 fig2라는 이름의 도화지에는 추가된 그림틀이 보인다.\n\n\n\nAxes 조정\n\nax2.set_xlim([-0.15, 3.15])\nax2.set_ylim([0.9, 3.1])\n\n(0.9, 3.1)\n\n\n\nfig2\n\n\n\n\n\n\nLines\n-\n\nline2 = matplotlib.lines.Line2D(\n    xdata=[0,1,2,3], \n    ydata=[1,2,3,2], \n    linestyle='--', \n    marker='o'\n)\n\n\nax2.add_line(line2)\n\n&lt;matplotlib.lines.Line2D at 0x7facf01b2510&gt;\n\n\n\nfig\n\n\n\n\n\nfig2\n\n\n\n\n\n\n다른방법들\n- 조금 다른 방법: Line2d 오브젝트를 쓰지 않는 방법\n\nfig3 = plt.Figure()\nax3 = fig3.add_axes([0.125, 0.11, 0.775, 0.77])\nax3.plot([1,2,3,2],'--o')\nfig3\n\n\n\n\n- 조금 다른 방법 (2): add_axes()를 쓰지 않는 방법\n\nfig4 = plt.Figure()\nax4 = fig4.subplots()\nax4.plot([1,2,3,2],'--o')\nfig4\n\n\n\n\n\n_fig = plt.Figure()\n_fig.subplot(111)\n\nAttributeError: 'Figure' object has no attribute 'subplot'\n\n\n- 좀 더 다른 방법 (3)\n\nfig5, ax5 = plt.subplots(1)\nax5.plot([1,2,3,2],'--o')"
   },
   {
-    "objectID": "posts/02wk-1.html#axes",
-    "href": "posts/02wk-1.html#axes",
-    "title": "02wk-1: ㅁㄴㅇㄹㅁㄴㄹ",
-    "section": "Axes",
-    "text": "Axes\n\nax2 = fig2.add_axes([0.125, 0.11, 0.775, 0.77])\n\n\nfig2\n\n\n\n\n\nax2.set_xlim([-0.15, 3.15])\nax2.set_ylim([0.9, 3.1])\n\n(0.9, 3.1)\n\n\n\nfig\n\n\n\n\n\nline2 = matplotlib.lines.Line2D(\n    xdata=[0,1,2,3], \n    ydata=[1,2,3,2], \n    linestyle='--', \n    marker='o'\n)\n\n\nax2.add_line(line2)\n\n&lt;matplotlib.lines.Line2D at 0x7f578ac53760&gt;\n\n\n\nfig\n\n\n\n\n\nfig2\n\n\n\n\n- Line2d 오브젝트를 쓰지 않는 방법\n\nfig3 = plt.Figure()\nax3 = fig3.add_axes([0.125, 0.11, 0.775, 0.77])\nax3.plot([1,2,3,2],'--o')\nfig3\n\n\n\n\n- add_axes()를 쓰지 않는 방법\n\nfig4 = plt.Figure()\nax4 = fig4.subplots()\nax4.plot([1,2,3,2],'--o')\nfig4\n\n\n\n\n- 더 생략하는 방법\n\nfig5, ax5 = plt.subplots(1)\nax5.plot([1,2,3,2],'--o')"
+    "objectID": "posts/02wk-1.html#c.-정리-starstarstar",
+    "href": "posts/02wk-1.html#c.-정리-starstarstar",
+    "title": "02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3",
+    "section": "C. 정리 (\\(\\star\\star\\star\\))",
+    "text": "C. 정리 (\\(\\star\\star\\star\\))\n- 결국 아래는 모두 같은 코드이다.\n\n## 코드1 \nplt.plot([1,2,3,2],'--o')\n\n\n\n\n\n## 코드2\nfig,ax = plt.subplots()\nax.plot([1,2,3,2],'--o')\n\n\n\n\n\n## 코드3\nfig = plt.Figure()\nax = fig.subplots()\nax.plot([1,2,3,2],'--o')\nfig\n\n\n\n\n\n## 코드4\nfig = plt.Figure()\nax = fig.add_axes([0.125, 0.11, 0.775, 0.77])\nax.plot([1,2,3,2],'--o')\nfig\n\n\n\n\n\n## 코드5\nfig = plt.Figure()\nax = fig.add_axes([0.125, 0.11, 0.775, 0.77])\nax.set_xlim([-0.15, 3.15])\nax.set_ylim([0.9, 3.1])\nline = matplotlib.lines.Line2D(\n    xdata=[0,1,2,3], \n    ydata=[1,2,3,2], \n    linestyle='--', \n    marker='o'\n)\nax.add_line(line)\nfig"
   },
   {
-    "objectID": "posts/02wk-1.html#정리-starstarstar",
-    "href": "posts/02wk-1.html#정리-starstarstar",
-    "title": "02wk-1: ㅁㄴㅇㄹㅁㄴㄹ",
-    "section": "정리 (\\(\\star\\star\\star\\))",
-    "text": "정리 (\\(\\star\\star\\star\\))\n- 결국 아래는 모두 같은 코드이다.\n\n## 코드1 \nplt.plot([1,2,3,2],'--o')\n\n\n\n\n\n## 코드2\nfig,ax = plt.subplots()\nax.plot([1,2,3,2],'--o')\n\n\n\n\n\n## 코드3\nfig = plt.Figure()\nax = fig.subplots()\nax.plot([1,2,3,2],'--o')\nfig\n\n\n\n\n\n## 코드4\nfig = plt.Figure()\nax = fig.add_axes([0.125, 0.11, 0.775, 0.77])\nax.plot([1,2,3,2],'--o')\nfig\n\n\n\n\n\n## 코드5\nfig = plt.Figure()\nax = fig.add_axes([0.125, 0.11, 0.775, 0.77])\nax.set_xlim([-0.15, 3.15])\nax.set_ylim([0.9, 3.1])\nline = matplotlib.lines.Line2D(\n    xdata=[0,1,2,3], \n    ydata=[1,2,3,2], \n    linestyle='--', \n    marker='o'\n)\nax.add_line(line)\nfig"
+    "objectID": "posts/02wk-1.html#d.-미니맵",
+    "href": "posts/02wk-1.html#d.-미니맵",
+    "title": "02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3",
+    "section": "D. 미니맵",
+    "text": "D. 미니맵\n- 틀잡기\n\nfig = plt.Figure()\nax1 = fig.add_axes([0,0,2,2])\nax3 = fig.add_axes([1.4,0.2,0.5,0.5])\nfig\n\n\n\n\n\nax1.plot([1,5,3,4],'--o')\nax3.plot([1,2,3,1],'--or')\nfig"
   },
   {
-    "objectID": "posts/02wk-1.html#미니맵",
-    "href": "posts/02wk-1.html#미니맵",
-    "title": "02wk-1: ㅁㄴㅇㄹㅁㄴㄹ",
-    "section": "미니맵",
-    "text": "미니맵\n- 틀잡기\n\nfig = plt.Figure()\nax1 = fig.add_axes([0,0,2,2])\nax3 = fig.add_axes([1.4,0.2,0.5,0.5])\nfig\n\n\n\n\n\nax1.plot([1,5,3,4],'--o')\nax3.plot([1,2,3,1],'--or')\nfig"
+    "objectID": "posts/02wk-1.html#a.-motivating-ex",
+    "href": "posts/02wk-1.html#a.-motivating-ex",
+    "title": "02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3",
+    "section": "A. motivating EX",
+    "text": "A. motivating EX\n- 아래와 같은 자료를 수집하였다고 하자.\n\n몸무게 = [44,48,49,58,62,68,69,70,76,79]\n키 = [159,160,162,165,167,162,165,175,165,172]\n\n\nx=[44,48,49,58,62,68,69,70,76,79]\ny=[159,160,162,165,167,162,165,175,165,172]\n\n\nplt.plot(x,y,'o')\n\n\n\n\n\n키가 큰 사람일수록 몸무게도 많이 나간다. (반대도 성립)\n키와 몸무게는 관계가 있어보인다. (정비례)\n\n- 얼만큼 정비례인지?\n\n이 질문에 대답하기 위해서는 상관계수의 개념을 알아야 한다.\n상관계수는 산점도의 해석에서 가장 중요한 개념 중 하나."
+  },
+  {
+    "objectID": "posts/02wk-1.html#b.-예비학습-상관계수",
+    "href": "posts/02wk-1.html#b.-예비학습-상관계수",
+    "title": "02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3",
+    "section": "B. 예비학습 – 상관계수",
+    "text": "B. 예비학습 – 상관계수\n- (표본)상관계수\n\\[r=\\frac{\\sum_{i=1}^{n}(x_i-\\bar{x})(y_i-\\bar{y}) }{\\sqrt{\\sum_{i=1}^{n}(x_i-\\bar{x})^2\\sum_{i=1}^{n}(y_i-\\bar{y})^2 }}=\\sum_{i=1}^{n}\\tilde{x}_i\\tilde{y}_i \\]\n\n단, \\(\\tilde{x}_i=\\frac{(x_i-\\bar{x})}{\\sqrt{\\sum_{i=1}^n(x_i-\\bar{x})^2}}\\), \\(\\tilde{y}_i=\\frac{(y_i-\\bar{y})}{\\sqrt{\\sum_{i=1}^n(y_i-\\bar{y})^2}}\\)\n\n- 상관계수를 계산하는 방법\n(원래자료)\n\nx,y\n\n([44, 48, 49, 58, 62, 68, 69, 70, 76, 79],\n [159, 160, 162, 165, 167, 162, 165, 175, 165, 172])\n\n\n(평균을 0으로)\n\nxx = x-np.mean(x)\nyy = y-np.mean(y) \n\n(퍼진정도를 표준화)\n\nxxx = xx/np.sqrt(np.sum(xx**2))\nyyy = yy/np.sqrt(np.sum(yy**2))\n\n\n(xxx*yyy).sum()\n\n0.7138620583559141\n\n\n- 상관계수를 계산하는 방법2\n\nnp.corrcoef(x,y)\n\narray([[1.        , 0.71386206],\n       [0.71386206, 1.        ]])\n\n\n- 상관계수의 성질: 절대값이 1보다 작다."
+  },
+  {
+    "objectID": "posts/02wk-1.html#c.-산점도를-보고-상관계수의-부호를-해석",
+    "href": "posts/02wk-1.html#c.-산점도를-보고-상관계수의-부호를-해석",
+    "title": "02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3",
+    "section": "C. 산점도를 보고 상관계수의 부호를 해석",
+    "text": "C. 산점도를 보고 상관계수의 부호를 해석\n- 질문: 아래의 그림은 상관계수 \\(r\\)의 값이 양수인가 음수인가?\n\nplt.plot(x,y,'o')\n\n\n\n\n- 차근차근 따져보자.\n\nfig, (ax1,ax2,ax3) = plt.subplots(1,3,figsize=(10,3))\nax1.plot(x,y,'o'); ax1.set_title(r'$(x_i,y_i)$')\nax2.plot(xx,yy,'o'); ax2.set_title(r'$(x_i-\\bar{x},y_i-\\bar{y})$')\nax3.plot(xxx,yyy,'o'); ax3.set_title(r'$(\\tilde{x}_i,\\tilde{y}_i)$')\n\nText(0.5, 1.0, '$(\\\\tilde{x}_i,\\\\tilde{y}_i)$')\n\n\n\n\n\n\n\\(\\tilde{x}_i\\), \\(\\tilde{y}_i\\) 를 곱한값이 양수인것과 음수인것을 체크해보자.\n양수인쪽이 많은지 음수인쪽이 많은지 생각해보자.\n\\(r=\\sum_{i=1}^{n}\\tilde{x}_i \\tilde{y}_i\\) 의 부호는?\n\n- 그림을 보고 상관계수의 부호를 알아내는 방법? \\((x_i,y_i)\\)의 산점도를 보고 \\((\\tilde{x}_i, \\tilde{y}_i)\\) 의 산점도를 상상 \\(\\to\\) 1,3 분면에 점들이 많으면 양수, 2,4 분면에 점들이 많으면 음수"
+  },
+  {
+    "objectID": "posts/02wk-1.html#d.-산점도를-보고-상관계수의-절대값을-해석",
+    "href": "posts/02wk-1.html#d.-산점도를-보고-상관계수의-절대값을-해석",
+    "title": "02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3",
+    "section": "D. 산점도를 보고 상관계수의 절대값을 해석",
+    "text": "D. 산점도를 보고 상관계수의 절대값을 해석\n# 예제1 – 기울기가 동일, 그렇지만 직선근처의 퍼짐이 다른 경우\n- 자료가 아래와 같다고 하자.\n\nx=np.arange(0,10,0.1)\ny1=x+np.random.normal(loc=0,scale=1.0,size=len(x))\ny2=x+np.random.normal(loc=0,scale=7.0,size=len(x))\n\n\nplt.plot(x,y1,'.')\nplt.plot(x,y2,'x')\n\n\n\n\n- \\((x_i,y_i)\\)의 그래프와 \\((\\tilde{x}_i,\\tilde{y}_i)\\)의 그래프를 그려보자.\n\ndef tilde(x):\n    xx = x-np.mean(x)\n    xxx = xx / np.sqrt(np.sum(xx**2))\n    return xxx \n\n\nfig, (ax1,ax2) = plt.subplots(1,2,figsize=(4,2))\nax1.plot(x,y1,'.'); ax1.plot(x,y2,'x'); ax1.set_title(r'$(x_i,y_i)$')\nax2.plot(tilde(x),tilde(y1),'.'); ax2.plot(tilde(x),tilde(y2),'x'); ax2.set_title(r'$(\\tilde{x}_i,\\tilde{y}_i)$')\nfig.tight_layout()\n\n\n\n\n#\n# 예제2 – 직선근처의 퍼짐은 동일하지만, 직선의 기울기가 다른 경우\n- 자료가 아래와 같다고 하자.\n\nx=np.arange(0,10,0.1)\ny1=x+np.random.normal(loc=0,scale=1.0,size=len(x))\ny2=0.2*x+np.random.normal(loc=0,scale=1.0,size=len(x))\n\n\nplt.plot(x,y1,'.')\nplt.plot(x,y2,'x')\n\n\n\n\n- \\((x_i,y_i)\\)의 그래프와 \\((\\tilde{x}_i,\\tilde{y}_i)\\)의 그래프를 그려보자.\n\ndef tilde(x):\n    xx = x-np.mean(x)\n    xxx = xx / np.sqrt(np.sum(xx**2))\n    return xxx \n\n\nfig, (ax1,ax2) = plt.subplots(1,2,figsize=(4,2))\nax1.plot(x,y1,'.'); ax1.plot(x,y2,'x'); ax1.set_title(r'$(x_i,y_i)$')\nax2.plot(tilde(x),tilde(y1),'.'); ax2.plot(tilde(x),tilde(y2),'x'); ax2.set_title(r'$(\\tilde{x}_i,\\tilde{y}_i)$')\nfig.tight_layout()\n\n\n\n\n#"
   }
 ]
