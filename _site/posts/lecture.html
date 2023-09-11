@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2023-09-11">
 
-<title>DV2023 - 02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3 (draft)</title>
+<title>DV2023 - 02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -166,11 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#c.-정리-starstarstar" id="toc-c.-정리-starstarstar" class="nav-link" data-scroll-target="#c.-정리-starstarstar">C. 정리 (<span class="math inline">\(\star\star\star\)</span>)</a></li>
   <li><a href="#d.-미니맵" id="toc-d.-미니맵" class="nav-link" data-scroll-target="#d.-미니맵">D. 미니맵</a></li>
   </ul></li>
-  <li><a href="#subplot" id="toc-subplot" class="nav-link" data-scroll-target="#subplot">4. Subplot</a>
-  <ul class="collapse">
-  <li><a href="#a.-plt.subplots" id="toc-a.-plt.subplots" class="nav-link" data-scroll-target="#a.-plt.subplots">A. <code>plt.subplots()</code></a></li>
-  <li><a href="#b.-plt.subplot" id="toc-b.-plt.subplot" class="nav-link" data-scroll-target="#b.-plt.subplot">B. <code>plt.subplot()</code></a></li>
-  </ul></li>
+  <li><a href="#subplot" id="toc-subplot" class="nav-link" data-scroll-target="#subplot">4. Subplot</a></li>
   <li><a href="#산점도-응용예제1-표본상관계수" id="toc-산점도-응용예제1-표본상관계수" class="nav-link" data-scroll-target="#산점도-응용예제1-표본상관계수">5. 산점도 응용예제1 – 표본상관계수</a>
   <ul class="collapse">
   <li><a href="#a.-motivating-ex" id="toc-a.-motivating-ex" class="nav-link" data-scroll-target="#a.-motivating-ex">A. motivating EX</a></li>
@@ -182,14 +178,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#산점도-응용예제3-무상관은-관계가-없다는-뜻" id="toc-산점도-응용예제3-무상관은-관계가-없다는-뜻" class="nav-link" data-scroll-target="#산점도-응용예제3-무상관은-관계가-없다는-뜻">7. 산점도 응용예제3 – 무상관은 관계가 없다는 뜻?</a></li>
   <li><a href="#hw" id="toc-hw" class="nav-link" data-scroll-target="#hw">8. HW</a></li>
   </ul>
-<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="02wk-1.out.ipynb" download="02wk-1.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="lecture.out.ipynb" download="lecture.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3 (draft)</h1>
+<h1 class="title">02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3</h1>
   <div class="quarto-categories">
     <div class="quarto-category">matplotlib</div>
   </div>
@@ -229,7 +225,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="imports" class="level1">
 <h1>2. Imports</h1>
-<div id="b21364e1-8e52-4a9a-ae4c-2934073cfd36" class="cell" data-execution_count="2">
+<div id="b21364e1-8e52-4a9a-ae4c-2934073cfd36" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
@@ -247,21 +243,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>])</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.gcf()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 다른그림을 그려보자.</p>
 <div id="4144fc6c-68e6-4b8c-92a3-da5ca68928a9" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 저장한 그림은 언제든지 꺼내볼 수 있음</p>
 <div id="f0c8e1c8-63ed-462a-b157-60fe6ecedb7f" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="10">
-<p><img src="02wk-1_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>#</code></p>
@@ -347,140 +343,130 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Axis, Lines: 그림틀 위에 올려지는 물체(object)</li>
 </ul>
 <p><code>-</code> 목표: 아래와 똑같은 그림을 <code>plt.plot()</code>을 쓰지 않고 만든다.</p>
-<div id="af0422f6-3779-439f-8e5d-bef676a6e0ef" class="cell" data-execution_count="27">
+<div id="af0422f6-3779-439f-8e5d-bef676a6e0ef" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<p><code>-</code> 아래와 같이 하면 된다.</p>
-<div id="604e5302-3ea7-445b-b5c1-ed1337033db7" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.Figure()</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_axes([<span class="fl">0.125</span>, <span class="fl">0.11</span>, <span class="fl">0.775</span>, <span class="fl">0.77</span>])</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>ax.set_xlim([<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">3.15</span>])</span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="fl">0.9</span>, <span class="fl">3.1</span>])</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>line <span class="op">=</span> matplotlib.lines.Line2D(</span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    xdata<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    ydata<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],</span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    linestyle<span class="op">=</span><span class="st">'--'</span>,</span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>    marker<span class="op">=</span><span class="st">'o'</span></span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>ax.add_line(line)</span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="28">
-<p><img src="02wk-1_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <section id="figure" class="level3">
 <h3 class="anchored" data-anchor-id="figure">Figure</h3>
-<div id="462c3f73-84b0-4f47-841e-f7414b81767a" class="cell" data-execution_count="41">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.Figure() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="462c3f73-84b0-4f47-841e-f7414b81767a" class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>fig2 <span class="op">=</span> plt.Figure() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>클래스를 모른다면: <code>plt.Figure()</code>는 도화지를 만드는 함수라 생각할 수 있음</li>
 <li>클래스문법에 익숙하다면: 이 과정은 사실 클래스 -&gt; 인스턴스의 과정임 (<code>plt</code>라는 모듈안에 <code>Figure</code>라는 클래스가 있는데, 그 클래스에서 인스턴스를 만드는 과정임)</li>
 </ul>
-<div id="edb6de49-4365-4d52-ba42-53dfb6480c4d" class="cell" data-execution_count="42">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="42">
+<div id="edb6de49-4365-4d52-ba42-53dfb6480c4d" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fig2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="22">
 <pre><code>&lt;Figure size 450x300 with 0 Axes&gt;</code></pre>
 </div>
 </div>
 <ul>
-<li>아직은 아무것도 없음</li>
+<li><code>fig1</code>과는 다르게 <code>fig2</code>를 출력하면 아무것도 없음.</li>
 </ul>
 </section>
 <section id="axes" class="level3">
 <h3 class="anchored" data-anchor-id="axes">Axes</h3>
-<div id="9df1b22c-9e1d-4c78-b0cc-97c67a64540f" class="cell" data-execution_count="43">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_axes([<span class="fl">0.125</span>, <span class="fl">0.11</span>, <span class="fl">0.775</span>, <span class="fl">0.77</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9df1b22c-9e1d-4c78-b0cc-97c67a64540f" class="cell" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>ax2 <span class="op">=</span> fig2.add_axes([<span class="fl">0.125</span>, <span class="fl">0.11</span>, <span class="fl">0.775</span>, <span class="fl">0.77</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li><code>fig.add_axes</code>는 fig에 소속된 함수이며, 도화지에서 그림틀을 ‘추가하는’ 함수이다.</li>
+<li><code>fig2.add_axes</code>는 fig2에 소속된 함수이며, 도화지에서 그림틀을 ‘추가하는’ 함수이다.</li>
 </ul>
-<div id="d6fe32c5-8098-4dbf-a526-bcee830d47f6" class="cell" data-execution_count="44">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="44">
-<p><img src="02wk-1_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+<div id="d6fe32c5-8098-4dbf-a526-bcee830d47f6" class="cell" data-execution_count="25">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>fig2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="25">
+<p><img src="lecture_files/figure-html/cell-21-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
-<li>이제 fig라는 이름의 도화지에는 추가된 그림틀이 보인다.</li>
+<li>이제 fig2라는 이름의 도화지에는 추가된 그림틀이 보인다.</li>
 </ul>
 </section>
 <section id="axes-조정" class="level3">
 <h3 class="anchored" data-anchor-id="axes-조정">Axes 조정</h3>
-<div id="084b99d8-57cb-45c0-9c78-fd1496ffa240" class="cell" data-execution_count="45">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>ax.set_xlim([<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">3.15</span>])</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="fl">0.9</span>, <span class="fl">3.1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="45">
+<div id="084b99d8-57cb-45c0-9c78-fd1496ffa240" class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ax2.set_xlim([<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">3.15</span>])</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>ax2.set_ylim([<span class="fl">0.9</span>, <span class="fl">3.1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>(0.9, 3.1)</code></pre>
 </div>
 </div>
-<div id="bed03f2f-cfae-4e9c-ac98-fed5c7c9ea35" class="cell" data-execution_count="46">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="46">
-<p><img src="02wk-1_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
+<div id="bed03f2f-cfae-4e9c-ac98-fed5c7c9ea35" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fig2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="27">
+<p><img src="lecture_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="lines" class="level3">
 <h3 class="anchored" data-anchor-id="lines">Lines</h3>
-<div id="781cdb38-87c0-4c98-9a60-07283db2692f" class="cell" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>line <span class="op">=</span> matplotlib.lines.Line2D(</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    xdata<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], </span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    ydata<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>], </span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    linestyle<span class="op">=</span><span class="st">'--'</span>, </span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    marker<span class="op">=</span><span class="st">'o'</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>-</code></p>
+<div id="781cdb38-87c0-4c98-9a60-07283db2692f" class="cell" data-execution_count="28">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>line2 <span class="op">=</span> matplotlib.lines.Line2D(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    xdata<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    ydata<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>], </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    linestyle<span class="op">=</span><span class="st">'--'</span>, </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    marker<span class="op">=</span><span class="st">'o'</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="52108895-7c3a-40b1-a514-bc81991965eb" class="cell" data-execution_count="49">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>ax.add_line(line)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="49">
-<pre><code>&lt;matplotlib.lines.Line2D at 0x7f0f726a4310&gt;</code></pre>
-</div>
-</div>
-<div id="25242dd4-7610-4cd7-9100-49989b7fd7c2" class="cell" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="50">
-<p><img src="02wk-1_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
+<div id="52108895-7c3a-40b1-a514-bc81991965eb" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>ax2.add_line(line2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
+<pre><code>&lt;matplotlib.lines.Line2D at 0x7facf01b2510&gt;</code></pre>
 </div>
 </div>
-<div id="122412ed-0e68-46b8-8a34-c9d662cdc58e" class="cell" data-execution_count="51">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="51">
-<p><img src="02wk-1_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
+<div id="25242dd4-7610-4cd7-9100-49989b7fd7c2" class="cell" data-execution_count="30">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="30">
+<p><img src="lecture_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div id="122412ed-0e68-46b8-8a34-c9d662cdc58e" class="cell" data-execution_count="31">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>fig2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="31">
+<p><img src="lecture_files/figure-html/cell-27-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="다른방법들" class="level3">
 <h3 class="anchored" data-anchor-id="다른방법들">다른방법들</h3>
 <p><code>-</code> 조금 다른 방법: Line2d 오브젝트를 쓰지 않는 방법</p>
-<div id="c607ce71-ff7a-4b4f-ab46-b23e733fb668" class="cell" data-execution_count="52">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.Figure()</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_axes([<span class="fl">0.125</span>, <span class="fl">0.11</span>, <span class="fl">0.775</span>, <span class="fl">0.77</span>])</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="52">
-<p><img src="02wk-1_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+<div id="c607ce71-ff7a-4b4f-ab46-b23e733fb668" class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>fig3 <span class="op">=</span> plt.Figure()</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> fig3.add_axes([<span class="fl">0.125</span>, <span class="fl">0.11</span>, <span class="fl">0.775</span>, <span class="fl">0.77</span>])</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>ax3.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>fig3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="64">
+<p><img src="lecture_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 조금 다른 방법 (2): <code>add_axes()</code>를 쓰지 않는 방법</p>
-<div id="d0b54683-8792-444d-aadf-8498011daa2b" class="cell" data-execution_count="53">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.Figure()</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.subplots(<span class="dv">1</span>)</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="53">
-<p><img src="02wk-1_files/figure-html/cell-30-output-1.png" class="img-fluid"></p>
+<div id="d0b54683-8792-444d-aadf-8498011daa2b" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>fig4 <span class="op">=</span> plt.Figure()</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>ax4 <span class="op">=</span> fig4.subplots()</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>ax4.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>fig4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="32">
+<p><img src="lecture_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div id="8b0b383a-c96f-4a87-9323-b2a1fee15df1" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>_fig <span class="op">=</span> plt.Figure()</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>_fig.subplot(<span class="dv">111</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>AttributeError: 'Figure' object has no attribute 'subplot'</code></pre>
 </div>
 </div>
 <p><code>-</code> 좀 더 다른 방법 (3)</p>
-<div id="fbf36d72-bf36-458c-96c8-97e0a8c2d29e" class="cell" data-execution_count="54">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fbf36d72-bf36-458c-96c8-97e0a8c2d29e" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>fig5, ax5 <span class="op">=</span> plt.subplots(<span class="dv">1</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>ax5.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
@@ -489,129 +475,107 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="c.-정리-starstarstar">C. 정리 (<span class="math inline">\(\star\star\star\)</span>)</h2>
 <p><code>-</code> 결국 아래는 모두 같은 코드이다.</p>
 <div id="96057f41-3fca-4a30-87b5-a174273dee05" class="cell" data-execution_count="67">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 코드1 </span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 코드1 </span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-32-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-32-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div id="588bae2f-53b0-490a-bfc7-f5ff34b7a449" class="cell" data-execution_count="68">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 코드2</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 코드2</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots()</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-33-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-33-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div id="f2e27c56-8e6c-4467-a691-bae3b89f0ab1" class="cell" data-execution_count="69">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 코드3</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.Figure()</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.subplots()</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 코드3</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.Figure()</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.subplots()</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="69">
-<p><img src="02wk-1_files/figure-html/cell-34-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-34-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div id="79897de0-a6b9-48f9-946b-6f5ba5471c2b" class="cell" data-execution_count="70">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 코드4</span></span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.Figure()</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_axes([<span class="fl">0.125</span>, <span class="fl">0.11</span>, <span class="fl">0.775</span>, <span class="fl">0.77</span>])</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 코드4</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.Figure()</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_axes([<span class="fl">0.125</span>, <span class="fl">0.11</span>, <span class="fl">0.775</span>, <span class="fl">0.77</span>])</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--o'</span>)</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="70">
-<p><img src="02wk-1_files/figure-html/cell-35-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-35-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div id="ba0e7c0f-a291-4e80-86bf-bb0af14bb24e" class="cell" data-execution_count="71">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 코드5</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.Figure()</span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_axes([<span class="fl">0.125</span>, <span class="fl">0.11</span>, <span class="fl">0.775</span>, <span class="fl">0.77</span>])</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlim([<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">3.15</span>])</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="fl">0.9</span>, <span class="fl">3.1</span>])</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>line <span class="op">=</span> matplotlib.lines.Line2D(</span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>    xdata<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], </span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>    ydata<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>], </span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>    linestyle<span class="op">=</span><span class="st">'--'</span>, </span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>    marker<span class="op">=</span><span class="st">'o'</span></span>
-<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>ax.add_line(line)</span>
-<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">## 코드5</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.Figure()</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_axes([<span class="fl">0.125</span>, <span class="fl">0.11</span>, <span class="fl">0.775</span>, <span class="fl">0.77</span>])</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlim([<span class="op">-</span><span class="fl">0.15</span>, <span class="fl">3.15</span>])</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>ax.set_ylim([<span class="fl">0.9</span>, <span class="fl">3.1</span>])</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>line <span class="op">=</span> matplotlib.lines.Line2D(</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>    xdata<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>], </span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>    ydata<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>], </span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>    linestyle<span class="op">=</span><span class="st">'--'</span>, </span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>    marker<span class="op">=</span><span class="st">'o'</span></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>ax.add_line(line)</span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="71">
-<p><img src="02wk-1_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 <section id="d.-미니맵" class="level2">
 <h2 class="anchored" data-anchor-id="d.-미니맵">D. 미니맵</h2>
 <p><code>-</code> 틀잡기</p>
-<div id="43c988c5-546f-4ef9-9bf9-c5201b35cb2e" class="cell" data-execution_count="71">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.Figure()</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>])</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>ax_mini <span class="op">=</span> fig.add_axes([<span class="fl">1.4</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>])</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="71">
-<p><img src="02wk-1_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<div id="70e8222b-3339-4e05-a4cd-b6f9c5687cc9" class="cell" data-execution_count="72">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>ax.plot([<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">4</span>],<span class="st">'--o'</span>)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>ax_mini.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>],<span class="st">'--or'</span>)</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="43c988c5-546f-4ef9-9bf9-c5201b35cb2e" class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> plt.Figure()</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>ax1 <span class="op">=</span> fig.add_axes([<span class="dv">0</span>,<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>ax3 <span class="op">=</span> fig.add_axes([<span class="fl">1.4</span>,<span class="fl">0.2</span>,<span class="fl">0.5</span>,<span class="fl">0.5</span>])</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="72">
-<p><img src="02wk-1_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div id="70e8222b-3339-4e05-a4cd-b6f9c5687cc9" class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>ax1.plot([<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">3</span>,<span class="dv">4</span>],<span class="st">'--o'</span>)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>ax3.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>],<span class="st">'--or'</span>)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="73">
+<p><img src="lecture_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 </section>
 </section>
 <section id="subplot" class="level1">
 <h1>4. Subplot</h1>
-<section id="a.-plt.subplots" class="level2">
-<h2 class="anchored" data-anchor-id="a.-plt.subplots">A. <code>plt.subplots()</code></h2>
 <p><code>-</code> 예시1</p>
 <div id="f5826428-8716-4ba8-a457-f582cf718cc7" class="cell" data-execution_count="57">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fig, axs = plt.subplots(2) </span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1,ax2) <span class="op">=</span> plt.subplots(<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>ax1.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--r'</span>)</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>ax2.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'--o'</span>)</span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.tight_layout()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fig, axs = plt.subplots(2) </span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>fig, (ax1,ax2) <span class="op">=</span> plt.subplots(<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>ax1.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">2</span>],<span class="st">'--r'</span>)</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>ax2.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'--o'</span>)</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plt.tight_layout()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 예시2</p>
 <div id="f864ce80-00c6-4427-bb34-a6bd287e943c" class="cell" data-execution_count="58">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>fig, ((ax1,ax2),(ax3,ax4)) <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>ax1.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C0'</span>)</span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>ax2.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C1'</span>)</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>ax3.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C2'</span>)</span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>ax4.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C3'</span>)</span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>fig, ((ax1,ax2),(ax3,ax4)) <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>ax1.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C0'</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>ax2.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C1'</span>)</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>ax3.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C2'</span>)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>ax4.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C3'</span>)</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-40-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-40-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-</section>
-<section id="b.-plt.subplot" class="level2">
-<h2 class="anchored" data-anchor-id="b.-plt.subplot">B. <code>plt.subplot()</code></h2>
-<p><code>-</code> 예시1</p>
-<div id="f67a3964-c17f-41fc-a571-1e39419e6559" class="cell" data-execution_count="70">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">4</span>,<span class="dv">4</span>))</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">1</span>)</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C0'</span>)</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C1'</span>)</span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C2'</span>)</span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>plt.subplot(<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">4</span>)</span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>plt.plot([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>],<span class="st">'o'</span>, color<span class="op">=</span><span class="st">'C3'</span>)</span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-</section>
 </section>
 <section id="산점도-응용예제1-표본상관계수" class="level1">
 <h1>5. 산점도 응용예제1 – 표본상관계수</h1>
@@ -629,7 +593,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="df07ee0e-90d7-4ef9-ac71-4c4a1cba4fe2" class="cell" data-execution_count="60">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-43-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-42-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
@@ -690,7 +654,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="3c21a983-58d0-45b2-a144-4c3473cf2619" class="cell" data-execution_count="76">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y,<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-49-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-48-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 차근차근 따져보자.</p>
@@ -703,7 +667,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Text(0.5, 1.0, '$(\\tilde{x}_i,\\tilde{y}_i)$')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-50-output-2.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-49-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <ul>
@@ -726,7 +690,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y1,<span class="st">'.'</span>)</span>
 <span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y2,<span class="st">'x'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-52-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-51-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> <span class="math inline">\((x_i,y_i)\)</span>의 그래프와 <span class="math inline">\((\tilde{x}_i,\tilde{y}_i)\)</span>의 그래프를 그려보자.</p>
@@ -742,7 +706,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>ax2.plot(tilde(x),tilde(y1),<span class="st">'.'</span>)<span class="op">;</span> ax2.plot(tilde(x),tilde(y2),<span class="st">'x'</span>)<span class="op">;</span> ax2.set_title(<span class="vs">r'$(\tilde</span><span class="sc">{x}</span><span class="vs">_i,\tilde</span><span class="sc">{y}</span><span class="vs">_i)$'</span>)</span>
 <span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-54-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-53-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>#</code></p>
@@ -757,7 +721,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y1,<span class="st">'.'</span>)</span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>plt.plot(x,y2,<span class="st">'x'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-56-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-55-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> <span class="math inline">\((x_i,y_i)\)</span>의 그래프와 <span class="math inline">\((\tilde{x}_i,\tilde{y}_i)\)</span>의 그래프를 그려보자.</p>
@@ -773,7 +737,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>ax2.plot(tilde(x),tilde(y1),<span class="st">'.'</span>)<span class="op">;</span> ax2.plot(tilde(x),tilde(y2),<span class="st">'x'</span>)<span class="op">;</span> ax2.set_title(<span class="vs">r'$(\tilde</span><span class="sc">{x}</span><span class="vs">_i,\tilde</span><span class="sc">{y}</span><span class="vs">_i)$'</span>)</span>
 <span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-58-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-57-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>#</code></p>
@@ -804,7 +768,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>ax4.plot(x4,y4,<span class="st">'o'</span>)<span class="op">;</span> ax4.set_title(<span class="ss">f'corrcoef = </span><span class="sc">{</span>np<span class="sc">.</span>corrcoef(x4,y4)[<span class="dv">0</span>,<span class="dv">1</span>] <span class="sc">: .6f}</span><span class="ss">'</span>) </span>
 <span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-60-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-59-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 앤스콤플랏의 4개의 그림은 모두 같은 상관계수를 가진다. <span class="math inline">\(\to\)</span> 하지만 4개의 그림은 느낌이 전혀 다르다.</p>
@@ -820,14 +784,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="0315908e-4488-4977-b44a-fff944f0004e" class="cell" data-execution_count="231">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x1,y1,<span class="st">'x'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-61-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-60-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 하나의 점을 추가하여 이 상관계수 값을 -1에 가깝게 만들 수 있다.</p>
 <div id="3cac95f0-b107-46d4-9ea4-5182aa0a14ac" class="cell" data-execution_count="232">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x1<span class="op">+</span>[<span class="dv">99</span>],y1<span class="op">+</span>[<span class="op">-</span><span class="dv">99</span>],<span class="st">'x'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-62-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-61-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <div id="2d119018-8ca0-492d-bfab-ec14979bb729" class="cell" data-execution_count="233">
@@ -855,7 +819,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Text(0.5, 1.0, 'corrcoef = 0.006887')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-65-output-2.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-64-output-2.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>#</code></p>
@@ -872,7 +836,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="44784a12-e40e-40d9-8243-b044adbe2b48" class="cell" data-execution_count="206">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="02wk-1_files/figure-html/cell-67-output-1.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-66-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 
