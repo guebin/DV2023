@@ -196,6 +196,20 @@
     "text": "B. plt.subplot()\n- 예시1\n\nplt.figure(figsize=(4,4))\nplt.subplot(2,2,1)\nplt.plot([1,2,4,3],'o', color='C0')\nplt.subplot(2,2,2)\nplt.plot([1,2,4,3],'o', color='C1')\nplt.subplot(2,2,3)\nplt.plot([1,2,4,3],'o', color='C2')\nplt.subplot(2,2,4)\nplt.plot([1,2,4,3],'o', color='C3')\nplt.tight_layout()"
   },
   {
+    "objectID": "posts/02wk-1.html#a.-일반적인-플랏",
+    "href": "posts/02wk-1.html#a.-일반적인-플랏",
+    "title": "02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3 (draft)",
+    "section": "A. 일반적인 플랏",
+    "text": "A. 일반적인 플랏\n\nplt\n\nplt.plot([1,2,3,2])\nplt.title('asdf')\n\nText(0.5, 1.0, 'asdf')\n\n\n\n\n\n\nplt.title??\n\n\nSignature: plt.title(label, fontdict=None, loc=None, pad=None, *, y=None, **kwargs)\nDocstring:\nSet a title for the Axes.\nSet one of the three available Axes titles. The available titles\nare positioned above the Axes in the center, flush with the left\nedge, and flush with the right edge.\nParameters\n----------\nlabel : str\n    Text to use for the title\nfontdict : dict\n    A dictionary controlling the appearance of the title text,\n    the default *fontdict* is::\n       {'fontsize': rcParams['axes.titlesize'],\n        'fontweight': rcParams['axes.titleweight'],\n        'color': rcParams['axes.titlecolor'],\n        'verticalalignment': 'baseline',\n        'horizontalalignment': loc}\nloc : {'center', 'left', 'right'}, default: :rc:`axes.titlelocation`\n    Which title to set.\ny : float, default: :rc:`axes.titley`\n    Vertical Axes location for the title (1.0 is the top).  If\n    None (the default) and :rc:`axes.titley` is also None, y is\n    determined automatically to avoid decorators on the Axes.\npad : float, default: :rc:`axes.titlepad`\n    The offset of the title from the top of the Axes, in points.\nReturns\n-------\n`.Text`\n    The matplotlib text instance representing the title\nOther Parameters\n----------------\n**kwargs : `~matplotlib.text.Text` properties\n    Other keyword arguments are text properties, see `.Text` for a list\n    of valid text properties.\nSource:   \n@_copy_docstring_and_deprecators(Axes.set_title)\ndef title(label, fontdict=None, loc=None, pad=None, *, y=None, **kwargs):\n    return gca().set_title(\n        label, fontdict=fontdict, loc=loc, pad=pad, y=y, **kwargs)\nFile:      ~/anaconda3/envs/mp/lib/python3.10/site-packages/matplotlib/pyplot.py\nType:      function\n\n\n\n\n\nfig – 원래는 불가능\n\nplt.plot([1,2,3,2])\nfig = plt.gcf()\nfig.suptitle(\"asdf\")\n\nText(0.5, 0.98, 'asdf')\n\n\n\n\n\n\n\nax\n\nplt.plot([1,2,3,2])\nax = plt.gca()\nax.set_title(\"asdf\")\n\nText(0.5, 1.0, 'asdf')"
+  },
+  {
+    "objectID": "posts/02wk-1.html#b.-서브플랏",
+    "href": "posts/02wk-1.html#b.-서브플랏",
+    "title": "02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3 (draft)",
+    "section": "B. 서브플랏",
+    "text": "B. 서브플랏\n\nax\n\nfig,(ax1,ax2) = plt.subplots(1,2)\nax1.set_title('asdf')\nax2.set_title('1234')\nfig.tight_layout()\n\n\n\n\n\n\nplt\n\nplt.subplot(121)\nplt.plot([1,2,3])\nplt.title('asdf')\nplt.subplot(122)\nplt.plot([1,2,1])\nplt.title('1234')\nplt.tight_layout()\n\n\n\n\n\n\nfig\n\nfig,(ax1,ax2) = plt.subplots(1,2)\nax1.set_title('asdf')\nax2.set_title('1234')\nfig.suptitle('asdf1234')\nfig.tight_layout()"
+  },
+  {
     "objectID": "posts/02wk-1.html#a.-motivating-ex",
     "href": "posts/02wk-1.html#a.-motivating-ex",
     "title": "02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제1-3 (draft)",
