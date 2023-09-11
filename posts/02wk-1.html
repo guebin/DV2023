@@ -241,7 +241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="imports" class="level1">
 <h1>2. Imports</h1>
-<div id="b21364e1-8e52-4a9a-ae4c-2934073cfd36" class="cell" data-execution_count="2">
+<div id="b21364e1-8e52-4a9a-ae4c-2934073cfd36" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
@@ -960,7 +960,7 @@ Other Parameters
 <section id="산점도-응용예제2-앤스콤의-4분할" class="level1">
 <h1>7. 산점도 응용예제2 – 앤스콤의 4분할</h1>
 <p><code>-</code> Anscombe’s quartet: 교과서에 나오는 그림임.</p>
-<div id="71c430ae-03bf-4bb3-9847-b3c2bf7adb14" class="cell" data-execution_count="2">
+<div id="71c430ae-03bf-4bb3-9847-b3c2bf7adb14" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">5</span>]</span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> [<span class="fl">8.04</span>, <span class="fl">6.95</span>, <span class="fl">7.58</span>, <span class="fl">8.81</span>, <span class="fl">8.33</span>, <span class="fl">9.96</span>, <span class="fl">7.24</span>, <span class="fl">4.26</span>, <span class="fl">10.84</span>, <span class="fl">4.82</span>, <span class="fl">5.68</span>]</span>
 <span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -974,9 +974,9 @@ Other Parameters
 <span id="cb84-11"><a href="#cb84-11" aria-hidden="true" tabindex="-1"></a>y4 <span class="op">=</span> [<span class="fl">6.58</span>, <span class="fl">5.76</span>, <span class="fl">7.71</span>, <span class="fl">8.84</span>, <span class="fl">8.47</span>, <span class="fl">7.04</span>, <span class="fl">5.25</span>, <span class="fl">12.50</span>, <span class="fl">5.56</span>, <span class="fl">7.91</span>, <span class="fl">6.89</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> corr coef 체크</p>
-<div id="71a11616-d568-44ed-8cf6-debde742e0b2" class="cell" data-execution_count="4">
+<div id="71a11616-d568-44ed-8cf6-debde742e0b2" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>np.corrcoef([x1,y1]),np.corrcoef([x2,y2]),np.corrcoef([x3,y3]),np.corrcoef([x4,y4])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="12">
 <pre><code>(array([[1.        , 0.81642052],
         [0.81642052, 1.        ]]),
  array([[1.        , 0.81623651],
@@ -991,7 +991,7 @@ Other Parameters
 <li>모두 0.816..</li>
 </ul>
 <p><code>-</code> 교훈1: 데이터를 분석하기 전에 항상 시각화를 하라.</p>
-<div id="b6130ef6-b8ff-4225-adb1-a6fa7a9de86a" class="cell" data-execution_count="8">
+<div id="b6130ef6-b8ff-4225-adb1-a6fa7a9de86a" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>fig, ((ax1,ax2),(ax3,ax4)) <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">2</span>,figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">4</span>))</span>
 <span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>ax1.plot(x1,y1,<span class="st">'o'</span>)<span class="op">;</span> ax1.set_title(<span class="st">'corrcoef= 0.81642052'</span>)</span>
 <span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>ax2.plot(x2,y2,<span class="st">'o'</span>)<span class="op">;</span> ax2.set_title(<span class="st">'corrcoef= 0.81623651'</span>)</span>
@@ -1012,14 +1012,14 @@ Other Parameters
 </ul>
 <p><code># 예제</code> – 하나의 이상치가 상관계수를 무너뜨리는 경우</p>
 <p><code>-</code> 아래와 같이 앤스콤의 첫번째 플랏을 다시 그려보자.</p>
-<div id="0315908e-4488-4977-b44a-fff944f0004e" class="cell" data-execution_count="231">
+<div id="0315908e-4488-4977-b44a-fff944f0004e" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x1,y1,<span class="st">'x'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="02wk-1_files/figure-html/cell-71-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 <p><code>-</code> 하나의 점을 추가하여 이 상관계수 값을 -1에 가깝게 만들 수 있다.</p>
-<div id="3cac95f0-b107-46d4-9ea4-5182aa0a14ac" class="cell" data-execution_count="232">
+<div id="3cac95f0-b107-46d4-9ea4-5182aa0a14ac" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb89"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>plt.plot(x1<span class="op">+</span>[<span class="dv">99</span>],y1<span class="op">+</span>[<span class="op">-</span><span class="dv">99</span>],<span class="st">'x'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="02wk-1_files/figure-html/cell-72-output-1.png" class="img-fluid"></p>
