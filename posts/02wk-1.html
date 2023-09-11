@@ -1024,9 +1024,26 @@ Other Parameters
 <div class="cell-output cell-output-display">
 <p><img src="02wk-1_files/figure-html/cell-72-output-1.png" class="img-fluid"></p>
 </div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Exception ignored in atexit callback: &lt;bound method InteractiveShell.atexit_operations of &lt;ipykernel.zmqshell.ZMQInteractiveShell object at 0x7f195d0b92d0&gt;&gt;
+Traceback (most recent call last):
+  File "/home/cgb2/anaconda3/envs/torch/lib/python3.11/site-packages/IPython/core/interactiveshell.py", line 3875, in atexit_operations
+    self._atexit_once()
+  File "/home/cgb2/anaconda3/envs/torch/lib/python3.11/site-packages/IPython/core/interactiveshell.py", line 3854, in _atexit_once
+    self.reset(new_session=False)
+  File "/home/cgb2/anaconda3/envs/torch/lib/python3.11/site-packages/IPython/core/interactiveshell.py", line 1373, in reset
+    self.history_manager.reset(new_session)
+  File "/home/cgb2/anaconda3/envs/torch/lib/python3.11/site-packages/IPython/core/history.py", line 597, in reset
+    self.dir_hist[:] = [Path.cwd()]
+                        ^^^^^^^^^^
+  File "/home/cgb2/anaconda3/envs/torch/lib/python3.11/pathlib.py", line 907, in cwd
+    return cls(os.getcwd())
+               ^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory</code></pre>
+</div>
 </div>
 <div id="2d119018-8ca0-492d-bfab-ec14979bb729" class="cell" data-execution_count="233">
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>np.corrcoef(x1<span class="op">+</span>[<span class="dv">99</span>],y1<span class="op">+</span>[<span class="op">-</span><span class="dv">99</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>np.corrcoef(x1<span class="op">+</span>[<span class="dv">99</span>],y1<span class="op">+</span>[<span class="op">-</span><span class="dv">99</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="233">
 <pre><code>array([[ 1.        , -0.98450679],
        [-0.98450679,  1.        ]])</code></pre>
@@ -1039,10 +1056,10 @@ Other Parameters
 <h1>9. HW</h1>
 <p><code>1</code>. 아래와 같은 그림을 그려라.</p>
 <div id="3e2a88af-1764-4462-9dbc-d132f0d18f1f" class="cell" data-execution_count="202">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>], [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>x,y <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>], [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">3</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="44784a12-e40e-40d9-8243-b044adbe2b48" class="cell" data-execution_count="206">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="02wk-1_files/figure-html/cell-75-output-1.png" class="img-fluid"></p>
 </div>
