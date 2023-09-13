@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2023-09-13">
 
-<title>DV2023 - 02wk-2: Seaborn 간략한 소개, 훌륭한 시각화 (draft)</title>
+<title>DV2023 - 02wk-2: Seaborn 간략한 소개, 훌륭한 시각화</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -170,7 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">02wk-2: Seaborn 간략한 소개, 훌륭한 시각화 (draft)</h1>
+<h1 class="title">02wk-2: Seaborn 간략한 소개, 훌륭한 시각화</h1>
   <div class="quarto-categories">
     <div class="quarto-category">matplotlib</div>
   </div>
@@ -212,8 +212,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div id="73f1e6d2-08c7-4fe2-b6d2-5385c4695152" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co">#matplotlib.rcParams['figure.figsize'] = (4.5, 3) </span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'figure.dpi'</span>] <span class="op">=</span> <span class="dv">120</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'figure.dpi'</span>] <span class="op">=</span> <span class="dv">120</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="seaborn-간단히" class="level1">
@@ -228,10 +227,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>분석할 데이터가 태뷸러데이터 형식인 경우가 많다.</li>
 <li>matplotlib은 여전히 강력하지만, seaborn등 데이터프레임 친화적 패키지가 우수한 경우가 많다.</li>
 </ul>
-<div id="9dd5c292-a23f-44e5-87f7-9e3f7a648cd4" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"titanic.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="9dd5c292-a23f-44e5-87f7-9e3f7a648cd4" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2023/main/posts/titanic.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="028dae6b-4a04-443b-bc9f-63562148998d" class="cell" data-execution_count="6">
+<div id="028dae6b-4a04-443b-bc9f-63562148998d" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    df,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'logFare'</span>,</span>
@@ -262,14 +261,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 /home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/seaborn/_oldcore.py:1498: FutureWarning: is_categorical_dtype is deprecated and will be removed in a future version. Use isinstance(dtype, CategoricalDtype) instead
   if pd.api.types.is_categorical_dtype(vector):</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="44">
 <pre><code>Text(0.5, 1.0, 'Titanic')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="02wk-2_files/figure-html/cell-5-output-3.png" class="img-fluid"></p>
 </div>
 </div>
-<div id="149530ad-cb5f-40fa-9d33-4d42a0caae57" class="cell" data-execution_count="7">
+<div id="149530ad-cb5f-40fa-9d33-4d42a0caae57" class="cell" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.hist(df.Age)<span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.hist(df.Age[df.Survived<span class="op">==</span><span class="dv">1</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -545,8 +544,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="숙제" class="level1">
 <h1>4. 숙제</h1>
 <p>아래의 코드로 df를 불러오라.</p>
-<div id="35624ab0-2bf9-405e-b864-79efcf61b364" class="cell" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"titanic.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="35624ab0-2bf9-405e-b864-79efcf61b364" class="cell" data-execution_count="46">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2023/main/posts/titanic.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>아래와 같은 그림을 그려서 제출하라.</p>
 <div id="15979b92-e974-4e1e-aef2-ec7fa7bd5e47" class="cell" data-execution_count="37">
