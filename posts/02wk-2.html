@@ -75,6 +75,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -153,15 +155,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">1. Imports</a></li>
-  <li><a href="#seaborn-간단히" id="toc-seaborn-간단히" class="nav-link" data-scroll-target="#seaborn-간단히">2. Seaborn (간단히)</a></li>
-  <li><a href="#훌륭한-시각화" id="toc-훌륭한-시각화" class="nav-link" data-scroll-target="#훌륭한-시각화">3. 훌륭한 시각화</a>
+  <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
+  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">2. Imports</a></li>
+  <li><a href="#seaborn-간단히" id="toc-seaborn-간단히" class="nav-link" data-scroll-target="#seaborn-간단히">3. Seaborn (간단히)</a></li>
+  <li><a href="#훌륭한-시각화" id="toc-훌륭한-시각화" class="nav-link" data-scroll-target="#훌륭한-시각화">4. 훌륭한 시각화</a>
   <ul class="collapse">
   <li><a href="#a.-애드워드-터프티" id="toc-a.-애드워드-터프티" class="nav-link" data-scroll-target="#a.-애드워드-터프티">A. 애드워드 터프티</a></li>
   <li><a href="#b.-찰스미나드의-도표" id="toc-b.-찰스미나드의-도표" class="nav-link" data-scroll-target="#b.-찰스미나드의-도표">B. 찰스미나드의 도표</a></li>
   <li><a href="#c.-미나드처럼-그리는게-왜-어려운가" id="toc-c.-미나드처럼-그리는게-왜-어려운가" class="nav-link" data-scroll-target="#c.-미나드처럼-그리는게-왜-어려운가">C. 미나드처럼 그리는게 왜 어려운가?</a></li>
   </ul></li>
-  <li><a href="#숙제" id="toc-숙제" class="nav-link" data-scroll-target="#숙제">4. 숙제</a></li>
+  <li><a href="#숙제" id="toc-숙제" class="nav-link" data-scroll-target="#숙제">5. 숙제</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="02wk-2.out.ipynb" download="02wk-2.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
@@ -202,25 +205,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 <p><a href="https://colab.research.google.com/github/guebin/DV2023/blob/main/posts/02wk-2.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
+<section id="강의영상" class="level1">
+<h1>1. 강의영상</h1>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="https://youtube.com/playlist?list=PLQqh36zP38-yHabB3SMhPt0toFJTIKgPy&amp;si=bgcDaORN0s4Hkrhv"></video></div>
+</section>
 <section id="imports" class="level1">
-<h1>1. Imports</h1>
-<div id="0363ac6a-f480-49f9-88fe-b3b0f06056fd" class="cell" data-execution_count="6">
+<h1>2. Imports</h1>
+<div id="0363ac6a-f480-49f9-88fe-b3b0f06056fd" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="73f1e6d2-08c7-4fe2-b6d2-5385c4695152" class="cell" data-execution_count="7">
+<div id="73f1e6d2-08c7-4fe2-b6d2-5385c4695152" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>matplotlib.rcParams[<span class="st">'figure.dpi'</span>] <span class="op">=</span> <span class="dv">120</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="29128bf9" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="29128bf9" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import warnings</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># warnings.filterwarnings('ignore')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="seaborn-간단히" class="level1">
-<h1>2. Seaborn (간단히)</h1>
+<h1>3. Seaborn (간단히)</h1>
 <p><code>-</code> 개념차이</p>
 <ul>
 <li>matplotlib: 벡터 친화적</li>
@@ -231,10 +238,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>분석할 데이터가 태뷸러데이터 형식인 경우가 많다.</li>
 <li>matplotlib은 여전히 강력하지만, seaborn등 데이터프레임 친화적 패키지가 우수한 경우가 많다.</li>
 </ul>
-<div id="9dd5c292-a23f-44e5-87f7-9e3f7a648cd4" class="cell" data-execution_count="8">
+<div id="9dd5c292-a23f-44e5-87f7-9e3f7a648cd4" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2023/main/posts/titanic.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="028dae6b-4a04-443b-bc9f-63562148998d" class="cell" data-execution_count="14">
+<div id="028dae6b-4a04-443b-bc9f-63562148998d" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    df,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'logFare'</span>,</span>
@@ -243,21 +250,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    style<span class="op">=</span><span class="st">'Survived'</span>,style_order<span class="op">=</span>[<span class="dv">1</span>,<span class="dv">0</span>],</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.8</span></span>
 <span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="14">
+<div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>&lt;Axes: xlabel='logFare', ylabel='Age'&gt;</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <p><img src="02wk-2_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div id="149530ad-cb5f-40fa-9d33-4d42a0caae57" class="cell" data-execution_count="16">
+<div id="149530ad-cb5f-40fa-9d33-4d42a0caae57" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plt.hist(df.Age)<span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.hist(df.Age[df.Survived<span class="op">==</span><span class="dv">1</span>])<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="02wk-2_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<p><code>-</code> seaborn은 데이터과학에서 거의 표준시각화 패키지임. 머신러닝 입문서적, 경진대회에서 빠짐없이 등장. <strong>그러나 우리는 하지 않겠어요.</strong></p>
+<p><code>-</code> Seaborn은 데이터과학에서 거의 표준시각화 패키지임. 머신러닝 입문서적, 경진대회에서 빠짐없이 등장. <strong>그러나 우리는 하지 않겠어요.</strong></p>
 <ol type="1">
 <li>다른 수업에서 해요.</li>
 <li>간단한 시각화는 오히려 matplotlib이 유리해요.</li>
@@ -266,7 +273,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>최근에는 plotly가 모든면에서 seaborn을 압도하는 추세임.</li>
 </ol>
 <p><code>-</code> <code>3</code>의 예시</p>
-<div id="42987b81-b98c-4aae-8990-3fc82c38b05c" class="cell" data-execution_count="17">
+<div id="42987b81-b98c-4aae-8990-3fc82c38b05c" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    df,</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">'logFare'</span>,</span>
@@ -284,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>ax_mini.hist(df.Age[df.Survived<span class="op">==</span><span class="dv">1</span>])</span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>ax_mini.set_title(<span class="st">'Histogram'</span>)</span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'TITANIC'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="17">
+<div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>Text(0.5, 0.98, 'TITANIC')</code></pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -293,7 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="훌륭한-시각화" class="level1">
-<h1>3. 훌륭한 시각화</h1>
+<h1>4. 훌륭한 시각화</h1>
 <section id="a.-애드워드-터프티" class="level2">
 <h2 class="anchored" data-anchor-id="a.-애드워드-터프티">A. 애드워드 터프티</h2>
 <p><code>-</code> 데이터 시각화계의 거장</p>
@@ -336,13 +343,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>자료를 파악하는 기법은 최근까지도 산점도, 막대그래프, 라인플랏에 의존</li>
 <li>이러한 플랏의 단점은 고차원의 자료를 분석하기 어렵다는 것임</li>
-<li>미나드는 여러그램을 그리는 방법 대신에 한 그림에서 패널을 늘리는 방법을 선택함.</li>
+<li>미나드는 여러그림을 그리는 방법 대신에 한 그림에서 패널을 늘리는 방법을 선택함.</li>
 </ul>
 </section>
 <section id="c.-미나드처럼-그리는게-왜-어려운가" class="level2">
 <h2 class="anchored" data-anchor-id="c.-미나드처럼-그리는게-왜-어려운가">C. 미나드처럼 그리는게 왜 어려운가?</h2>
 <p><code>-</code> 몸무게, 키, 성별, 국적</p>
-<div id="a063cb76-2df4-48d3-b686-46551ca1dc23" class="cell" data-execution_count="19">
+<div id="a063cb76-2df4-48d3-b686-46551ca1dc23" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df1<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/male1.csv'</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>df2<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/male2.csv'</span>)  </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>df3<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/female.csv'</span>) </span>
@@ -482,7 +489,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="숙제" class="level1">
-<h1>4. 숙제</h1>
+<h1>5. 숙제</h1>
 <p>아래의 코드로 df를 불러오라.</p>
 <div id="35624ab0-2bf9-405e-b864-79efcf61b364" class="cell" data-execution_count="46">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2023/main/posts/titanic.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -861,6 +868,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://utteranc.es/client.js" repo="guebin/DV2023" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 
