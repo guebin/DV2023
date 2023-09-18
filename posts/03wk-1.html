@@ -1078,9 +1078,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="h.-진짜-아이스크림을-먹고-배탈이-났다면">H. 진짜 아이스크림을 먹고 배탈이 났다면?</h2>
 <p><code>-</code> 온도는 아이스크림 판매에 여전히 영향을 주지만</p>
 <p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \text{오차}\]</span></p>
-<div id="c06f546a-7781-4198-991d-ee6c2aebdfb1" class="cell" data-execution_count="143">
+<div id="c06f546a-7781-4198-991d-ee6c2aebdfb1" class="cell" data-execution_count="144">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>)</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>disease <span class="op">=</span> <span class="dv">30</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> temp <span class="op">+</span> np.random.randn(<span class="bu">len</span>(temp))<span class="op">*</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>icecream <span class="op">=</span> <span class="dv">30</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> temp <span class="op">+</span> np.random.randn(<span class="bu">len</span>(temp))<span class="op">*</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 수영장이 원인이 아니라 진짜 아이스크림을 먹고 소아마비에 걸린상황이라면?</p>
 <p><span class="math display">\[\text{소아마비 반응수치} = 30 + 0.0 \times \text{온도} + 0.15 \times \text{아이스크림 판매량} + \text{오차}\]</span></p>

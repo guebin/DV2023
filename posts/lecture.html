@@ -100,9 +100,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -249,18 +246,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="783e5c14-8a1b-4872-9e43-dda997db6f8b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install plotnine -- 설치해야해요~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="375347eb-711c-4ea9-b378-5e2dfe264711" class="cell" data-execution_count="2">
+<div id="375347eb-711c-4ea9-b378-5e2dfe264711" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0c31485a-8f81-4b38-9c2b-a461c8443f97" class="cell" data-execution_count="3">
+<div id="0c31485a-8f81-4b38-9c2b-a461c8443f97" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotnine</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a26e2db6-201b-4e21-bb9c-b7d49d9e610b" class="cell" data-execution_count="4">
+<div id="a26e2db6-201b-4e21-bb9c-b7d49d9e610b" class="cell" data-execution_count="51">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plotnine.options.dpi<span class="op">=</span> <span class="dv">150</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plotnine.options.figure_size <span class="op">=</span> (<span class="dv">6</span>, <span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plotnine.options.figure_size <span class="op">=</span> (<span class="dv">5</span>,<span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="mpg-data" class="level1">
@@ -268,7 +265,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a.-read-data" class="level2">
 <h2 class="anchored" data-anchor-id="a.-read-data">A. read data</h2>
 <p><code>-</code> ref: <a href="https://r4ds.had.co.nz/index.html" class="uri">https://r4ds.had.co.nz/index.html</a></p>
-<div id="21f97f56-87a3-420f-8962-347e560fcc6d" class="cell" data-execution_count="5">
+<div id="21f97f56-87a3-420f-8962-347e560fcc6d" class="cell" data-execution_count="52">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/mpg.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -289,9 +286,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="b.-rpy2" class="level2">
 <h2 class="anchored" data-anchor-id="b.-rpy2">B. <code>rpy2</code></h2>
 <p><code>-</code> 예시: R에서도 거의 똑같은 문법으로 그릴수 있음 (1타2피..)</p>
-<div id="a74eff7b-9294-4432-ab05-7eb1d5d091a2" class="cell" data-execution_count="10">
+<div id="a74eff7b-9294-4432-ab05-7eb1d5d091a2" class="cell" data-execution_count="56">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rpy2</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>load_ext rpy2.ipython</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The rpy2.ipython extension is already loaded. To reload it, use:
+  %reload_ext rpy2.ipython</code></pre>
+</div>
 </div>
 </section>
 </section>
@@ -303,7 +304,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="b.-xdispl-yhwy-colorclass" class="level2">
 <h2 class="anchored" data-anchor-id="b.-xdispl-yhwy-colorclass">B. <code>x=displ</code>, <code>y=hwy</code>, <code>color=class</code></h2>
-<p><code>-</code> 예시1</p>
 </section>
 <section id="c.-xdispl-yhwy-colorclass-shapeclass" class="level2">
 <h2 class="anchored" data-anchor-id="c.-xdispl-yhwy-colorclass-shapeclass">C. <code>x=displ</code>, <code>y=hwy</code>, <code>color=class</code>, <code>shape=class</code></h2>
@@ -364,9 +364,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="b.-기상자료-다운로드" class="level2">
 <h2 class="anchored" data-anchor-id="b.-기상자료-다운로드">B. 기상자료 다운로드</h2>
 <p><code>-</code> 기상자료 다운로드</p>
-<div id="e942d7c3-7eb9-4da2-a1ef-04915f97f7eb" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>temp<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/temp.csv'</span>).iloc[:,<span class="dv">3</span>].to_numpy()</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#temp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="e942d7c3-7eb9-4da2-a1ef-04915f97f7eb" class="cell" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>temp<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/temp.csv'</span>).iloc[:,<span class="dv">3</span>].to_numpy()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#temp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="c.-숨은진짜상황1-온도-to-아이스크림-판매량" class="level2">
@@ -395,138 +395,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="h.-진짜-아이스크림을-먹고-배탈이-났다면">H. 진짜 아이스크림을 먹고 배탈이 났다면?</h2>
 <p><code>-</code> 온도는 아이스크림 판매에 여전히 영향을 주지만</p>
 <p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \text{오차}\]</span></p>
-<div id="c06f546a-7781-4198-991d-ee6c2aebdfb1" class="cell" data-execution_count="143">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>disease <span class="op">=</span> <span class="dv">30</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> temp <span class="op">+</span> np.random.randn(<span class="bu">len</span>(temp))<span class="op">*</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="c06f546a-7781-4198-991d-ee6c2aebdfb1" class="cell" data-execution_count="121">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>icecream <span class="op">=</span> <span class="dv">30</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> temp <span class="op">+</span> np.random.randn(<span class="bu">len</span>(temp))<span class="op">*</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 수영장이 원인이 아니라 진짜 아이스크림을 먹고 소아마비에 걸린상황이라면?</p>
 <p><span class="math display">\[\text{소아마비 반응수치} = 30 + 0.0 \times \text{온도} + 0.15 \times \text{아이스크림 판매량} + \text{오차}\]</span></p>
-<div id="f3156ed4-938b-490d-9ae4-57ac1268faa2" class="cell" data-execution_count="134">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>) </span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>disease<span class="op">=</span> <span class="dv">30</span><span class="op">+</span> <span class="dv">0</span><span class="op">*</span>temp <span class="op">+</span> <span class="fl">0.15</span><span class="op">*</span>icecream <span class="op">+</span> np.random.normal(size<span class="op">=</span><span class="bu">len</span>(temp),scale<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="f3156ed4-938b-490d-9ae4-57ac1268faa2" class="cell" data-execution_count="122">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>) </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>disease<span class="op">=</span> <span class="dv">30</span><span class="op">+</span> <span class="dv">0</span><span class="op">*</span>temp <span class="op">+</span> <span class="fl">0.15</span><span class="op">*</span>icecream <span class="op">+</span> np.random.normal(size<span class="op">=</span><span class="bu">len</span>(temp),scale<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>NameError: name 'icecream' is not defined</code></pre>
+</div>
 </div>
 <p><code>-</code> 그림을 한번 그려보자.</p>
-<div id="2922246c-e74f-47dc-a02c-a857aa328890" class="cell" data-execution_count="140">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame({<span class="st">'temp'</span>:temp,<span class="st">'ice'</span>:icecream,<span class="st">'dis'</span>:disease})</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df2.assign(temp_cut<span class="op">=</span>pd.cut(df2.temp,bins<span class="op">=</span><span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="140">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">temp</th>
-<th data-quarto-table-cell-role="th">ice</th>
-<th data-quarto-table-cell-role="th">dis</th>
-<th data-quarto-table-cell-role="th">temp_cut</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>-0.5</td>
-<td>35.243454</td>
-<td>34.453002</td>
-<td>(-6.343, -0.286]</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>1.4</td>
-<td>16.682436</td>
-<td>32.389832</td>
-<td>(-0.286, 5.771]</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2.6</td>
-<td>19.918282</td>
-<td>28.715350</td>
-<td>(-0.286, 5.771]</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2.0</td>
-<td>13.270314</td>
-<td>35.271089</td>
-<td>(-0.286, 5.771]</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2.5</td>
-<td>33.654076</td>
-<td>31.461240</td>
-<td>(-0.286, 5.771]</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">651</td>
-<td>19.9</td>
-<td>68.839992</td>
-<td>39.693811</td>
-<td>(17.886, 23.943]</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">652</td>
-<td>20.4</td>
-<td>76.554679</td>
-<td>38.924088</td>
-<td>(17.886, 23.943]</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">653</td>
-<td>18.3</td>
-<td>68.666079</td>
-<td>41.765212</td>
-<td>(17.886, 23.943]</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">654</td>
-<td>12.8</td>
-<td>42.771364</td>
-<td>36.842022</td>
-<td>(11.829, 17.886]</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">655</td>
-<td>6.7</td>
-<td>30.736731</td>
-<td>37.715537</td>
-<td>(5.771, 11.829]</td>
-</tr>
-</tbody>
-</table>
-
-<p>656 rows × 4 columns</p>
+<div id="2922246c-e74f-47dc-a02c-a857aa328890" class="cell" data-execution_count="123">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame({<span class="st">'temp'</span>:temp,<span class="st">'ice'</span>:icecream,<span class="st">'dis'</span>:disease})</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df2.assign(temp_cut<span class="op">=</span>pd.cut(df2.temp,bins<span class="op">=</span><span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>NameError: name 'icecream' is not defined</code></pre>
 </div>
 </div>
-</div>
-<div id="52d9a2f2-8476-4ba5-82bb-f24e101879c0" class="cell" data-execution_count="142">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(df2.assign(temp_cut <span class="op">=</span> pd.cut(df2.temp,bins<span class="op">=</span><span class="dv">7</span>))) </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'ice'</span>,y<span class="op">=</span><span class="st">'dis'</span>,color<span class="op">=</span><span class="st">'temp_cut'</span>),alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'ice'</span>,y<span class="op">=</span><span class="st">'dis'</span>,color<span class="op">=</span><span class="st">'temp_cut'</span>),linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> smooth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="142">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
+<div id="52d9a2f2-8476-4ba5-82bb-f24e101879c0" class="cell" data-execution_count="124">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(df2.assign(temp_cut <span class="op">=</span> pd.cut(df2.temp,bins<span class="op">=</span><span class="dv">7</span>))) </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'ice'</span>,y<span class="op">=</span><span class="st">'dis'</span>,color<span class="op">=</span><span class="st">'temp_cut'</span>),alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'ice'</span>,y<span class="op">=</span><span class="st">'dis'</span>,color<span class="op">=</span><span class="st">'temp_cut'</span>),linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> smooth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>NameError: name 'df2' is not defined</code></pre>
 </div>
 </div>
 </section>
