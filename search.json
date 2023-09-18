@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "데이터 시각화 (2023)",
     "section": "",
-    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n기출문제\n\n2021-중간: https://guebin.github.io/DV2021/2021/11/08/midsol.html\n2021-기말: https://guebin.github.io/DV2021/2021/12/03/데이터시각화-기말고사.html, 1~2번 풀이\n2022-중간: https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html\n2022-기말: https://guebin.github.io/DV2022/posts/2022-12-19-final.html\n\n강의노트\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 18, 2023\n\n\n03wk-1: plotnine(ggplot2), 아이스크림을 많이 먹으면 걸리는 병 (draft)\n\n\n최규빈 \n\n\n\n\nSep 13, 2023\n\n\n02wk-2: Seaborn 간략한 소개, 훌륭한 시각화\n\n\n최규빈 \n\n\n\n\nSep 11, 2023\n\n\n02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제 1-2\n\n\n최규빈 \n\n\n\n\nSep 6, 2023\n\n\n01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)\n\n\n최규빈 \n\n\n\n\nSep 4, 2023\n\n\n01wk-1: 박스플랏, 히스토그램\n\n\n최규빈 \n\n\n\n\n\nNo matching items"
+    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n기출문제\n\n2021-중간: https://guebin.github.io/DV2021/2021/11/08/midsol.html\n2021-기말: https://guebin.github.io/DV2021/2021/12/03/데이터시각화-기말고사.html, 1~2번 풀이\n2022-중간: https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html\n2022-기말: https://guebin.github.io/DV2022/posts/2022-12-19-final.html\n\n공지사항\n\n9월27일, 10월2일 수업은 영상콘텐츠 업로드로 대체합니다.\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 18, 2023\n\n\n03wk-1: plotnine(ggplot2), 아이스크림을 많이 먹으면 걸리는 병 (draft)\n\n\n최규빈 \n\n\n\n\nSep 13, 2023\n\n\n02wk-2: Seaborn 간략한 소개, 훌륭한 시각화\n\n\n최규빈 \n\n\n\n\nSep 11, 2023\n\n\n02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제 1-2\n\n\n최규빈 \n\n\n\n\nSep 6, 2023\n\n\n01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)\n\n\n최규빈 \n\n\n\n\nSep 4, 2023\n\n\n01wk-1: 박스플랏, 히스토그램\n\n\n최규빈 \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/01wk-1.html",
@@ -86,175 +86,175 @@
   {
     "objectID": "posts/03wk-1.html#a.-read-data",
     "href": "posts/03wk-1.html#a.-read-data",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "A. read data",
     "text": "A. read data\n- ref: https://r4ds.had.co.nz/index.html\n\ndf = pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/mpg.csv')\ndf\n\n\n\n\n\n\n\n\nmanufacturer\nmodel\ndispl\nyear\ncyl\ntrans\ndrv\ncty\nhwy\nfl\nclass\n\n\n\n\n0\naudi\na4\n1.8\n1999\n4\nauto(l5)\nf\n18\n29\np\ncompact\n\n\n1\naudi\na4\n1.8\n1999\n4\nmanual(m5)\nf\n21\n29\np\ncompact\n\n\n2\naudi\na4\n2.0\n2008\n4\nmanual(m6)\nf\n20\n31\np\ncompact\n\n\n3\naudi\na4\n2.0\n2008\n4\nauto(av)\nf\n21\n30\np\ncompact\n\n\n4\naudi\na4\n2.8\n1999\n6\nauto(l5)\nf\n16\n26\np\ncompact\n\n\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n...\n\n\n229\nvolkswagen\npassat\n2.0\n2008\n4\nauto(s6)\nf\n19\n28\np\nmidsize\n\n\n230\nvolkswagen\npassat\n2.0\n2008\n4\nmanual(m6)\nf\n21\n29\np\nmidsize\n\n\n231\nvolkswagen\npassat\n2.8\n1999\n6\nauto(l5)\nf\n16\n26\np\nmidsize\n\n\n232\nvolkswagen\npassat\n2.8\n1999\n6\nmanual(m5)\nf\n18\n26\np\nmidsize\n\n\n233\nvolkswagen\npassat\n3.6\n2008\n6\nauto(s6)\nf\n17\n26\np\nmidsize\n\n\n\n\n234 rows × 11 columns"
   },
   {
     "objectID": "posts/03wk-1.html#b.-descriptions",
     "href": "posts/03wk-1.html#b.-descriptions",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "B. descriptions",
     "text": "B. descriptions\n- 컬럼들의 이름을 출력.\n\ndf.columns\n\nIndex(['manufacturer', 'model', 'displ', 'year', 'cyl', 'trans', 'drv', 'cty',\n       'hwy', 'fl', 'class'],\n      dtype='object')\n\n\n- ChatGPT에 문의"
   },
   {
     "objectID": "posts/03wk-1.html#a.-xdispl-yhwy",
     "href": "posts/03wk-1.html#a.-xdispl-yhwy",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "A. x=displ, y=hwy",
     "text": "A. x=displ, y=hwy\n- 예시1: 정직하게 매뉴얼대로..\n\nggplot(data=df) + geom_point(mapping=aes(x='displ',y='hwy'))\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;\n\n\n- 예시2: data=와 mapping=은 생략가능하다.\n\nggplot(df)+geom_point(aes(x='displ',y='hwy'))\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#b.-rpy2-코랩-아닌-경우-실습금지",
     "href": "posts/03wk-1.html#b.-rpy2-코랩-아닌-경우-실습금지",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "B. rpy2 – 코랩 아닌 경우 실습금지",
     "text": "B. rpy2 – 코랩 아닌 경우 실습금지\n- 예시: R에서도 거의 똑같은 문법으로 그릴수 있음 (1타2피..)\n\nimport rpy2\n%load_ext rpy2.ipython\n\n\n%%R\nlibrary(tidyverse)\ndf = mpg\nggplot(df)+geom_point(aes(x=displ,y=hwy))\n\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.2     ✔ readr     2.1.4\n✔ forcats   1.0.0     ✔ stringr   1.5.0\n✔ ggplot2   3.4.3     ✔ tibble    3.2.1\n✔ lubridate 1.9.2     ✔ tidyr     1.3.0\n✔ purrr     1.0.2     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors"
   },
   {
     "objectID": "posts/03wk-1.html#a.-xdispl-yhwy-shapeclass",
     "href": "posts/03wk-1.html#a.-xdispl-yhwy-shapeclass",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "A. x=displ, y=hwy, shape=class",
     "text": "A. x=displ, y=hwy, shape=class\n- 예시1\n\nggplot(df) + geom_point(aes(x='displ',y='hwy',shape='class'))\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#b.-xdispl-yhwy-colorclass",
     "href": "posts/03wk-1.html#b.-xdispl-yhwy-colorclass",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "B. x=displ, y=hwy, color=class",
     "text": "B. x=displ, y=hwy, color=class\n- 예시1\n\nggplot(df) + geom_point(aes(x='displ',y='hwy',color='class'))\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#c.-xdispl-yhwy-colorclass-shapeclass",
     "href": "posts/03wk-1.html#c.-xdispl-yhwy-colorclass-shapeclass",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "C. x=displ, y=hwy, color=class, shape=class",
     "text": "C. x=displ, y=hwy, color=class, shape=class\n- 예시1\n\nggplot(df) + geom_point(aes(x='displ',y='hwy',color='class',shape='class'))\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;\n\n\n- 예시2: 전체적으로 size를 크게..\n\nggplot(df) + geom_point(aes(x='displ',y='hwy',color='class',shape='class'),size=5)\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;\n\n\n- 예시3: 겹치는 부분이 있으니 좀 더 투명하게..\n\nggplot(df) + geom_point(aes(x='displ',y='hwy',color='class',shape='class'),size=5,alpha=0.5)\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#a.-xdispl-yhwy-colordrv-shapeclass",
     "href": "posts/03wk-1.html#a.-xdispl-yhwy-colordrv-shapeclass",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "A. x=displ, y=hwy, color=drv, shape=class",
     "text": "A. x=displ, y=hwy, color=drv, shape=class\n\nggplot(df) + geom_point(aes(x='displ',y='hwy',color='drv',shape='class'),size=5,alpha=0.5)\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#b.-xdispl-yhwy-colordrv-shapeclass-sizecyl",
     "href": "posts/03wk-1.html#b.-xdispl-yhwy-colordrv-shapeclass-sizecyl",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "B. x=displ, y=hwy, color=drv, shape=class, size=cyl",
     "text": "B. x=displ, y=hwy, color=drv, shape=class, size=cyl\n\nggplot(df) + geom_point(aes(x='displ',y='hwy',color='drv',shape='class',size='cyl'),alpha=0.5)\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#a.-fig",
     "href": "posts/03wk-1.html#a.-fig",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "A. fig",
     "text": "A. fig\n\nfig = ggplot(df) # ggplot은 클래스, fig는 ggplot에서 찍힌 인스턴스\nfig\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#b.-geom_point",
     "href": "posts/03wk-1.html#b.-geom_point",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "B. geom_point()",
     "text": "B. geom_point()\n\npoint = geom_point(aes(x='displ',y='hwy'))\npoint\n\n&lt;plotnine.geoms.geom_point.geom_point at 0x7f393731b090&gt;\n\n\n\nfig+point\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#c.-geom_smooth",
     "href": "posts/03wk-1.html#c.-geom_smooth",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "C. geom_smooth()",
     "text": "C. geom_smooth()\n\nsmooth = geom_smooth(aes(x='displ',y='hwy'))\n\n\nfig+smooth\n\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#d.-geom_point-geom_smooth",
     "href": "posts/03wk-1.html#d.-geom_point-geom_smooth",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "D. geom_point() + geom_smooth()",
     "text": "D. geom_point() + geom_smooth()\n\nfig + point + smooth\nggplot(df)+geom_point(aes(x='displ',y='hwy'))+geom_smooth(aes(x='displ',y='hwy'))\n\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#e.-geom_point-better",
     "href": "posts/03wk-1.html#e.-geom_point-better",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "E. geom_point() – better",
     "text": "E. geom_point() – better\n\n# ggplot(df) + geom_point(aes(x='displ',y='hwy',color='drv',size='cyl'),alpha=0.5)\npoint_better = geom_point(aes(x='displ',y='hwy',color='drv',size='cyl'),alpha=0.5)\n\n\nfig + point_better\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#f.-geom_smooth-better",
     "href": "posts/03wk-1.html#f.-geom_smooth-better",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "F. geom_smooth() – better",
     "text": "F. geom_smooth() – better\n\nfig = ggplot(df) \nsmooth_better = geom_smooth(aes(x='displ',y='hwy',color='drv'),linetype='dashed')\nfig+smooth_better\n\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#g.-다양한-조합",
     "href": "posts/03wk-1.html#g.-다양한-조합",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "G. 다양한 조합",
     "text": "G. 다양한 조합\n- 예시1: fig, point, smooth\n\nfig + point + smooth\n\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;\n\n\n- 예시2: fig, point_better, smooth_better\n\nfig + point_better + smooth_better\n\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;\n\n\n- 예시3: fig, point_better, smooth_better, smooth\n\nfig + point_better + smooth_better + smooth\n\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#a.-책-읽어보세요",
     "href": "posts/03wk-1.html#a.-책-읽어보세요",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "A. 책 읽어보세요",
     "text": "A. 책 읽어보세요\n- ref: https://product.kyobobook.co.kr/detail/S000000597846\n\n구매할만한 책입니다.\n수업에 필요한 내용은 여기에..\n\n- 내용요약 - 여름 \\(\\to\\) 수영장 \\(\\to\\) 소아마비 - 여름 \\(\\to\\) 아이스크림 - 아이스크림과 소아마비는 상관관계가 높다: 아이스크림 성분중에서 소아마비를 유발하는 유해물질이 있을 것이다 (?)"
   },
   {
     "objectID": "posts/03wk-1.html#b.-기상자료-다운로드",
     "href": "posts/03wk-1.html#b.-기상자료-다운로드",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "B. 기상자료 다운로드",
     "text": "B. 기상자료 다운로드\n- 기상자료 다운로드\n\ntemp=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/temp.csv').iloc[:,3].to_numpy()\n#temp\n\n\nplt.plot(temp) # 이럴때는 ggplot 보다 matplotlib 이 훨씬 편함"
   },
   {
     "objectID": "posts/03wk-1.html#c.-숨은진짜상황1-온도-to-아이스크림-판매량",
     "href": "posts/03wk-1.html#c.-숨은진짜상황1-온도-to-아이스크림-판매량",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "C. 숨은진짜상황1: 온도 \\(\\to\\) 아이스크림 판매량",
     "text": "C. 숨은진짜상황1: 온도 \\(\\to\\) 아이스크림 판매량\n- 아래와 같은 관계를 가정하자.\n\\[\\text{아이스크림 판매량} = 20 + 2 \\times \\text{온도} + \\text{오차}\\]\n\nnp.random.seed(1)\nicecream_sales = 20 + 2 * temp + np.random.randn(len(temp))*10\nplt.plot(temp,icecream_sales,'o',alpha=0.5)"
   },
   {
     "objectID": "posts/03wk-1.html#d.-숨은진짜상황2-온도-to-소아마비-반응수치",
     "href": "posts/03wk-1.html#d.-숨은진짜상황2-온도-to-소아마비-반응수치",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "D. 숨은진짜상황2: 온도 \\(\\to\\) 소아마비 반응수치",
     "text": "D. 숨은진짜상황2: 온도 \\(\\to\\) 소아마비 반응수치\n- 아래와 같은 관계를 가정하자.\n\\[\\text{소아마비 반응수치} = 30 + 0.5 \\times \\text{온도} + \\text{오차}\\]\n\nnp.random.seed(2)\ndisease = 30 + 0.5 * temp + np.random.randn(len(temp))*1\nplt.plot(temp, disease,'o',alpha=0.5)"
   },
   {
     "objectID": "posts/03wk-1.html#e.-우리가-관측한-상황-온도는-은닉되어-있음",
     "href": "posts/03wk-1.html#e.-우리가-관측한-상황-온도는-은닉되어-있음",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "E. 우리가 관측한 상황 (온도는 은닉되어 있음)",
     "text": "E. 우리가 관측한 상황 (온도는 은닉되어 있음)\n\nplt.plot(icecream_sales, disease, 'o', alpha=0.3)"
   },
   {
     "objectID": "posts/03wk-1.html#f.-여름만-뽑아서-플랏한다면",
     "href": "posts/03wk-1.html#f.-여름만-뽑아서-플랏한다면",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "F. 여름만 뽑아서 플랏한다면?",
     "text": "F. 여름만 뽑아서 플랏한다면?\n\nplt.plot(icecream_sales,disease,'o',alpha=0.3)\nplt.plot(icecream_sales[temp&gt;25], disease[temp&gt;25],'o')"
   },
   {
     "objectID": "posts/03wk-1.html#g.-ggplot으로-온도구간을-세분화-하여-시각화하자.",
     "href": "posts/03wk-1.html#g.-ggplot으로-온도구간을-세분화-하여-시각화하자.",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "G. ggplot으로 온도구간을 세분화 하여 시각화하자.",
     "text": "G. ggplot으로 온도구간을 세분화 하여 시각화하자.\n- 데이터를 데이터프레임으로\n\ndf = pd.DataFrame({'temp':temp, 'ice':icecream_sales, 'dis':disease})\ndf\n\n\n\n\n\n\n\n\ntemp\nice\ndis\n\n\n\n\n0\n-0.5\n35.243454\n29.333242\n\n\n1\n1.4\n16.682436\n30.643733\n\n\n2\n2.6\n19.918282\n29.163804\n\n\n3\n2.0\n13.270314\n32.640271\n\n\n4\n2.5\n33.654076\n29.456564\n\n\n...\n...\n...\n...\n\n\n651\n19.9\n68.839992\n39.633906\n\n\n652\n20.4\n76.554679\n38.920443\n\n\n653\n18.3\n68.666079\n39.882650\n\n\n654\n12.8\n42.771364\n36.613159\n\n\n655\n6.7\n30.736731\n34.902513\n\n\n\n\n656 rows × 3 columns\n\n\n\n- 구간별로 나눈변수를 추가\n\ndf.assign(temp_cut = pd.cut(df.temp,bins=5)) \n\n\n\n\n\n\n\n\ntemp\nice\ndis\ntemp_cut\n\n\n\n\n0\n-0.5\n35.243454\n29.333242\n(-3.92, 4.56]\n\n\n1\n1.4\n16.682436\n30.643733\n(-3.92, 4.56]\n\n\n2\n2.6\n19.918282\n29.163804\n(-3.92, 4.56]\n\n\n3\n2.0\n13.270314\n32.640271\n(-3.92, 4.56]\n\n\n4\n2.5\n33.654076\n29.456564\n(-3.92, 4.56]\n\n\n...\n...\n...\n...\n...\n\n\n651\n19.9\n68.839992\n39.633906\n(13.04, 21.52]\n\n\n652\n20.4\n76.554679\n38.920443\n(13.04, 21.52]\n\n\n653\n18.3\n68.666079\n39.882650\n(13.04, 21.52]\n\n\n654\n12.8\n42.771364\n36.613159\n(4.56, 13.04]\n\n\n655\n6.7\n30.736731\n34.902513\n(4.56, 13.04]\n\n\n\n\n656 rows × 4 columns\n\n\n\n- 시각화\n\nfig = ggplot(df.assign(temp_cut = pd.cut(df.temp,bins=7))) \npoint = geom_point(aes(x='ice',y='dis',color='temp_cut'),alpha=0.2)\nsmooth = geom_smooth(aes(x='ice',y='dis',color='temp_cut'),linetype='dashed')\nfig +point+ smooth\n\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#h.-진짜-아이스크림을-먹고-배탈이-났다면",
     "href": "posts/03wk-1.html#h.-진짜-아이스크림을-먹고-배탈이-났다면",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "H. 진짜 아이스크림을 먹고 배탈이 났다면?",
     "text": "H. 진짜 아이스크림을 먹고 배탈이 났다면?\n- 온도는 아이스크림 판매에 여전히 영향을 주지만\n\\[\\text{아이스크림 판매량} = 20 + 2 \\times \\text{온도} + \\text{오차}\\]\n\nnp.random.seed(1)\nicecream_sales = 20 + 2 * temp + np.random.randn(len(temp))*10\n\n- 수영장이 원인이 아니라 진짜 아이스크림을 먹고 소아마비에 걸린상황이라면?\n\\[\\text{소아마비 반응수치} = 30 + 0.0 \\times \\text{온도} + 0.15 \\times \\text{아이스크림 판매량} + \\text{오차}\\]\n\nnp.random.seed(2) \ndisease= 30+ 0*temp + 0.15*icecream_sales + np.random.randn(len(temp))*1\n\n- 그림을 한번 그려보자.\n\ndf2 = pd.DataFrame({'temp':temp,'ice':icecream_sales,'dis':disease})\ndf2.assign(temp_cut=pd.cut(df2.temp,bins=7))\n\n\n\n\n\n\n\n\ntemp\nice\ndis\ntemp_cut\n\n\n\n\n0\n-0.5\n35.243454\n34.869760\n(-6.343, -0.286]\n\n\n1\n1.4\n16.682436\n32.446099\n(-0.286, 5.771]\n\n\n2\n2.6\n19.918282\n30.851546\n(-0.286, 5.771]\n\n\n3\n2.0\n13.270314\n33.630818\n(-0.286, 5.771]\n\n\n4\n2.5\n33.654076\n33.254676\n(-0.286, 5.771]\n\n\n...\n...\n...\n...\n...\n\n\n651\n19.9\n68.839992\n40.009905\n(17.886, 23.943]\n\n\n652\n20.4\n76.554679\n40.203645\n(17.886, 23.943]\n\n\n653\n18.3\n68.666079\n41.032562\n(17.886, 23.943]\n\n\n654\n12.8\n42.771364\n36.628863\n(11.829, 17.886]\n\n\n655\n6.7\n30.736731\n36.163023\n(5.771, 11.829]\n\n\n\n\n656 rows × 4 columns\n\n\n\n\nfig = ggplot(df2.assign(temp_cut = pd.cut(df2.temp,bins=7))) \npoint = geom_point(aes(x='ice',y='dis',color='temp_cut'),alpha=0.2)\nsmooth = geom_smooth(aes(x='ice',y='dis',color='temp_cut'),linetype='dashed')\nfig + point + smooth\n\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.\n\n\n\n\n\n&lt;Figure Size: (900 x 750)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#i.-해석",
     "href": "posts/03wk-1.html#i.-해석",
-    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병 (draft)",
+    "title": "03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병",
     "section": "I. 해석",
     "text": "I. 해석\n- 해피앤딩: 아이스크림 먹어도 소아마비 안걸려!\n\n아이스크림을 먹으면 소아마비를 유발한다는 이상한 결론이 나올뻔 했음.\n하지만 우리는 온도라는 흑막1을 잘 찾았고 결과적으로 “온도-&gt;아이스크림판매량,소아마비” 이라는 합리적인 진리를 얻을 수 있었다.\n\n1 우리는 이것을 “은닉변수”라고 부르기로 했어요- 걱정: 또 다른 흑막?\n\n고려할 흑막이 온도뿐이라는 보장이 어디있지?\n사실 흑막2, 흑막3이 있어서 그런 흑막들을 고려하다보니까 아이스크림과 소아마비사이의 상관관계가 다시 보인다면?\n\n- 이론:\n\n이론적으로는 “세상의 모든 은닉변수를 통제하였을 경우에도 corr(X,Y)의 값이 1에 가깝다면 그때는 인과성이 있음” 이라고 주장할 수 있다.2\n즉 모든 흑막을 제거한다면 “상관성=인과성”이다.\n\n2 물론 이 경우에도 무엇이 원인인지는 통계적으로 따지는 것은 불가- 회의론:\n\n세상의 모든 흑막을 제거하는건 사실상 불가능하지 않나?\n\n- 두 가지 연구흐름\n\n실험계획법: 실험계획을 잘하면 흑막을 제거한 효과가 있음.3\n인과추론: 실험계획이 사실상 불가능한 경우가 있음 \\(\\to\\) 모인 데이터에서 최대한 흑막2,3,4,.. 등이 비슷한 그룹끼리 “매칭”을 시킨다!\n\n3 무작위로 사람뽑아서 담배를 피우게 한다든가"
   },
