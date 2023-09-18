@@ -249,16 +249,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="783e5c14-8a1b-4872-9e43-dda997db6f8b" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># !pip install plotnine -- 설치해야해요~</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="375347eb-711c-4ea9-b378-5e2dfe264711" class="cell" data-execution_count="1">
+<div id="375347eb-711c-4ea9-b378-5e2dfe264711" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="0c31485a-8f81-4b38-9c2b-a461c8443f97" class="cell" data-execution_count="2">
+<div id="0c31485a-8f81-4b38-9c2b-a461c8443f97" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> plotnine</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="a26e2db6-201b-4e21-bb9c-b7d49d9e610b" class="cell" data-execution_count="3">
+<div id="a26e2db6-201b-4e21-bb9c-b7d49d9e610b" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plotnine.options.dpi<span class="op">=</span> <span class="dv">150</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plotnine.options.figure_size <span class="op">=</span> (<span class="dv">6</span>, <span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -271,203 +271,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="21f97f56-87a3-420f-8962-347e560fcc6d" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/mpg.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="765ff225-3834-45a8-a3c1-8b777ca95a6c" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">manufacturer</th>
-<th data-quarto-table-cell-role="th">model</th>
-<th data-quarto-table-cell-role="th">displ</th>
-<th data-quarto-table-cell-role="th">year</th>
-<th data-quarto-table-cell-role="th">cyl</th>
-<th data-quarto-table-cell-role="th">trans</th>
-<th data-quarto-table-cell-role="th">drv</th>
-<th data-quarto-table-cell-role="th">cty</th>
-<th data-quarto-table-cell-role="th">hwy</th>
-<th data-quarto-table-cell-role="th">fl</th>
-<th data-quarto-table-cell-role="th">class</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>audi</td>
-<td>a4</td>
-<td>1.8</td>
-<td>1999</td>
-<td>4</td>
-<td>auto(l5)</td>
-<td>f</td>
-<td>18</td>
-<td>29</td>
-<td>p</td>
-<td>compact</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>audi</td>
-<td>a4</td>
-<td>1.8</td>
-<td>1999</td>
-<td>4</td>
-<td>manual(m5)</td>
-<td>f</td>
-<td>21</td>
-<td>29</td>
-<td>p</td>
-<td>compact</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>audi</td>
-<td>a4</td>
-<td>2.0</td>
-<td>2008</td>
-<td>4</td>
-<td>manual(m6)</td>
-<td>f</td>
-<td>20</td>
-<td>31</td>
-<td>p</td>
-<td>compact</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>audi</td>
-<td>a4</td>
-<td>2.0</td>
-<td>2008</td>
-<td>4</td>
-<td>auto(av)</td>
-<td>f</td>
-<td>21</td>
-<td>30</td>
-<td>p</td>
-<td>compact</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>audi</td>
-<td>a4</td>
-<td>2.8</td>
-<td>1999</td>
-<td>6</td>
-<td>auto(l5)</td>
-<td>f</td>
-<td>16</td>
-<td>26</td>
-<td>p</td>
-<td>compact</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">229</td>
-<td>volkswagen</td>
-<td>passat</td>
-<td>2.0</td>
-<td>2008</td>
-<td>4</td>
-<td>auto(s6)</td>
-<td>f</td>
-<td>19</td>
-<td>28</td>
-<td>p</td>
-<td>midsize</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">230</td>
-<td>volkswagen</td>
-<td>passat</td>
-<td>2.0</td>
-<td>2008</td>
-<td>4</td>
-<td>manual(m6)</td>
-<td>f</td>
-<td>21</td>
-<td>29</td>
-<td>p</td>
-<td>midsize</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">231</td>
-<td>volkswagen</td>
-<td>passat</td>
-<td>2.8</td>
-<td>1999</td>
-<td>6</td>
-<td>auto(l5)</td>
-<td>f</td>
-<td>16</td>
-<td>26</td>
-<td>p</td>
-<td>midsize</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">232</td>
-<td>volkswagen</td>
-<td>passat</td>
-<td>2.8</td>
-<td>1999</td>
-<td>6</td>
-<td>manual(m5)</td>
-<td>f</td>
-<td>18</td>
-<td>26</td>
-<td>p</td>
-<td>midsize</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">233</td>
-<td>volkswagen</td>
-<td>passat</td>
-<td>3.6</td>
-<td>2008</td>
-<td>6</td>
-<td>auto(s6)</td>
-<td>f</td>
-<td>17</td>
-<td>26</td>
-<td>p</td>
-<td>midsize</td>
-</tr>
-</tbody>
-</table>
-
-<p>234 rows × 11 columns</p>
-</div>
-</div>
-</div>
 </section>
 <section id="b.-descriptions" class="level2">
 <h2 class="anchored" data-anchor-id="b.-descriptions">B. descriptions</h2>
 <p><code>-</code> 컬럼들의 이름을 출력.</p>
-<div id="c97cf3e7-cd64-49ef-a304-fcfaec80dda4" class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="7">
-<pre><code>Index(['manufacturer', 'model', 'displ', 'year', 'cyl', 'trans', 'drv', 'cty',
-       'hwy', 'fl', 'class'],
-      dtype='object')</code></pre>
-</div>
-</div>
 <p><code>-</code> ChatGPT에 문의</p>
 <p><img src="lecture_files/figure-html/b4416c5a-f094-4b20-8200-a449840334dd-1-d0bca24b-da24-41af-8954-a415135b817c.png" class="img-fluid"></p>
 </section>
@@ -477,54 +284,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a.-xdispl-yhwy" class="level2">
 <h2 class="anchored" data-anchor-id="a.-xdispl-yhwy">A. <code>x=displ</code>, <code>y=hwy</code></h2>
 <p><code>-</code> 예시1: 정직하게 매뉴얼대로..</p>
-<div id="d6a6d5be-5e54-45c0-924c-8a4840171b31" class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ggplot(data<span class="op">=</span>df) <span class="op">+\</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>geom_point(mapping<span class="op">=</span>aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="8">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 <p><code>-</code> 예시2: <code>data=</code>와 <code>mapping=</code>은 생략가능하다.</p>
-<div id="c4e10722-e93f-40e5-b919-15c8979fedcf" class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ggplot(df)<span class="op">+</span>geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="9">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 <section id="b.-rpy2" class="level2">
 <h2 class="anchored" data-anchor-id="b.-rpy2">B. <code>rpy2</code></h2>
 <p><code>-</code> 예시: R에서도 거의 똑같은 문법으로 그릴수 있음 (1타2피..)</p>
 <div id="a74eff7b-9294-4432-ab05-7eb1d5d091a2" class="cell" data-execution_count="10">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rpy2</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>load_ext rpy2.ipython</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="84c480a6-abd7-4f0a-a518-93ef0a3f501b" class="cell" data-execution_count="11">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="op">%%</span>R</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>library(tidyverse)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> mpg</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>ggplot(df)<span class="op">+</span>geom_point(aes(x<span class="op">=</span>displ,y<span class="op">=</span>hwy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.2     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.3     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.2     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
-</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> rpy2</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>load_ext rpy2.ipython</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -533,253 +300,54 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a.-xdispl-yhwy-shapeclass" class="level2">
 <h2 class="anchored" data-anchor-id="a.-xdispl-yhwy-shapeclass">A. <code>x=displ</code>, <code>y=hwy</code>, <code>shape=class</code></h2>
 <p><code>-</code> 예시1</p>
-<div id="a04cb178-91b2-4af2-8a90-44a74d331b4b" class="cell" data-execution_count="12">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>ggplot(df) <span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,shape<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-14-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="12">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 <section id="b.-xdispl-yhwy-colorclass" class="level2">
 <h2 class="anchored" data-anchor-id="b.-xdispl-yhwy-colorclass">B. <code>x=displ</code>, <code>y=hwy</code>, <code>color=class</code></h2>
 <p><code>-</code> 예시1</p>
-<div id="1c65b418-0b16-463c-a159-4875809220a7" class="cell" data-execution_count="13">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>ggplot(df) <span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="13">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 <section id="c.-xdispl-yhwy-colorclass-shapeclass" class="level2">
 <h2 class="anchored" data-anchor-id="c.-xdispl-yhwy-colorclass-shapeclass">C. <code>x=displ</code>, <code>y=hwy</code>, <code>color=class</code>, <code>shape=class</code></h2>
 <p><code>-</code> 예시1</p>
-<div id="31a551c9-8b02-4be8-b8c2-75ac0d99e596" class="cell" data-execution_count="14">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>ggplot(df) <span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'class'</span>,shape<span class="op">=</span><span class="st">'class'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-16-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="14">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 <p><code>-</code> 예시2: 전체적으로 size를 크게..</p>
-<div id="7fe5bb9a-6f07-47d5-a2be-fa3a3d1d9cec" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ggplot(df) <span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'class'</span>,shape<span class="op">=</span><span class="st">'class'</span>),size<span class="op">=</span><span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-17-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="15">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 <p><code>-</code> 예시3: 겹치는 부분이 있으니 좀 더 투명하게..</p>
-<div id="b530d557-e5f3-43d1-b187-63a4137c0e81" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>ggplot(df) <span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'class'</span>,shape<span class="op">=</span><span class="st">'class'</span>),size<span class="op">=</span><span class="dv">5</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-18-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="16">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 </section>
 <section id="mpg의-시각화-4차원-5차원" class="level1">
 <h1>6. <code>mpg</code>의 시각화: 4차원, 5차원</h1>
 <section id="a.-xdispl-yhwy-colordrv-shapeclass" class="level2">
 <h2 class="anchored" data-anchor-id="a.-xdispl-yhwy-colordrv-shapeclass">A. <code>x=displ</code>, <code>y=hwy</code>, <code>color=drv</code>, <code>shape=class</code></h2>
-<div id="8f156c89-aae8-42aa-b143-d47ca43b71f1" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>ggplot(df) <span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'drv'</span>,shape<span class="op">=</span><span class="st">'class'</span>),size<span class="op">=</span><span class="dv">5</span>,alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="17">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 <section id="b.-xdispl-yhwy-colordrv-shapeclass-sizecyl" class="level2">
 <h2 class="anchored" data-anchor-id="b.-xdispl-yhwy-colordrv-shapeclass-sizecyl">B. <code>x=displ</code>, <code>y=hwy</code>, <code>color=drv</code>, <code>shape=class</code>, <code>size=cyl</code></h2>
-<div id="460804c7-9edc-4cbe-bf0b-3215fc6d593c" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>ggplot(df) <span class="op">+</span> geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'drv'</span>,shape<span class="op">=</span><span class="st">'class'</span>,size<span class="op">=</span><span class="st">'cyl'</span>),alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="18">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 </section>
 <section id="객체지향적-시각화" class="level1">
 <h1>7. 객체지향적 시각화</h1>
 <p><code>-</code> <code>ggplot</code>은 정체가 뭐지?</p>
-<div id="5aa93e1e-d369-453b-b0e3-09884e87543b" class="cell" data-execution_count="19">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(ggplot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="19">
-<pre><code>type</code></pre>
-</div>
-</div>
 <p><code>-</code> <code>geom_point</code>은 정체가 뭐지?</p>
-<div id="4b29ae31-dc61-412d-bedd-8c01bc0d9b2a" class="cell" data-execution_count="20">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="bu">type</span>(geom_point)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
-<pre><code>plotnine.utils.Registry</code></pre>
-</div>
-</div>
 <section id="a.-fig" class="level2">
 <h2 class="anchored" data-anchor-id="a.-fig">A. <code>fig</code></h2>
-<div id="0c32e7c9-6f57-42de-8a32-4fd861ef3d86" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(df) <span class="co"># ggplot은 클래스, fig는 ggplot에서 찍힌 인스턴스</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 <section id="b.-geom_point" class="level2">
 <h2 class="anchored" data-anchor-id="b.-geom_point">B. <code>geom_point()</code></h2>
-<div id="2c8417a1-aa59-4732-9ce3-944c9f4ae7c6" class="cell" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>))</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>point</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
-<pre><code>&lt;plotnine.geoms.geom_point.geom_point at 0x7f62eeec9f50&gt;</code></pre>
-</div>
-</div>
-<div id="997b0c09-b63a-4599-ac49-0dfc2b99a7b8" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>fig<span class="op">+</span>point</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="23">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 <section id="c.-geom_smooth" class="level2">
 <h2 class="anchored" data-anchor-id="c.-geom_smooth">C. <code>geom_smooth()</code></h2>
-<div id="5323958c-4750-4a57-ab00-24447250e0e0" class="cell" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="f6514923-dfc1-4679-9b22-dc68c02cedab" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>fig<span class="op">+</span>smooth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-27-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="25">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 <section id="d.-geom_point-geom_smooth" class="level2">
 <h2 class="anchored" data-anchor-id="d.-geom_point-geom_smooth">D. <code>geom_point()</code> + <code>geom_smooth()</code></h2>
-<div id="098e327c-c81f-443d-b0ed-86220d9ce22e" class="cell" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> smooth</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>ggplot(df)<span class="op">+</span>geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>))<span class="op">+</span>geom_smooth(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-28-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="26">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 <section id="e.-geom_point-better" class="level2">
 <h2 class="anchored" data-anchor-id="e.-geom_point-better">E. <code>geom_point()</code> – better</h2>
-<div id="d9da607e-d907-4226-9f90-2af16fd2f32f" class="cell" data-execution_count="27">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(df) + geom_point(aes(x='displ',y='hwy',color='drv',size='cyl'),alpha=0.5)</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>point_better <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'drv'</span>,size<span class="op">=</span><span class="st">'cyl'</span>),alpha<span class="op">=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="59c21a28-2093-479c-8e4a-5dd147f24f54" class="cell" data-execution_count="28">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point_better</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-30-output-1.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="28">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 <section id="f.-geom_smooth-better" class="level2">
 <h2 class="anchored" data-anchor-id="f.-geom_smooth-better">F. <code>geom_smooth()</code> – better</h2>
-<div id="6ff725c0-4a95-4fd1-bec5-aaee724791fb" class="cell" data-execution_count="29">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(df) </span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>smooth_better <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'displ'</span>,y<span class="op">=</span><span class="st">'hwy'</span>,color<span class="op">=</span><span class="st">'drv'</span>),linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>fig<span class="op">+</span>smooth_better</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-31-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="29">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 <section id="g.-다양한-조합" class="level2">
 <h2 class="anchored" data-anchor-id="g.-다양한-조합">G. 다양한 조합</h2>
 <p><code>-</code> 예시1: fig, point, smooth</p>
-<div id="e9e73f63-e317-4fd7-95fb-5633c25e2057" class="cell" data-execution_count="30">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> smooth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-32-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="30">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 <p><code>-</code> 예시2: fig, point_better, smooth_better</p>
-<div id="dd2f1ea8-5162-4d82-bb0d-8d869978da10" class="cell" data-execution_count="31">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point_better <span class="op">+</span> smooth_better</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-33-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="31">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 <p><code>-</code> 예시3: fig, point_better, smooth_better, smooth</p>
-<div id="82665256-24cb-4a96-ade4-cf22a02e8280" class="cell" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point_better <span class="op">+</span> smooth_better <span class="op">+</span> smooth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-34-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="32">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 </section>
 <section id="아이스크림을-많이-먹으면-걸리는-병" class="level1 page-columns page-full">
@@ -797,304 +365,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="b.-기상자료-다운로드">B. 기상자료 다운로드</h2>
 <p><code>-</code> 기상자료 다운로드</p>
 <div id="e942d7c3-7eb9-4da2-a1ef-04915f97f7eb" class="cell" data-execution_count="33">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>temp<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/temp.csv'</span>).iloc[:,<span class="dv">3</span>].to_numpy()</span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a><span class="co">#temp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="77d54910-0bad-4a91-8bdb-ba76fcc837b9" class="cell" data-execution_count="58">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>plt.plot(temp) <span class="co"># 이럴때는 ggplot 보다 matplotlib 이 훨씬 편함</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
-</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>temp<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/temp.csv'</span>).iloc[:,<span class="dv">3</span>].to_numpy()</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#temp</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="c.-숨은진짜상황1-온도-to-아이스크림-판매량" class="level2">
 <h2 class="anchored" data-anchor-id="c.-숨은진짜상황1-온도-to-아이스크림-판매량">C. 숨은진짜상황1: 온도 <span class="math inline">\(\to\)</span> 아이스크림 판매량</h2>
 <p><code>-</code> 아래와 같은 관계를 가정하자.</p>
 <p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \text{오차}\]</span></p>
-<div id="ab33ed2b-6d3e-4e59-9b05-a823907d484e" class="cell" data-execution_count="82">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">1</span>)</span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>icecream <span class="op">=</span> <span class="dv">20</span> <span class="op">+</span> <span class="dv">2</span> <span class="op">*</span> temp <span class="op">+</span> np.random.randn(<span class="bu">len</span>(temp))<span class="op">*</span><span class="dv">10</span></span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>plt.plot(temp,icecream,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-37-output-1.png" class="img-fluid"></p>
-</div>
-</div>
 </section>
 <section id="d.-숨은진짜상황2-온도-to-소아마비-반응수치" class="level2">
 <h2 class="anchored" data-anchor-id="d.-숨은진짜상황2-온도-to-소아마비-반응수치">D. 숨은진짜상황2: 온도 <span class="math inline">\(\to\)</span> 소아마비 반응수치</h2>
 <p><code>-</code> 아래와 같은 관계를 가정하자.</p>
 <p><span class="math display">\[\text{소아마비 반응수치} = 30 + 0.5 \times \text{온도} + \text{오차}\]</span></p>
-<div id="7f2e4d16-ced9-4965-8bd4-2aa57fdd9140" class="cell" data-execution_count="87">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>)</span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>disease <span class="op">=</span> <span class="dv">30</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> temp <span class="op">+</span> np.random.randn(<span class="bu">len</span>(temp))<span class="op">*</span><span class="dv">1</span></span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>plt.plot(temp,disease,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-38-output-1.png" class="img-fluid"></p>
-</div>
-</div>
 </section>
 <section id="e.-우리가-관측한-상황-온도는-은닉되어-있음" class="level2">
 <h2 class="anchored" data-anchor-id="e.-우리가-관측한-상황-온도는-은닉되어-있음">E. 우리가 관측한 상황 (온도는 은닉되어 있음)</h2>
-<div id="2cec5fe2-1c53-431c-8223-4c054a9a9cd2" class="cell" data-execution_count="88">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>plt.plot(icecream, disease, <span class="st">'o'</span>, alpha<span class="op">=</span><span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-39-output-1.png" class="img-fluid"></p>
-</div>
-</div>
-<div id="ff9dcce3-498d-4114-a147-7828d1cb5c3d" class="cell" data-execution_count="89">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>np.corrcoef(icecream,disease)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="89">
-<pre><code>array([[1.        , 0.86298975],
-       [0.86298975, 1.        ]])</code></pre>
-</div>
-</div>
 </section>
 <section id="f.-여름만-뽑아서-플랏한다면" class="level2">
 <h2 class="anchored" data-anchor-id="f.-여름만-뽑아서-플랏한다면">F. 여름만 뽑아서 플랏한다면?</h2>
-<div id="8a438d5d-93c9-4b93-8a07-43926766ef2a" class="cell" data-execution_count="96">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>plt.plot(icecream,disease,<span class="st">'o'</span>,alpha<span class="op">=</span><span class="fl">0.3</span>)</span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>plt.plot(icecream[temp<span class="op">&gt;</span><span class="dv">25</span>], disease[temp<span class="op">&gt;</span><span class="dv">25</span>],<span class="st">'o'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-41-output-1.png" class="img-fluid"></p>
-</div>
-</div>
 </section>
 <section id="g.-ggplot으로-온도구간을-세분화-하여-시각화하자." class="level2">
 <h2 class="anchored" data-anchor-id="g.-ggplot으로-온도구간을-세분화-하여-시각화하자.">G. <code>ggplot</code>으로 온도구간을 세분화 하여 시각화하자.</h2>
 <p><code>-</code> 데이터를 데이터프레임으로</p>
-<div id="216eb67c-4832-4868-9765-f13a45a9ac06" class="cell" data-execution_count="99">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'temp'</span>:temp, <span class="st">'ice'</span>:icecream, <span class="st">'dis'</span>:disease})</span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="99">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">temp</th>
-<th data-quarto-table-cell-role="th">ice</th>
-<th data-quarto-table-cell-role="th">dis</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>-0.5</td>
-<td>35.243454</td>
-<td>29.333242</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>1.4</td>
-<td>16.682436</td>
-<td>30.643733</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2.6</td>
-<td>19.918282</td>
-<td>29.163804</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2.0</td>
-<td>13.270314</td>
-<td>32.640271</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2.5</td>
-<td>33.654076</td>
-<td>29.456564</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">651</td>
-<td>19.9</td>
-<td>68.839992</td>
-<td>39.633906</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">652</td>
-<td>20.4</td>
-<td>76.554679</td>
-<td>38.920443</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">653</td>
-<td>18.3</td>
-<td>68.666079</td>
-<td>39.882650</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">654</td>
-<td>12.8</td>
-<td>42.771364</td>
-<td>36.613159</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">655</td>
-<td>6.7</td>
-<td>30.736731</td>
-<td>34.902513</td>
-</tr>
-</tbody>
-</table>
-
-<p>656 rows × 3 columns</p>
-</div>
-</div>
-</div>
 <p><code>-</code> 구간별로 나눈변수를 추가</p>
-<div id="959619a2-2a0d-483a-9363-42b566f8da9a" class="cell" data-execution_count="104">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>df.assign(temp_cut <span class="op">=</span> pd.cut(df.temp,bins<span class="op">=</span><span class="dv">5</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="104">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">temp</th>
-<th data-quarto-table-cell-role="th">ice</th>
-<th data-quarto-table-cell-role="th">dis</th>
-<th data-quarto-table-cell-role="th">temp_cut</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>-0.5</td>
-<td>35.243454</td>
-<td>29.333242</td>
-<td>(-3.92, 4.56]</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>1.4</td>
-<td>16.682436</td>
-<td>30.643733</td>
-<td>(-3.92, 4.56]</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>2.6</td>
-<td>19.918282</td>
-<td>29.163804</td>
-<td>(-3.92, 4.56]</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>2.0</td>
-<td>13.270314</td>
-<td>32.640271</td>
-<td>(-3.92, 4.56]</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>2.5</td>
-<td>33.654076</td>
-<td>29.456564</td>
-<td>(-3.92, 4.56]</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-<td>...</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">651</td>
-<td>19.9</td>
-<td>68.839992</td>
-<td>39.633906</td>
-<td>(13.04, 21.52]</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">652</td>
-<td>20.4</td>
-<td>76.554679</td>
-<td>38.920443</td>
-<td>(13.04, 21.52]</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">653</td>
-<td>18.3</td>
-<td>68.666079</td>
-<td>39.882650</td>
-<td>(13.04, 21.52]</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">654</td>
-<td>12.8</td>
-<td>42.771364</td>
-<td>36.613159</td>
-<td>(4.56, 13.04]</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">655</td>
-<td>6.7</td>
-<td>30.736731</td>
-<td>34.902513</td>
-<td>(4.56, 13.04]</td>
-</tr>
-</tbody>
-</table>
-
-<p>656 rows × 4 columns</p>
-</div>
-</div>
-</div>
 <p><code>-</code> 시각화</p>
-<div id="b95de191-7d76-4932-b5ea-f9dde1d509fc" class="cell" data-execution_count="126">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(df.assign(temp_cut <span class="op">=</span> pd.cut(df.temp,bins<span class="op">=</span><span class="dv">7</span>))) </span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'ice'</span>,y<span class="op">=</span><span class="st">'dis'</span>,color<span class="op">=</span><span class="st">'temp_cut'</span>),alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'ice'</span>,y<span class="op">=</span><span class="st">'dis'</span>,color<span class="op">=</span><span class="st">'temp_cut'</span>),linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
-<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span>point<span class="op">+</span> smooth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
-/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
-</div>
-<div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-44-output-2.png" class="img-fluid"></p>
-</div>
-<div class="cell-output cell-output-display" data-execution_count="126">
-<pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
-</div>
-</div>
 </section>
 <section id="h.-진짜-아이스크림을-먹고-배탈이-났다면" class="level2">
 <h2 class="anchored" data-anchor-id="h.-진짜-아이스크림을-먹고-배탈이-났다면">H. 진짜 아이스크림을 먹고 배탈이 났다면?</h2>
 <p><code>-</code> 온도는 아이스크림 판매에 여전히 영향을 주지만</p>
 <p><span class="math display">\[\text{아이스크림 판매량} = 20 + 2 \times \text{온도} + \text{오차}\]</span></p>
 <div id="c06f546a-7781-4198-991d-ee6c2aebdfb1" class="cell" data-execution_count="143">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>)</span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>disease <span class="op">=</span> <span class="dv">30</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> temp <span class="op">+</span> np.random.randn(<span class="bu">len</span>(temp))<span class="op">*</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>disease <span class="op">=</span> <span class="dv">30</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">*</span> temp <span class="op">+</span> np.random.randn(<span class="bu">len</span>(temp))<span class="op">*</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 수영장이 원인이 아니라 진짜 아이스크림을 먹고 소아마비에 걸린상황이라면?</p>
 <p><span class="math display">\[\text{소아마비 반응수치} = 30 + 0.0 \times \text{온도} + 0.15 \times \text{아이스크림 판매량} + \text{오차}\]</span></p>
 <div id="f3156ed4-938b-490d-9ae4-57ac1268faa2" class="cell" data-execution_count="134">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>) </span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>disease<span class="op">=</span> <span class="dv">30</span><span class="op">+</span> <span class="dv">0</span><span class="op">*</span>temp <span class="op">+</span> <span class="fl">0.15</span><span class="op">*</span>icecream <span class="op">+</span> np.random.normal(size<span class="op">=</span><span class="bu">len</span>(temp),scale<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">2</span>) </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>disease<span class="op">=</span> <span class="dv">30</span><span class="op">+</span> <span class="dv">0</span><span class="op">*</span>temp <span class="op">+</span> <span class="fl">0.15</span><span class="op">*</span>icecream <span class="op">+</span> np.random.normal(size<span class="op">=</span><span class="bu">len</span>(temp),scale<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 그림을 한번 그려보자.</p>
 <div id="2922246c-e74f-47dc-a02c-a857aa328890" class="cell" data-execution_count="140">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame({<span class="st">'temp'</span>:temp,<span class="st">'ice'</span>:icecream,<span class="st">'dis'</span>:disease})</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>df2.assign(temp_cut<span class="op">=</span>pd.cut(df2.temp,bins<span class="op">=</span><span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame({<span class="st">'temp'</span>:temp,<span class="st">'ice'</span>:icecream,<span class="st">'dis'</span>:disease})</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>df2.assign(temp_cut<span class="op">=</span>pd.cut(df2.temp,bins<span class="op">=</span><span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="140">
 <div>
 
@@ -1195,10 +509,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div id="52d9a2f2-8476-4ba5-82bb-f24e101879c0" class="cell" data-execution_count="142">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(df2.assign(temp_cut <span class="op">=</span> pd.cut(df2.temp,bins<span class="op">=</span><span class="dv">7</span>))) </span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'ice'</span>,y<span class="op">=</span><span class="st">'dis'</span>,color<span class="op">=</span><span class="st">'temp_cut'</span>),alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
-<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'ice'</span>,y<span class="op">=</span><span class="st">'dis'</span>,color<span class="op">=</span><span class="st">'temp_cut'</span>),linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
-<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> smooth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(df2.assign(temp_cut <span class="op">=</span> pd.cut(df2.temp,bins<span class="op">=</span><span class="dv">7</span>))) </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'ice'</span>,y<span class="op">=</span><span class="st">'dis'</span>,color<span class="op">=</span><span class="st">'temp_cut'</span>),alpha<span class="op">=</span><span class="fl">0.2</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'ice'</span>,y<span class="op">=</span><span class="st">'dis'</span>,color<span class="op">=</span><span class="st">'temp_cut'</span>),linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> smooth</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
 /home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
@@ -1209,7 +523,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 /home/cgb2/anaconda3/envs/r/lib/python3.11/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="lecture_files/figure-html/cell-48-output-2.png" class="img-fluid"></p>
+<p><img src="lecture_files/figure-html/cell-13-output-2.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="142">
 <pre><code>&lt;Figure Size: (900 x 750)&gt;</code></pre>
