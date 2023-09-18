@@ -26,4 +26,6 @@ title-block-banner: false
 - 2022-중간: <https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html>
 - 2022-기말: <https://guebin.github.io/DV2022/posts/2022-12-19-final.html>
 
-**강의노트** 
+**공지사항** 
+
+- 9월27일, 10월2일 수업은 영상콘텐츠 업로드로 대체합니다. 
