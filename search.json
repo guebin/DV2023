@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "데이터 시각화 (2023)",
     "section": "",
-    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n기출문제\n\n2021-중간: https://guebin.github.io/DV2021/2021/11/08/midsol.html\n2021-기말: https://guebin.github.io/DV2021/2021/12/03/데이터시각화-기말고사.html, 1~2번 풀이\n2022-중간: https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html\n2022-기말: https://guebin.github.io/DV2022/posts/2022-12-19-final.html\n\n공지사항\n\n9월27일, 10월2일 수업은 영상콘텐츠 업로드로 대체합니다.\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 18, 2023\n\n\n03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병\n\n\n최규빈 \n\n\n\n\nSep 13, 2023\n\n\n02wk-2: Seaborn 간략한 소개, 훌륭한 시각화\n\n\n최규빈 \n\n\n\n\nSep 11, 2023\n\n\n02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제 1-2\n\n\n최규빈 \n\n\n\n\nSep 6, 2023\n\n\n01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)\n\n\n최규빈 \n\n\n\n\nSep 4, 2023\n\n\n01wk-1: 박스플랏, 히스토그램\n\n\n최규빈 \n\n\n\n\n\nNo matching items"
+    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n기출문제\n\n2021-중간: https://guebin.github.io/DV2021/2021/11/08/midsol.html\n2021-기말: https://guebin.github.io/DV2021/2021/12/03/데이터시각화-기말고사.html, 1~2번 풀이\n2022-중간: https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html\n2022-기말: https://guebin.github.io/DV2022/posts/2022-12-19-final.html\n\n공지사항\n\n9월27일, 10월2일 수업은 영상콘텐츠 업로드로 대체합니다.\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nSep 20, 2023\n\n\n03wk-2: (draft)\n\n\n최규빈 \n\n\n\n\nSep 18, 2023\n\n\n03wk-1: plotnine, 아이스크림을 많이 먹으면 걸리는 병\n\n\n최규빈 \n\n\n\n\nSep 13, 2023\n\n\n02wk-2: Seaborn 간략한 소개, 훌륭한 시각화\n\n\n최규빈 \n\n\n\n\nSep 11, 2023\n\n\n02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제 1-2\n\n\n최규빈 \n\n\n\n\nSep 6, 2023\n\n\n01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)\n\n\n최규빈 \n\n\n\n\nSep 4, 2023\n\n\n01wk-1: 박스플랏, 히스토그램\n\n\n최규빈 \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/01wk-1.html",
@@ -82,6 +82,97 @@
     "title": "01wk-1: 박스플랏, 히스토그램",
     "section": "C. 히스토그램 이퀄라이제이션",
     "text": "C. 히스토그램 이퀄라이제이션\n- 우리가 관심있었던 이미지\n\nplt.imshow(img)\n\n&lt;matplotlib.image.AxesImage at 0x7fd835dd4890&gt;\n\n\n\n\n\n- 이미지를 rgb로 각각 분리하고 각 색깔들의 히스토그램을 그려보자.\n\nr = img[:,:,0]\ng = img[:,:,1]\nb = img[:,:,2]\n\n\nplt.hist(r.reshape(-1),range=(0,255),bins=255);\n\n\n\n\n\n120-200 사이에 값이 몰려있음\n만약에 120-200까지의 분포된 모양은 그대로 유지하면서 range를 0-255 까지 늘린다면?\n\n- cv2.equalizeHist()를 이용하여 분포의 모양은 대략적으로 유지하면서 값을 퍼트리자!\n\nrr = cv2.equalizeHist(r)\ngg = cv2.equalizeHist(g)\nbb = cv2.equalizeHist(b)\n\n\nplt.hist(r.reshape(-1),bins=255, range=[0,255],label='befor');\nplt.hist(rr.reshape(-1),bins=255,range=[0,255],label='after');\nplt.legend()\n\n&lt;matplotlib.legend.Legend at 0x7f52ef3197d0&gt;\n\n\n\n\n\n- 변환이후의 이미지를 그려본다면?\n\nimg2 = np.stack([rr,gg,bb],axis=-1)\n\n\nplt.imshow(img2)\n\n&lt;matplotlib.image.AxesImage at 0x7f52ce3a3810&gt;\n\n\n\n\n\n\nplt.imshow(np.concatenate([img,img2],axis=1))\n\n&lt;matplotlib.image.AxesImage at 0x7f52cde1b290&gt;"
+  },
+  {
+    "objectID": "posts/02wk-2.html#a.-애드워드-터프티",
+    "href": "posts/02wk-2.html#a.-애드워드-터프티",
+    "title": "02wk-2: Seaborn 간략한 소개, 훌륭한 시각화",
+    "section": "A. 애드워드 터프티",
+    "text": "A. 애드워드 터프티\n- 데이터 시각화계의 거장\n- 터프티의 이론중 백미: 엄격한 미니멀리즘\n\n최소한의 잉크로 많은 정보를 전달할 수 있다면 그것이 바로 좋은 그래프이다.\n작은 지면 내에서 잉크를 최대한 적게 써서 짧은 시간 안에 많은 영감을 주어야 한다.\n\n- 데이터-잉크비: 데이터를 표현하는데 들아가는 잉크의 양 / 그래픽을 인쇄하는데 들어가는 잉크의 총량\n- 차트정크 (나이젤홈즈의 그래프)\n\n\n“Lurking behind chartjunk is contempt both for information and for the audience. Chartjunk promoters imagine that numbers and details are boring, dull, and tedious, requiring ornament to enliven. Cosmetic decoration, which frequently distorts the data, will never salvage an underlying lack of content. If the numbers are boring, then you’ve got the wrong numbers (…) Worse is contempt for our audience, designing as if readers were obtuse and uncaring. In fact, consumers of graphics are often more intelligent about the information at hand than those who fabricate the data decoration (…) The operating moral premise of information design should be that our readers are alert and caring; they may be busy, eager to get on with it, but they are not stupid.”\n\n\n차트정크 = 대중을 멸시 + 데이터에 대한 모독\n차트정크 옹호가는 숫자와 데이터가 지루하여 활기가 필요하다고 생각하는 모양이다..\n\n- 별로인 그래프 (왼쪽) / 우수한 그래프 오른쪽\n\n- 별로인 그래프 (왼쪽) / 우수한 그래프 오른쪽\n\n- 별로인 그래프 (왼쪽) / 우수한 그래프 오른쪽\n\n- 제 생각: 글쎄…"
+  },
+  {
+    "objectID": "posts/02wk-2.html#b.-찰스미나드의-도표",
+    "href": "posts/02wk-2.html#b.-찰스미나드의-도표",
+    "title": "02wk-2: Seaborn 간략한 소개, 훌륭한 시각화",
+    "section": "B. 찰스미나드의 도표",
+    "text": "B. 찰스미나드의 도표\n\n인류역사상 가장 훌륭한 시각화\n\n\n- 터프티의 평\n\n지금까지 그려진 최고의 통계 그래픽일지도 모른다.\n여기에서는 군대의 크기, 2차원 평면상의 위치, 군대의 이동방향, 모스코바에서 퇴각하는 동안의 여러날짜, 온도 \\(\\to\\) 6차원의 변수\n백만번에 한번 이런 그림을 그릴수는 있겠지만 이러한 멋진 그래픽을 만드는 방법에 대한 원칙은 없다. \\(\\to\\) 미니멀리즘..\n\n- 왜 우수한 그래프일까?\n\n자료를 파악하는 기법은 최근까지도 산점도, 막대그래프, 라인플랏에 의존\n이러한 플랏의 단점은 고차원의 자료를 분석하기 어렵다는 것임\n미나드는 여러그림을 그리는 방법 대신에 한 그림에서 패널을 늘리는 방법을 선택함."
+  },
+  {
+    "objectID": "posts/02wk-2.html#c.-미나드처럼-그리는게-왜-어려운가",
+    "href": "posts/02wk-2.html#c.-미나드처럼-그리는게-왜-어려운가",
+    "title": "02wk-2: Seaborn 간략한 소개, 훌륭한 시각화",
+    "section": "C. 미나드처럼 그리는게 왜 어려운가?",
+    "text": "C. 미나드처럼 그리는게 왜 어려운가?\n- 몸무게, 키, 성별, 국적\n\ndf1=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/male1.csv')\ndf2=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/male2.csv')  \ndf3=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/female.csv') \ndf4=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/foreign.csv')\n\n- 미나드의 접근방법\n\n_df = pd.concat([pd.concat([df1,df2],axis=1).assign(g='m'),df3.assign(g='f')])\ndf = pd.concat([_df.assign(g2='korea'),df4.assign(g2='foreign')]).reset_index(drop=True)\ndf\n\n\n\n\n\n\n\n\nw\nh\ng\ng2\n\n\n\n\n0\n72.788217\n183.486773\nm\nkorea\n\n\n1\n66.606430\n173.599877\nm\nkorea\n\n\n2\n69.806324\n173.237903\nm\nkorea\n\n\n3\n67.449439\n173.223805\nm\nkorea\n\n\n4\n70.463183\n174.931946\nm\nkorea\n\n\n...\n...\n...\n...\n...\n\n\n1525\n78.154632\n188.324350\nm\nforeign\n\n\n1526\n74.754308\n183.017979\nf\nforeign\n\n\n1527\n91.196208\n190.100456\nm\nforeign\n\n\n1528\n87.770394\n187.987255\nm\nforeign\n\n\n1529\n88.021995\n193.456798\nm\nforeign\n\n\n\n\n1530 rows × 4 columns\n\n\n\n\nsns.scatterplot(\n    data=df,\n    x='w',\n    y='h',\n    hue='g',\n    style='g2'\n)\n\n&lt;Axes: xlabel='w', ylabel='h'&gt;\n\n\n\n\n\n- 어려운 점:\n\n센스부족: 센스가 없어서 hue/style을 이용하여 그룹을 구분할 생각을 못함\n개념부족: 타이디데이터 (=tidy dataframe, long form dataframe) 형태로 데이터를 정리할 생각을 못함\n코딩못함: 타이디데이터로 데이터를 변형하는 코드를 모름\n\n- 해결하는 방법:\n\n센스부족: 훌륭한 시각화를 많이 보면 해결할 수 있음.\n개념부족: tidydata에 대한 개념을 배우면 해결할 수 있음.\n코딩못함: 코딩공부열심히 (시각화 코드가 중요한게 아니고, pandas를 엄청 잘해야함)"
+  },
+  {
+    "objectID": "posts/01wk-2.html#a.-기본플랏",
+    "href": "posts/01wk-2.html#a.-기본플랏",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
+    "section": "A. 기본플랏",
+    "text": "A. 기본플랏\n\nplt.plot([1,2,3,2])"
+  },
+  {
+    "objectID": "posts/01wk-2.html#b.-모양변경",
+    "href": "posts/01wk-2.html#b.-모양변경",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
+    "section": "B. 모양변경",
+    "text": "B. 모양변경\n\nplt.plot([1,2,3,2],'--')"
+  },
+  {
+    "objectID": "posts/01wk-2.html#c.-색상변경",
+    "href": "posts/01wk-2.html#c.-색상변경",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
+    "section": "C. 색상변경",
+    "text": "C. 색상변경\n- 예시1\n\nplt.plot([1,2,3,2],'r')\n\n\n\n\n- 예시2\n\nplt.plot([1,2,3,2],'b')"
+  },
+  {
+    "objectID": "posts/01wk-2.html#d.-모양-색상변경",
+    "href": "posts/01wk-2.html#d.-모양-색상변경",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
+    "section": "D. 모양 + 색상변경",
+    "text": "D. 모양 + 색상변경\n- 예시1\n\nplt.plot([1,2,3,2],'--r')\n\n\n\n\n- 예시2: 순서변경 가능\n\nplt.plot([1,2,3,2],'r--')"
+  },
+  {
+    "objectID": "posts/01wk-2.html#e.-원리",
+    "href": "posts/01wk-2.html#e.-원리",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
+    "section": "E. 원리?",
+    "text": "E. 원리?\n- r--등의 옵션은 Markers + Line Styles + Colors 의 조합으로 표현가능\nref: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html\n\n--r: 점선(dashed)스타일 + 빨간색\nr--: 빨간색 + 점선(dashed)스타일\n:k: 점선(dotted)스타일 + 검은색\nk:: 검은색 + 점선(dotted)스타일\n\n- 우선 Marker를 무시하면 Line Styles + Color로 표현가능한 조합은 \\(4\\times 8=32\\) 개\n\nLine StylesColorsMarkers\n\n\n\n\n\ncharacter\ndescription\n\n\n\n\n‘-’\nsolid line style\n\n\n‘–’\ndashed line style\n\n\n‘-.’\ndash-dot line style\n\n\n‘:’\ndotted line style\n\n\n\n\n\n\n\n\ncharacter\ncolor\n\n\n\n\n‘b’\nblue\n\n\n‘g’\ngreen\n\n\n‘r’\nred\n\n\n‘c’\ncyan\n\n\n‘m’\nmagenta\n\n\n‘y’\nyellow\n\n\n‘k’\nblack\n\n\n‘w’\nwhite\n\n\n\n\n\n\n\n\ncharacter\ndescription\n\n\n\n\n‘.’\npoint marker\n\n\n‘,’\npixel marker\n\n\n‘o’\ncircle marker\n\n\n‘v’\ntriangle_down marker\n\n\n‘^’\ntriangle_up marker\n\n\n‘&lt;’\ntriangle_left marker\n\n\n‘&gt;’\ntriangle_right marker\n\n\n‘1’\ntri_down marker\n\n\n‘2’\ntri_up marker\n\n\n‘3’\ntri_left marker\n\n\n‘4’\ntri_right marker\n\n\n‘8’\noctagon marker\n\n\n‘s’\nsquare marker\n\n\n‘p’\npentagon marker\n\n\n‘P’\nplus (filled) marker\n\n\n’*’\nstar marker\n\n\n‘h’\nhexagon1 marker\n\n\n‘H’\nhexagon2 marker\n\n\n‘+’\nplus marker\n\n\n‘x’\nx marker\n\n\n‘X’\nx (filled) marker\n\n\n‘D’\ndiamond marker\n\n\n‘d’\nthin_diamond marker\n\n\n‘|’\nvline marker\n\n\n’_’\nhline marker\n\n\n\n\n\n\n- 예시1\n\nplt.plot([1,2,4,3],'b-.')\n\n\n\n\n- 예시2\n\nplt.plot([1,2,4,3],'k:')\n\n\n\n\n- 예시3: line style + color 조합으로 사용하든 color + line style 조합으로 사용하든 상관없음\n\nplt.plot([1,2,4,3],'-.b')\n\n\n\n\n\nplt.plot([1,2,4,3],':k')\n\n\n\n\n- 예시4: line style을 중복으로 사용하거나 color를 중복으로 쓸 수 는 없다.\n\nplt.plot([1,2,4,3],'br')\n\nValueError: 'br' is not a valid format string (two color symbols)\n\n\n\n\n\n- 예시5: 색이 사실 8개만 있는건 아니다.\nref: https://matplotlib.org/2.0.2/examples/color/named_colors.html\n\nplt.plot([1,2,4,3],color='lime')\n\n\n\n\n- 예시6: 색을 바꾸려면 hex코드를 넣는 방법이 젤 깔끔함\nref: https://htmlcolorcodes.com/\n\nplt.plot([1,2,4,3],color='#7E277E')\n\n\n\n\n- 예시7: 당연히 라인스타일도 4개만 있진 않음\nref: https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html\n\nplt.plot([1,2,4,3],linestyle=(0, (10, 1)))"
+  },
+  {
+    "objectID": "posts/01wk-2.html#a.-원리",
+    "href": "posts/01wk-2.html#a.-원리",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
+    "section": "A. 원리",
+    "text": "A. 원리\n- 그냥 마커를 설정하면 끝!\n\nplt.plot(x,y,'o')"
+  },
+  {
+    "objectID": "posts/01wk-2.html#b.-기본플랏",
+    "href": "posts/01wk-2.html#b.-기본플랏",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
+    "section": "B. 기본플랏",
+    "text": "B. 기본플랏\n- 예시1\n\nplt.plot([1,2,4,3],'x')\n\n\n\n\n- 예시2\n\nplt.plot([1,2,4,3],'D')"
+  },
+  {
+    "objectID": "posts/01wk-2.html#c.-색깔변경",
+    "href": "posts/01wk-2.html#c.-색깔변경",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
+    "section": "C. 색깔변경",
+    "text": "C. 색깔변경\n- 예시1\n\nplt.plot(x,y,'or')\n\n\n\n\n- 예시2\n\nplt.plot(x,y,'db')\n\n\n\n\n- 예시3\n\nplt.plot(x,y,'bx')"
+  },
+  {
+    "objectID": "posts/01wk-2.html#d.-dot-connected-plot",
+    "href": "posts/01wk-2.html#d.-dot-connected-plot",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
+    "section": "D. dot-connected plot",
+    "text": "D. dot-connected plot\n- 예시1: 마커와 라인스타일을 동시에 사용하면 dot-connected plot이 된다.\n\nplt.plot([1,2,4,3],'--o')\n\n\n\n\n- 예시2: 당연히 색도 적용가능함\n\nplt.plot([1,2,4,3],'--or')\n\n\n\n\n- 예시3: 서로 순서를 바꿔도 상관없다.\n\nplt.plot([1,2,4,3],'r--o')\n\n\n\n\n- 예시4: 색만 따로 바꾸고싶다면?\n\nplt.plot([1,2,4,3],'--o',color='lime')"
+  },
+  {
+    "objectID": "posts/01wk-2.html#a.-예비학습",
+    "href": "posts/01wk-2.html#a.-예비학습",
+    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
+    "section": "A. 예비학습",
+    "text": "A. 예비학습\n# 예비학습1 – 그림을 저장했다가 꺼내보고 싶다.\n- 그림을 그리고 저장하자.\n\nplt.plot([1,2,4,3])\nfig = plt.gcf()\n\n\n\n\n- 다른그림을 그려보자.\n\nplt.plot([1,2,4,3],'--o')\n\n\n\n\n- 저장한 그림은 언제든지 꺼내볼 수 있음\n\nfig\n\n\n\n\n#\n# 예비학습2 – fig 는 뭐야?\n\n#fig??\ntype(fig)\n\nmatplotlib.figure.Figure\n\n\n\nFigure라는 클래스에서 찍힌 인스턴스\n\n- 여러가지 값, 기능이 저장되어 있겠음.\n\nfig.axes\n\n[&lt;Axes: &gt;]\n\n\n\nax = fig.axes[0]\n\n\nyaxis= ax.yaxis\nxaxis= ax.xaxis\n\n\nlines = ax.get_lines()\nline = lines[0]\n\n- 계층구조: Figure \\(\\supset\\) [Axes,…] \\(\\supset\\) YAxis, XAxis, [Line2D,…]\n\ntype(fig)\n\nmatplotlib.figure.Figure\n\n\n1. .axes 로 Axes 를 끄집어냄\n\nax = fig.axes[0]\ntype(ax)\n\nmatplotlib.axes._axes.Axes\n\n\n2. .xaxis, .yaxis 로 Axis 를 끄집어냄\n\nyaxis = ax.yaxis\nxaxis = ax.xaxis\ntype(yaxis), type(xaxis)\n\n(matplotlib.axis.YAxis, matplotlib.axis.XAxis)\n\n\n3. .get_lines()로 Line2D를 끄집어냄\n\nlines = ax.get_lines()\nline=lines[0]\ntype(line)\n\nmatplotlib.lines.Line2D\n\n\n- 오브젝트내용 확인 (그닥 필요 없음)\n\nline.properties()['data']\n\n(array([0., 1., 2., 3.]), array([1, 2, 4, 3]))\n\n\n- matplotlib의 설명\nref: https://matplotlib.org/stable/gallery/showcase/anatomy.html#sphx-glr-gallery-showcase-anatomy-py"
   },
   {
     "objectID": "posts/03wk-1.html#a.-read-data",
@@ -259,95 +350,81 @@
     "text": "I. 해석\n- 해피앤딩: 아이스크림 먹어도 소아마비 안걸려!\n\n아이스크림을 먹으면 소아마비를 유발한다는 이상한 결론이 나올뻔 했음.\n하지만 우리는 온도라는 흑막1을 잘 찾았고 결과적으로 “온도-&gt;아이스크림판매량,소아마비” 이라는 합리적인 진리를 얻을 수 있었다.\n\n1 우리는 이것을 “은닉변수”라고 부르기로 했어요- 걱정: 또 다른 흑막?\n\n고려할 흑막이 온도뿐이라는 보장이 어디있지?\n사실 흑막2, 흑막3이 있어서 그런 흑막들을 고려하다보니까 아이스크림과 소아마비사이의 상관관계가 다시 보인다면?\n\n- 이론:\n\n이론적으로는 “세상의 모든 은닉변수를 통제하였을 경우에도 corr(X,Y)의 값이 1에 가깝다면 그때는 인과성이 있음” 이라고 주장할 수 있다.2\n즉 모든 흑막을 제거한다면 “상관성=인과성”이다.\n\n2 물론 이 경우에도 무엇이 원인인지는 통계적으로 따지는 것은 불가- 회의론:\n\n세상의 모든 흑막을 제거하는건 사실상 불가능하지 않나?\n\n- 두 가지 연구흐름\n\n실험계획법: 실험계획을 잘하면 흑막을 제거한 효과가 있음.3\n인과추론: 실험계획이 사실상 불가능한 경우가 있음 \\(\\to\\) 모인 데이터에서 최대한 흑막2,3,4,.. 등이 비슷한 그룹끼리 “매칭”을 시킨다!\n\n3 무작위로 사람뽑아서 담배를 피우게 한다든가"
   },
   {
-    "objectID": "posts/01wk-2.html#a.-기본플랏",
-    "href": "posts/01wk-2.html#a.-기본플랏",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
-    "section": "A. 기본플랏",
-    "text": "A. 기본플랏\n\nplt.plot([1,2,3,2])"
+    "objectID": "posts/03wk-2.html#a.-열의-선택",
+    "href": "posts/03wk-2.html#a.-열의-선택",
+    "title": "03wk-2: (draft)",
+    "section": "A. 열의 선택",
+    "text": "A. 열의 선택\n- 방법1: df.? + str\n\n# df.X1\n\n- 방법2: df[?] + str, [str,str]\n\n# df['X1'] # str \n# df[['X1']] # [str]\n# df[['X1','X3']] # [str,str]\n\n- 방법3: df.iloc[:,?] + int, int:int, [int,int], [bool,bool], range\n\n# df.iloc[:,0] # int\n# df.iloc[:,-2:] # int:int - 슬라이싱\n# df.iloc[:,1::2] # int:int - 스트라이딩\n# df.iloc[:,[0]] # [int]\n# df.iloc[:,[0,1]] # [int,int]\n# df.iloc[:,[True,True,False,False]] # bool의 list \n# df.iloc[:,range(2)] # range\n\n- 방법4: df.loc[:,?] + str, ‘str:str’, [str,str], [bool,bool]\n\n# df.loc[:,'X1'] # str\n# df.loc[:,'X1':'X3'] # 'str':'str' -- 칼럼이름으로 슬라이싱 **\n# df.loc[:,'X1'::2] # 'str':'str' -- 칼럼이름으로 스트라이딩 ** \n# df.loc[:,['X1']] # [str]\n# df.loc[:,['X1','X4']] # [str,str]\n# df.loc[:,[True,False,False,True]] # bool의 list"
   },
   {
-    "objectID": "posts/01wk-2.html#b.-모양변경",
-    "href": "posts/01wk-2.html#b.-모양변경",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
-    "section": "B. 모양변경",
-    "text": "B. 모양변경\n\nplt.plot([1,2,3,2],'--')"
+    "objectID": "posts/03wk-2.html#b.-행의-선택",
+    "href": "posts/03wk-2.html#b.-행의-선택",
+    "title": "03wk-2: (draft)",
+    "section": "B. 행의 선택",
+    "text": "B. 행의 선택\n- 방법1: df[] + int:int, str:str, [bool,bool], pd.Series([bool,bool]) – \\((\\star\\star\\star\\star\\star)\\)\n\n# df[:2] # int:int -- 슬라이싱 // df.iloc[:2,:], df.iloc[:2] 와 같음\n# df[::2] # int:int -- 스트라이딩 \n# ts['12/30':'01/02'] # str:str -- 슬라이싱\n# ts['12/31'::2] # str:str -- 스트라이딩\n# df[['12' in date for date in df.date]] # [bool,bool]\n# df[df.X1 &lt; 70] # pd.Series([bool,bool])\n\n- 방법2: df.iloc[], df.iloc[,:] + int, int:int, [int,int], [bool,bool], range\n\n# df.iloc[0] # int \n# df.iloc[-2:] # int:int -- 슬라이싱\n# df.iloc[1::2] # int:int -- 스트라이딩\n# df.iloc[[0]] # [int]\n# df.iloc[[0,1]] # [int,int]\n# df.iloc[['12' in date for date in df.date]] # [bool,bool]\n# df.iloc[range(2)] # range\n\n\n# df.iloc[0,:] # int \n# df.iloc[-2:,:] # int:int -- 슬라이싱\n# df.iloc[1::2,:] # int:int -- 스트라이딩\n# df.iloc[[0],:] # [int]\n# df.iloc[[0,1],:] # [int,int]\n# df.iloc[['12' in date for date in df.date],:] # [bool,bool]\n# df.iloc[range(2),:] # range\n\n- 방법3: df.loc[], df.loc[,:] + int, str, int:int, str:str, [int,int], [str,str], [bool,bool], pd.Series([bool,bool])\n\n# df.loc[0] # int \n# ts.loc['12/30'] # str \n# df.loc[:2] # int:int \n# ts.loc[:'01/02'] # str:str \n# df.loc[[0,1]] # [int,int]\n# ts.loc[['12/30','01/01']] # [str,str]\n# df.loc[['12' in date for date in df.date]] # [bool,bool]\n# df.loc[df.X1&gt;70] # pd.Series([bool,bool])"
   },
   {
-    "objectID": "posts/01wk-2.html#c.-색상변경",
-    "href": "posts/01wk-2.html#c.-색상변경",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
-    "section": "C. 색상변경",
-    "text": "C. 색상변경\n- 예시1\n\nplt.plot([1,2,3,2],'r')\n\n\n\n\n- 예시2\n\nplt.plot([1,2,3,2],'b')"
+    "objectID": "posts/03wk-2.html#d.-제-스타일",
+    "href": "posts/03wk-2.html#d.-제-스타일",
+    "title": "03wk-2: (draft)",
+    "section": "D. 제 스타일",
+    "text": "D. 제 스타일\n- 가장 안전한 코드\n\n# df.loc[:,:]\n\n- 상황1: 하나의 col을 뽑으려 할때 좋은 코드\n\n# df.X1 # 최애 \n# df['X1'] # 차애 \n# df[['X1']] # 차애\n\n- 상황2: row 슬라이싱을 할때 좋은 코드 \\((\\star\\star\\star)\\)\n\n# df[:5] # 최애 \n# ts[:'01/02'] # 시계열인 경우 \n\n- 상황3: 조건에 맞는 row를 뽑을때 좋은 코드\n\n# df[df.X1&lt;60] # 최애\n# df.loc[['12' in date for date in df.date]] # 차애\n\n- 상황4: 하나의 row를 뽑으려 할때 좋은 코드\n\n# df.iloc[0] # 최애 \n# df.loc[0] # 차애\n\n- 상황5: (row,col)을 뽑으려 할때 좋은 코드\n\n# 최애: pd.Series를 뽑고 -&gt; 인덱스로접근\n# df.X1[0]\n# df['X1'][0]\n\n# 차애: iloc, loc 으로 한번에 뽑기\n# df.iloc[0,0]\n# df.loc[0,'X1']\n\n위의 상황이외에는 df.loc[:,:]를 사용하는것이 유리하다\n- 상황6: column 슬라이싱을 할때\n\n# df.loc[:,'X1':'X3'] # 끝점포함\n\n- 상황7: row + column 슬라이싱을 하는 가장 좋은 코드\n\ndf.loc[::2,'X1':'X2']\n\n\n\n\n\n\n\n\nX1\nX2\n\n\n\n\n0\n65\n55\n\n\n2\n65\n90\n\n\n4\n80\n30\n\n\n\n\n\n\n\n- 상황8: 조건에 맞는 col을 뽑기에 가장 좋은 코드\n\n# df.loc[:,[len(colname)&gt;2 for colname in df.columns]]\n\n- 상황9: 조건에 맞는 row, col을 뽑기에 가장 좋은 코드\n\n# df.loc[df.X1&gt;70,[len(colname)&gt;2 for colname in df.columns]]"
   },
   {
-    "objectID": "posts/01wk-2.html#d.-모양-색상변경",
-    "href": "posts/01wk-2.html#d.-모양-색상변경",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
-    "section": "D. 모양 + 색상변경",
-    "text": "D. 모양 + 색상변경\n- 예시1\n\nplt.plot([1,2,3,2],'--r')\n\n\n\n\n- 예시2: 순서변경 가능\n\nplt.plot([1,2,3,2],'r--')"
+    "objectID": "posts/03wk-2.html#d.-제-스타일-x",
+    "href": "posts/03wk-2.html#d.-제-스타일-x",
+    "title": "03wk-2: (draft)",
+    "section": "D. 제 스타일 X",
+    "text": "D. 제 스타일 X\n- 제가 안쓰는 코드1\n\ndf[:1]\n\n\n\n\n\n\n\n\ndate\nX1\nX2\nX3\nX4\n\n\n\n\n0\n12/30\n65\n55\n50\n40\n\n\n\n\n\n\n\n이러면 내 입장에서는 마치 아래가 동작할 것 같잖아..\n\ndf[0] \n\nKeyError: 0\n\n\n- 제가 안쓰는 코드2: bool의 list를 사용할때 iloc은 가급적 쓰지마세요\n\ndf.iloc[list(df['X1']&lt;80),:]\n\n\n\n\n\n\n\n\ndate\nX1\nX2\nX3\nX4\n\n\n\n\n0\n12/30\n65\n55\n50\n40\n\n\n2\n01/01\n65\n90\n60\n30\n\n\n3\n01/02\n55\n80\n75\n80\n\n\n\n\n\n\n\n이러면 마치 아래도 동작할 것 같잖아..\n\ndf.iloc[df['X1']&lt;80,:]\n\nNotImplementedError: iLocation based boolean indexing on an integer type is not available"
   },
   {
-    "objectID": "posts/01wk-2.html#e.-원리",
-    "href": "posts/01wk-2.html#e.-원리",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
-    "section": "E. 원리?",
-    "text": "E. 원리?\n- r--등의 옵션은 Markers + Line Styles + Colors 의 조합으로 표현가능\nref: https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html\n\n--r: 점선(dashed)스타일 + 빨간색\nr--: 빨간색 + 점선(dashed)스타일\n:k: 점선(dotted)스타일 + 검은색\nk:: 검은색 + 점선(dotted)스타일\n\n- 우선 Marker를 무시하면 Line Styles + Color로 표현가능한 조합은 \\(4\\times 8=32\\) 개\n\nLine StylesColorsMarkers\n\n\n\n\n\ncharacter\ndescription\n\n\n\n\n‘-’\nsolid line style\n\n\n‘–’\ndashed line style\n\n\n‘-.’\ndash-dot line style\n\n\n‘:’\ndotted line style\n\n\n\n\n\n\n\n\ncharacter\ncolor\n\n\n\n\n‘b’\nblue\n\n\n‘g’\ngreen\n\n\n‘r’\nred\n\n\n‘c’\ncyan\n\n\n‘m’\nmagenta\n\n\n‘y’\nyellow\n\n\n‘k’\nblack\n\n\n‘w’\nwhite\n\n\n\n\n\n\n\n\ncharacter\ndescription\n\n\n\n\n‘.’\npoint marker\n\n\n‘,’\npixel marker\n\n\n‘o’\ncircle marker\n\n\n‘v’\ntriangle_down marker\n\n\n‘^’\ntriangle_up marker\n\n\n‘&lt;’\ntriangle_left marker\n\n\n‘&gt;’\ntriangle_right marker\n\n\n‘1’\ntri_down marker\n\n\n‘2’\ntri_up marker\n\n\n‘3’\ntri_left marker\n\n\n‘4’\ntri_right marker\n\n\n‘8’\noctagon marker\n\n\n‘s’\nsquare marker\n\n\n‘p’\npentagon marker\n\n\n‘P’\nplus (filled) marker\n\n\n’*’\nstar marker\n\n\n‘h’\nhexagon1 marker\n\n\n‘H’\nhexagon2 marker\n\n\n‘+’\nplus marker\n\n\n‘x’\nx marker\n\n\n‘X’\nx (filled) marker\n\n\n‘D’\ndiamond marker\n\n\n‘d’\nthin_diamond marker\n\n\n‘|’\nvline marker\n\n\n’_’\nhline marker\n\n\n\n\n\n\n- 예시1\n\nplt.plot([1,2,4,3],'b-.')\n\n\n\n\n- 예시2\n\nplt.plot([1,2,4,3],'k:')\n\n\n\n\n- 예시3: line style + color 조합으로 사용하든 color + line style 조합으로 사용하든 상관없음\n\nplt.plot([1,2,4,3],'-.b')\n\n\n\n\n\nplt.plot([1,2,4,3],':k')\n\n\n\n\n- 예시4: line style을 중복으로 사용하거나 color를 중복으로 쓸 수 는 없다.\n\nplt.plot([1,2,4,3],'br')\n\nValueError: 'br' is not a valid format string (two color symbols)\n\n\n\n\n\n- 예시5: 색이 사실 8개만 있는건 아니다.\nref: https://matplotlib.org/2.0.2/examples/color/named_colors.html\n\nplt.plot([1,2,4,3],color='lime')\n\n\n\n\n- 예시6: 색을 바꾸려면 hex코드를 넣는 방법이 젤 깔끔함\nref: https://htmlcolorcodes.com/\n\nplt.plot([1,2,4,3],color='#7E277E')\n\n\n\n\n- 예시7: 당연히 라인스타일도 4개만 있진 않음\nref: https://matplotlib.org/stable/gallery/lines_bars_and_markers/linestyles.html\n\nplt.plot([1,2,4,3],linestyle=(0, (10, 1)))"
+    "objectID": "posts/03wk-2.html#e.-요약",
+    "href": "posts/03wk-2.html#e.-요약",
+    "title": "03wk-2: (draft)",
+    "section": "E. 요약",
+    "text": "E. 요약\n- 알아두면 좋은 규칙\n\n.iloc[] 와 .iloc[,:]는 완전히 동등하다.\n.loc[] 와 .loc[,:]는 완전히 동등하다.\n결과를 pd.Series 형태가 아닌 pd.DataFrame 형태로 얻고 싶다면 [[?]]를 사용하면 된다.\n\n- 정리\n\nROWCOL\n\n\n\n\n\n\n\n\n\n\n\n\n\ntype of indexer\n.\n[]\n.iloc\n.loc\n내가 쓴다면?\n\n\n\n\nint\nX\nX\nO\n\\(\\Delta\\)\ndf.iloc[3,:]\n\n\nint:int\nX\nO\nO\n\\(\\Delta\\)\ndf[3:5]\n\n\n[int,int]\nX\nX\nO\n\\(\\Delta\\)\ndf.iloc[idx,:]\n\n\nstr\nX\nX\nX\nO\nts.loc['time1',:]\n\n\nstr:str\nX\nO\nX\nO\nts.loc['time1':'time2',:]\n\n\n[str,str]\nX\nX\nX\nO\n안할 듯\n\n\n[bool,bool]\nX\nO\nO\nO\ndf[filtered_idx]\n\n\npd.Series([bool,bool])\nX\nO\nX\nO\ndf[df.X1&gt;20]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntype of indexer\ntarget\n.\n[]\n.iloc\n.loc\n내가 쓴다면?\n\n\n\n\nint\ncol\nX\nX\nO\nX\ndf.iloc[:,0]\n\n\nint:int\ncol\nX\nX\nO\nX\ndf.iloc[:,0:2]\n\n\n[int,int]\ncol\nX\nX\nO\nX\ndf.iloc[:,idx]\n\n\nstr\ncol\nO\nO\nX\nO\ndf.loc[:,'X1']\n\n\nstr:str\ncol\nX\nX\nX\nO\ndf.loc[:,'X1':'X4']\n\n\n[str,str]\ncol\nX\nO\nX\nO\ndf.loc[:,colname_list]\n\n\n[bool,bool]\ncol\nX\nX\nO\nO\ndf.loc[:,bool_list]"
   },
   {
-    "objectID": "posts/01wk-2.html#a.-원리",
-    "href": "posts/01wk-2.html#a.-원리",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
-    "section": "A. 원리",
-    "text": "A. 원리\n- 그냥 마커를 설정하면 끝!\n\nplt.plot(x,y,'o')"
+    "objectID": "posts/03wk-2.html#a.-기본-query",
+    "href": "posts/03wk-2.html#a.-기본-query",
+    "title": "03wk-2: (draft)",
+    "section": "A. 기본 query",
+    "text": "A. 기본 query\n- 예시1: A&gt;0 and B&lt;0\n\ndf.query('A&gt;0 and B&lt;0')\n\n\n\n\n\n\n\n\nA\nB\nC\nD\nE\n\n\n\n\n2023-01-03\n0.601046\n-0.601035\n1.388087\n1.454556\nA\n\n\n2023-01-09\n0.055362\n-0.392051\n-0.316035\n-0.175286\nB\n\n\n2023-01-10\n0.059772\n-1.114924\n-0.470883\n0.801841\nB\n\n\n\n\n\n\n\n- 예시2: A&lt;B&lt;C\n\ndf.query('A&lt;B&lt;C')\n\n\n\n\n\n\n\n\nA\nB\nC\nD\nE\n\n\n\n\n2023-01-02\n-0.553000\n0.641742\n2.100417\n0.314088\nA\n\n\n2023-01-14\n-0.200503\n0.565430\n0.636693\n1.211201\nB\n\n\n\n\n\n\n\n- 예시3: (A+B/2) &gt; 0\n\ndf.query('(A+B)&gt;0')\n\n\n\n\n\n\n\n\nA\nB\nC\nD\nE\n\n\n\n\n2022-12-26\n1.817794\n0.688123\n-1.015092\n2.010119\nA\n\n\n2022-12-27\n0.835070\n1.263637\n0.341315\n-1.010957\nA\n\n\n2022-12-29\n-1.253486\n1.613174\n0.974001\n-1.329818\nA\n\n\n2022-12-30\n0.632094\n0.787459\n-0.043460\n0.590284\nA\n\n\n2022-12-31\n-0.008297\n1.336190\n0.832503\n-0.816102\nA\n\n\n2023-01-01\n0.080573\n0.363952\n-0.094476\n0.896589\nA\n\n\n2023-01-02\n-0.553000\n0.641742\n2.100417\n0.314088\nA\n\n\n2023-01-03\n0.601046\n-0.601035\n1.388087\n1.454556\nA\n\n\n2023-01-06\n-0.393774\n1.063387\n-0.864032\n0.932810\nB\n\n\n2023-01-07\n1.042991\n0.071130\n1.038573\n-1.337250\nB\n\n\n2023-01-11\n0.299772\n0.871334\n-1.037732\n-0.245415\nB\n\n\n2023-01-13\n-0.747640\n0.948013\n-0.151061\n2.525866\nB\n\n\n2023-01-14\n-0.200503\n0.565430\n0.636693\n1.211201\nB\n\n\n\n\n\n\n\n- 예시4: (A+B/2) &gt; 0 and E=='A'\n\ndf.query('(A+B)&gt;0 and E==\"A\"')\n\n\n\n\n\n\n\n\nA\nB\nC\nD\nE\n\n\n\n\n2022-12-26\n1.817794\n0.688123\n-1.015092\n2.010119\nA\n\n\n2022-12-27\n0.835070\n1.263637\n0.341315\n-1.010957\nA\n\n\n2022-12-29\n-1.253486\n1.613174\n0.974001\n-1.329818\nA\n\n\n2022-12-30\n0.632094\n0.787459\n-0.043460\n0.590284\nA\n\n\n2022-12-31\n-0.008297\n1.336190\n0.832503\n-0.816102\nA\n\n\n2023-01-01\n0.080573\n0.363952\n-0.094476\n0.896589\nA\n\n\n2023-01-02\n-0.553000\n0.641742\n2.100417\n0.314088\nA\n\n\n2023-01-03\n0.601046\n-0.601035\n1.388087\n1.454556\nA\n\n\n\n\n\n\n\n\ndf.query(\"(A+B)&gt;0 and E=='A'\")\n\n\n\n\n\n\n\n\nA\nB\nC\nD\nE\n\n\n\n\n2022-12-26\n1.817794\n0.688123\n-1.015092\n2.010119\nA\n\n\n2022-12-27\n0.835070\n1.263637\n0.341315\n-1.010957\nA\n\n\n2022-12-29\n-1.253486\n1.613174\n0.974001\n-1.329818\nA\n\n\n2022-12-30\n0.632094\n0.787459\n-0.043460\n0.590284\nA\n\n\n2022-12-31\n-0.008297\n1.336190\n0.832503\n-0.816102\nA\n\n\n2023-01-01\n0.080573\n0.363952\n-0.094476\n0.896589\nA\n\n\n2023-01-02\n-0.553000\n0.641742\n2.100417\n0.314088\nA\n\n\n2023-01-03\n0.601046\n-0.601035\n1.388087\n1.454556\nA"
   },
   {
-    "objectID": "posts/01wk-2.html#b.-기본플랏",
-    "href": "posts/01wk-2.html#b.-기본플랏",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
-    "section": "B. 기본플랏",
-    "text": "B. 기본플랏\n- 예시1\n\nplt.plot([1,2,4,3],'x')\n\n\n\n\n- 예시2\n\nplt.plot([1,2,4,3],'D')"
+    "objectID": "posts/03wk-2.html#b.-외부변수를-이용",
+    "href": "posts/03wk-2.html#b.-외부변수를-이용",
+    "title": "03wk-2: (draft)",
+    "section": "B. 외부변수를 이용",
+    "text": "B. 외부변수를 이용\n- 예시\n\nmean = df.A.mean()\nmean\n\n-0.2510087711727323\n\n\n\ndf.query('A &gt; @mean')\n\n\n\n\n\n\n\n\nA\nB\nC\nD\n\n\n\n\n2022-12-28\n-0.011607\n0.927334\n-0.753145\n1.013249\n\n\n2023-01-01\n0.958028\n-0.015302\n0.891259\n-0.826834\n\n\n2023-01-02\n1.822226\n-1.258543\n-0.705506\n-0.519831\n\n\n2023-01-04\n-0.083539\n0.528519\n0.051522\n0.126757\n\n\n2023-01-06\n-0.016530\n1.041946\n1.511319\n-0.970646\n\n\n2023-01-08\n0.554734\n0.712753\n0.769650\n0.277420\n\n\n2023-01-10\n0.904037\n-0.809864\n0.473510\n-0.047875\n\n\n2023-01-12\n0.054391\n-0.732693\n0.409205\n-1.165549\n\n\n2023-01-13\n0.053472\n0.800553\n-0.040499\n-0.447199"
   },
   {
-    "objectID": "posts/01wk-2.html#c.-색깔변경",
-    "href": "posts/01wk-2.html#c.-색깔변경",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
-    "section": "C. 색깔변경",
-    "text": "C. 색깔변경\n- 예시1\n\nplt.plot(x,y,'or')\n\n\n\n\n- 예시2\n\nplt.plot(x,y,'db')\n\n\n\n\n- 예시3\n\nplt.plot(x,y,'bx')"
+    "objectID": "posts/03wk-2.html#c.-index로-query",
+    "href": "posts/03wk-2.html#c.-index로-query",
+    "title": "03wk-2: (draft)",
+    "section": "C. Index로 query",
+    "text": "C. Index로 query\n- 예시\n\ndf.query('index &lt;= \"2022-12-30\" or index == \"2023-01-10\"')\n\n\n\n\n\n\n\n\nA\nB\nC\nD\n\n\n\n\n2022-12-26\n-0.259429\n0.369731\n-0.279944\n0.099409\n\n\n2022-12-27\n-0.932515\n-0.311629\n0.828348\n-0.225257\n\n\n2022-12-28\n-0.011607\n0.927334\n-0.753145\n1.013249\n\n\n2022-12-29\n-1.050379\n-0.323094\n0.813898\n1.035724\n\n\n2022-12-30\n-0.921175\n0.513109\n-0.905361\n0.893707\n\n\n2023-01-10\n0.904037\n-0.809864\n0.473510\n-0.047875"
   },
   {
-    "objectID": "posts/01wk-2.html#d.-dot-connected-plot",
-    "href": "posts/01wk-2.html#d.-dot-connected-plot",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
-    "section": "D. dot-connected plot",
-    "text": "D. dot-connected plot\n- 예시1: 마커와 라인스타일을 동시에 사용하면 dot-connected plot이 된다.\n\nplt.plot([1,2,4,3],'--o')\n\n\n\n\n- 예시2: 당연히 색도 적용가능함\n\nplt.plot([1,2,4,3],'--or')\n\n\n\n\n- 예시3: 서로 순서를 바꿔도 상관없다.\n\nplt.plot([1,2,4,3],'r--o')\n\n\n\n\n- 예시4: 색만 따로 바꾸고싶다면?\n\nplt.plot([1,2,4,3],'--o',color='lime')"
+    "objectID": "posts/03wk-2.html#a.-df.assign",
+    "href": "posts/03wk-2.html#a.-df.assign",
+    "title": "03wk-2: (draft)",
+    "section": "A. df.assign()",
+    "text": "A. df.assign()\n- 방법1: assign을 이용한 추가\n\ndf.assign(total = df.att*0.1 + df.rep*0.2 + df.mid*0.35 + df.fin*0.35) \n\n\n\n\n\n\n\n\natt\nrep\nmid\nfin\ntotal\n\n\n\n\n0\n65\n55\n50\n40\n49.00\n\n\n1\n95\n100\n50\n80\n75.00\n\n\n2\n65\n90\n60\n30\n56.00\n\n\n3\n55\n80\n75\n80\n75.75\n\n\n4\n80\n30\n30\n100\n59.50\n\n\n5\n75\n40\n100\n15\n55.75\n\n\n6\n65\n45\n45\n90\n62.75\n\n\n7\n60\n60\n25\n0\n26.75\n\n\n8\n95\n65\n20\n10\n33.00\n\n\n9\n90\n80\n80\n20\n60.00\n\n\n10\n55\n75\n35\n25\n41.50\n\n\n11\n95\n95\n45\n0\n44.25\n\n\n12\n95\n55\n15\n35\n38.00\n\n\n13\n50\n80\n40\n30\n45.50\n\n\n14\n50\n55\n15\n85\n51.00\n\n\n15\n95\n30\n30\n95\n59.25\n\n\n16\n50\n50\n45\n10\n34.25\n\n\n17\n65\n55\n15\n45\n38.50\n\n\n18\n70\n70\n40\n35\n47.25\n\n\n19\n90\n90\n80\n90\n86.50\n\n\n\n\n\n\n\n\n이 방법은 df를 일시적으로 변화시킴"
   },
   {
-    "objectID": "posts/01wk-2.html#a.-예비학습",
-    "href": "posts/01wk-2.html#a.-예비학습",
-    "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
-    "section": "A. 예비학습",
-    "text": "A. 예비학습\n# 예비학습1 – 그림을 저장했다가 꺼내보고 싶다.\n- 그림을 그리고 저장하자.\n\nplt.plot([1,2,4,3])\nfig = plt.gcf()\n\n\n\n\n- 다른그림을 그려보자.\n\nplt.plot([1,2,4,3],'--o')\n\n\n\n\n- 저장한 그림은 언제든지 꺼내볼 수 있음\n\nfig\n\n\n\n\n#\n# 예비학습2 – fig 는 뭐야?\n\n#fig??\ntype(fig)\n\nmatplotlib.figure.Figure\n\n\n\nFigure라는 클래스에서 찍힌 인스턴스\n\n- 여러가지 값, 기능이 저장되어 있겠음.\n\nfig.axes\n\n[&lt;Axes: &gt;]\n\n\n\nax = fig.axes[0]\n\n\nyaxis= ax.yaxis\nxaxis= ax.xaxis\n\n\nlines = ax.get_lines()\nline = lines[0]\n\n- 계층구조: Figure \\(\\supset\\) [Axes,…] \\(\\supset\\) YAxis, XAxis, [Line2D,…]\n\ntype(fig)\n\nmatplotlib.figure.Figure\n\n\n1. .axes 로 Axes 를 끄집어냄\n\nax = fig.axes[0]\ntype(ax)\n\nmatplotlib.axes._axes.Axes\n\n\n2. .xaxis, .yaxis 로 Axis 를 끄집어냄\n\nyaxis = ax.yaxis\nxaxis = ax.xaxis\ntype(yaxis), type(xaxis)\n\n(matplotlib.axis.YAxis, matplotlib.axis.XAxis)\n\n\n3. .get_lines()로 Line2D를 끄집어냄\n\nlines = ax.get_lines()\nline=lines[0]\ntype(line)\n\nmatplotlib.lines.Line2D\n\n\n- 오브젝트내용 확인 (그닥 필요 없음)\n\nline.properties()['data']\n\n(array([0., 1., 2., 3.]), array([1, 2, 4, 3]))\n\n\n- matplotlib의 설명\nref: https://matplotlib.org/stable/gallery/showcase/anatomy.html#sphx-glr-gallery-showcase-anatomy-py"
+    "objectID": "posts/03wk-2.html#b.-df.eval",
+    "href": "posts/03wk-2.html#b.-df.eval",
+    "title": "03wk-2: (draft)",
+    "section": "B. df.eval()",
+    "text": "B. df.eval()\n- 방법2: eval을 이용한 추가\n\ndf.eval('total = att*0.1 + rep*0.2 + mid*0.3 + fin*0.4') \n\n\n\n\n\n\n\n\natt\nrep\nmid\nfin\ntotal\n\n\n\n\n0\n65\n55\n50\n40\n48.5\n\n\n1\n95\n100\n50\n80\n76.5\n\n\n2\n65\n90\n60\n30\n54.5\n\n\n3\n55\n80\n75\n80\n76.0\n\n\n4\n80\n30\n30\n100\n63.0\n\n\n5\n75\n40\n100\n15\n51.5\n\n\n6\n65\n45\n45\n90\n65.0\n\n\n7\n60\n60\n25\n0\n25.5\n\n\n8\n95\n65\n20\n10\n32.5\n\n\n9\n90\n80\n80\n20\n57.0\n\n\n10\n55\n75\n35\n25\n41.0\n\n\n11\n95\n95\n45\n0\n42.0\n\n\n12\n95\n55\n15\n35\n39.0\n\n\n13\n50\n80\n40\n30\n45.0\n\n\n14\n50\n55\n15\n85\n54.5\n\n\n15\n95\n30\n30\n95\n62.5\n\n\n16\n50\n50\n45\n10\n32.5\n\n\n17\n65\n55\n15\n45\n40.0\n\n\n18\n70\n70\n40\n35\n47.0\n\n\n19\n90\n90\n80\n90\n87.0\n\n\n\n\n\n\n\n\n이 방법은 df를 일시적으로 변화시킴"
   },
   {
-    "objectID": "posts/02wk-2.html#a.-애드워드-터프티",
-    "href": "posts/02wk-2.html#a.-애드워드-터프티",
-    "title": "02wk-2: Seaborn 간략한 소개, 훌륭한 시각화",
-    "section": "A. 애드워드 터프티",
-    "text": "A. 애드워드 터프티\n- 데이터 시각화계의 거장\n- 터프티의 이론중 백미: 엄격한 미니멀리즘\n\n최소한의 잉크로 많은 정보를 전달할 수 있다면 그것이 바로 좋은 그래프이다.\n작은 지면 내에서 잉크를 최대한 적게 써서 짧은 시간 안에 많은 영감을 주어야 한다.\n\n- 데이터-잉크비: 데이터를 표현하는데 들아가는 잉크의 양 / 그래픽을 인쇄하는데 들어가는 잉크의 총량\n- 차트정크 (나이젤홈즈의 그래프)\n\n\n“Lurking behind chartjunk is contempt both for information and for the audience. Chartjunk promoters imagine that numbers and details are boring, dull, and tedious, requiring ornament to enliven. Cosmetic decoration, which frequently distorts the data, will never salvage an underlying lack of content. If the numbers are boring, then you’ve got the wrong numbers (…) Worse is contempt for our audience, designing as if readers were obtuse and uncaring. In fact, consumers of graphics are often more intelligent about the information at hand than those who fabricate the data decoration (…) The operating moral premise of information design should be that our readers are alert and caring; they may be busy, eager to get on with it, but they are not stupid.”\n\n\n차트정크 = 대중을 멸시 + 데이터에 대한 모독\n차트정크 옹호가는 숫자와 데이터가 지루하여 활기가 필요하다고 생각하는 모양이다..\n\n- 별로인 그래프 (왼쪽) / 우수한 그래프 오른쪽\n\n- 별로인 그래프 (왼쪽) / 우수한 그래프 오른쪽\n\n- 별로인 그래프 (왼쪽) / 우수한 그래프 오른쪽\n\n- 제 생각: 글쎄…"
-  },
-  {
-    "objectID": "posts/02wk-2.html#b.-찰스미나드의-도표",
-    "href": "posts/02wk-2.html#b.-찰스미나드의-도표",
-    "title": "02wk-2: Seaborn 간략한 소개, 훌륭한 시각화",
-    "section": "B. 찰스미나드의 도표",
-    "text": "B. 찰스미나드의 도표\n\n인류역사상 가장 훌륭한 시각화\n\n\n- 터프티의 평\n\n지금까지 그려진 최고의 통계 그래픽일지도 모른다.\n여기에서는 군대의 크기, 2차원 평면상의 위치, 군대의 이동방향, 모스코바에서 퇴각하는 동안의 여러날짜, 온도 \\(\\to\\) 6차원의 변수\n백만번에 한번 이런 그림을 그릴수는 있겠지만 이러한 멋진 그래픽을 만드는 방법에 대한 원칙은 없다. \\(\\to\\) 미니멀리즘..\n\n- 왜 우수한 그래프일까?\n\n자료를 파악하는 기법은 최근까지도 산점도, 막대그래프, 라인플랏에 의존\n이러한 플랏의 단점은 고차원의 자료를 분석하기 어렵다는 것임\n미나드는 여러그림을 그리는 방법 대신에 한 그림에서 패널을 늘리는 방법을 선택함."
-  },
-  {
-    "objectID": "posts/02wk-2.html#c.-미나드처럼-그리는게-왜-어려운가",
-    "href": "posts/02wk-2.html#c.-미나드처럼-그리는게-왜-어려운가",
-    "title": "02wk-2: Seaborn 간략한 소개, 훌륭한 시각화",
-    "section": "C. 미나드처럼 그리는게 왜 어려운가?",
-    "text": "C. 미나드처럼 그리는게 왜 어려운가?\n- 몸무게, 키, 성별, 국적\n\ndf1=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/male1.csv')\ndf2=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/male2.csv')  \ndf3=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/female.csv') \ndf4=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/foreign.csv')\n\n- 미나드의 접근방법\n\n_df = pd.concat([pd.concat([df1,df2],axis=1).assign(g='m'),df3.assign(g='f')])\ndf = pd.concat([_df.assign(g2='korea'),df4.assign(g2='foreign')]).reset_index(drop=True)\ndf\n\n\n\n\n\n\n\n\nw\nh\ng\ng2\n\n\n\n\n0\n72.788217\n183.486773\nm\nkorea\n\n\n1\n66.606430\n173.599877\nm\nkorea\n\n\n2\n69.806324\n173.237903\nm\nkorea\n\n\n3\n67.449439\n173.223805\nm\nkorea\n\n\n4\n70.463183\n174.931946\nm\nkorea\n\n\n...\n...\n...\n...\n...\n\n\n1525\n78.154632\n188.324350\nm\nforeign\n\n\n1526\n74.754308\n183.017979\nf\nforeign\n\n\n1527\n91.196208\n190.100456\nm\nforeign\n\n\n1528\n87.770394\n187.987255\nm\nforeign\n\n\n1529\n88.021995\n193.456798\nm\nforeign\n\n\n\n\n1530 rows × 4 columns\n\n\n\n\nsns.scatterplot(\n    data=df,\n    x='w',\n    y='h',\n    hue='g',\n    style='g2'\n)\n\n&lt;Axes: xlabel='w', ylabel='h'&gt;\n\n\n\n\n\n- 어려운 점:\n\n센스부족: 센스가 없어서 hue/style을 이용하여 그룹을 구분할 생각을 못함\n개념부족: 타이디데이터 (=tidy dataframe, long form dataframe) 형태로 데이터를 정리할 생각을 못함\n코딩못함: 타이디데이터로 데이터를 변형하는 코드를 모름\n\n- 해결하는 방법:\n\n센스부족: 훌륭한 시각화를 많이 보면 해결할 수 있음.\n개념부족: tidydata에 대한 개념을 배우면 해결할 수 있음.\n코딩못함: 코딩공부열심히 (시각화 코드가 중요한게 아니고, pandas를 엄청 잘해야함)"
+    "objectID": "posts/03wk-2.html#c.-dfcolname-xxx",
+    "href": "posts/03wk-2.html#c.-dfcolname-xxx",
+    "title": "03wk-2: (draft)",
+    "section": "C. df[colname] = xxx",
+    "text": "C. df[colname] = xxx\n- 방법3: df['total'] 을 이용한 할당\n\ndf['total'] = df.att*0.1 + df.rep*0.2 + df.mid*0.3 + df.fin*0.4\ndf\n\n\n\n\n\n\n\n\natt\nrep\nmid\nfin\ntotal\n\n\n\n\n0\n65\n55\n50\n40\n48.5\n\n\n1\n95\n100\n50\n80\n76.5\n\n\n2\n65\n90\n60\n30\n54.5\n\n\n3\n55\n80\n75\n80\n76.0\n\n\n4\n80\n30\n30\n100\n63.0\n\n\n5\n75\n40\n100\n15\n51.5\n\n\n6\n65\n45\n45\n90\n65.0\n\n\n7\n60\n60\n25\n0\n25.5\n\n\n8\n95\n65\n20\n10\n32.5\n\n\n9\n90\n80\n80\n20\n57.0\n\n\n10\n55\n75\n35\n25\n41.0\n\n\n11\n95\n95\n45\n0\n42.0\n\n\n12\n95\n55\n15\n35\n39.0\n\n\n13\n50\n80\n40\n30\n45.0\n\n\n14\n50\n55\n15\n85\n54.5\n\n\n15\n95\n30\n30\n95\n62.5\n\n\n16\n50\n50\n45\n10\n32.5\n\n\n17\n65\n55\n15\n45\n40.0\n\n\n18\n70\n70\n40\n35\n47.0\n\n\n19\n90\n90\n80\n90\n87.0\n\n\n\n\n\n\n\n\n이 방법은 df를 영구적으로 변화시킴"
   },
   {
     "objectID": "posts/02wk-1.html#a.-예비학습",
