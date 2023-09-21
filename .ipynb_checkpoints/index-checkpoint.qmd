@@ -1,15 +1,4 @@
----
-title: "데이터 시각화 (2023)"
-listing:
-  contents: posts
-  sort: "date desc"
-  type: table
-  categories: true
-  sort-ui: false
-  filter-ui: false
-page-layout: full
-title-block-banner: false
----
+
 
 **질문하는 방법**
 
