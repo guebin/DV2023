@@ -1247,6 +1247,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<hr>
 <p><strong>hint: 아래는 column 이름이 5글자 이하인 열을 출력하는 코드를 작성한 것이다.</strong></p>
 <div id="e98b9c92-0030-4cc4-921b-3790054d4eb7" class="cell" data-execution_count="244">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df.loc[:,[<span class="bu">len</span>(col_name)<span class="op">&lt;=</span><span class="dv">5</span> <span class="cf">for</span> col_name <span class="kw">in</span> df.columns]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1327,8 +1328,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><strong>note:</strong> <code>[len(col_name)&lt;=5 for col_name in df.columns]</code> 와 같은 컴프리헨션 문법이 익숙하지 않다면</p>
 <ul>
-<li><a href="https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-20-3wk-1.html#list-고급내용-3" class="uri">https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-20-3wk-1.html#list-고급내용-3</a> 의 리스트컴프리헨션을 복습할 것</li>
+<li><a href="https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-20-3wk-1.html#list-고급내용-3" class="uri">https://guebin.github.io/PP2023/posts/01_PythonBasic/2023-03-20-3wk-1.html#list-고급내용-3</a></li>
 </ul>
+<p>의 리스트컴프리헨션을 복습할 것</p>
 
 
 </section>
