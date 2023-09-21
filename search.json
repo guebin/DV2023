@@ -352,79 +352,37 @@
   {
     "objectID": "posts/03wk-2.html#a.-열의-선택",
     "href": "posts/03wk-2.html#a.-열의-선택",
-    "title": "03wk-2: (draft)",
+    "title": "03wk-2: Pandas – 행과 열의 선택",
     "section": "A. 열의 선택",
-    "text": "A. 열의 선택\n- 방법1: df.? + str\n\n# df.X1\n\n- 방법2: df[?] + str, [str,str]\n\n# df['X1'] # str \n# df[['X1']] # [str]\n# df[['X1','X3']] # [str,str]\n\n- 방법3: df.iloc[:,?] + int, int:int, [int,int], [bool,bool], range\n\n# df.iloc[:,0] # int\n# df.iloc[:,-2:] # int:int - 슬라이싱\n# df.iloc[:,1::2] # int:int - 스트라이딩\n# df.iloc[:,[0]] # [int]\n# df.iloc[:,[0,1]] # [int,int]\n# df.iloc[:,[True,True,False,False,False]] # bool의 list \n# df.iloc[:,range(2)] # range\n\n- 방법4: df.loc[:,?] + str, ‘str:str’, [str,str], [bool,bool]\n\n# df.loc[:,'X1'] # str\n# df.loc[:,'X1':'X3'] # 'str':'str' -- 칼럼이름으로 슬라이싱 **\n# df.loc[:,'X1'::2] # 'str':'str' -- 칼럼이름으로 스트라이딩 ** \n# df.loc[:,['X1']] # [str]\n# df.loc[:,['X1','X4']] # [str,str]\n# df.loc[:,[True,False,False,True,False]] # bool의 list"
+    "text": "A. 열의 선택\n- 방법1: df.? + str\n\n# df.X1\n\n- 방법2: df[?] + str, [str,str]\n\n# df['X1'] # str \n# df[['X1']] # [str]\n# df[['X1','X3']] # [str,str]\n\n- 방법3: df.iloc[:,?] + int, int:int, [int,int], [bool,bool], range\n\n# df.iloc[:,0] # int\n# df.iloc[:,-2:] # int:int - 슬라이싱\n# df.iloc[:,1::2] # int:int - 스트라이딩\n# df.iloc[:,[0]] # [int]\n# df.iloc[:,[0,1]] # [int,int]\n# df.iloc[:,[True,True,False,False]] # bool의 list \n# df.iloc[:,range(2)] # range\n\n- 방법4: df.loc[:,?] + str, ‘str:str’, [str,str], [bool,bool]\n\n# df.loc[:,'X1'] # str\n# df.loc[:,'X1':'X3'] # 'str':'str' -- 칼럼이름으로 슬라이싱 **\n# df.loc[:,'X1'::2] # 'str':'str' -- 칼럼이름으로 스트라이딩 ** \n# df.loc[:,['X1']] # [str]\n# df.loc[:,['X1','X4']] # [str,str]\n# df.loc[:,[True,False,False,True]] # bool의 list"
   },
   {
     "objectID": "posts/03wk-2.html#b.-행의-선택",
     "href": "posts/03wk-2.html#b.-행의-선택",
-    "title": "03wk-2: (draft)",
+    "title": "03wk-2: Pandas – 행과 열의 선택",
     "section": "B. 행의 선택",
     "text": "B. 행의 선택\n- 방법1: df[] + int:int, str:str, [bool,bool], pd.Series([bool,bool]) – \\((\\star\\star\\star\\star\\star)\\)\n\n# df[:2] # int:int -- 슬라이싱 // df.iloc[:2,:], df.iloc[:2] 와 같음\n# df[::2] # int:int -- 스트라이딩 \n# ts['12/30':'01/02'] # str:str -- 슬라이싱\n# ts['12/31'::2] # str:str -- 스트라이딩\n# df[['12' in date for date in df.date]] # [bool,bool]\n# df[df.X1 &lt; 70] # pd.Series([bool,bool])\n\n- 방법2: df.iloc[], df.iloc[,:] + int, int:int, [int,int], [bool,bool], range\n\n# df.iloc[0] # int \n# df.iloc[-2:] # int:int -- 슬라이싱\n# df.iloc[1::2] # int:int -- 스트라이딩\n# df.iloc[[0]] # [int]\n# df.iloc[[0,1]] # [int,int]\n# df.iloc[['12' in date for date in df.date]] # [bool,bool]\n# df.iloc[range(2)] # range\n\n\n# df.iloc[0,:] # int \n# df.iloc[-2:,:] # int:int -- 슬라이싱\n# df.iloc[1::2,:] # int:int -- 스트라이딩\n# df.iloc[[0],:] # [int]\n# df.iloc[[0,1],:] # [int,int]\n# df.iloc[['12' in date for date in df.date],:] # [bool,bool]\n# df.iloc[range(2),:] # range\n\n- 방법3: df.loc[], df.loc[,:] + int, str, int:int, str:str, [int,int], [str,str], [bool,bool], pd.Series([bool,bool])\n\n# df.loc[0] # int \n# ts.loc['12/30'] # str \n# df.loc[:2] # int:int \n# ts.loc[:'01/02'] # str:str \n# df.loc[[0,1]] # [int,int]\n# ts.loc[['12/30','01/01']] # [str,str]\n# df.loc[['12' in date for date in df.date]] # [bool,bool]\n# df.loc[df.X1&gt;70] # pd.Series([bool,bool])"
   },
   {
     "objectID": "posts/03wk-2.html#d.-제-스타일",
     "href": "posts/03wk-2.html#d.-제-스타일",
-    "title": "03wk-2: (draft)",
+    "title": "03wk-2: Pandas – 행과 열의 선택",
     "section": "D. 제 스타일",
-    "text": "D. 제 스타일\n- 가장 안전한 코드\n\n# df.loc[:,:]\n\n- 상황1: 하나의 col을 뽑으려 할때 좋은 코드\n\n# df.X1 # 최애 \n# df['X1'] # 차애 \n# df[['X1']] # 차애\n\n- 상황2: row 슬라이싱을 할때 좋은 코드 \\((\\star\\star\\star)\\)\n\n# df[:5] # 최애 \n# ts[:'01/02'] # 시계열인 경우 \n\n- 상황3: 조건에 맞는 row를 뽑을때 좋은 코드\n\n# df[df.X1&lt;60] # 최애\n# df.loc[['12' in date for date in df.date]] # 차애\n\n- 상황4: 하나의 row를 뽑으려 할때 좋은 코드\n\n# df.iloc[0] # 최애 \n# df.loc[0] # 차애\n\n- 상황5: (row,col)을 뽑으려 할때 좋은 코드\n\n# # 최애: pd.Series를 뽑고 -&gt; 인덱스로접근\n# df.X1[0]\n# df['X1'][0]\n\n# # 차애: iloc, loc 으로 한번에 뽑기\n# df.iloc[0,0]\n# df.loc[0,'X1']\n\n위의 상황이외에는 df.loc[:,:]를 사용하는것이 유리하다\n- 상황6: column 슬라이싱을 할때\n\n# df.loc[:,'X1':'X3'] \n\n- 상황7: row + column 슬라이싱을 하는 가장 좋은 코드\n\n# df.loc[::2,'X1':'X2']\n\n- 상황8: 조건에 맞는 col을 뽑기에 가장 좋은 코드\n\n# df.loc[:,[len(colname)&gt;2 for colname in df.columns]]\n\n- 상황9: 조건에 맞는 row, col을 뽑기에 가장 좋은 코드\n\n# df.loc[df.X1&gt;70,[len(colname)&gt;2 for colname in df.columns]]"
+    "text": "D. 제 스타일\n- 가장 안전한 코드\n\n# df.loc[:,:]\n\n- 상황1: 하나의 col을 뽑으려 할때 좋은 코드\n\n# df.X1 # 최애 \n# df['X1'] # 차애 \n# df[['X1']] # 차애\n\n- 상황2: row 슬라이싱을 할때 좋은 코드 \\((\\star\\star\\star)\\)\n\n# df[:5] # 최애 \n# ts[:'01/02'] # 시계열인 경우 \n\n- 상황3: 조건에 맞는 row를 뽑을때 좋은 코드\n\n# df[df.X1&lt;60] # 최애\n# df.loc[['12' in date for date in df.date]] # 차애\n\n- 상황4: 하나의 row를 뽑으려 할때 좋은 코드\n\n# df.iloc[0] # 최애 \n# df.loc[0] # 차애\n\n- 상황5: (row,col)을 뽑으려 할때 좋은 코드\n\n# 최애: pd.Series를 뽑고 -&gt; 인덱스로접근\n# df.X1[0]\n# df['X1'][0]\n\n# 차애: iloc, loc 으로 한번에 뽑기\n# df.iloc[0,0]\n# df.loc[0,'X1']\n\n위의 상황이외에는 df.loc[:,:]를 사용하는것이 유리하다\n- 상황6: column 슬라이싱을 할때\n\n# df.loc[:,'X1':'X3'] # 끝점포함\n\n- 상황7: row + column 슬라이싱을 하는 가장 좋은 코드\n\ndf.loc[::2,'X1':'X2']\n\n\n\n\n\n\n\n\nX1\nX2\n\n\n\n\n0\n65\n55\n\n\n2\n65\n90\n\n\n4\n80\n30\n\n\n\n\n\n\n\n- 상황8: 조건에 맞는 col을 뽑기에 가장 좋은 코드\n\n# df.loc[:,[len(colname)&gt;2 for colname in df.columns]]\n\n- 상황9: 조건에 맞는 row, col을 뽑기에 가장 좋은 코드\n\n# df.loc[df.X1&gt;70,[len(colname)&gt;2 for colname in df.columns]]"
   },
   {
     "objectID": "posts/03wk-2.html#d.-제-스타일-x",
     "href": "posts/03wk-2.html#d.-제-스타일-x",
-    "title": "03wk-2: (draft)",
+    "title": "03wk-2: Pandas – 행과 열의 선택",
     "section": "D. 제 스타일 X",
     "text": "D. 제 스타일 X\n- 제가 안쓰는 코드1\n\ndf[:1]\n\n\n\n\n\n\n\n\ndate\nX1\nX2\nX3\nX4\n\n\n\n\n0\n12/30\n65\n55\n50\n40\n\n\n\n\n\n\n\n이러면 내 입장에서는 마치 아래가 동작할 것 같잖아..\n\ndf[0] \n\nKeyError: 0\n\n\n- 제가 안쓰는 코드2: bool의 list를 사용할때 iloc은 가급적 쓰지마세요\n\ndf.iloc[list(df['X1']&lt;80),:]\n\n\n\n\n\n\n\n\ndate\nX1\nX2\nX3\nX4\n\n\n\n\n0\n12/30\n65\n55\n50\n40\n\n\n2\n01/01\n65\n90\n60\n30\n\n\n3\n01/02\n55\n80\n75\n80\n\n\n\n\n\n\n\n이러면 마치 아래도 동작할 것 같잖아..\n\ndf.iloc[df['X1']&lt;80,:]\n\nNotImplementedError: iLocation based boolean indexing on an integer type is not available"
   },
   {
     "objectID": "posts/03wk-2.html#e.-요약",
     "href": "posts/03wk-2.html#e.-요약",
-    "title": "03wk-2: (draft)",
+    "title": "03wk-2: Pandas – 행과 열의 선택",
     "section": "E. 요약",
     "text": "E. 요약\n- 알아두면 좋은 규칙\n\n.iloc[] 와 .iloc[,:]는 완전히 동등하다.\n.loc[] 와 .loc[,:]는 완전히 동등하다.\n결과를 pd.Series 형태가 아닌 pd.DataFrame 형태로 얻고 싶다면 [[?]]를 사용하면 된다.\n\n- 정리\n\nROWCOL\n\n\n\n\n\n\n\n\n\n\n\n\n\ntype of indexer\n.\n[]\n.iloc\n.loc\n내가 쓴다면?\n\n\n\n\nint\nX\nX\nO\n\\(\\Delta\\)\ndf.iloc[3,:]\n\n\nint:int\nX\nO\nO\n\\(\\Delta\\)\ndf[3:5]\n\n\n[int,int]\nX\nX\nO\n\\(\\Delta\\)\ndf.iloc[idx,:]\n\n\nstr\nX\nX\nX\nO\nts.loc['time1',:]\n\n\nstr:str\nX\nO\nX\nO\nts.loc['time1':'time2',:]\n\n\n[str,str]\nX\nX\nX\nO\n안할 듯\n\n\n[bool,bool]\nX\nO\nO\nO\ndf[filtered_idx]\n\n\npd.Series([bool,bool])\nX\nO\nX\nO\ndf[df.X1&gt;20]\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntype of indexer\ntarget\n.\n[]\n.iloc\n.loc\n내가 쓴다면?\n\n\n\n\nint\ncol\nX\nX\nO\nX\ndf.iloc[:,0]\n\n\nint:int\ncol\nX\nX\nO\nX\ndf.iloc[:,0:2]\n\n\n[int,int]\ncol\nX\nX\nO\nX\ndf.iloc[:,idx]\n\n\nstr\ncol\nO\nO\nX\nO\ndf.loc[:,'X1']\n\n\nstr:str\ncol\nX\nX\nX\nO\ndf.loc[:,'X1':'X4']\n\n\n[str,str]\ncol\nX\nO\nX\nO\ndf.loc[:,colname_list]\n\n\n[bool,bool]\ncol\nX\nX\nO\nO\ndf.loc[:,bool_list]"
-  },
-  {
-    "objectID": "posts/03wk-2.html#a.-기본-query",
-    "href": "posts/03wk-2.html#a.-기본-query",
-    "title": "03wk-2: (draft)",
-    "section": "A. 기본 query",
-    "text": "A. 기본 query\n- 예시1: A&gt;0 and B&lt;0\n\ndf.query('A&gt;0 and B&lt;0')\n\n\n\n\n\n\n\n\nA\nB\nC\nD\nE\n\n\n\n\n2022-12-26\n0.767221\n-0.290584\n-1.065691\n1.615358\nA\n\n\n2023-01-01\n0.467574\n-0.780882\n1.520395\n0.691056\nA\n\n\n2023-01-02\n1.233973\n-0.628871\n-1.197564\n0.648973\nA\n\n\n2023-01-07\n0.995070\n-0.846203\n-0.353419\n0.952496\nB\n\n\n\n\n\n\n\n- 예시2: A&lt;B&lt;C\n\ndf.query('A&lt;B&lt;C')\n\n\n\n\n\n\n\n\nA\nB\nC\nD\nE\n\n\n\n\n2022-12-28\n-2.057355\n-0.264822\n1.788472\n-0.618423\nA\n\n\n2023-01-08\n-2.222735\n-0.449644\n0.370354\n-0.828161\nB\n\n\n\n\n\n\n\n- 예시3: (A+B/2) &gt; 0\n\ndf.query('(A+B)&gt;0')\n\n\n\n\n\n\n\n\nA\nB\nC\nD\nE\n\n\n\n\n2022-12-26\n0.767221\n-0.290584\n-1.065691\n1.615358\nA\n\n\n2022-12-29\n-0.015549\n1.464135\n0.430070\n-0.664126\nA\n\n\n2022-12-30\n-0.855794\n1.279662\n-1.079034\n1.582851\nA\n\n\n2022-12-31\n-1.269346\n1.902134\n0.585944\n-1.386313\nA\n\n\n2023-01-02\n1.233973\n-0.628871\n-1.197564\n0.648973\nA\n\n\n2023-01-04\n2.121505\n0.956887\n-0.273770\n-0.501390\nA\n\n\n2023-01-07\n0.995070\n-0.846203\n-0.353419\n0.952496\nB\n\n\n2023-01-09\n0.203517\n0.815637\n-0.270224\n-1.229096\nB\n\n\n2023-01-10\n-0.959396\n1.263892\n-1.424824\n0.307376\nB\n\n\n2023-01-11\n-0.175511\n0.573211\n-0.506680\n0.340402\nB\n\n\n2023-01-12\n-0.470896\n0.622965\n-0.588325\n-0.433937\nB\n\n\n2023-01-14\n1.185932\n0.451831\n2.319927\n-2.142748\nB\n\n\n\n\n\n\n\n- 예시4: (A+B/2) &gt; 0 and E=='A'\n\ndf.query('(A+B)&gt;0 and E==\"A\"')\n\n\n\n\n\n\n\n\nA\nB\nC\nD\nE\n\n\n\n\n2022-12-26\n0.767221\n-0.290584\n-1.065691\n1.615358\nA\n\n\n2022-12-29\n-0.015549\n1.464135\n0.430070\n-0.664126\nA\n\n\n2022-12-30\n-0.855794\n1.279662\n-1.079034\n1.582851\nA\n\n\n2022-12-31\n-1.269346\n1.902134\n0.585944\n-1.386313\nA\n\n\n2023-01-02\n1.233973\n-0.628871\n-1.197564\n0.648973\nA\n\n\n2023-01-04\n2.121505\n0.956887\n-0.273770\n-0.501390\nA\n\n\n\n\n\n\n\n\ndf.query(\"(A+B)&gt;0 and E=='A'\")\n\n\n\n\n\n\n\n\nA\nB\nC\nD\nE\n\n\n\n\n2022-12-26\n0.767221\n-0.290584\n-1.065691\n1.615358\nA\n\n\n2022-12-29\n-0.015549\n1.464135\n0.430070\n-0.664126\nA\n\n\n2022-12-30\n-0.855794\n1.279662\n-1.079034\n1.582851\nA\n\n\n2022-12-31\n-1.269346\n1.902134\n0.585944\n-1.386313\nA\n\n\n2023-01-02\n1.233973\n-0.628871\n-1.197564\n0.648973\nA\n\n\n2023-01-04\n2.121505\n0.956887\n-0.273770\n-0.501390\nA"
-  },
-  {
-    "objectID": "posts/03wk-2.html#b.-외부변수를-이용",
-    "href": "posts/03wk-2.html#b.-외부변수를-이용",
-    "title": "03wk-2: (draft)",
-    "section": "B. 외부변수를 이용",
-    "text": "B. 외부변수를 이용\n- 예시\n\nmean = df.A.mean()\nmean\n\n-0.39871257315388997\n\n\n\ndf.query('A &gt; @mean')\n\n\n\n\n\n\n\n\nA\nB\nC\nD\nE\n\n\n\n\n2022-12-26\n0.767221\n-0.290584\n-1.065691\n1.615358\nA\n\n\n2022-12-27\n-0.064282\n-0.358218\n0.420549\n0.524016\nA\n\n\n2022-12-29\n-0.015549\n1.464135\n0.430070\n-0.664126\nA\n\n\n2023-01-01\n0.467574\n-0.780882\n1.520395\n0.691056\nA\n\n\n2023-01-02\n1.233973\n-0.628871\n-1.197564\n0.648973\nA\n\n\n2023-01-04\n2.121505\n0.956887\n-0.273770\n-0.501390\nA\n\n\n2023-01-07\n0.995070\n-0.846203\n-0.353419\n0.952496\nB\n\n\n2023-01-09\n0.203517\n0.815637\n-0.270224\n-1.229096\nB\n\n\n2023-01-11\n-0.175511\n0.573211\n-0.506680\n0.340402\nB\n\n\n2023-01-14\n1.185932\n0.451831\n2.319927\n-2.142748\nB"
-  },
-  {
-    "objectID": "posts/03wk-2.html#c.-index로-query",
-    "href": "posts/03wk-2.html#c.-index로-query",
-    "title": "03wk-2: (draft)",
-    "section": "C. Index로 query",
-    "text": "C. Index로 query\n- 예시\n\ndf.query('index &lt;= \"2022-12-30\" or index == \"2023-01-10\"')\n\n\n\n\n\n\n\n\nA\nB\nC\nD\nE\n\n\n\n\n2022-12-26\n0.767221\n-0.290584\n-1.065691\n1.615358\nA\n\n\n2022-12-27\n-0.064282\n-0.358218\n0.420549\n0.524016\nA\n\n\n2022-12-28\n-2.057355\n-0.264822\n1.788472\n-0.618423\nA\n\n\n2022-12-29\n-0.015549\n1.464135\n0.430070\n-0.664126\nA\n\n\n2022-12-30\n-0.855794\n1.279662\n-1.079034\n1.582851\nA\n\n\n2023-01-10\n-0.959396\n1.263892\n-1.424824\n0.307376\nB"
-  },
-  {
-    "objectID": "posts/03wk-2.html#a.-df.assign",
-    "href": "posts/03wk-2.html#a.-df.assign",
-    "title": "03wk-2: (draft)",
-    "section": "A. df.assign()",
-    "text": "A. df.assign()\n- 방법1: assign을 이용한 추가\n\ndf.assign(total = df.att*0.1 + df.rep*0.2 + df.mid*0.35 + df.fin*0.35) \n\n\n\n\n\n\n\n\natt\nrep\nmid\nfin\ntotal\n\n\n\n\n0\n65\n55\n50\n40\n49.00\n\n\n1\n95\n100\n50\n80\n75.00\n\n\n2\n65\n90\n60\n30\n56.00\n\n\n3\n55\n80\n75\n80\n75.75\n\n\n4\n80\n30\n30\n100\n59.50\n\n\n5\n75\n40\n100\n15\n55.75\n\n\n6\n65\n45\n45\n90\n62.75\n\n\n7\n60\n60\n25\n0\n26.75\n\n\n8\n95\n65\n20\n10\n33.00\n\n\n9\n90\n80\n80\n20\n60.00\n\n\n10\n55\n75\n35\n25\n41.50\n\n\n11\n95\n95\n45\n0\n44.25\n\n\n12\n95\n55\n15\n35\n38.00\n\n\n13\n50\n80\n40\n30\n45.50\n\n\n14\n50\n55\n15\n85\n51.00\n\n\n15\n95\n30\n30\n95\n59.25\n\n\n16\n50\n50\n45\n10\n34.25\n\n\n17\n65\n55\n15\n45\n38.50\n\n\n18\n70\n70\n40\n35\n47.25\n\n\n19\n90\n90\n80\n90\n86.50\n\n\n\n\n\n\n\n\n이 방법은 df를 일시적으로 변화시킴"
-  },
-  {
-    "objectID": "posts/03wk-2.html#b.-df.eval",
-    "href": "posts/03wk-2.html#b.-df.eval",
-    "title": "03wk-2: (draft)",
-    "section": "B. df.eval()",
-    "text": "B. df.eval()\n- 방법2: eval을 이용한 추가\n\ndf.eval('total = att*0.1 + rep*0.2 + mid*0.3 + fin*0.4') \n\n\n\n\n\n\n\n\natt\nrep\nmid\nfin\ntotal\n\n\n\n\n0\n65\n55\n50\n40\n48.5\n\n\n1\n95\n100\n50\n80\n76.5\n\n\n2\n65\n90\n60\n30\n54.5\n\n\n3\n55\n80\n75\n80\n76.0\n\n\n4\n80\n30\n30\n100\n63.0\n\n\n5\n75\n40\n100\n15\n51.5\n\n\n6\n65\n45\n45\n90\n65.0\n\n\n7\n60\n60\n25\n0\n25.5\n\n\n8\n95\n65\n20\n10\n32.5\n\n\n9\n90\n80\n80\n20\n57.0\n\n\n10\n55\n75\n35\n25\n41.0\n\n\n11\n95\n95\n45\n0\n42.0\n\n\n12\n95\n55\n15\n35\n39.0\n\n\n13\n50\n80\n40\n30\n45.0\n\n\n14\n50\n55\n15\n85\n54.5\n\n\n15\n95\n30\n30\n95\n62.5\n\n\n16\n50\n50\n45\n10\n32.5\n\n\n17\n65\n55\n15\n45\n40.0\n\n\n18\n70\n70\n40\n35\n47.0\n\n\n19\n90\n90\n80\n90\n87.0\n\n\n\n\n\n\n\n\n이 방법은 df를 일시적으로 변화시킴"
-  },
-  {
-    "objectID": "posts/03wk-2.html#c.-dfcolname-xxx",
-    "href": "posts/03wk-2.html#c.-dfcolname-xxx",
-    "title": "03wk-2: (draft)",
-    "section": "C. df[colname] = xxx",
-    "text": "C. df[colname] = xxx\n- 방법3: df['total'] 을 이용한 할당\n\ndf['total'] = df.att*0.1 + df.rep*0.2 + df.mid*0.3 + df.fin*0.4\ndf\n\n\n\n\n\n\n\n\natt\nrep\nmid\nfin\ntotal\n\n\n\n\n0\n65\n55\n50\n40\n48.5\n\n\n1\n95\n100\n50\n80\n76.5\n\n\n2\n65\n90\n60\n30\n54.5\n\n\n3\n55\n80\n75\n80\n76.0\n\n\n4\n80\n30\n30\n100\n63.0\n\n\n5\n75\n40\n100\n15\n51.5\n\n\n6\n65\n45\n45\n90\n65.0\n\n\n7\n60\n60\n25\n0\n25.5\n\n\n8\n95\n65\n20\n10\n32.5\n\n\n9\n90\n80\n80\n20\n57.0\n\n\n10\n55\n75\n35\n25\n41.0\n\n\n11\n95\n95\n45\n0\n42.0\n\n\n12\n95\n55\n15\n35\n39.0\n\n\n13\n50\n80\n40\n30\n45.0\n\n\n14\n50\n55\n15\n85\n54.5\n\n\n15\n95\n30\n30\n95\n62.5\n\n\n16\n50\n50\n45\n10\n32.5\n\n\n17\n65\n55\n15\n45\n40.0\n\n\n18\n70\n70\n40\n35\n47.0\n\n\n19\n90\n90\n80\n90\n87.0\n\n\n\n\n\n\n\n\n이 방법은 df를 영구적으로 변화시킴"
   },
   {
     "objectID": "posts/02wk-1.html#a.-예비학습",

@@ -100,6 +100,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -150,7 +153,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#mapfunction-list" id="toc-mapfunction-list" class="nav-link active" data-scroll-target="#mapfunction-list">3. <code>map(function, list)</code></a>
+  <li><a href="#pandas-query" id="toc-pandas-query" class="nav-link active" data-scroll-target="#pandas-query">4. Pandas: query</a>
+  <ul class="collapse">
+  <li><a href="#a.-기본-query" id="toc-a.-기본-query" class="nav-link" data-scroll-target="#a.-기본-query">A. 기본 query</a></li>
+  <li><a href="#b.-외부변수를-이용" id="toc-b.-외부변수를-이용" class="nav-link" data-scroll-target="#b.-외부변수를-이용">B. 외부변수를 이용</a></li>
+  <li><a href="#c.-index로-query" id="toc-c.-index로-query" class="nav-link" data-scroll-target="#c.-index로-query">C. Index로 query</a></li>
+  </ul></li>
+  <li><a href="#pandas-할당" id="toc-pandas-할당" class="nav-link" data-scroll-target="#pandas-할당">5. Pandas: 할당</a>
+  <ul class="collapse">
+  <li><a href="#a.-df.assign" id="toc-a.-df.assign" class="nav-link" data-scroll-target="#a.-df.assign">A. <code>df.assign()</code></a></li>
+  <li><a href="#b.-df.eval" id="toc-b.-df.eval" class="nav-link" data-scroll-target="#b.-df.eval">B. <code>df.eval()</code></a></li>
+  <li><a href="#c.-dfcolname-xxx" id="toc-c.-dfcolname-xxx" class="nav-link" data-scroll-target="#c.-dfcolname-xxx">C. <code>df[colname] = xxx</code></a></li>
+  </ul></li>
+  <li><a href="#hw" id="toc-hw" class="nav-link" data-scroll-target="#hw">6. HW</a></li>
+  <li><a href="#mapfunction-list" id="toc-mapfunction-list" class="nav-link" data-scroll-target="#mapfunction-list">3. <code>map(function, list)</code></a>
   <ul class="collapse">
   <li><a href="#a.-lambda" id="toc-a.-lambda" class="nav-link" data-scroll-target="#a.-lambda">A. <code>lambda</code></a></li>
   </ul></li>
@@ -193,60 +209,1753 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="pandas-query" class="level1">
+<h1>4. Pandas: query</h1>
+<div id="a2ba1a32-4d2d-46b6-9dc2-e81335ebe5ab" class="cell" data-execution_count="226">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.DataFrame(np.random.normal(size<span class="op">=</span>(<span class="dv">20</span>,<span class="dv">4</span>)),columns<span class="op">=</span><span class="bu">list</span>(<span class="st">'ABCD'</span>),index<span class="op">=</span>pd.date_range(<span class="st">'20221226'</span>,periods<span class="op">=</span><span class="dv">20</span>)).assign(E<span class="op">=</span>[<span class="st">'A'</span>]<span class="op">*</span><span class="dv">10</span><span class="op">+</span>[<span class="st">'B'</span>]<span class="op">*</span><span class="dv">10</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="226">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+<th data-quarto-table-cell-role="th">E</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-26</td>
+<td>1.817794</td>
+<td>0.688123</td>
+<td>-1.015092</td>
+<td>2.010119</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-12-27</td>
+<td>0.835070</td>
+<td>1.263637</td>
+<td>0.341315</td>
+<td>-1.010957</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-28</td>
+<td>-0.950937</td>
+<td>-0.419994</td>
+<td>-1.241818</td>
+<td>0.336441</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-12-29</td>
+<td>-1.253486</td>
+<td>1.613174</td>
+<td>0.974001</td>
+<td>-1.329818</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-30</td>
+<td>0.632094</td>
+<td>0.787459</td>
+<td>-0.043460</td>
+<td>0.590284</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-12-31</td>
+<td>-0.008297</td>
+<td>1.336190</td>
+<td>0.832503</td>
+<td>-0.816102</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-01</td>
+<td>0.080573</td>
+<td>0.363952</td>
+<td>-0.094476</td>
+<td>0.896589</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-02</td>
+<td>-0.553000</td>
+<td>0.641742</td>
+<td>2.100417</td>
+<td>0.314088</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-03</td>
+<td>0.601046</td>
+<td>-0.601035</td>
+<td>1.388087</td>
+<td>1.454556</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-04</td>
+<td>-0.924704</td>
+<td>0.327637</td>
+<td>-1.006630</td>
+<td>1.657376</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-05</td>
+<td>-0.419960</td>
+<td>-0.991624</td>
+<td>0.984064</td>
+<td>0.571863</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-06</td>
+<td>-0.393774</td>
+<td>1.063387</td>
+<td>-0.864032</td>
+<td>0.932810</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-07</td>
+<td>1.042991</td>
+<td>0.071130</td>
+<td>1.038573</td>
+<td>-1.337250</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-08</td>
+<td>-0.924976</td>
+<td>-0.792420</td>
+<td>-0.867050</td>
+<td>-1.399181</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-09</td>
+<td>0.055362</td>
+<td>-0.392051</td>
+<td>-0.316035</td>
+<td>-0.175286</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-10</td>
+<td>0.059772</td>
+<td>-1.114924</td>
+<td>-0.470883</td>
+<td>0.801841</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-11</td>
+<td>0.299772</td>
+<td>0.871334</td>
+<td>-1.037732</td>
+<td>-0.245415</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-12</td>
+<td>-1.014341</td>
+<td>-0.446765</td>
+<td>-1.749381</td>
+<td>-0.127599</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-13</td>
+<td>-0.747640</td>
+<td>0.948013</td>
+<td>-0.151061</td>
+<td>2.525866</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-14</td>
+<td>-0.200503</td>
+<td>0.565430</td>
+<td>0.636693</td>
+<td>1.211201</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="a.-기본-query" class="level2">
+<h2 class="anchored" data-anchor-id="a.-기본-query">A. 기본 query</h2>
+<p><code>-</code> 예시1: <code>A&gt;0 and B&lt;0</code></p>
+<div id="a3240240-a6ae-4e8c-855e-15722380c118" class="cell" data-execution_count="227">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">'A&gt;0 and B&lt;0'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="227">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+<th data-quarto-table-cell-role="th">E</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-03</td>
+<td>0.601046</td>
+<td>-0.601035</td>
+<td>1.388087</td>
+<td>1.454556</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-09</td>
+<td>0.055362</td>
+<td>-0.392051</td>
+<td>-0.316035</td>
+<td>-0.175286</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-10</td>
+<td>0.059772</td>
+<td>-1.114924</td>
+<td>-0.470883</td>
+<td>0.801841</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><code>-</code> 예시2: <code>A&lt;B&lt;C</code></p>
+<div id="9fb79ec2-220a-4c8e-840b-d461c78447ef" class="cell" data-execution_count="228">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">'A&lt;B&lt;C'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="228">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+<th data-quarto-table-cell-role="th">E</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-02</td>
+<td>-0.553000</td>
+<td>0.641742</td>
+<td>2.100417</td>
+<td>0.314088</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-14</td>
+<td>-0.200503</td>
+<td>0.565430</td>
+<td>0.636693</td>
+<td>1.211201</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><code>-</code> 예시3: <code>(A+B/2) &gt; 0</code></p>
+<div id="52801425-d694-4031-9e10-7579d5451af1" class="cell" data-execution_count="229">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">'(A+B)&gt;0'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="229">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+<th data-quarto-table-cell-role="th">E</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-26</td>
+<td>1.817794</td>
+<td>0.688123</td>
+<td>-1.015092</td>
+<td>2.010119</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-12-27</td>
+<td>0.835070</td>
+<td>1.263637</td>
+<td>0.341315</td>
+<td>-1.010957</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-29</td>
+<td>-1.253486</td>
+<td>1.613174</td>
+<td>0.974001</td>
+<td>-1.329818</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-12-30</td>
+<td>0.632094</td>
+<td>0.787459</td>
+<td>-0.043460</td>
+<td>0.590284</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-31</td>
+<td>-0.008297</td>
+<td>1.336190</td>
+<td>0.832503</td>
+<td>-0.816102</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-01</td>
+<td>0.080573</td>
+<td>0.363952</td>
+<td>-0.094476</td>
+<td>0.896589</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-02</td>
+<td>-0.553000</td>
+<td>0.641742</td>
+<td>2.100417</td>
+<td>0.314088</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-03</td>
+<td>0.601046</td>
+<td>-0.601035</td>
+<td>1.388087</td>
+<td>1.454556</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-06</td>
+<td>-0.393774</td>
+<td>1.063387</td>
+<td>-0.864032</td>
+<td>0.932810</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-07</td>
+<td>1.042991</td>
+<td>0.071130</td>
+<td>1.038573</td>
+<td>-1.337250</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-11</td>
+<td>0.299772</td>
+<td>0.871334</td>
+<td>-1.037732</td>
+<td>-0.245415</td>
+<td>B</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-13</td>
+<td>-0.747640</td>
+<td>0.948013</td>
+<td>-0.151061</td>
+<td>2.525866</td>
+<td>B</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-14</td>
+<td>-0.200503</td>
+<td>0.565430</td>
+<td>0.636693</td>
+<td>1.211201</td>
+<td>B</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><code>-</code> 예시4: <code>(A+B/2) &gt; 0</code> and <code>E=='A'</code></p>
+<div id="b1c63456-7f16-41a9-93af-10396dac71b4" class="cell" data-execution_count="230">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">'(A+B)&gt;0 and E=="A"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="230">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+<th data-quarto-table-cell-role="th">E</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-26</td>
+<td>1.817794</td>
+<td>0.688123</td>
+<td>-1.015092</td>
+<td>2.010119</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-12-27</td>
+<td>0.835070</td>
+<td>1.263637</td>
+<td>0.341315</td>
+<td>-1.010957</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-29</td>
+<td>-1.253486</td>
+<td>1.613174</td>
+<td>0.974001</td>
+<td>-1.329818</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-12-30</td>
+<td>0.632094</td>
+<td>0.787459</td>
+<td>-0.043460</td>
+<td>0.590284</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-31</td>
+<td>-0.008297</td>
+<td>1.336190</td>
+<td>0.832503</td>
+<td>-0.816102</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-01</td>
+<td>0.080573</td>
+<td>0.363952</td>
+<td>-0.094476</td>
+<td>0.896589</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-02</td>
+<td>-0.553000</td>
+<td>0.641742</td>
+<td>2.100417</td>
+<td>0.314088</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-03</td>
+<td>0.601046</td>
+<td>-0.601035</td>
+<td>1.388087</td>
+<td>1.454556</td>
+<td>A</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="eeca6e7d-e14f-48c2-be47-76de70d9c272" class="cell" data-execution_count="231">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">"(A+B)&gt;0 and E=='A'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="231">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+<th data-quarto-table-cell-role="th">E</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-26</td>
+<td>1.817794</td>
+<td>0.688123</td>
+<td>-1.015092</td>
+<td>2.010119</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-12-27</td>
+<td>0.835070</td>
+<td>1.263637</td>
+<td>0.341315</td>
+<td>-1.010957</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-29</td>
+<td>-1.253486</td>
+<td>1.613174</td>
+<td>0.974001</td>
+<td>-1.329818</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-12-30</td>
+<td>0.632094</td>
+<td>0.787459</td>
+<td>-0.043460</td>
+<td>0.590284</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-31</td>
+<td>-0.008297</td>
+<td>1.336190</td>
+<td>0.832503</td>
+<td>-0.816102</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-01</td>
+<td>0.080573</td>
+<td>0.363952</td>
+<td>-0.094476</td>
+<td>0.896589</td>
+<td>A</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-02</td>
+<td>-0.553000</td>
+<td>0.641742</td>
+<td>2.100417</td>
+<td>0.314088</td>
+<td>A</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-03</td>
+<td>0.601046</td>
+<td>-0.601035</td>
+<td>1.388087</td>
+<td>1.454556</td>
+<td>A</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="b.-외부변수를-이용" class="level2">
+<h2 class="anchored" data-anchor-id="b.-외부변수를-이용">B. 외부변수를 이용</h2>
+<p><code>-</code> 예시</p>
+<div id="7440e264-b72d-42a5-9ebf-7ca2533edce7" class="cell" data-execution_count="205">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mean <span class="op">=</span> df.A.mean()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>mean</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="205">
+<pre><code>-0.2510087711727323</code></pre>
+</div>
+</div>
+<div id="88dddd64-afd9-4008-96c1-15b5dfeac676" class="cell" data-execution_count="206">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">'A &gt; @mean'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="206">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-28</td>
+<td>-0.011607</td>
+<td>0.927334</td>
+<td>-0.753145</td>
+<td>1.013249</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-01</td>
+<td>0.958028</td>
+<td>-0.015302</td>
+<td>0.891259</td>
+<td>-0.826834</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-02</td>
+<td>1.822226</td>
+<td>-1.258543</td>
+<td>-0.705506</td>
+<td>-0.519831</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-04</td>
+<td>-0.083539</td>
+<td>0.528519</td>
+<td>0.051522</td>
+<td>0.126757</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-06</td>
+<td>-0.016530</td>
+<td>1.041946</td>
+<td>1.511319</td>
+<td>-0.970646</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-08</td>
+<td>0.554734</td>
+<td>0.712753</td>
+<td>0.769650</td>
+<td>0.277420</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-10</td>
+<td>0.904037</td>
+<td>-0.809864</td>
+<td>0.473510</td>
+<td>-0.047875</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-12</td>
+<td>0.054391</td>
+<td>-0.732693</td>
+<td>0.409205</td>
+<td>-1.165549</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2023-01-13</td>
+<td>0.053472</td>
+<td>0.800553</td>
+<td>-0.040499</td>
+<td>-0.447199</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section id="c.-index로-query" class="level2">
+<h2 class="anchored" data-anchor-id="c.-index로-query">C. Index로 query</h2>
+<p><code>-</code> 예시</p>
+<div id="300ea217-e1cf-451c-8733-93782a337d9f" class="cell" data-execution_count="217">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.query(<span class="st">'index &lt;= "2022-12-30" or index == "2023-01-10"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="217">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">A</th>
+<th data-quarto-table-cell-role="th">B</th>
+<th data-quarto-table-cell-role="th">C</th>
+<th data-quarto-table-cell-role="th">D</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-26</td>
+<td>-0.259429</td>
+<td>0.369731</td>
+<td>-0.279944</td>
+<td>0.099409</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-12-27</td>
+<td>-0.932515</td>
+<td>-0.311629</td>
+<td>0.828348</td>
+<td>-0.225257</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-28</td>
+<td>-0.011607</td>
+<td>0.927334</td>
+<td>-0.753145</td>
+<td>1.013249</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2022-12-29</td>
+<td>-1.050379</td>
+<td>-0.323094</td>
+<td>0.813898</td>
+<td>1.035724</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2022-12-30</td>
+<td>-0.921175</td>
+<td>0.513109</td>
+<td>-0.905361</td>
+<td>0.893707</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">2023-01-10</td>
+<td>0.904037</td>
+<td>-0.809864</td>
+<td>0.473510</td>
+<td>-0.047875</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="pandas-할당" class="level1">
+<h1>5. Pandas: 할당</h1>
+<p><code>-</code> 자료</p>
+<div id="6c0ed28e-74f6-458f-bf40-9e83c9b57047" class="cell" data-execution_count="219">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>mid <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>fin <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin})</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="219">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">att</th>
+<th data-quarto-table-cell-role="th">rep</th>
+<th data-quarto-table-cell-role="th">mid</th>
+<th data-quarto-table-cell-role="th">fin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>65</td>
+<td>55</td>
+<td>50</td>
+<td>40</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>95</td>
+<td>100</td>
+<td>50</td>
+<td>80</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>65</td>
+<td>90</td>
+<td>60</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>55</td>
+<td>80</td>
+<td>75</td>
+<td>80</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>80</td>
+<td>30</td>
+<td>30</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>75</td>
+<td>40</td>
+<td>100</td>
+<td>15</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>65</td>
+<td>45</td>
+<td>45</td>
+<td>90</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>60</td>
+<td>60</td>
+<td>25</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>95</td>
+<td>65</td>
+<td>20</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>90</td>
+<td>80</td>
+<td>80</td>
+<td>20</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>55</td>
+<td>75</td>
+<td>35</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>95</td>
+<td>95</td>
+<td>45</td>
+<td>0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>95</td>
+<td>55</td>
+<td>15</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>50</td>
+<td>80</td>
+<td>40</td>
+<td>30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>50</td>
+<td>55</td>
+<td>15</td>
+<td>85</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>95</td>
+<td>30</td>
+<td>30</td>
+<td>95</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>50</td>
+<td>50</td>
+<td>45</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>65</td>
+<td>55</td>
+<td>15</td>
+<td>45</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>70</td>
+<td>70</td>
+<td>40</td>
+<td>35</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>90</td>
+<td>90</td>
+<td>80</td>
+<td>90</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="a.-df.assign" class="level2">
+<h2 class="anchored" data-anchor-id="a.-df.assign">A. <code>df.assign()</code></h2>
+<p><code>-</code> 방법1: assign을 이용한 추가</p>
+<div id="f401ec56-8374-41dc-9e8f-a62e092cffa5" class="cell" data-execution_count="220">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df.assign(total <span class="op">=</span> df.att<span class="op">*</span><span class="fl">0.1</span> <span class="op">+</span> df.rep<span class="op">*</span><span class="fl">0.2</span> <span class="op">+</span> df.mid<span class="op">*</span><span class="fl">0.35</span> <span class="op">+</span> df.fin<span class="op">*</span><span class="fl">0.35</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="220">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">att</th>
+<th data-quarto-table-cell-role="th">rep</th>
+<th data-quarto-table-cell-role="th">mid</th>
+<th data-quarto-table-cell-role="th">fin</th>
+<th data-quarto-table-cell-role="th">total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>65</td>
+<td>55</td>
+<td>50</td>
+<td>40</td>
+<td>49.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>95</td>
+<td>100</td>
+<td>50</td>
+<td>80</td>
+<td>75.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>65</td>
+<td>90</td>
+<td>60</td>
+<td>30</td>
+<td>56.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>55</td>
+<td>80</td>
+<td>75</td>
+<td>80</td>
+<td>75.75</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>80</td>
+<td>30</td>
+<td>30</td>
+<td>100</td>
+<td>59.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>75</td>
+<td>40</td>
+<td>100</td>
+<td>15</td>
+<td>55.75</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>65</td>
+<td>45</td>
+<td>45</td>
+<td>90</td>
+<td>62.75</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>60</td>
+<td>60</td>
+<td>25</td>
+<td>0</td>
+<td>26.75</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>95</td>
+<td>65</td>
+<td>20</td>
+<td>10</td>
+<td>33.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>90</td>
+<td>80</td>
+<td>80</td>
+<td>20</td>
+<td>60.00</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>55</td>
+<td>75</td>
+<td>35</td>
+<td>25</td>
+<td>41.50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>95</td>
+<td>95</td>
+<td>45</td>
+<td>0</td>
+<td>44.25</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>95</td>
+<td>55</td>
+<td>15</td>
+<td>35</td>
+<td>38.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>50</td>
+<td>80</td>
+<td>40</td>
+<td>30</td>
+<td>45.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>50</td>
+<td>55</td>
+<td>15</td>
+<td>85</td>
+<td>51.00</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>95</td>
+<td>30</td>
+<td>30</td>
+<td>95</td>
+<td>59.25</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>50</td>
+<td>50</td>
+<td>45</td>
+<td>10</td>
+<td>34.25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>65</td>
+<td>55</td>
+<td>15</td>
+<td>45</td>
+<td>38.50</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>70</td>
+<td>70</td>
+<td>40</td>
+<td>35</td>
+<td>47.25</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>90</td>
+<td>90</td>
+<td>80</td>
+<td>90</td>
+<td>86.50</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>이 방법은 df를 일시적으로 변화시킴</p>
+</blockquote>
+</section>
+<section id="b.-df.eval" class="level2">
+<h2 class="anchored" data-anchor-id="b.-df.eval">B. <code>df.eval()</code></h2>
+<p><code>-</code> 방법2: eval을 이용한 추가</p>
+<div id="5aff3424-c498-4892-a857-beafea26f787" class="cell" data-execution_count="221">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">eval</span>(<span class="st">'total = att*0.1 + rep*0.2 + mid*0.3 + fin*0.4'</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="221">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">att</th>
+<th data-quarto-table-cell-role="th">rep</th>
+<th data-quarto-table-cell-role="th">mid</th>
+<th data-quarto-table-cell-role="th">fin</th>
+<th data-quarto-table-cell-role="th">total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>65</td>
+<td>55</td>
+<td>50</td>
+<td>40</td>
+<td>48.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>95</td>
+<td>100</td>
+<td>50</td>
+<td>80</td>
+<td>76.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>65</td>
+<td>90</td>
+<td>60</td>
+<td>30</td>
+<td>54.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>55</td>
+<td>80</td>
+<td>75</td>
+<td>80</td>
+<td>76.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>80</td>
+<td>30</td>
+<td>30</td>
+<td>100</td>
+<td>63.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>75</td>
+<td>40</td>
+<td>100</td>
+<td>15</td>
+<td>51.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>65</td>
+<td>45</td>
+<td>45</td>
+<td>90</td>
+<td>65.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>60</td>
+<td>60</td>
+<td>25</td>
+<td>0</td>
+<td>25.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>95</td>
+<td>65</td>
+<td>20</td>
+<td>10</td>
+<td>32.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>90</td>
+<td>80</td>
+<td>80</td>
+<td>20</td>
+<td>57.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>55</td>
+<td>75</td>
+<td>35</td>
+<td>25</td>
+<td>41.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>95</td>
+<td>95</td>
+<td>45</td>
+<td>0</td>
+<td>42.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>95</td>
+<td>55</td>
+<td>15</td>
+<td>35</td>
+<td>39.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>50</td>
+<td>80</td>
+<td>40</td>
+<td>30</td>
+<td>45.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>50</td>
+<td>55</td>
+<td>15</td>
+<td>85</td>
+<td>54.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>95</td>
+<td>30</td>
+<td>30</td>
+<td>95</td>
+<td>62.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>50</td>
+<td>50</td>
+<td>45</td>
+<td>10</td>
+<td>32.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>65</td>
+<td>55</td>
+<td>15</td>
+<td>45</td>
+<td>40.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>70</td>
+<td>70</td>
+<td>40</td>
+<td>35</td>
+<td>47.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>90</td>
+<td>90</td>
+<td>80</td>
+<td>90</td>
+<td>87.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>이 방법은 df를 일시적으로 변화시킴</p>
+</blockquote>
+</section>
+<section id="c.-dfcolname-xxx" class="level2">
+<h2 class="anchored" data-anchor-id="c.-dfcolname-xxx">C. <code>df[colname] = xxx</code></h2>
+<p><code>-</code> 방법3: <code>df['total']</code> 을 이용한 할당</p>
+<div id="de95a596-ea8a-44fc-ab22-d4a60a58fc27" class="cell" data-execution_count="183">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'total'</span>] <span class="op">=</span> df.att<span class="op">*</span><span class="fl">0.1</span> <span class="op">+</span> df.rep<span class="op">*</span><span class="fl">0.2</span> <span class="op">+</span> df.mid<span class="op">*</span><span class="fl">0.3</span> <span class="op">+</span> df.fin<span class="op">*</span><span class="fl">0.4</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="183">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">att</th>
+<th data-quarto-table-cell-role="th">rep</th>
+<th data-quarto-table-cell-role="th">mid</th>
+<th data-quarto-table-cell-role="th">fin</th>
+<th data-quarto-table-cell-role="th">total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>65</td>
+<td>55</td>
+<td>50</td>
+<td>40</td>
+<td>48.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>95</td>
+<td>100</td>
+<td>50</td>
+<td>80</td>
+<td>76.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>65</td>
+<td>90</td>
+<td>60</td>
+<td>30</td>
+<td>54.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>55</td>
+<td>80</td>
+<td>75</td>
+<td>80</td>
+<td>76.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>80</td>
+<td>30</td>
+<td>30</td>
+<td>100</td>
+<td>63.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>75</td>
+<td>40</td>
+<td>100</td>
+<td>15</td>
+<td>51.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>65</td>
+<td>45</td>
+<td>45</td>
+<td>90</td>
+<td>65.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>60</td>
+<td>60</td>
+<td>25</td>
+<td>0</td>
+<td>25.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>95</td>
+<td>65</td>
+<td>20</td>
+<td>10</td>
+<td>32.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>90</td>
+<td>80</td>
+<td>80</td>
+<td>20</td>
+<td>57.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>55</td>
+<td>75</td>
+<td>35</td>
+<td>25</td>
+<td>41.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>95</td>
+<td>95</td>
+<td>45</td>
+<td>0</td>
+<td>42.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>95</td>
+<td>55</td>
+<td>15</td>
+<td>35</td>
+<td>39.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>50</td>
+<td>80</td>
+<td>40</td>
+<td>30</td>
+<td>45.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>50</td>
+<td>55</td>
+<td>15</td>
+<td>85</td>
+<td>54.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>95</td>
+<td>30</td>
+<td>30</td>
+<td>95</td>
+<td>62.5</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>50</td>
+<td>50</td>
+<td>45</td>
+<td>10</td>
+<td>32.5</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>65</td>
+<td>55</td>
+<td>15</td>
+<td>45</td>
+<td>40.0</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>70</td>
+<td>70</td>
+<td>40</td>
+<td>35</td>
+<td>47.0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>90</td>
+<td>90</td>
+<td>80</td>
+<td>90</td>
+<td>87.0</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>이 방법은 df를 영구적으로 변화시킴</p>
+</blockquote>
+</section>
+</section>
+<section id="hw" class="level1">
+<h1>6. HW</h1>
+<p><code>-</code> 문제: 아래의 자료에서 입학년도를 추가하고 싶다면?</p>
+<div id="d9c98a1e-1ba9-4077-b2b8-d9b2ddb78f98" class="cell" data-execution_count="184">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>att <span class="op">=</span> np.random.choice(np.arange(<span class="dv">10</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>rep <span class="op">=</span> np.random.choice(np.arange(<span class="dv">5</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>mid <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>fin <span class="op">=</span> np.random.choice(np.arange(<span class="dv">0</span>,<span class="dv">21</span>)<span class="op">*</span><span class="dv">5</span>,<span class="dv">20</span>)</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>student_id <span class="op">=</span> [ <span class="st">'2023-12362'</span>, <span class="st">'2022-12471'</span>, <span class="st">'2023-12333'</span>, <span class="st">'2022-12400'</span>, <span class="st">'2022-12377'</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>               <span class="st">'2022-12469'</span>, <span class="st">'2023-12314'</span>, <span class="st">'2022-12363'</span>, <span class="st">'2023-12445'</span>, <span class="st">'2023-12336'</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>               <span class="st">'2023-12426'</span>, <span class="st">'2022-12380'</span>, <span class="st">'2023-12422'</span>, <span class="st">'2022-12488'</span>, <span class="st">'2022-12370'</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">'2023-12443'</span>, <span class="st">'2022-12463'</span>, <span class="st">'2023-12491'</span>, <span class="st">'2023-12340'</span>, <span class="st">'2022-12312'</span> ]</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'student_id'</span>:student_id,<span class="st">'att'</span>:att,<span class="st">'rep'</span>:rep,<span class="st">'mid'</span>:mid,<span class="st">'fin'</span>:fin})</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="184">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">student_id</th>
+<th data-quarto-table-cell-role="th">att</th>
+<th data-quarto-table-cell-role="th">rep</th>
+<th data-quarto-table-cell-role="th">mid</th>
+<th data-quarto-table-cell-role="th">fin</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>2023-12362</td>
+<td>65</td>
+<td>55</td>
+<td>50</td>
+<td>40</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2022-12471</td>
+<td>95</td>
+<td>100</td>
+<td>50</td>
+<td>80</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2023-12333</td>
+<td>65</td>
+<td>90</td>
+<td>60</td>
+<td>30</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2022-12400</td>
+<td>55</td>
+<td>80</td>
+<td>75</td>
+<td>80</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2022-12377</td>
+<td>80</td>
+<td>30</td>
+<td>30</td>
+<td>100</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div id="35974663-6bcb-4e69-a29c-46e4926dcafe" class="cell" data-execution_count="185">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df.assign(year<span class="op">=</span>[l.split(<span class="st">'-'</span>)[<span class="dv">0</span>] <span class="cf">for</span> l <span class="kw">in</span> df.student_id]).query(<span class="st">'year=="2022"'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="185">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">student_id</th>
+<th data-quarto-table-cell-role="th">att</th>
+<th data-quarto-table-cell-role="th">rep</th>
+<th data-quarto-table-cell-role="th">mid</th>
+<th data-quarto-table-cell-role="th">fin</th>
+<th data-quarto-table-cell-role="th">year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">1</td>
+<td>2022-12471</td>
+<td>95</td>
+<td>100</td>
+<td>50</td>
+<td>80</td>
+<td>2022</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>2022-12400</td>
+<td>55</td>
+<td>80</td>
+<td>75</td>
+<td>80</td>
+<td>2022</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>2022-12377</td>
+<td>80</td>
+<td>30</td>
+<td>30</td>
+<td>100</td>
+<td>2022</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>2022-12469</td>
+<td>75</td>
+<td>40</td>
+<td>100</td>
+<td>15</td>
+<td>2022</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">7</td>
+<td>2022-12363</td>
+<td>60</td>
+<td>60</td>
+<td>25</td>
+<td>0</td>
+<td>2022</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>2022-12380</td>
+<td>95</td>
+<td>95</td>
+<td>45</td>
+<td>0</td>
+<td>2022</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">13</td>
+<td>2022-12488</td>
+<td>50</td>
+<td>80</td>
+<td>40</td>
+<td>30</td>
+<td>2022</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">14</td>
+<td>2022-12370</td>
+<td>50</td>
+<td>55</td>
+<td>15</td>
+<td>85</td>
+<td>2022</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>2022-12463</td>
+<td>50</td>
+<td>50</td>
+<td>45</td>
+<td>10</td>
+<td>2022</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>2022-12312</td>
+<td>90</td>
+<td>90</td>
+<td>80</td>
+<td>90</td>
+<td>2022</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
 <section id="mapfunction-list" class="level1">
 <h1>3. <code>map(function, list)</code></h1>
 <section id="a.-lambda" class="level2">
 <h2 class="anchored" data-anchor-id="a.-lambda">A. <code>lambda</code></h2>
 <p><code>-</code> 예시1: <span class="math inline">\(x \to x+2\)</span></p>
 <div id="23a07e54-8008-4320-973f-a1e4c9be7128" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">2</span> </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>f(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: x<span class="op">+</span><span class="dv">2</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>f(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>5</code></pre>
 </div>
 </div>
 <p><code>-</code> 예시2: <span class="math inline">\(x,y \to x+y\)</span></p>
 <div id="f2b0c947-5fc6-44a0-bf91-7dc09d822045" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x,y: x<span class="op">+</span>y </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>f(<span class="dv">3</span>,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x,y: x<span class="op">+</span>y </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>f(<span class="dv">3</span>,<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>8</code></pre>
 </div>
 </div>
 <p><code>-</code> 예시3: ‘2023-09’ <span class="math inline">\(\to\)</span> 9</p>
 <div id="876eeeda-3028-48f8-b726-217c7e0a56fb" class="cell" data-execution_count="16">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="st">'2023-09'</span>[<span class="op">-</span><span class="dv">2</span>:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="bu">int</span>(<span class="st">'2023-09'</span>[<span class="op">-</span><span class="dv">2</span>:])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
 <pre><code>9</code></pre>
 </div>
 </div>
 <div id="b4f7da6f-6a82-4518-b867-ce9ff4d35034" class="cell" data-execution_count="17">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: <span class="bu">int</span>(x[<span class="op">-</span><span class="dv">2</span>:])</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>f(<span class="st">'2023-09'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: <span class="bu">int</span>(x[<span class="op">-</span><span class="dv">2</span>:])</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>f(<span class="st">'2023-09'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <pre><code>9</code></pre>
 </div>
 </div>
 <div id="1ed552e2-4914-4523-9fc0-827d93c125df" class="cell" data-execution_count="18">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>f(<span class="st">'2022-10'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>f(<span class="st">'2022-10'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>10</code></pre>
 </div>
 </div>
 <p><code>-</code> 예시4: ‘2023-09’ <span class="math inline">\(\to\)</span> 2023,9</p>
 <div id="8eb94e89-20fc-44c3-9983-f0d19fe6fa06" class="cell" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: (<span class="bu">int</span>(x[:<span class="dv">4</span>]),<span class="bu">int</span>(x[<span class="op">-</span><span class="dv">2</span>:]))</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>f(<span class="st">'2023-09'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: (<span class="bu">int</span>(x[:<span class="dv">4</span>]),<span class="bu">int</span>(x[<span class="op">-</span><span class="dv">2</span>:]))</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>f(<span class="st">'2023-09'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>(2023, 9)</code></pre>
 </div>
 </div>
 <p><code>-</code> 예시5: 문자열이 ‘cat’이면 1 ’dog’ 이면 0</p>
 <div id="61ae303e-d3a8-4707-92ca-5f77d4636f5a" class="cell" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> x<span class="op">==</span><span class="st">'cat'</span> <span class="cf">else</span> <span class="dv">0</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>f <span class="op">=</span> <span class="kw">lambda</span> x: <span class="dv">1</span> <span class="cf">if</span> x<span class="op">==</span><span class="st">'cat'</span> <span class="cf">else</span> <span class="dv">0</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="b9688dd6-6299-4065-813f-2b663aee8bc9" class="cell" data-execution_count="25">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>f(<span class="st">'cat'</span>),f(<span class="st">'dog'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>f(<span class="st">'cat'</span>),f(<span class="st">'dog'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>(1, 0)</code></pre>
 </div>
