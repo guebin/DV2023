@@ -487,7 +487,7 @@
     "href": "posts/04wk-1.html#a.-lambda",
     "title": "04wk-1: Pandas – 기본기능, missing, query, 할당, transform column (draft)",
     "section": "A. lambda",
-    "text": "A. lambda\n- 예시1: \\(x \\to x+2\\)\n\nf = lambda x: x+2 \nf(3)\n\n5\n\n\n- 예시2: \\(x,y \\to x+y\\)\n\nf = lambda x,y: x+y \nf(3,5)\n\n8\n\n\n- 예시3: ‘2023-09’ \\(\\to\\) 9\n\nint('2023-09'[-2:])\n\n9\n\n\n\nf = lambda x: int(x[-2:])\nf('2023-09')\n\n9\n\n\n\nf('2022-10')\n\n10\n\n\n- 예시4: ‘2023-09’ \\(\\to\\) 2023,9\n\nf = lambda x: (int(x[:4]),int(x[-2:]))\nf('2023-09')\n\n(2023, 9)\n\n\n- 예시5: 문자열이 ‘cat’이면 1 ’dog’ 이면 0\n\nf = lambda x: 1 if x=='cat' else 0 \n\n\nf('cat'),f('dog')\n\n(1, 0)\n\n\n- Note: f로 이름을 정하지 않고 직접 사용 가능\n\n(lambda x: x+1)(1)\n\n2\n\n\n\n(lambda x,y: x+y)(2,3)\n\n5"
+    "text": "A. lambda\n- 예시1: \\(x \\to x+2\\)\n\nf = lambda x: x+2 \nf(3)\n\n5\n\n\n- 예시2: \\(x,y \\to x+y\\)\n\nf = lambda x,y: x+y \nf(3,5)\n\n8\n\n\n- 예시3: ‘2023-09’ \\(\\to\\) 9\n\nint('2023-09'[-2:])\n\n9\n\n\n\nf = lambda x: int(x[-2:])\nf('2023-09')\n\n9\n\n\n\nf('2022-10')\n\n10\n\n\n- 예시4: ‘2023-09’ \\(\\to\\) 2023,9\n\nf = lambda x: (int(x[:4]),int(x[-2:]))\nf('2023-09')\n\n(2023, 9)\n\n\n- 예시5: 문자열이 ‘cat’이면 1 ’dog’ 이면 0 // ’cat이면 1 ’cat’이 아니면 0\n\nf = lambda x: 1 if x=='cat' else 0 \n\n\nf('cat'),f('dog')\n\n(1, 0)\n\n\n- Note: f로 이름을 정하지 않고 직접 사용 가능\n\n(lambda x: x+1)(1)\n\n2\n\n\n\n(lambda x,y: x+y)(2,3)\n\n5"
   },
   {
     "objectID": "posts/04wk-1.html#b.-map",
