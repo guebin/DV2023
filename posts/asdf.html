@@ -2972,11 +2972,11 @@ Name: Position, Length: 14398, dtype: object</code></pre>
 <section id="숙제" class="level1">
 <h1>8. 숙제</h1>
 <p><code>1</code>.</p>
-<div id="aedf4465-03ad-48b2-b907-060880a875c9" class="cell" data-tags="[]" data-execution_count="353">
+<div id="aedf4465-03ad-48b2-b907-060880a875c9" class="cell" data-tags="[]" data-execution_count="385">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>)</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> df.Wage</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="353">
+<div class="cell-output cell-output-display" data-execution_count="385">
 <pre><code>0        €250K
 1        €140K
 2        €135K
@@ -2999,12 +2999,15 @@ Name: Wage, Length: 16710, dtype: object</code></pre>
 <pre><code>True</code></pre>
 </div>
 </div>
+<div id="ed7a3326-c14c-47bd-90ed-82c25f4fc3b6" class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><code>2</code>.</p>
 <p>아래와 같은 pd.Series가 있다고 하자.</p>
 <div id="223ecb56-4594-4a77-8609-a9a225385a28" class="cell" data-tags="[]" data-execution_count="369">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>).iloc[[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">16708</span>,<span class="dv">16709</span>],:].reset_index()</span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> df.Value</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>).iloc[[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">16708</span>,<span class="dv">16709</span>],:].reset_index()</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> df.Value</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="369">
 <pre><code>0    €107.5M
 1       €93M
@@ -3042,7 +3045,7 @@ Name: Value, dtype: object</code></pre>
 </table>
 <p><strong>hint</strong> 아래를 이용하면 쉬울껄요?</p>
 <div id="dcdfec51-63e0-4194-94a4-49ebde8e8321" class="cell" data-tags="[]" data-execution_count="366">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span>(<span class="st">'100*100'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span>(<span class="st">'100*100'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="366">
 <pre><code>10000</code></pre>
 </div>
