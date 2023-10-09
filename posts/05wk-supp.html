@@ -230,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="imports" class="level1">
 <h1>2. Imports</h1>
-<div id="fe4ff730-87f6-4e28-9944-f23965a98eb1" class="cell" data-tags="[]" data-execution_count="2">
+<div id="fe4ff730-87f6-4e28-9944-f23965a98eb1" class="cell" data-tags="[]" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -241,13 +241,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a.-dropna" class="level2">
 <h2 class="anchored" data-anchor-id="a.-dropna">A. <code>dropna()</code></h2>
 <p><code>-</code> 결측치가 하나라도 포함된 모든 행을 제거하는 방법</p>
-<div id="09908eeb-1c4d-41cd-b43e-bd1fda1522d7" class="cell" data-tags="[]" data-execution_count="3">
+<div id="09908eeb-1c4d-41cd-b43e-bd1fda1522d7" class="cell" data-tags="[]" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'A'</span>: [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,np.nan,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>],</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'B'</span>: [<span class="dv">11</span>,np.nan,<span class="dv">33</span>,np.nan,<span class="dv">55</span>,<span class="dv">66</span>,<span class="dv">77</span>], </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'C'</span>: [<span class="dv">111</span>,<span class="dv">222</span>,<span class="dv">333</span>,np.nan,<span class="dv">555</span>,<span class="dv">666</span>,np.nan]})</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="3">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -309,9 +309,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="e75b4cb7-f038-4edb-a039-8dfd446bb90e" class="cell" data-tags="[]" data-execution_count="6">
+<div id="e75b4cb7-f038-4edb-a039-8dfd446bb90e" class="cell" data-tags="[]" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -359,34 +359,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="b.-_" class="level2">
 <h2 class="anchored" data-anchor-id="b.-_">B. <code>_</code></h2>
 <p><code>-</code> 파이썬이 계산한 최근 결과는 <code>_</code>에 저장된다.</p>
-<div id="f1ebe643-6e46-4bd6-9996-f62459e6de2a" class="cell" data-tags="[]" data-execution_count="8">
+<div id="f1ebe643-6e46-4bd6-9996-f62459e6de2a" class="cell" data-tags="[]" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> [<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>a <span class="op">+</span> [<span class="dv">4</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="8">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>[1, 2, 3, 4]</code></pre>
 </div>
 </div>
-<div id="cd4887ba-642c-44cf-95c6-2515c09e07e9" class="cell" data-tags="[]" data-execution_count="9">
+<div id="cd4887ba-642c-44cf-95c6-2515c09e07e9" class="cell" data-tags="[]" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>_</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="9">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <pre><code>[1, 2, 3, 4]</code></pre>
 </div>
 </div>
-<div id="22f93677-7329-4c74-9bdf-eb53d60e1288" class="cell" data-tags="[]" data-execution_count="11">
+<div id="22f93677-7329-4c74-9bdf-eb53d60e1288" class="cell" data-tags="[]" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>_ <span class="op">+</span> [<span class="dv">5</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="11">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <pre><code>[1, 2, 3, 4, 5]</code></pre>
 </div>
 </div>
-<div id="9fa373ef-f83c-41b0-b40b-7a0cdaddda4b" class="cell" data-tags="[]" data-execution_count="13">
+<div id="9fa373ef-f83c-41b0-b40b-7a0cdaddda4b" class="cell" data-tags="[]" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>_.pop()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="13">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <pre><code>5</code></pre>
 </div>
 </div>
-<div id="a9c2260c-cbee-435b-83be-9fc28604bee9" class="cell" data-tags="[]" data-execution_count="15">
+<div id="a9c2260c-cbee-435b-83be-9fc28604bee9" class="cell" data-tags="[]" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>_ <span class="op">+</span> <span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="15">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <pre><code>6</code></pre>
 </div>
 </div>
@@ -396,10 +396,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>4. FIFA23 시각화 – 문제</h1>
 <p><code># DV2022-중간고사-4-(2)의 변형</code>:</p>
 <p>아래는 FIFA22의 자료를 불러오는 코드이다.</p>
-<div id="fdcaca36-cc0b-4d0f-bc6c-f767cc4d10bd" class="cell" data-tags="[]" data-execution_count="55">
+<div id="fdcaca36-cc0b-4d0f-bc6c-f767cc4d10bd" class="cell" data-tags="[]" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="55">
+<div class="cell-output cell-output-display" data-execution_count="9">
 <div>
 
 
@@ -559,9 +559,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>포지션별로 선수들의 능력치(<code>ShotPower</code>,<code>SlidingTackle</code>)와 급여(<code>Wage</code>)를 시각화하고 싶다. 아래의 세부지침에 맞추어 포지션별 <code>ShotPower</code>와 <code>SlidingTackle</code>의 산점도를 그려라. – (30점)</p>
-<div id="a6899ffe-8da4-45aa-b23b-6445bc23dd7a" class="cell" data-tags="[]" data-execution_count="22">
+<div id="a6899ffe-8da4-45aa-b23b-6445bc23dd7a" class="cell" data-tags="[]" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df.Position</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="22">
+<div class="cell-output cell-output-display" data-execution_count="10">
 <pre><code>0        &lt;span class="pos pos18"&gt;CAM
 1        &lt;span class="pos pos11"&gt;LDM
 2         &lt;span class="pos pos24"&gt;RS
@@ -580,7 +580,7 @@ Name: Position, Length: 16710, dtype: object</code></pre>
 <p><strong>A</strong>. Column의 이름에서 공백을 제거하라.</p>
 <p><strong>B</strong>. 결측치가 50%이상인 컬럼을 찾고 이를 제거하라. 그 뒤에 <code>.dropna()</code>를 사용하여 결측치가 포함된 행을 제거하라.</p>
 <p><strong>C</strong>. <code>position_dict</code>를 이용하여 <code>df.Position</code>을 적절하게 변환하라. 변환된 값을 <code>df.Position</code>에 저장하라.</p>
-<div id="e042c4ae-8879-485a-8217-133aee3f574c" class="cell" data-tags="[]" data-execution_count="64">
+<div id="e042c4ae-8879-485a-8217-133aee3f574c" class="cell" data-tags="[]" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>position_dict <span class="op">=</span> {</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'GOALKEEPER'</span>:{<span class="st">'GK'</span>},</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'DEFENDER'</span>:{<span class="st">'CB'</span>,<span class="st">'RCB'</span>,<span class="st">'LCB'</span>,<span class="st">'RB'</span>,<span class="st">'LB'</span>,<span class="st">'RWB'</span>,<span class="st">'LWB'</span>},</span>
@@ -590,7 +590,7 @@ Name: Position, Length: 16710, dtype: object</code></pre>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RES'</span>:{<span class="st">'RES'</span>}</span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>position_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="64">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>{'GOALKEEPER': {'GK'},
  'DEFENDER': {'CB', 'LB', 'LCB', 'LWB', 'RB', 'RCB', 'RWB'},
  'MIDFIELDER': {'CAM',
@@ -612,12 +612,12 @@ Name: Position, Length: 16710, dtype: object</code></pre>
 <p><strong>D</strong>. <code>df.Wage</code>를 적절하게 변환하라.</p>
 <p><strong>E</strong>. <code>Position==“DEFENDER”</code> or <code>Position==“FORWARD”</code>에 해당하는 관측치를 고른 뒤 x축에 <code>ShotPower</code>, y축에 <code>SlidingTackle</code>을 시각화하라. 이때 <code>Position</code>은 color로 구분하고 <code>Wage</code>는 size와 alpha로 구분하라.</p>
 <p>— 시각화예시 —</p>
-<div id="fd8bc5f0-f3dc-45ce-9be6-b449c178f489" class="cell" data-tags="[]" data-execution_count="301">
+<div id="c95a06ab-4563-4936-8f27-1fbfdfcf5c65" class="cell" data-tags="[]" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="05wk-supp_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="301">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
@@ -632,15 +632,15 @@ Name: Position, Length: 16710, dtype: object</code></pre>
 </section>
 <section id="b.-결측치제거" class="level2">
 <h2 class="anchored" data-anchor-id="b.-결측치제거">B. 결측치제거</h2>
-<div id="d4e6175c-9a26-407b-b1a5-a5c995f46633" class="cell" data-tags="[]" data-execution_count="57">
+<div id="d4e6175c-9a26-407b-b1a5-a5c995f46633" class="cell" data-tags="[]" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.loc[:,df.isna().mean()<span class="op">&lt;</span><span class="fl">0.5</span>] <span class="co"># 결측치가 50퍼 이상인 컬럼을 제거</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="11f4d54e-3555-41ae-9268-83642b525895" class="cell" data-tags="[]" data-execution_count="59">
+<div id="11f4d54e-3555-41ae-9268-83642b525895" class="cell" data-tags="[]" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="b608a63d-409c-4c90-8c3b-bf12dd77e6f7" class="cell" data-execution_count="61">
+<div id="b608a63d-409c-4c90-8c3b-bf12dd77e6f7" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div class="cell-output cell-output-display" data-execution_count="15">
 <div>
 
 
@@ -657,7 +657,7 @@ Name: Position, Length: 16710, dtype: object</code></pre>
 <th data-quarto-table-cell-role="th">Overall</th>
 <th data-quarto-table-cell-role="th">Potential</th>
 <th data-quarto-table-cell-role="th">Club</th>
-<th data-quarto-table-cell-role="th">ClubLogo</th>
+<th data-quarto-table-cell-role="th">Club Logo</th>
 <th data-quarto-table-cell-role="th">...</th>
 <th data-quarto-table-cell-role="th">SlidingTackle</th>
 <th data-quarto-table-cell-role="th">GKDiving</th>
@@ -665,9 +665,9 @@ Name: Position, Length: 16710, dtype: object</code></pre>
 <th data-quarto-table-cell-role="th">GKKicking</th>
 <th data-quarto-table-cell-role="th">GKPositioning</th>
 <th data-quarto-table-cell-role="th">GKReflexes</th>
-<th data-quarto-table-cell-role="th">BestPosition</th>
-<th data-quarto-table-cell-role="th">BestOverallRating</th>
-<th data-quarto-table-cell-role="th">ReleaseClause</th>
+<th data-quarto-table-cell-role="th">Best Position</th>
+<th data-quarto-table-cell-role="th">Best Overall Rating</th>
+<th data-quarto-table-cell-role="th">Release Clause</th>
 <th data-quarto-table-cell-role="th">DefensiveAwareness</th>
 </tr>
 </thead>
@@ -946,26 +946,26 @@ Name: Position, Length: 16710, dtype: object</code></pre>
 </section>
 <section id="c.-position-칼럼의-변환" class="level2">
 <h2 class="anchored" data-anchor-id="c.-position-칼럼의-변환">C. Position 칼럼의 변환</h2>
-<div id="451ea907-851a-426b-a364-e35f6586d287" class="cell" data-tags="[]" data-execution_count="89">
+<div id="451ea907-851a-426b-a364-e35f6586d287" class="cell" data-tags="[]" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Position'</span>] <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">"&gt;"</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v][<span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="d.-wage-칼럼의-변환" class="level2">
 <h2 class="anchored" data-anchor-id="d.-wage-칼럼의-변환">D. Wage 칼럼의 변환</h2>
-<div id="1de35e75-4762-4fb1-8ed7-1b2fea47f127" class="cell" data-tags="[]" data-execution_count="98">
+<div id="1de35e75-4762-4fb1-8ed7-1b2fea47f127" class="cell" data-tags="[]" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Wage'</span>] <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'000'</span>).astype(<span class="bu">int</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="e.-시각화" class="level2">
 <h2 class="anchored" data-anchor-id="e.-시각화">E. 시각화</h2>
-<div id="802e70d2-d005-40e5-99b9-c83824a6952b" class="cell" data-tags="[]" data-execution_count="114">
+<div id="802e70d2-d005-40e5-99b9-c83824a6952b" class="cell" data-tags="[]" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(df.query(<span class="st">'Position=="DEFENDER" or Position=="FORWARD"'</span>))</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'ShotPower'</span>,y<span class="op">=</span><span class="st">'SlidingTackle'</span>,color<span class="op">=</span><span class="st">'Position'</span>,size<span class="op">=</span><span class="st">'Wage'</span>,alpha<span class="op">=</span><span class="st">'Wage'</span>),position<span class="op">=</span><span class="st">'jitter'</span>)</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <p><img src="05wk-supp_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="114">
+<div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
