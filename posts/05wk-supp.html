@@ -230,7 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="imports" class="level1">
 <h1>2. Imports</h1>
-<div id="fe4ff730-87f6-4e28-9944-f23965a98eb1" class="cell" data-tags="[]" data-execution_count="1">
+<div id="fe4ff730-87f6-4e28-9944-f23965a98eb1" class="cell" data-tags="[]" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -2959,11 +2959,11 @@ Name: Position, Length: 14398, dtype: object</code></pre>
 <section id="숙제" class="level1">
 <h1>8. 숙제</h1>
 <p><code>1</code>.</p>
-<div id="677707d6-136d-4cf8-bc6e-2383d5690b5b" class="cell" data-tags="[]" data-execution_count="353">
+<div id="677707d6-136d-4cf8-bc6e-2383d5690b5b" class="cell" data-tags="[]" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>)</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> df.Wage</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="353">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>0        €250K
 1        €140K
 2        €135K
@@ -3000,11 +3000,11 @@ Name: Wage, Length: 16710, dtype: object</code></pre>
 </div>
 <p><code>2</code>.</p>
 <p>아래와 같은 pd.Series가 있다고 하자.</p>
-<div id="82f96c0e-e21b-4ef8-8465-15520a7168ae" class="cell" data-tags="[]" data-execution_count="369">
+<div id="82f96c0e-e21b-4ef8-8465-15520a7168ae" class="cell" data-tags="[]" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>).iloc[[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">16708</span>,<span class="dv">16709</span>],:].reset_index()</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> df.Value</span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="369">
+<div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>0    €107.5M
 1       €93M
 2      €110K
@@ -3039,9 +3039,25 @@ Name: Value, dtype: object</code></pre>
 </tr>
 </tbody>
 </table>
+<div id="a85f4c1f-86ea-4d68-9953-a92a9fbb4c01" class="cell" data-tags="[]" data-execution_count="24">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="24">
+<pre><code>0    107.5*1000000
+1       93*1000000
+2         110*1000
+3                0
+Name: Value, dtype: object</code></pre>
+</div>
+</div>
+<div id="18b90c1f-3400-4c53-ac03-f1b418ade31a" class="cell" data-tags="[]" data-execution_count="23">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span>(<span class="st">'93*1000000'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="23">
+<pre><code>93000000</code></pre>
+</div>
+</div>
 <p><strong>hint</strong> 아래를 이용하면 쉬울껄요?</p>
 <div id="fe3ad2ac-5e96-46d1-a27d-bb5518a74aee" class="cell" data-tags="[]" data-execution_count="366">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span>(<span class="st">'100*100'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span>(<span class="st">'100*100'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="366">
 <pre><code>10000</code></pre>
 </div>
