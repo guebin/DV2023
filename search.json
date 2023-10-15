@@ -191,28 +191,28 @@
   {
     "objectID": "posts/06wk-supp.html#a.-시각화1-전체합격률-시각화-pandas-초보",
     "href": "posts/06wk-supp.html#a.-시각화1-전체합격률-시각화-pandas-초보",
-    "title": "06wk-supp: 심슨의 역설 (2)",
+    "title": "supp2: 심슨의 역설 (2)",
     "section": "A. 시각화1: 전체합격률 시각화 – pandas 초보",
     "text": "A. 시각화1: 전체합격률 시각화 – pandas 초보"
   },
   {
     "objectID": "posts/06wk-supp.html#b.-시각화1-전체합격률-시각화-pandas-고수",
     "href": "posts/06wk-supp.html#b.-시각화1-전체합격률-시각화-pandas-고수",
-    "title": "06wk-supp: 심슨의 역설 (2)",
+    "title": "supp2: 심슨의 역설 (2)",
     "section": "B. 시각화1: 전체합격률 시각화 – pandas 고수",
     "text": "B. 시각화1: 전체합격률 시각화 – pandas 고수\n\ntidydata = df.pivot_table(index='gender', columns='result', values='count', aggfunc=sum)\\\n.assign(rate = lambda _df: _df['pass'] / (_df['fail'] + _df['pass']))\\\n.reset_index()\n\nfig = ggplot(tidydata) \ncol = geom_col(aes(x='gender',y='rate',fill='gender'))\nfig + col \n\n/tmp/ipykernel_1831005/1840989269.py:1: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"sum\" instead.\n\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
   },
   {
     "objectID": "posts/06wk-supp.html#c.-시각화2-학과별합격률-시각화-pandas-고수",
     "href": "posts/06wk-supp.html#c.-시각화2-학과별합격률-시각화-pandas-고수",
-    "title": "06wk-supp: 심슨의 역설 (2)",
+    "title": "supp2: 심슨의 역설 (2)",
     "section": "C. 시각화2: 학과별합격률 시각화 – pandas 고수",
     "text": "C. 시각화2: 학과별합격률 시각화 – pandas 고수\n\ndf.pivot_table(index=['gender','department'], columns='result',values='count',aggfunc=sum)\\\n.assign(rate = lambda _df: _df['pass']/(_df['fail']+_df['pass']))\\\n.reset_index()\n\n/tmp/ipykernel_1831005/1491763288.py:1: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"sum\" instead.\n\n\n\n\n\n\n\n\nresult\ngender\ndepartment\nfail\npass\nrate\n\n\n\n\n0\nfemale\nA\n19\n89\n0.824074\n\n\n1\nfemale\nB\n7\n18\n0.720000\n\n\n2\nfemale\nC\n391\n202\n0.340641\n\n\n3\nfemale\nD\n244\n131\n0.349333\n\n\n4\nfemale\nE\n299\n94\n0.239186\n\n\n5\nfemale\nF\n103\n238\n0.697947\n\n\n6\nmale\nA\n314\n511\n0.619394\n\n\n7\nmale\nB\n208\n352\n0.628571\n\n\n8\nmale\nC\n204\n121\n0.372308\n\n\n9\nmale\nD\n279\n138\n0.330935\n\n\n10\nmale\nE\n137\n54\n0.282723\n\n\n11\nmale\nF\n149\n224\n0.600536\n\n\n\n\n\n\n\n\ntidydata = df.pivot_table(index=['gender','department'], columns='result',values='count',aggfunc=sum)\\\n.assign(rate = lambda _df: _df['pass']/(_df['fail']+_df['pass']))\\\n.reset_index()\n\nfig = ggplot(tidydata) \nfacet = facet_wrap('department')\ncol = geom_col(aes(x='gender',y='rate',fill='gender'))\nfig + facet + col \n\n/tmp/ipykernel_1831005/2462720722.py:1: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"sum\" instead.\n\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
   },
   {
     "objectID": "posts/06wk-supp.html#d.-해석",
     "href": "posts/06wk-supp.html#d.-해석",
-    "title": "06wk-supp: 심슨의 역설 (2)",
+    "title": "supp2: 심슨의 역설 (2)",
     "section": "D. 해석",
     "text": "D. 해석\n- 시각화1: 남자의 합격률이 더 높다. \\(\\to\\) 성차별이 있어보인다(?)\n- 시각화2: 학과별로 살펴보니 오히려 A,B,F,D의 경우 여성의 합격률이 높다.\n- 교재에서 설명한 이유: 여성이 합격률이 낮은 학과에만 많이 지원하였기 때문\n\ndf.pivot_table(index='department', columns='gender', values='count',aggfunc='sum')\\\n.stack().reset_index().rename({0:'count'},axis=1)\n\n\n\n\n\n\n\n\ndepartment\ngender\ncount\n\n\n\n\n0\nA\nfemale\n108\n\n\n1\nA\nmale\n825\n\n\n2\nB\nfemale\n25\n\n\n3\nB\nmale\n560\n\n\n4\nC\nfemale\n593\n\n\n5\nC\nmale\n325\n\n\n6\nD\nfemale\n375\n\n\n7\nD\nmale\n417\n\n\n8\nE\nfemale\n393\n\n\n9\nE\nmale\n191\n\n\n10\nF\nfemale\n341\n\n\n11\nF\nmale\n373\n\n\n\n\n\n\n\n\ntidydata = df.pivot_table(index='department', columns='gender', values='count',aggfunc='sum')\\\n.stack().reset_index().rename({0:'count'},axis=1)\n\n \nfig = ggplot(tidydata) \ncol = geom_col(aes(x='department',y='count',fill='gender'),position='dodge')\nfig+col\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
   },
