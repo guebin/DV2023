@@ -154,14 +154,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
-  <li><a href="#심슨의-역설-이어서" id="toc-심슨의-역설-이어서" class="nav-link" data-scroll-target="#심슨의-역설-이어서">2. 심슨의 역설 – 이어서</a>
+  <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">2. Imports</a></li>
+  <li><a href="#심슨의-역설-이어서" id="toc-심슨의-역설-이어서" class="nav-link" data-scroll-target="#심슨의-역설-이어서">3. 심슨의 역설 – 이어서</a>
   <ul class="collapse">
   <li><a href="#a.-시각화1-전체합격률-시각화-pandas-초보" id="toc-a.-시각화1-전체합격률-시각화-pandas-초보" class="nav-link" data-scroll-target="#a.-시각화1-전체합격률-시각화-pandas-초보">A. 시각화1: 전체합격률 시각화 – pandas 초보</a></li>
   <li><a href="#b.-시각화1-전체합격률-시각화-pandas-고수" id="toc-b.-시각화1-전체합격률-시각화-pandas-고수" class="nav-link" data-scroll-target="#b.-시각화1-전체합격률-시각화-pandas-고수">B. 시각화1: 전체합격률 시각화 – pandas 고수</a></li>
   <li><a href="#c.-시각화2-학과별합격률-시각화-pandas-고수" id="toc-c.-시각화2-학과별합격률-시각화-pandas-고수" class="nav-link" data-scroll-target="#c.-시각화2-학과별합격률-시각화-pandas-고수">C. 시각화2: 학과별합격률 시각화 – pandas 고수</a></li>
   <li><a href="#d.-해석" id="toc-d.-해석" class="nav-link" data-scroll-target="#d.-해석">D. 해석</a></li>
   </ul></li>
-  <li><a href="#hw" id="toc-hw" class="nav-link" data-scroll-target="#hw">3. HW</a></li>
+  <li><a href="#hw" id="toc-hw" class="nav-link" data-scroll-target="#hw">4. HW</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="06wk-supp.out.ipynb" download="06wk-supp.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
@@ -206,8 +207,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>1. 강의영상</h1>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLQqh36zP38-xAatJ9BdzK2ASQnPRmvO8J&amp;si=-64H-NnvEw_bMBTd" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
+<section id="imports" class="level1">
+<h1>2. Imports</h1>
+<div id="f4734f21-7690-4703-a1a9-8639e2fc3555" class="cell" data-tags="[]" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
 <section id="심슨의-역설-이어서" class="level1">
-<h1>2. 심슨의 역설 – 이어서</h1>
+<h1>3. 심슨의 역설 – 이어서</h1>
 <p><code>-</code> 버클리대학교의 입학데이터</p>
 <ul>
 <li><a href="https://github.com/guebin/DV2023/blob/main/posts/ds.pdf" class="uri">https://github.com/guebin/DV2023/blob/main/posts/ds.pdf</a></li>
@@ -217,10 +226,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>1973년 가을학기의 입학통계에 따르면 지원하는 남성이 여성보다 훨씬 많이 합격했고, 그 차이가 너무 커서 우연의 일치라 보기 어렵다.</li>
 </ul>
 <div id="a57f7905-3265-4ab4-b849-e8819a5740fb" class="cell" data-tags="[]" data-execution_count="36">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson.csv"</span>,index_col<span class="op">=</span><span class="dv">0</span>,header<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>])<span class="op">\</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>.stack().stack().reset_index()<span class="op">\</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>.rename({<span class="st">'level_0'</span>:<span class="st">'department'</span>,<span class="st">'level_1'</span>:<span class="st">'result'</span>,<span class="st">'level_2'</span>:<span class="st">'gender'</span>,<span class="dv">0</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson.csv"</span>,index_col<span class="op">=</span><span class="dv">0</span>,header<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>])<span class="op">\</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>.stack().stack().reset_index()<span class="op">\</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>.rename({<span class="st">'level_0'</span>:<span class="st">'department'</span>,<span class="st">'level_1'</span>:<span class="st">'result'</span>,<span class="st">'level_2'</span>:<span class="st">'gender'</span>,<span class="dv">0</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <div>
 
@@ -416,18 +425,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="b.-시각화1-전체합격률-시각화-pandas-고수" class="level2">
 <h2 class="anchored" data-anchor-id="b.-시각화1-전체합격률-시각화-pandas-고수">B. 시각화1: 전체합격률 시각화 – pandas 고수</h2>
 <div id="1467356c-8c1a-4495-94c4-adba5834e263" class="cell" data-tags="[]" data-execution_count="37">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.pivot_table(index<span class="op">=</span><span class="st">'gender'</span>, columns<span class="op">=</span><span class="st">'result'</span>, values<span class="op">=</span><span class="st">'count'</span>, aggfunc<span class="op">=</span><span class="bu">sum</span>)<span class="op">\</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>.assign(rate <span class="op">=</span> <span class="kw">lambda</span> _df: _df[<span class="st">'pass'</span>] <span class="op">/</span> (_df[<span class="st">'fail'</span>] <span class="op">+</span> _df[<span class="st">'pass'</span>]))<span class="op">\</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>.reset_index()</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata) </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>,fill<span class="op">=</span><span class="st">'gender'</span>))</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> col </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.pivot_table(index<span class="op">=</span><span class="st">'gender'</span>, columns<span class="op">=</span><span class="st">'result'</span>, values<span class="op">=</span><span class="st">'count'</span>, aggfunc<span class="op">=</span><span class="bu">sum</span>)<span class="op">\</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>.assign(rate <span class="op">=</span> <span class="kw">lambda</span> _df: _df[<span class="st">'pass'</span>] <span class="op">/</span> (_df[<span class="st">'fail'</span>] <span class="op">+</span> _df[<span class="st">'pass'</span>]))<span class="op">\</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>.reset_index()</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata) </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>,fill<span class="op">=</span><span class="st">'gender'</span>))</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> col </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/tmp/ipykernel_1831005/1840989269.py:1: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "sum" instead.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="06wk-supp_files/figure-html/cell-3-output-2.png" class="img-fluid"></p>
+<p><img src="06wk-supp_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
@@ -437,9 +446,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="c.-시각화2-학과별합격률-시각화-pandas-고수" class="level2">
 <h2 class="anchored" data-anchor-id="c.-시각화2-학과별합격률-시각화-pandas-고수">C. 시각화2: 학과별합격률 시각화 – pandas 고수</h2>
 <div id="249ba67c-22b3-4ba3-a74f-ee95d1944937" class="cell" data-tags="[]" data-execution_count="48">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span>[<span class="st">'gender'</span>,<span class="st">'department'</span>], columns<span class="op">=</span><span class="st">'result'</span>,values<span class="op">=</span><span class="st">'count'</span>,aggfunc<span class="op">=</span><span class="bu">sum</span>)<span class="op">\</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>.assign(rate <span class="op">=</span> <span class="kw">lambda</span> _df: _df[<span class="st">'pass'</span>]<span class="op">/</span>(_df[<span class="st">'fail'</span>]<span class="op">+</span>_df[<span class="st">'pass'</span>]))<span class="op">\</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>.reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span>[<span class="st">'gender'</span>,<span class="st">'department'</span>], columns<span class="op">=</span><span class="st">'result'</span>,values<span class="op">=</span><span class="st">'count'</span>,aggfunc<span class="op">=</span><span class="bu">sum</span>)<span class="op">\</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>.assign(rate <span class="op">=</span> <span class="kw">lambda</span> _df: _df[<span class="st">'pass'</span>]<span class="op">/</span>(_df[<span class="st">'fail'</span>]<span class="op">+</span>_df[<span class="st">'pass'</span>]))<span class="op">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>.reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/tmp/ipykernel_1831005/1491763288.py:1: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "sum" instead.</code></pre>
 </div>
@@ -562,19 +571,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div id="59dad38e-8ab9-4b11-ae77-a1ffb7392641" class="cell" data-tags="[]" data-execution_count="50">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.pivot_table(index<span class="op">=</span>[<span class="st">'gender'</span>,<span class="st">'department'</span>], columns<span class="op">=</span><span class="st">'result'</span>,values<span class="op">=</span><span class="st">'count'</span>,aggfunc<span class="op">=</span><span class="bu">sum</span>)<span class="op">\</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>.assign(rate <span class="op">=</span> <span class="kw">lambda</span> _df: _df[<span class="st">'pass'</span>]<span class="op">/</span>(_df[<span class="st">'fail'</span>]<span class="op">+</span>_df[<span class="st">'pass'</span>]))<span class="op">\</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>.reset_index()</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata) </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'department'</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>,fill<span class="op">=</span><span class="st">'gender'</span>))</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> facet <span class="op">+</span> col </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.pivot_table(index<span class="op">=</span>[<span class="st">'gender'</span>,<span class="st">'department'</span>], columns<span class="op">=</span><span class="st">'result'</span>,values<span class="op">=</span><span class="st">'count'</span>,aggfunc<span class="op">=</span><span class="bu">sum</span>)<span class="op">\</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>.assign(rate <span class="op">=</span> <span class="kw">lambda</span> _df: _df[<span class="st">'pass'</span>]<span class="op">/</span>(_df[<span class="st">'fail'</span>]<span class="op">+</span>_df[<span class="st">'pass'</span>]))<span class="op">\</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>.reset_index()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata) </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'department'</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'gender'</span>,y<span class="op">=</span><span class="st">'rate'</span>,fill<span class="op">=</span><span class="st">'gender'</span>))</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> facet <span class="op">+</span> col </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/tmp/ipykernel_1831005/2462720722.py:1: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "sum" instead.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="06wk-supp_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
+<p><img src="06wk-supp_files/figure-html/cell-6-output-2.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="50">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
@@ -587,8 +596,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><code>-</code> 시각화2: 학과별로 살펴보니 오히려 A,B,F,D의 경우 여성의 합격률이 높다.</p>
 <p><code>-</code> 교재에서 설명한 이유: 여성이 합격률이 낮은 학과에만 많이 지원하였기 때문</p>
 <div id="650b8766-d85b-4145-a630-274fa6a4336b" class="cell" data-tags="[]" data-execution_count="68">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span><span class="st">'department'</span>, columns<span class="op">=</span><span class="st">'gender'</span>, values<span class="op">=</span><span class="st">'count'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>)<span class="op">\</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span><span class="st">'department'</span>, columns<span class="op">=</span><span class="st">'gender'</span>, values<span class="op">=</span><span class="st">'count'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>)<span class="op">\</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="68">
 <div>
 
@@ -682,15 +691,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div id="a78a4350-0757-43a6-b02c-5a2ef7abf8fc" class="cell" data-execution_count="72">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.pivot_table(index<span class="op">=</span><span class="st">'department'</span>, columns<span class="op">=</span><span class="st">'gender'</span>, values<span class="op">=</span><span class="st">'count'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>)<span class="op">\</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata) </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'department'</span>,y<span class="op">=</span><span class="st">'count'</span>,fill<span class="op">=</span><span class="st">'gender'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>fig<span class="op">+</span>col</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.pivot_table(index<span class="op">=</span><span class="st">'department'</span>, columns<span class="op">=</span><span class="st">'gender'</span>, values<span class="op">=</span><span class="st">'count'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>)<span class="op">\</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>.stack().reset_index().rename({<span class="dv">0</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata) </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'department'</span>,y<span class="op">=</span><span class="st">'count'</span>,fill<span class="op">=</span><span class="st">'gender'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>fig<span class="op">+</span>col</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="06wk-supp_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+<p><img src="06wk-supp_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="72">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
@@ -699,10 +708,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="hw" class="level1">
-<h1>3. HW</h1>
+<h1>4. HW</h1>
 <div id="b9933517-e39b-44e9-a278-8ee45699ab2e" class="cell" data-tags="[]" data-execution_count="73">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson2.csv"</span>)</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson2.csv"</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="73">
 <div>
 
@@ -782,9 +791,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><code>-</code> 시각화1: 성별합격률 시각화</p>
 <div id="b69f363c-a103-4399-a191-6cae475e0055" class="cell" data-tags="[]" data-execution_count="21">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="06wk-supp_files/figure-html/cell-9-output-1.png" class="img-fluid"></p>
+<p><img src="06wk-supp_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
@@ -792,9 +801,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><code>-</code> 시각화2: (학과,성별) 합격률 시각화</p>
 <div id="f713ac9c-3a0d-4ca6-89dc-93bdedfabbeb" class="cell" data-tags="[]" data-execution_count="35">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="06wk-supp_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+<p><img src="06wk-supp_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
 </div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
