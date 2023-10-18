@@ -210,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="imports" class="level1">
 <h1>2. Imports</h1>
-<div id="cell-5" class="cell" data-tags="[]" data-execution_count="3">
+<div id="cell-5" class="cell" data-tags="[]" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -221,12 +221,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="a.-intro">A. intro</h2>
 <p><code>-</code> 개념: 그룹화 <span class="math inline">\(\to\)</span> 집계</p>
 <p><code># 예제1</code>: 아래의 예제에서 (학과,성별)로 count의 합계를 구하라.</p>
-<div id="cell-10" class="cell" data-tags="[]" data-execution_count="4">
+<div id="cell-10" class="cell" data-tags="[]" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson.csv"</span>,index_col<span class="op">=</span><span class="dv">0</span>,header<span class="op">=</span>[<span class="dv">0</span>,<span class="dv">1</span>])<span class="op">\</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>.stack().stack().reset_index()<span class="op">\</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>.rename({<span class="st">'level_0'</span>:<span class="st">'department'</span>,<span class="st">'level_1'</span>:<span class="st">'result'</span>,<span class="st">'level_2'</span>:<span class="st">'gender'</span>,<span class="dv">0</span>:<span class="st">'count'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -415,9 +415,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-11" class="cell" data-tags="[]" data-execution_count="6">
+<div id="cell-11" class="cell" data-tags="[]" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span>[<span class="st">'department'</span>,<span class="st">'gender'</span>],values<span class="op">=</span><span class="st">'count'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="6">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -526,14 +526,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>예시: ‘department’, [‘department’], [‘department’,‘gender’]</li>
 </ul>
 <p><code>-</code> 집계함수: 함수자체<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>를 전달하거나, 함수를 의미하는 문자열<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>, 혹은 그것들의 리스트형태로 전달한다.</p>
-<div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;np.mean,sum</p></li><li id="fn4"><p><sup>4</sup>&nbsp;‘size’, ‘count’, ‘sum’, ‘mean’, ‘median’, ‘min’, ‘max’, ‘std’, ‘var’</p></li></div><p><code># 예시</code>: 집계합수를 전달하는 방법</p>
+<div class="no-row-height column-margin column-container"><li id="fn3"><p><sup>3</sup>&nbsp;<code>np.mean</code>,<code>sum</code></p></li><li id="fn4"><p><sup>4</sup>&nbsp;‘count’, ‘sum’, ‘mean’, ‘median’, ‘min’, ‘max’, ‘std’, ‘var’</p></li></div><p><code># 예시</code>: 집계합수를 전달하는 방법</p>
 <p><strong>data</strong></p>
-<div id="cell-23" class="cell" data-tags="[]" data-execution_count="23">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>_category <span class="op">=</span> [<span class="st">'A'</span>]<span class="op">*</span><span class="dv">5</span><span class="op">+</span>[<span class="st">'B'</span>]<span class="op">*</span><span class="dv">5</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>_value <span class="op">=</span> np.concatenate([np.random.randn(<span class="dv">5</span>), np.random.randn(<span class="dv">5</span>)<span class="op">+</span><span class="dv">10</span>])</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'category'</span>:_category, <span class="st">'value'</span>:_value})</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="23">
+<div id="cell-23" class="cell" data-tags="[]" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'category'</span>:[<span class="st">'A'</span>]<span class="op">*</span><span class="dv">5</span><span class="op">+</span>[<span class="st">'B'</span>]<span class="op">*</span><span class="dv">5</span>, <span class="st">'value'</span>:np.concatenate([np.random.randn(<span class="dv">5</span>), np.random.randn(<span class="dv">5</span>)<span class="op">+</span><span class="dv">10</span>])})</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
 <div>
 
 
@@ -549,52 +547,52 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>A</td>
-<td>0.500300</td>
+<td>-0.975115</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>A</td>
-<td>-0.607283</td>
+<td>0.805445</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>A</td>
-<td>0.554465</td>
+<td>-0.611151</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>A</td>
-<td>-0.581157</td>
+<td>0.629245</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
 <td>A</td>
-<td>0.111246</td>
+<td>-1.608665</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">5</td>
 <td>B</td>
-<td>9.994724</td>
+<td>9.944171</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">6</td>
 <td>B</td>
-<td>10.045799</td>
+<td>11.503701</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">7</td>
 <td>B</td>
-<td>9.658807</td>
+<td>9.659330</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">8</td>
 <td>B</td>
-<td>9.781082</td>
+<td>10.855722</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">9</td>
 <td>B</td>
-<td>10.897546</td>
+<td>10.399815</td>
 </tr>
 </tbody>
 </table>
@@ -603,13 +601,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><strong>방법1</strong> – 함수자체를 전달</p>
-<div id="cell-25" class="cell" data-tags="[]" data-execution_count="24">
+<div id="cell-25" class="cell" data-tags="[]" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span>[<span class="st">'category'</span>],values<span class="op">=</span><span class="st">'value'</span>,aggfunc<span class="op">=</span>np.<span class="bu">sum</span>) <span class="co"># 함수자체</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_3427615/3923531937.py:1: FutureWarning: The provided callable &lt;function sum at 0x7f5cfdc3bd00&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "sum" instead.
+<pre><code>/tmp/ipykernel_3437616/3923531937.py:1: FutureWarning: The provided callable &lt;function sum at 0x7f2bb810b1c0&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "sum" instead.
   df.pivot_table(index=['category'],values='value',aggfunc=np.sum) # 함수자체</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="24">
+<div class="cell-output cell-output-display" data-execution_count="5">
 <div>
 
 
@@ -627,11 +625,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">A</td>
-<td>-0.022429</td>
+<td>-1.760242</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">B</td>
-<td>50.377958</td>
+<td>52.362738</td>
 </tr>
 </tbody>
 </table>
@@ -640,9 +638,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><strong>방법2</strong> – 함수를 의미하는 문자열을 전달</p>
-<div id="cell-27" class="cell" data-tags="[]" data-execution_count="25">
+<div id="cell-27" class="cell" data-tags="[]" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span>[<span class="st">'category'</span>],values<span class="op">=</span><span class="st">'value'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>)  <span class="co"># 리스트</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="25">
+<div class="cell-output cell-output-display" data-execution_count="6">
 <div>
 
 
@@ -660,11 +658,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">A</td>
-<td>-0.022429</td>
+<td>-1.760242</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">B</td>
-<td>50.377958</td>
+<td>52.362738</td>
 </tr>
 </tbody>
 </table>
@@ -673,17 +671,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><strong>방법3</strong> – 리스트를 전달</p>
-<div id="cell-29" class="cell" data-tags="[]" data-execution_count="32">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span>[<span class="st">'category'</span>],values<span class="op">=</span><span class="st">'value'</span>,aggfunc<span class="op">=</span>[<span class="st">'sum'</span>,np.<span class="bu">min</span>,np.mean,np.<span class="bu">max</span>,<span class="st">'count'</span>])  <span class="co"># 리스트</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-29" class="cell" data-tags="[]" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span>[<span class="st">'category'</span>],</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'value'</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    aggfunc<span class="op">=</span>[<span class="st">'sum'</span>,np.<span class="bu">min</span>,np.mean,np.<span class="bu">max</span>,<span class="st">'count'</span>]</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>/tmp/ipykernel_3427615/2674814982.py:1: FutureWarning: The provided callable &lt;function amin at 0x7f5cfdc40790&gt; is currently using DataFrameGroupBy.min. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "min" instead.
-  df.pivot_table(index=['category'],values='value',aggfunc=['sum',np.min,np.mean,np.max,'count'])  # 리스트
-/tmp/ipykernel_3427615/2674814982.py:1: FutureWarning: The provided callable &lt;function mean at 0x7f5cfdc411b0&gt; is currently using DataFrameGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "mean" instead.
-  df.pivot_table(index=['category'],values='value',aggfunc=['sum',np.min,np.mean,np.max,'count'])  # 리스트
-/tmp/ipykernel_3427615/2674814982.py:1: FutureWarning: The provided callable &lt;function amax at 0x7f5cfdc405e0&gt; is currently using DataFrameGroupBy.max. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "max" instead.
-  df.pivot_table(index=['category'],values='value',aggfunc=['sum',np.min,np.mean,np.max,'count'])  # 리스트</code></pre>
+<pre><code>/tmp/ipykernel_3437616/910020969.py:1: FutureWarning: The provided callable &lt;function amin at 0x7f2bb810bbe0&gt; is currently using DataFrameGroupBy.min. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "min" instead.
+  df.pivot_table(
+/tmp/ipykernel_3437616/910020969.py:1: FutureWarning: The provided callable &lt;function mean at 0x7f2bb8110670&gt; is currently using DataFrameGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "mean" instead.
+  df.pivot_table(
+/tmp/ipykernel_3437616/910020969.py:1: FutureWarning: The provided callable &lt;function amax at 0x7f2bb810ba30&gt; is currently using DataFrameGroupBy.max. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string "max" instead.
+  df.pivot_table(</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="32">
+<div class="cell-output cell-output-display" data-execution_count="8">
 <div>
 
 
@@ -717,18 +719,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">A</td>
-<td>-0.022429</td>
-<td>-0.607283</td>
-<td>-0.004486</td>
-<td>0.554465</td>
+<td>-1.760242</td>
+<td>-1.608665</td>
+<td>-0.352048</td>
+<td>0.805445</td>
 <td>5</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">B</td>
-<td>50.377958</td>
-<td>9.658807</td>
-<td>10.075592</td>
-<td>10.897546</td>
+<td>52.362738</td>
+<td>9.659330</td>
+<td>10.472548</td>
+<td>11.503701</td>
 <td>5</td>
 </tr>
 </tbody>
