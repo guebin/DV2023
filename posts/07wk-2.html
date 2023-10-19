@@ -9,7 +9,7 @@
 <meta name="author" content="최규빈">
 <meta name="dcterms.date" content="2023-10-16">
 
-<title>DV2023 - 07wk-2: Pandas – pivot_table, groupby</title>
+<title>DV2023 - 07wk-2: Pandas – pivot_table, groupby+agg</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -155,7 +155,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#강의영상" id="toc-강의영상" class="nav-link active" data-scroll-target="#강의영상">1. 강의영상</a></li>
   <li><a href="#imports" id="toc-imports" class="nav-link" data-scroll-target="#imports">2. Imports</a></li>
-  <li><a href="#pivot_table-groupbyaggregate" id="toc-pivot_table-groupbyaggregate" class="nav-link" data-scroll-target="#pivot_table-groupbyaggregate">3. pivot_table, groupby+aggregate</a>
+  <li><a href="#pivot_table-groupbyagg" id="toc-pivot_table-groupbyagg" class="nav-link" data-scroll-target="#pivot_table-groupbyagg">3. pivot_table, groupby+agg</a>
   <ul class="collapse">
   <li><a href="#a.-intro" id="toc-a.-intro" class="nav-link" data-scroll-target="#a.-intro">A. intro</a></li>
   <li><a href="#b.-pivot_table의-문법" id="toc-b.-pivot_table의-문법" class="nav-link" data-scroll-target="#b.-pivot_table의-문법">B. <code>pivot_table</code>의 문법</a></li>
@@ -171,7 +171,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">07wk-2: Pandas – pivot_table, groupby</h1>
+<h1 class="title">07wk-2: Pandas – pivot_table, groupby+agg</h1>
   <div class="quarto-categories">
     <div class="quarto-category">pandas</div>
   </div>
@@ -214,8 +214,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="pivot_table-groupbyaggregate" class="level1 page-columns page-full">
-<h1>3. pivot_table, groupby+aggregate</h1>
+<section id="pivot_table-groupbyagg" class="level1 page-columns page-full">
+<h1>3. pivot_table, groupby+agg</h1>
 <section id="a.-intro" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="a.-intro">A. intro</h2>
 <p><code>-</code> 개념: 그룹화 <span class="math inline">\(\to\)</span> 집계</p>
@@ -1859,11 +1859,11 @@ memory usage: 6.2+ MB</code></pre>
 </section>
 <section id="hw" class="level1">
 <h1>5. HW</h1>
-<div id="cell-69" class="cell" data-tags="[]" data-execution_count="165">
+<div id="cell-69" class="cell" data-tags="[]" data-execution_count="172">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>np.random.seed(<span class="dv">43052</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'X1'</span>:[<span class="st">'A'</span>]<span class="op">*</span><span class="dv">5</span><span class="op">+</span>[<span class="st">'B'</span>]<span class="op">*</span><span class="dv">5</span>, <span class="st">'X2'</span>:np.concatenate([np.random.randn(<span class="dv">5</span>), np.random.randn(<span class="dv">5</span>)<span class="op">+</span><span class="dv">10</span>])})</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="165">
+<div class="cell-output cell-output-display" data-execution_count="172">
 <div>
 
 
