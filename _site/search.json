@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "데이터 시각화 (2023)",
     "section": "",
-    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n기출문제\n\n2021-중간: https://guebin.github.io/DV2021/2021/11/08/midsol.html\n2021-기말: https://guebin.github.io/DV2021/2021/12/03/데이터시각화-기말고사.html, 1~2번 풀이\n2022-중간: https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html\n2022-기말: https://guebin.github.io/DV2022/posts/2022-12-19-final.html\n\n공지사항\n\n휴강: 9월27일(60), 10월2일(120), 10월9일(120)\n보충: supp-1(75), supp-2(30)\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nOct 16, 2023\n\n\n07wk-2: Pandas – pivot_table, groupby\n\n\n최규빈 \n\n\n\n\nOct 16, 2023\n\n\n07wk-1: Pandas – lambda df:의 활용, MultiIndex의 이해, tidydata의 이해, melt/stack\n\n\n최규빈 \n\n\n\n\nOct 15, 2023\n\n\nsupp-2: 심슨의 역설 (2)\n\n\n최규빈 \n\n\n\n\nOct 11, 2023\n\n\n06wk-2: 막대그래프, 심슨의 역설 (1)\n\n\n최규빈 \n\n\n\n\nOct 6, 2023\n\n\nsupp-1: FIFA23 자료의 시각화\n\n\n최규빈 \n\n\n\n\nOct 5, 2023\n\n\n05wk-2: Pandas – transform column (꿀팁)\n\n\n최규빈 \n\n\n\n\nSep 25, 2023\n\n\n04wk-1: Pandas – 기본기능, missing, query, 할당, transform column\n\n\n최규빈 \n\n\n\n\nSep 20, 2023\n\n\n03wk-2: Pandas – 행과 열의 선택\n\n\n최규빈 \n\n\n\n\nSep 18, 2023\n\n\n03wk-1: mpg data, 아이스크림을 많이 먹으면 걸리는 병\n\n\n최규빈 \n\n\n\n\nSep 13, 2023\n\n\n02wk-2: Seaborn 간략한 소개, 훌륭한 시각화\n\n\n최규빈 \n\n\n\n\nSep 11, 2023\n\n\n02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제 1-2\n\n\n최규빈 \n\n\n\n\nSep 6, 2023\n\n\n01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)\n\n\n최규빈 \n\n\n\n\nSep 4, 2023\n\n\n01wk-1: 박스플랏, 히스토그램\n\n\n최규빈 \n\n\n\n\n\nNo matching items"
+    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n기출문제\n\n2021-중간: https://guebin.github.io/DV2021/2021/11/08/midsol.html\n2021-기말: https://guebin.github.io/DV2021/2021/12/03/데이터시각화-기말고사.html, 1~2번 풀이\n2022-중간: https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html\n2022-기말: https://guebin.github.io/DV2022/posts/2022-12-19-final.html\n\n공지사항\n\n휴강: 9월27일(60), 10월2일(120), 10월9일(120)\n보충: supp-1(75), supp-2(30)\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nOct 23, 2023\n\n\n08wk-1: 에너지사용량 시각화\n\n\n최규빈 \n\n\n\n\nOct 16, 2023\n\n\n07wk-2: Pandas – pivot_table, groupby+agg\n\n\n최규빈 \n\n\n\n\nOct 16, 2023\n\n\n07wk-1: Pandas – lambda df:의 활용, MultiIndex의 이해, tidydata의 이해, melt/stack\n\n\n최규빈 \n\n\n\n\nOct 15, 2023\n\n\nsupp-2: 심슨의 역설 (2)\n\n\n최규빈 \n\n\n\n\nOct 11, 2023\n\n\n06wk-2: 막대그래프, 심슨의 역설 (1)\n\n\n최규빈 \n\n\n\n\nOct 6, 2023\n\n\nsupp-1: FIFA23 자료의 시각화\n\n\n최규빈 \n\n\n\n\nOct 5, 2023\n\n\n05wk-2: Pandas – transform column (꿀팁)\n\n\n최규빈 \n\n\n\n\nSep 25, 2023\n\n\n04wk-1: Pandas – 기본기능, missing, query, 할당, transform column\n\n\n최규빈 \n\n\n\n\nSep 20, 2023\n\n\n03wk-2: Pandas – 행과 열의 선택\n\n\n최규빈 \n\n\n\n\nSep 18, 2023\n\n\n03wk-1: mpg data, 아이스크림을 많이 먹으면 걸리는 병\n\n\n최규빈 \n\n\n\n\nSep 13, 2023\n\n\n02wk-2: Seaborn 간략한 소개, 훌륭한 시각화\n\n\n최규빈 \n\n\n\n\nSep 11, 2023\n\n\n02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제 1-2\n\n\n최규빈 \n\n\n\n\nSep 6, 2023\n\n\n01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)\n\n\n최규빈 \n\n\n\n\nSep 4, 2023\n\n\n01wk-1: 박스플랏, 히스토그램\n\n\n최규빈 \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/02wk-1.html#a.-예비학습",
@@ -198,21 +198,21 @@
   {
     "objectID": "posts/07wk-2.html#a.-intro",
     "href": "posts/07wk-2.html#a.-intro",
-    "title": "07wk-2: Pandas – pivot_table, groupby",
+    "title": "07wk-2: Pandas – pivot_table, groupby+agg",
     "section": "A. intro",
     "text": "A. intro\n- 개념: 그룹화 \\(\\to\\) 집계\n# 예제1: 아래의 예제에서 (학과,성별)로 count의 합계를 구하라.\n\ndf=pd.read_csv(\"https://raw.githubusercontent.com/guebin/DV2022/master/posts/Simpson.csv\",index_col=0,header=[0,1])\\\n.stack().stack().reset_index()\\\n.rename({'level_0':'department','level_1':'result','level_2':'gender',0:'count'},axis=1)\ndf\n\n\n\n\n\n\n\n\ndepartment\nresult\ngender\ncount\n\n\n\n\n0\nA\nfail\nmale\n314\n\n\n1\nA\nfail\nfemale\n19\n\n\n2\nA\npass\nmale\n511\n\n\n3\nA\npass\nfemale\n89\n\n\n4\nB\nfail\nmale\n208\n\n\n5\nB\nfail\nfemale\n7\n\n\n6\nB\npass\nmale\n352\n\n\n7\nB\npass\nfemale\n18\n\n\n8\nC\nfail\nmale\n204\n\n\n9\nC\nfail\nfemale\n391\n\n\n10\nC\npass\nmale\n121\n\n\n11\nC\npass\nfemale\n202\n\n\n12\nD\nfail\nmale\n279\n\n\n13\nD\nfail\nfemale\n244\n\n\n14\nD\npass\nmale\n138\n\n\n15\nD\npass\nfemale\n131\n\n\n16\nE\nfail\nmale\n137\n\n\n17\nE\nfail\nfemale\n299\n\n\n18\nE\npass\nmale\n54\n\n\n19\nE\npass\nfemale\n94\n\n\n20\nF\nfail\nmale\n149\n\n\n21\nF\nfail\nfemale\n103\n\n\n22\nF\npass\nmale\n224\n\n\n23\nF\npass\nfemale\n238\n\n\n\n\n\n\n\n\ndf.pivot_table(index=['department','gender'],values='count',aggfunc='sum')\n\n\n\n\n\n\n\n\n\ncount\n\n\ndepartment\ngender\n\n\n\n\n\nA\nfemale\n108\n\n\nmale\n825\n\n\nB\nfemale\n25\n\n\nmale\n560\n\n\nC\nfemale\n593\n\n\nmale\n325\n\n\nD\nfemale\n375\n\n\nmale\n417\n\n\nE\nfemale\n393\n\n\nmale\n191\n\n\nF\nfemale\n341\n\n\nmale\n373\n\n\n\n\n\n\n\n#\n- 예시에서 본 작업은 아래의 작업들로 세분화 할 수 있다.\n\n그룹화(쿼리): 하나의 dataframe을 sub-dataframe으로 나누는 과정 – 전체자료를 (학과,성별)로 묶어 총 10개의 sub-dataframe을 만듦\n각각집계(각각계산): 나누어진 sub-dataframe에서 어떠한 계산을 각각 수행함. – 나누어진 sub-dataframe에서 지원자수의 합계를 각각 구함\n\n- 위의 같은 작업을 하려면 아래와 같은 요소들이 필요하다.\n\n그룹변수1 – 그룹화를 위해 필요한 변수, dataframe을 sub-dataframe으로 나누는 역할.\n집계변수2 – 집계함수의 대상이 되는 변수.\n집계변수 – 그룹화된 데이터프레임에 수행하는 계산을 정의하는 함수.\n\n1 이건 없는 용어에요2 이것도 없는 용어에요"
   },
   {
     "objectID": "posts/07wk-2.html#b.-pivot_table의-문법",
     "href": "posts/07wk-2.html#b.-pivot_table의-문법",
-    "title": "07wk-2: Pandas – pivot_table, groupby",
+    "title": "07wk-2: Pandas – pivot_table, groupby+agg",
     "section": "B. pivot_table의 문법",
     "text": "B. pivot_table의 문법\n- pivot_table의 문법\ndf.pivot_table(\n    index = 그룹변수\n    colums = 그룹변수 \n    values = 집계변수\n    aggfunc = 집계함수\n)\n- 그룹변수: string, 혹은 list of string 으로 전달한다.\n\n예시: ‘department’, [‘department’], [‘department’,‘gender’]\n\n- 집계변수: string, 혹은 list of string 으로 전달한다.\n\n예시: ‘CANCELLED’, [‘CANCELLED’], [‘CANCELLED’,‘AIR_TIME’]\n\n- 집계함수: 함수자체3를 전달하거나, 함수를 의미하는 문자열4, 혹은 그것들의 리스트형태로 전달한다.\n3 np.mean,sum4 ‘count’, ‘sum’, ‘mean’, ‘median’, ‘min’, ‘max’, ‘std’, ‘var’# 예시: 집계합수를 전달하는 방법\ndata\n\ndf = pd.DataFrame({'category':['A']*5+['B']*5, 'value':np.concatenate([np.random.randn(5), np.random.randn(5)+10])})\ndf\n\n\n\n\n\n\n\n\ncategory\nvalue\n\n\n\n\n0\nA\n-1.522629\n\n\n1\nA\n0.525883\n\n\n2\nA\n0.285563\n\n\n3\nA\n-1.219968\n\n\n4\nA\n1.523162\n\n\n5\nB\n9.942545\n\n\n6\nB\n10.811401\n\n\n7\nB\n9.817500\n\n\n8\nB\n10.062780\n\n\n9\nB\n11.450590\n\n\n\n\n\n\n\n방법1 – 함수자체를 전달\n\ndf.pivot_table(index=['category'],values='value',aggfunc=np.sum) # 함수자체\n\n/tmp/ipykernel_3437616/3923531937.py:1: FutureWarning: The provided callable &lt;function sum at 0x7f2bb810b1c0&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"sum\" instead.\n  df.pivot_table(index=['category'],values='value',aggfunc=np.sum) # 함수자체\n\n\n\n\n\n\n\n\n\nvalue\n\n\ncategory\n\n\n\n\n\nA\n-0.407990\n\n\nB\n52.084817\n\n\n\n\n\n\n\n방법2 – 함수를 의미하는 문자열을 전달\n\ndf.pivot_table(index=['category'],values='value',aggfunc='sum')  # 리스트\n\n\n\n\n\n\n\n\nvalue\n\n\ncategory\n\n\n\n\n\nA\n-0.407990\n\n\nB\n52.084817\n\n\n\n\n\n\n\n방법3 – 리스트를 전달\n\ndf.pivot_table(\n    index=['category'],\n    values='value',\n    aggfunc=['sum','min',np.mean,np.max,'count']\n)\n\n/tmp/ipykernel_3437616/1880687379.py:1: FutureWarning: The provided callable &lt;function mean at 0x7f2bb8110670&gt; is currently using DataFrameGroupBy.mean. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"mean\" instead.\n  df.pivot_table(\n/tmp/ipykernel_3437616/1880687379.py:1: FutureWarning: The provided callable &lt;function amax at 0x7f2bb810ba30&gt; is currently using DataFrameGroupBy.max. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"max\" instead.\n  df.pivot_table(\n\n\n\n\n\n\n\n\n\nsum\nmin\nmean\namax\ncount\n\n\n\nvalue\nvalue\nvalue\nvalue\nvalue\n\n\ncategory\n\n\n\n\n\n\n\n\n\nA\n-0.407990\n-1.522629\n-0.081598\n1.523162\n5\n\n\nB\n52.084817\n9.817500\n10.416963\n11.450590\n5"
   },
   {
     "objectID": "posts/07wk-2.html#c.-groupby-aggregate-의-문법",
     "href": "posts/07wk-2.html#c.-groupby-aggregate-의-문법",
-    "title": "07wk-2: Pandas – pivot_table, groupby",
+    "title": "07wk-2: Pandas – pivot_table, groupby+agg",
     "section": "C. groupby + aggregate 의 문법",
     "text": "C. groupby + aggregate 의 문법\n- groupby + aggregate 의 문법\ndf.groupby(그룹변수).aggregate({집계변수:집계함수})"
   },
@@ -908,5 +908,96 @@
     "title": "supp-1: FIFA23 자료의 시각화",
     "section": "E. 시각화",
     "text": "E. 시각화\n\ntidydata = df.set_axis(df.columns.str.replace(' ',''),axis=1)\\\n.loc[:,lambda _df: _df.isna().mean()&lt;0.5].dropna()\\\n.assign(Position = lambda _df: _df.Position.str.split(\"&gt;\").str[-1].apply(lambda x: [k for k,v in position_dict.items() if x in v].pop()))\\\n.assign(Wage = lambda _df: _df.Wage.str[1:].str.replace('K','000').astype(int))\n\n\nfig = ggplot(tidydata.query('Position==\"DEFENDER\" or Position==\"FORWARD\"'))\npoint = geom_point(aes(x='ShotPower',y='SlidingTackle',color='Position',size='Wage',alpha='Wage'),position='jitter')\nfig + point\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#a.-pd.concat",
+    "href": "posts/08wk-1-.html#a.-pd.concat",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "A. pd.concat()",
+    "text": "A. pd.concat()\n# 예시1 – 위아래로\n\ndf1 = pd.DataFrame({'A':[1,2,3],'B':[2,3,4]})\ndf2 = pd.DataFrame({'A':[-1,-2,-3],'B':[-2,-3,-4]})\n\n\ndisplay(\"df1\",df1)\ndisplay(\"df2\",df2)\n\n'df1'\n\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n1\n2\n\n\n1\n2\n3\n\n\n2\n3\n4\n\n\n\n\n\n\n\n'df2'\n\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n-1\n-2\n\n\n1\n-2\n-3\n\n\n2\n-3\n-4\n\n\n\n\n\n\n\n\n#pd.concat([df1,df2],axis=0) # (3,2) concat (3,2) -&gt; (6,4) \npd.concat([df1,df2])\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n1\n2\n\n\n1\n2\n3\n\n\n2\n3\n4\n\n\n0\n-1\n-2\n\n\n1\n-2\n-3\n\n\n2\n-3\n-4\n\n\n\n\n\n\n\n인덱스를 재정리하고 싶다면?\n\npd.concat([df1,df2]).reset_index(drop=True)\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n1\n2\n\n\n1\n2\n3\n\n\n2\n3\n4\n\n\n3\n-1\n-2\n\n\n4\n-2\n-3\n\n\n5\n-3\n-4\n\n\n\n\n\n\n\n#\n# 예시2 – 좌우로\n\ndf1 = pd.DataFrame({'A':[1,2,3],'B':[2,3,4]})\ndf2 = pd.DataFrame({'C':[-1,-2,-3],'D':[-2,-3,-4]})\n\n\ndisplay(\"df1\",df1)\ndisplay(\"df2\",df2)\n\n'df1'\n\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n1\n2\n\n\n1\n2\n3\n\n\n2\n3\n4\n\n\n\n\n\n\n\n'df2'\n\n\n\n\n\n\n\n\n\nC\nD\n\n\n\n\n0\n-1\n-2\n\n\n1\n-2\n-3\n\n\n2\n-3\n-4\n\n\n\n\n\n\n\n\npd.concat([df1,df2],axis=1) # (3,2) concat (3,2) -&gt; (3,4) \n\n\n\n\n\n\n\n\nA\nB\nC\nD\n\n\n\n\n0\n1\n2\n-1\n-2\n\n\n1\n2\n3\n-2\n-3\n\n\n2\n3\n4\n-3\n-4\n\n\n\n\n\n\n\n#"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#b.",
+    "href": "posts/08wk-1-.html#b.",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "B.",
+    "text": "B."
+  },
+  {
+    "objectID": "posts/08wk-1-.html#b.-applymap",
+    "href": "posts/08wk-1-.html#b.-applymap",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "B. applymap",
+    "text": "B. applymap"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#b.-.applymap",
+    "href": "posts/08wk-1-.html#b.-.applymap",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "B. .applymap()",
+    "text": "B. .applymap()\n# 예시1\n\nnp.random.seed(43052)\ndf = pd.DataFrame({'A':np.random.rand(3), 'B':np.random.rand(3)})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n0.817682\n0.619777\n\n\n1\n0.049532\n0.122541\n\n\n2\n0.838686\n0.117128\n\n\n\n\n\n\n\n\ndf.applymap(lambda x: 'Yes' if x&gt;0.5 else 'No')\n\n/tmp/ipykernel_288950/1665022133.py:1: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.\n\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\nYes\nYes\n\n\n1\nNo\nNo\n\n\n2\nYes\nNo\n\n\n\n\n\n\n\n#"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#c.-.applymap",
+    "href": "posts/08wk-1-.html#c.-.applymap",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "C. .applymap()",
+    "text": "C. .applymap()\n# 예시1\n\nnp.random.seed(43052)\ndf = pd.DataFrame({'A':np.random.rand(3), 'B':np.random.rand(3)})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n0.817682\n0.619777\n\n\n1\n0.049532\n0.122541\n\n\n2\n0.838686\n0.117128\n\n\n\n\n\n\n\n\ndf.applymap(lambda x: 'Yes' if x&gt;0.5 else 'No')\n\n/tmp/ipykernel_288950/1665022133.py:1: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.\n\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\nYes\nYes\n\n\n1\nNo\nNo\n\n\n2\nYes\nNo\n\n\n\n\n\n\n\n#"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#c.",
+    "href": "posts/08wk-1-.html#c.",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "C.",
+    "text": "C.\n# 예시1\n\nnp.random.seed(43052)\ndf = pd.DataFrame({'A':np.random.rand(3), 'B':np.random.rand(3)})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n0.817682\n0.619777\n\n\n1\n0.049532\n0.122541\n\n\n2\n0.838686\n0.117128\n\n\n\n\n\n\n\n\ndf.applymap(lambda x: 'Yes' if x&gt;0.5 else 'No')\n\n/tmp/ipykernel_288950/1665022133.py:1: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.\n\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\nYes\nYes\n\n\n1\nNo\nNo\n\n\n2\nYes\nNo"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#c.-아픈기억",
+    "href": "posts/08wk-1-.html#c.-아픈기억",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "C. 아픈기억",
+    "text": "C. 아픈기억\n# 예시1 – object형은 일괄적으로 문자형임을 의미하는게 아님\n\nnp.random.seed(43052)\ndf = pd.DataFrame({'A':['1','2','0','1',2], 'B':['2','3','0','0',0]})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n1\n2\n\n\n1\n2\n3\n\n\n2\n0\n0\n\n\n3\n1\n0\n\n\n4\n2\n0\n\n\n\n\n\n\n\n\ndf.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 5 entries, 0 to 4\nData columns (total 2 columns):\n #   Column  Non-Null Count  Dtype \n---  ------  --------------  ----- \n 0   A       5 non-null      object\n 1   B       5 non-null      object\ndtypes: object(2)\nmemory usage: 208.0+ bytes\n\n\n\ndf.A[0],df.A[4],df.B[0],df.B[4]\n\n('1', 2, '2', 0)\n\n\n#"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#c.-df.astype",
+    "href": "posts/08wk-1-.html#c.-df.astype",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "C. df.astype()",
+    "text": "C. df.astype()\n- 예시1\n\ndf = pd.DataFrame({'A':[0,1,2],'B':[4,5,6]})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n0\n4\n\n\n1\n1\n5\n\n\n2\n2\n6\n\n\n\n\n\n\n\n\ndf.astype(float)\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n0.0\n4.0\n\n\n1\n1.0\n5.0\n\n\n2\n2.0\n6.0"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#d.-아픈기억",
+    "href": "posts/08wk-1-.html#d.-아픈기억",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "D. 아픈기억",
+    "text": "D. 아픈기억\n# 예제1 – object형은 일괄적으로 문자형임을 의미하는게 아님\n\nnp.random.seed(43052)\ndf = pd.DataFrame({'A':['1','2','0','1',2], 'B':['2','3','0','0',0]})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n1\n2\n\n\n1\n2\n3\n\n\n2\n0\n0\n\n\n3\n1\n0\n\n\n4\n2\n0\n\n\n\n\n\n\n\n\ndf.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 5 entries, 0 to 4\nData columns (total 2 columns):\n #   Column  Non-Null Count  Dtype \n---  ------  --------------  ----- \n 0   A       5 non-null      object\n 1   B       5 non-null      object\ndtypes: object(2)\nmemory usage: 208.0+ bytes\n\n\n\ndf.A[0],df.A[4],df.B[0],df.B[4]\n\n('1', 2, '2', 0)\n\n\n#\n# 예제2 – column이름이 이상하게 들어가 있는 경우가 있음.\n\ndf = pd.DataFrame({('A',''):[0,0,0], ('B',''):[1,1,1]})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n\n\n\n\n\n0\n0\n1\n\n\n1\n0\n1\n\n\n2\n0\n1\n\n\n\n\n\n\n\n\ndf['A']\n\n0    0\n1    0\n2    0\nName: A, dtype: int64\n\n\n\ndf[('A','')]\n\n0    0\n1    0\n2    0\nName: (A, ), dtype: int64\n\n\n#"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#d.-df.astype",
+    "href": "posts/08wk-1-.html#d.-df.astype",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "D. df.astype()",
+    "text": "D. df.astype()\n- 예시1\n\ndf = pd.DataFrame({'A':[0,1,2],'B':[4,5,6]})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n0\n4\n\n\n1\n1\n5\n\n\n2\n2\n6\n\n\n\n\n\n\n\n\ndf.astype(float)\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n0.0\n4.0\n\n\n1\n1.0\n5.0\n\n\n2\n2.0\n6.0"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#e.-제-아픈기억",
+    "href": "posts/08wk-1-.html#e.-제-아픈기억",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "E. 제 아픈기억",
+    "text": "E. 제 아픈기억\n# 예제1 – object형은 일괄적으로 문자형임을 의미하는게 아님\n\nnp.random.seed(43052)\ndf = pd.DataFrame({'A':['1','2','0','1',2], 'B':['2','3','0','0',0]})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n1\n2\n\n\n1\n2\n3\n\n\n2\n0\n0\n\n\n3\n1\n0\n\n\n4\n2\n0\n\n\n\n\n\n\n\n\ndf.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 5 entries, 0 to 4\nData columns (total 2 columns):\n #   Column  Non-Null Count  Dtype \n---  ------  --------------  ----- \n 0   A       5 non-null      object\n 1   B       5 non-null      object\ndtypes: object(2)\nmemory usage: 208.0+ bytes\n\n\n\ndf.A[0],df.A[4],df.B[0],df.B[4]\n\n('1', 2, '2', 0)\n\n\n#\n# 예제2 – column이름이 이상하게 들어가 있는 경우가 있음.\n\ndf = pd.DataFrame({('A',''):[0,0,0], ('B',''):[1,1,1]})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n\n\n\n\n\n0\n0\n1\n\n\n1\n0\n1\n\n\n2\n0\n1\n\n\n\n\n\n\n\n\ndf['A']\n\n0    0\n1    0\n2    0\nName: A, dtype: int64\n\n\n\ndf[('A','')]\n\n0    0\n1    0\n2    0\nName: (A, ), dtype: int64\n\n\n#"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#b.-pd.concat",
+    "href": "posts/08wk-1-.html#b.-pd.concat",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "B. pd.concat()",
+    "text": "B. pd.concat()"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#b.-pd.merge",
+    "href": "posts/08wk-1-.html#b.-pd.merge",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "B. pd.merge()",
+    "text": "B. pd.merge()\n\nbig = pd.DataFrame({'department':['A','A','B','B'], 'gender':['male','female','male','female'],'count':[1,2,3,1]})\nsmall = pd.DataFrame({'department':['A','B'], 'total':[3,4]})\n\n\ndisplay(\"big\",big)\ndisplay(\"small\",small)\n\n'big'\n\n\n\n\n\n\n\n\n\ndepartment\ngender\ncount\n\n\n\n\n0\nA\nmale\n1\n\n\n1\nA\nfemale\n2\n\n\n2\nB\nmale\n3\n\n\n3\nB\nfemale\n1\n\n\n\n\n\n\n\n'small'\n\n\n\n\n\n\n\n\n\ndepartment\ntotal\n\n\n\n\n0\nA\n3\n\n\n1\nB\n4\n\n\n\n\n\n\n\n\nbig.merge(small)\n\n\n\n\n\n\n\n\ndepartment\ngender\ncount\ntotal\n\n\n\n\n0\nA\nmale\n1\n3\n\n\n1\nA\nfemale\n2\n3\n\n\n2\nB\nmale\n3\n4\n\n\n3\nB\nfemale\n1\n4\n\n\n\n\n\n\n\n\nsmall.merge(big)\n\n\n\n\n\n\n\n\ndepartment\ntotal\ngender\ncount\n\n\n\n\n0\nA\n3\nmale\n1\n\n\n1\nA\n3\nfemale\n2\n\n\n2\nB\n4\nmale\n3\n\n\n3\nB\n4\nfemale\n1"
   }
 ]
