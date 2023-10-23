@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "데이터 시각화 (2023)",
     "section": "",
-    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n기출문제\n\n2021-중간: https://guebin.github.io/DV2021/2021/11/08/midsol.html\n2021-기말: https://guebin.github.io/DV2021/2021/12/03/데이터시각화-기말고사.html, 1~2번 풀이\n2022-중간: https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html\n2022-기말: https://guebin.github.io/DV2022/posts/2022-12-19-final.html\n\n공지사항\n\n휴강: 9월27일(60), 10월2일(120), 10월9일(120)\n보충: supp-1(75), supp-2(30)\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nOct 16, 2023\n\n\n07wk-2: Pandas – pivot_table, groupby+agg\n\n\n최규빈 \n\n\n\n\nOct 16, 2023\n\n\n07wk-1: Pandas – lambda df:의 활용, MultiIndex의 이해, tidydata의 이해, melt/stack\n\n\n최규빈 \n\n\n\n\nOct 15, 2023\n\n\nsupp-2: 심슨의 역설 (2)\n\n\n최규빈 \n\n\n\n\nOct 11, 2023\n\n\n06wk-2: 막대그래프, 심슨의 역설 (1)\n\n\n최규빈 \n\n\n\n\nOct 6, 2023\n\n\nsupp-1: FIFA23 자료의 시각화\n\n\n최규빈 \n\n\n\n\nOct 5, 2023\n\n\n05wk-2: Pandas – transform column (꿀팁)\n\n\n최규빈 \n\n\n\n\nSep 25, 2023\n\n\n04wk-1: Pandas – 기본기능, missing, query, 할당, transform column\n\n\n최규빈 \n\n\n\n\nSep 20, 2023\n\n\n03wk-2: Pandas – 행과 열의 선택\n\n\n최규빈 \n\n\n\n\nSep 18, 2023\n\n\n03wk-1: mpg data, 아이스크림을 많이 먹으면 걸리는 병\n\n\n최규빈 \n\n\n\n\nSep 13, 2023\n\n\n02wk-2: Seaborn 간략한 소개, 훌륭한 시각화\n\n\n최규빈 \n\n\n\n\nSep 11, 2023\n\n\n02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제 1-2\n\n\n최규빈 \n\n\n\n\nSep 6, 2023\n\n\n01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)\n\n\n최규빈 \n\n\n\n\nSep 4, 2023\n\n\n01wk-1: 박스플랏, 히스토그램\n\n\n최규빈 \n\n\n\n\n\nNo matching items"
+    "text": "질문하는 방법\n\n카카오톡: 질문하러 가기 // 학기종료이후 폐쇄함\n이메일: guebin@jbnu.ac.kr\n직접방문: 자연과학대학 본관 205호\nZoom: 카카오톡이나 이메일로 미리 시간을 정할 것\nLMS쪽지: https://ieilms.jbnu.ac.kr/\n\n기출문제\n\n2021-중간: https://guebin.github.io/DV2021/2021/11/08/midsol.html\n2021-기말: https://guebin.github.io/DV2021/2021/12/03/데이터시각화-기말고사.html, 1~2번 풀이\n2022-중간: https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html\n2022-기말: https://guebin.github.io/DV2022/posts/2022-12-19-final.html\n\n공지사항\n\n휴강: 9월27일(60), 10월2일(120), 10월9일(120)\n보충: supp-1(75), supp-2(30)\n\n\n\n\n\n\n\n\n\n\nDate\n\n\nTitle\n\n\nAuthor\n\n\n\n\n\n\nOct 23, 2023\n\n\n08wk-1: 에너지사용량 시각화\n\n\n최규빈 \n\n\n\n\nOct 16, 2023\n\n\n07wk-2: Pandas – pivot_table, groupby+agg\n\n\n최규빈 \n\n\n\n\nOct 16, 2023\n\n\n07wk-1: Pandas – lambda df:의 활용, MultiIndex의 이해, tidydata의 이해, melt/stack\n\n\n최규빈 \n\n\n\n\nOct 15, 2023\n\n\nsupp-2: 심슨의 역설 (2)\n\n\n최규빈 \n\n\n\n\nOct 11, 2023\n\n\n06wk-2: 막대그래프, 심슨의 역설 (1)\n\n\n최규빈 \n\n\n\n\nOct 6, 2023\n\n\nsupp-1: FIFA23 자료의 시각화\n\n\n최규빈 \n\n\n\n\nOct 5, 2023\n\n\n05wk-2: Pandas – transform column (꿀팁)\n\n\n최규빈 \n\n\n\n\nSep 25, 2023\n\n\n04wk-1: Pandas – 기본기능, missing, query, 할당, transform column\n\n\n최규빈 \n\n\n\n\nSep 20, 2023\n\n\n03wk-2: Pandas – 행과 열의 선택\n\n\n최규빈 \n\n\n\n\nSep 18, 2023\n\n\n03wk-1: mpg data, 아이스크림을 많이 먹으면 걸리는 병\n\n\n최규빈 \n\n\n\n\nSep 13, 2023\n\n\n02wk-2: Seaborn 간략한 소개, 훌륭한 시각화\n\n\n최규빈 \n\n\n\n\nSep 11, 2023\n\n\n02wk-1: 객체지향적 시각화 (2), Subplot, 산점도 응용예제 1-2\n\n\n최규빈 \n\n\n\n\nSep 6, 2023\n\n\n01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)\n\n\n최규빈 \n\n\n\n\nSep 4, 2023\n\n\n01wk-1: 박스플랏, 히스토그램\n\n\n최규빈 \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/02wk-1.html#a.-예비학습",
@@ -245,6 +245,69 @@
     "text": "D. 해석\n- 시각화1: 남자의 합격률이 더 높다. \\(\\to\\) 성차별이 있어보인다(?)\n- 시각화2: 학과별로 살펴보니 오히려 A,B,F,D의 경우 여성의 합격률이 높다.\n- 교재에서 설명한 이유: 여성이 합격률이 낮은 학과에만 많이 지원하였기 때문\n\ndf.pivot_table(index='department', columns='gender', values='count',aggfunc='sum')\\\n.stack().reset_index().rename({0:'count'},axis=1)\n\n\n\n\n\n\n\n\ndepartment\ngender\ncount\n\n\n\n\n0\nA\nfemale\n108\n\n\n1\nA\nmale\n825\n\n\n2\nB\nfemale\n25\n\n\n3\nB\nmale\n560\n\n\n4\nC\nfemale\n593\n\n\n5\nC\nmale\n325\n\n\n6\nD\nfemale\n375\n\n\n7\nD\nmale\n417\n\n\n8\nE\nfemale\n393\n\n\n9\nE\nmale\n191\n\n\n10\nF\nfemale\n341\n\n\n11\nF\nmale\n373\n\n\n\n\n\n\n\n\ntidydata = df.pivot_table(index='department', columns='gender', values='count',aggfunc='sum')\\\n.stack().reset_index().rename({0:'count'},axis=1)\n\n \nfig = ggplot(tidydata) \ncol = geom_col(aes(x='department',y='count',fill='gender'),position='dodge')\nfig+col\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
   },
   {
+    "objectID": "posts/08wk-1-.html#a.-pd.concat",
+    "href": "posts/08wk-1-.html#a.-pd.concat",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "A. pd.concat()",
+    "text": "A. pd.concat()\n# 예시1 – 위아래로\n\ndf1 = pd.DataFrame({'A':[1,2,3],'B':[2,3,4]})\ndf2 = pd.DataFrame({'A':[-1,-2,-3],'B':[-2,-3,-4]})\n\n\ndisplay(\"df1\",df1)\ndisplay(\"df2\",df2)\n\n'df1'\n\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n1\n2\n\n\n1\n2\n3\n\n\n2\n3\n4\n\n\n\n\n\n\n\n'df2'\n\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n-1\n-2\n\n\n1\n-2\n-3\n\n\n2\n-3\n-4\n\n\n\n\n\n\n\n\n#pd.concat([df1,df2],axis=0) # (3,2) concat (3,2) -&gt; (6,4) \npd.concat([df1,df2])\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n1\n2\n\n\n1\n2\n3\n\n\n2\n3\n4\n\n\n0\n-1\n-2\n\n\n1\n-2\n-3\n\n\n2\n-3\n-4\n\n\n\n\n\n\n\n인덱스를 재정리하고 싶다면?\n\npd.concat([df1,df2]).reset_index(drop=True)\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n1\n2\n\n\n1\n2\n3\n\n\n2\n3\n4\n\n\n3\n-1\n-2\n\n\n4\n-2\n-3\n\n\n5\n-3\n-4\n\n\n\n\n\n\n\n#\n# 예시2 – 좌우로\n\ndf1 = pd.DataFrame({'A':[1,2,3],'B':[2,3,4]})\ndf2 = pd.DataFrame({'C':[-1,-2,-3],'D':[-2,-3,-4]})\n\n\ndisplay(\"df1\",df1)\ndisplay(\"df2\",df2)\n\n'df1'\n\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n1\n2\n\n\n1\n2\n3\n\n\n2\n3\n4\n\n\n\n\n\n\n\n'df2'\n\n\n\n\n\n\n\n\n\nC\nD\n\n\n\n\n0\n-1\n-2\n\n\n1\n-2\n-3\n\n\n2\n-3\n-4\n\n\n\n\n\n\n\n\npd.concat([df1,df2],axis=1) # (3,2) concat (3,2) -&gt; (3,4) \n\n\n\n\n\n\n\n\nA\nB\nC\nD\n\n\n\n\n0\n1\n2\n-1\n-2\n\n\n1\n2\n3\n-2\n-3\n\n\n2\n3\n4\n-3\n-4\n\n\n\n\n\n\n\n#"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#b.-pd.merge",
+    "href": "posts/08wk-1-.html#b.-pd.merge",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "B. pd.merge()",
+    "text": "B. pd.merge()\n\nbig = pd.DataFrame({'department':['A','A','B','B'], 'gender':['male','female','male','female'],'count':[1,2,3,1]})\nsmall = pd.DataFrame({'department':['A','B'], 'total':[3,4]})\n\n\ndisplay(\"big\",big)\ndisplay(\"small\",small)\n\n'big'\n\n\n\n\n\n\n\n\n\ndepartment\ngender\ncount\n\n\n\n\n0\nA\nmale\n1\n\n\n1\nA\nfemale\n2\n\n\n2\nB\nmale\n3\n\n\n3\nB\nfemale\n1\n\n\n\n\n\n\n\n'small'\n\n\n\n\n\n\n\n\n\ndepartment\ntotal\n\n\n\n\n0\nA\n3\n\n\n1\nB\n4\n\n\n\n\n\n\n\n\nbig.merge(small)\n\n\n\n\n\n\n\n\ndepartment\ngender\ncount\ntotal\n\n\n\n\n0\nA\nmale\n1\n3\n\n\n1\nA\nfemale\n2\n3\n\n\n2\nB\nmale\n3\n4\n\n\n3\nB\nfemale\n1\n4\n\n\n\n\n\n\n\n\nsmall.merge(big)\n\n\n\n\n\n\n\n\ndepartment\ntotal\ngender\ncount\n\n\n\n\n0\nA\n3\nmale\n1\n\n\n1\nA\n3\nfemale\n2\n\n\n2\nB\n4\nmale\n3\n\n\n3\nB\n4\nfemale\n1"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#c.-.applymap",
+    "href": "posts/08wk-1-.html#c.-.applymap",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "C. .applymap()",
+    "text": "C. .applymap()\n# 예시1\n\nnp.random.seed(43052)\ndf = pd.DataFrame({'A':np.random.rand(3), 'B':np.random.rand(3)})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n0.817682\n0.619777\n\n\n1\n0.049532\n0.122541\n\n\n2\n0.838686\n0.117128\n\n\n\n\n\n\n\n\ndf.applymap(lambda x: 'Yes' if x&gt;0.5 else 'No')\n\n/tmp/ipykernel_288950/1665022133.py:1: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.\n\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\nYes\nYes\n\n\n1\nNo\nNo\n\n\n2\nYes\nNo\n\n\n\n\n\n\n\n#"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#d.-df.astype",
+    "href": "posts/08wk-1-.html#d.-df.astype",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "D. df.astype()",
+    "text": "D. df.astype()\n- 예시1\n\ndf = pd.DataFrame({'A':[0,1,2],'B':[4,5,6]})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n0\n4\n\n\n1\n1\n5\n\n\n2\n2\n6\n\n\n\n\n\n\n\n\ndf.astype(float)\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n0.0\n4.0\n\n\n1\n1.0\n5.0\n\n\n2\n2.0\n6.0"
+  },
+  {
+    "objectID": "posts/08wk-1-.html#e.-제-아픈기억",
+    "href": "posts/08wk-1-.html#e.-제-아픈기억",
+    "title": "08wk-1: 에너지사용량 시각화",
+    "section": "E. 제 아픈기억",
+    "text": "E. 제 아픈기억\n# 예제1 – object형은 일괄적으로 문자형임을 의미하는게 아님\n\nnp.random.seed(43052)\ndf = pd.DataFrame({'A':['1','2','0','1',2], 'B':['2','3','0','0',0]})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n0\n1\n2\n\n\n1\n2\n3\n\n\n2\n0\n0\n\n\n3\n1\n0\n\n\n4\n2\n0\n\n\n\n\n\n\n\n\ndf.info()\n\n&lt;class 'pandas.core.frame.DataFrame'&gt;\nRangeIndex: 5 entries, 0 to 4\nData columns (total 2 columns):\n #   Column  Non-Null Count  Dtype \n---  ------  --------------  ----- \n 0   A       5 non-null      object\n 1   B       5 non-null      object\ndtypes: object(2)\nmemory usage: 208.0+ bytes\n\n\n\ndf.A[0],df.A[4],df.B[0],df.B[4]\n\n('1', 2, '2', 0)\n\n\n#\n# 예제2 – column이름이 이상하게 들어가 있는 경우가 있음.\n\ndf = pd.DataFrame({('A',''):[0,0,0], ('B',''):[1,1,1]})\ndf\n\n\n\n\n\n\n\n\nA\nB\n\n\n\n\n\n\n\n\n\n0\n0\n1\n\n\n1\n0\n1\n\n\n2\n0\n1\n\n\n\n\n\n\n\n\ndf['A']\n\n0    0\n1    0\n2    0\nName: A, dtype: int64\n\n\n\ndf[('A','')]\n\n0    0\n1    0\n2    0\nName: (A, ), dtype: int64\n\n\n#"
+  },
+  {
+    "objectID": "posts/06wk-2.html#a.-geom_col",
+    "href": "posts/06wk-2.html#a.-geom_col",
+    "title": "06wk-2: 막대그래프, 심슨의 역설 (1)",
+    "section": "A. geom_col()",
+    "text": "A. geom_col()\n- 예시1: 기본적인 막대그래프\n\ndf = pd.DataFrame({'x':[0,1],'y':[40,60]})\ndf\n\n\n\n\n\n\n\n\nx\ny\n\n\n\n\n0\n0\n40\n\n\n1\n1\n60\n\n\n\n\n\n\n\n\nfig = ggplot(df)\ncol = geom_col(aes(x='x',y='y'))\nfig + col\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;\n\n\n- 예시2: \\(x\\)축이 범주인 경우\n\ndf = pd.DataFrame({'sex':['male','female'],'score':[40,60]})\ndf\n\n\n\n\n\n\n\n\nsex\nscore\n\n\n\n\n0\nmale\n40\n\n\n1\nfemale\n60\n\n\n\n\n\n\n\n\nfig = ggplot(df)\ncol = geom_col(aes(x='sex',y='score'))\nfig + col\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;\n\n\n- 예시3: 예시2에서 색깔로 구분하고 싶은 경우\n\ndf = pd.DataFrame({'sex':['male','female'],'score':[40,60]})\ndf\n\n\n\n\n\n\n\n\nsex\nscore\n\n\n\n\n0\nmale\n40\n\n\n1\nfemale\n60\n\n\n\n\n\n\n\n\nfig = ggplot(df)\ncol = geom_col(aes(x='sex',y='score',fill='sex'))\nfig + col\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;\n\n\n- 예시4: 예시3에서 scale_fill_manual()을 이용하여 색상변경 하기\n\ndf = pd.DataFrame({'sex':['male','female'],'score':[40,60]})\ndf\n\n\n\n\n\n\n\n\nsex\nscore\n\n\n\n\n0\nmale\n40\n\n\n1\nfemale\n60\n\n\n\n\n\n\n\n\nfig = ggplot(df)\ncol = geom_col(aes(x='sex',y='score',fill='sex'))\nfig + col + scale_fill_manual(['red','blue'])\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
+  },
+  {
+    "objectID": "posts/06wk-2.html#b.-facet_wrap",
+    "href": "posts/06wk-2.html#b.-facet_wrap",
+    "title": "06wk-2: 막대그래프, 심슨의 역설 (1)",
+    "section": "B. facet_wrap()",
+    "text": "B. facet_wrap()\n- 예시1: facet_wrap()을 이용한 면분할 – 반별로 면분할\n\ndf = pd.DataFrame({'sex':['male','female','male','female'],'score':[40,60,50,20],'class':['A','A','B','B']})\ndf\n\n\n\n\n\n\n\n\nsex\nscore\nclass\n\n\n\n\n0\nmale\n40\nA\n\n\n1\nfemale\n60\nA\n\n\n2\nmale\n50\nB\n\n\n3\nfemale\n20\nB\n\n\n\n\n\n\n\n\nfig = ggplot(df)\ncol = geom_col(aes(x='sex',y='score',fill='sex')) \nfig + col + facet_wrap('class')\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;\n\n\n- 예시2: facet_wrap()을 이용한 면분할 – 성별로 면분할\n\ndf = pd.DataFrame({'sex':['male','female','male','female'],'score':[40,60,50,20],'class':['A','A','B','B']})\ndf\n\n\n\n\n\n\n\n\nsex\nscore\nclass\n\n\n\n\n0\nmale\n40\nA\n\n\n1\nfemale\n60\nA\n\n\n2\nmale\n50\nB\n\n\n3\nfemale\n20\nB\n\n\n\n\n\n\n\n\nfig = ggplot(df)\ncol = geom_col(aes(x='class',y='score',fill='sex')) \nfig + col + facet_wrap('sex')\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
+  },
+  {
+    "objectID": "posts/06wk-2.html#a.-시각화1-전체합격률-시각화-pandas-초보",
+    "href": "posts/06wk-2.html#a.-시각화1-전체합격률-시각화-pandas-초보",
+    "title": "06wk-2: 막대그래프, 심슨의 역설 (1)",
+    "section": "A. 시각화1: 전체합격률 시각화 – pandas 초보",
+    "text": "A. 시각화1: 전체합격률 시각화 – pandas 초보\n- 여성지원자의 합격률\n\ndf.query('gender == \"female\" and result ==\"pass\"')['count'].sum() / df.query('gender == \"female\"')['count'].sum()\n\n0.420708446866485\n\n\n- 남성지원자의 합격률\n\ndf.query('gender == \"male\" and result ==\"pass\"')['count'].sum() / df.query('gender == \"male\"')['count'].sum()\n\n0.5202526941657376\n\n\n- 시각화\n\ntidydata = pd.DataFrame({'male':[0.5202526941657376],'female':[0.420708446866485]})\ntidydata\n\n\n\n\n\n\n\n\nmale\nfemale\n\n\n\n\n0\n0.520253\n0.420708\n\n\n\n\n\n\n\n\n이렇게 데이터 프레임을 만들면 망해요\n\n\ntidydata = pd.DataFrame({'sex':['male','female'],'rate':[0.5202526941657376,0.420708446866485]})\ntidydata\n\n\n\n\n\n\n\n\nsex\nrate\n\n\n\n\n0\nmale\n0.520253\n\n\n1\nfemale\n0.420708\n\n\n\n\n\n\n\n\nfig = ggplot(tidydata)\ncol = geom_col(aes(x='sex',y='rate',fill='sex'))\nfig + col\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
+  },
+  {
+    "objectID": "posts/06wk-2.html#b.-시각화1-전체합격률-시각화-pandas-고수",
+    "href": "posts/06wk-2.html#b.-시각화1-전체합격률-시각화-pandas-고수",
+    "title": "06wk-2: 막대그래프, 심슨의 역설 (1)",
+    "section": "B. 시각화1: 전체합격률 시각화 – pandas 고수",
+    "text": "B. 시각화1: 전체합격률 시각화 – pandas 고수\n\ndf.pivot_table(index='gender', columns='result', values='count', aggfunc=sum)\n\n/tmp/ipykernel_1871155/1414298521.py:1: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"sum\" instead.\n\n\n\n\n\n\n\n\nresult\nfail\npass\n\n\ngender\n\n\n\n\n\n\nfemale\n1063\n772\n\n\nmale\n1291\n1400\n\n\n\n\n\n\n\n\ndf.pivot_table(index='gender', columns='result', values='count', aggfunc=sum)\\\n.assign(rate = lambda _df: _df['pass'] / (_df['fail'] + _df['pass']))\\\n.reset_index()\n\n/tmp/ipykernel_1871155/3036569198.py:1: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"sum\" instead.\n\n\n\n\n\n\n\n\nresult\ngender\nfail\npass\nrate\n\n\n\n\n0\nfemale\n1063\n772\n0.420708\n\n\n1\nmale\n1291\n1400\n0.520253\n\n\n\n\n\n\n\n\ntidydata = df.pivot_table(index='gender', columns='result', values='count', aggfunc=sum)\\\n.assign(rate = lambda _df: _df['pass'] / (_df['fail'] + _df['pass']))\\\n.reset_index()\n\nfig = ggplot(tidydata) \ncol = geom_col(aes(x='gender',y='rate',fill='gender'))\nfig + col \n\n/tmp/ipykernel_1871155/1840989269.py:1: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"sum\" instead.\n\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
+  },
+  {
     "objectID": "posts/01wk-2.html#a.-기본플랏",
     "href": "posts/01wk-2.html#a.-기본플랏",
     "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
@@ -313,34 +376,6 @@
     "title": "01wk-2: 라인플랏, 산점도, 객체지향적 시각화 (1)",
     "section": "A. 예비학습",
     "text": "A. 예비학습\n# 예비학습1 – 그림을 저장했다가 꺼내보고 싶다.\n- 그림을 그리고 저장하자.\n\nplt.plot([1,2,4,3])\nfig = plt.gcf()\n\n\n\n\n- 다른그림을 그려보자.\n\nplt.plot([1,2,4,3],'--o')\n\n\n\n\n- 저장한 그림은 언제든지 꺼내볼 수 있음\n\nfig\n\n\n\n\n#\n# 예비학습2 – fig 는 뭐야?\n\n#fig??\ntype(fig)\n\nmatplotlib.figure.Figure\n\n\n\nFigure라는 클래스에서 찍힌 인스턴스\n\n- 여러가지 값, 기능이 저장되어 있겠음.\n\nfig.axes\n\n[&lt;Axes: &gt;]\n\n\n\nax = fig.axes[0]\n\n\nyaxis= ax.yaxis\nxaxis= ax.xaxis\n\n\nlines = ax.get_lines()\nline = lines[0]\n\n- 계층구조: Figure \\(\\supset\\) [Axes,…] \\(\\supset\\) YAxis, XAxis, [Line2D,…]\n\ntype(fig)\n\nmatplotlib.figure.Figure\n\n\n1. .axes 로 Axes 를 끄집어냄\n\nax = fig.axes[0]\ntype(ax)\n\nmatplotlib.axes._axes.Axes\n\n\n2. .xaxis, .yaxis 로 Axis 를 끄집어냄\n\nyaxis = ax.yaxis\nxaxis = ax.xaxis\ntype(yaxis), type(xaxis)\n\n(matplotlib.axis.YAxis, matplotlib.axis.XAxis)\n\n\n3. .get_lines()로 Line2D를 끄집어냄\n\nlines = ax.get_lines()\nline=lines[0]\ntype(line)\n\nmatplotlib.lines.Line2D\n\n\n- 오브젝트내용 확인 (그닥 필요 없음)\n\nline.properties()['data']\n\n(array([0., 1., 2., 3.]), array([1, 2, 4, 3]))\n\n\n- matplotlib의 설명\nref: https://matplotlib.org/stable/gallery/showcase/anatomy.html#sphx-glr-gallery-showcase-anatomy-py"
-  },
-  {
-    "objectID": "posts/06wk-2.html#a.-geom_col",
-    "href": "posts/06wk-2.html#a.-geom_col",
-    "title": "06wk-2: 막대그래프, 심슨의 역설 (1)",
-    "section": "A. geom_col()",
-    "text": "A. geom_col()\n- 예시1: 기본적인 막대그래프\n\ndf = pd.DataFrame({'x':[0,1],'y':[40,60]})\ndf\n\n\n\n\n\n\n\n\nx\ny\n\n\n\n\n0\n0\n40\n\n\n1\n1\n60\n\n\n\n\n\n\n\n\nfig = ggplot(df)\ncol = geom_col(aes(x='x',y='y'))\nfig + col\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;\n\n\n- 예시2: \\(x\\)축이 범주인 경우\n\ndf = pd.DataFrame({'sex':['male','female'],'score':[40,60]})\ndf\n\n\n\n\n\n\n\n\nsex\nscore\n\n\n\n\n0\nmale\n40\n\n\n1\nfemale\n60\n\n\n\n\n\n\n\n\nfig = ggplot(df)\ncol = geom_col(aes(x='sex',y='score'))\nfig + col\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;\n\n\n- 예시3: 예시2에서 색깔로 구분하고 싶은 경우\n\ndf = pd.DataFrame({'sex':['male','female'],'score':[40,60]})\ndf\n\n\n\n\n\n\n\n\nsex\nscore\n\n\n\n\n0\nmale\n40\n\n\n1\nfemale\n60\n\n\n\n\n\n\n\n\nfig = ggplot(df)\ncol = geom_col(aes(x='sex',y='score',fill='sex'))\nfig + col\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;\n\n\n- 예시4: 예시3에서 scale_fill_manual()을 이용하여 색상변경 하기\n\ndf = pd.DataFrame({'sex':['male','female'],'score':[40,60]})\ndf\n\n\n\n\n\n\n\n\nsex\nscore\n\n\n\n\n0\nmale\n40\n\n\n1\nfemale\n60\n\n\n\n\n\n\n\n\nfig = ggplot(df)\ncol = geom_col(aes(x='sex',y='score',fill='sex'))\nfig + col + scale_fill_manual(['red','blue'])\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
-  },
-  {
-    "objectID": "posts/06wk-2.html#b.-facet_wrap",
-    "href": "posts/06wk-2.html#b.-facet_wrap",
-    "title": "06wk-2: 막대그래프, 심슨의 역설 (1)",
-    "section": "B. facet_wrap()",
-    "text": "B. facet_wrap()\n- 예시1: facet_wrap()을 이용한 면분할 – 반별로 면분할\n\ndf = pd.DataFrame({'sex':['male','female','male','female'],'score':[40,60,50,20],'class':['A','A','B','B']})\ndf\n\n\n\n\n\n\n\n\nsex\nscore\nclass\n\n\n\n\n0\nmale\n40\nA\n\n\n1\nfemale\n60\nA\n\n\n2\nmale\n50\nB\n\n\n3\nfemale\n20\nB\n\n\n\n\n\n\n\n\nfig = ggplot(df)\ncol = geom_col(aes(x='sex',y='score',fill='sex')) \nfig + col + facet_wrap('class')\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;\n\n\n- 예시2: facet_wrap()을 이용한 면분할 – 성별로 면분할\n\ndf = pd.DataFrame({'sex':['male','female','male','female'],'score':[40,60,50,20],'class':['A','A','B','B']})\ndf\n\n\n\n\n\n\n\n\nsex\nscore\nclass\n\n\n\n\n0\nmale\n40\nA\n\n\n1\nfemale\n60\nA\n\n\n2\nmale\n50\nB\n\n\n3\nfemale\n20\nB\n\n\n\n\n\n\n\n\nfig = ggplot(df)\ncol = geom_col(aes(x='class',y='score',fill='sex')) \nfig + col + facet_wrap('sex')\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
-  },
-  {
-    "objectID": "posts/06wk-2.html#a.-시각화1-전체합격률-시각화-pandas-초보",
-    "href": "posts/06wk-2.html#a.-시각화1-전체합격률-시각화-pandas-초보",
-    "title": "06wk-2: 막대그래프, 심슨의 역설 (1)",
-    "section": "A. 시각화1: 전체합격률 시각화 – pandas 초보",
-    "text": "A. 시각화1: 전체합격률 시각화 – pandas 초보\n- 여성지원자의 합격률\n\ndf.query('gender == \"female\" and result ==\"pass\"')['count'].sum() / df.query('gender == \"female\"')['count'].sum()\n\n0.420708446866485\n\n\n- 남성지원자의 합격률\n\ndf.query('gender == \"male\" and result ==\"pass\"')['count'].sum() / df.query('gender == \"male\"')['count'].sum()\n\n0.5202526941657376\n\n\n- 시각화\n\ntidydata = pd.DataFrame({'male':[0.5202526941657376],'female':[0.420708446866485]})\ntidydata\n\n\n\n\n\n\n\n\nmale\nfemale\n\n\n\n\n0\n0.520253\n0.420708\n\n\n\n\n\n\n\n\n이렇게 데이터 프레임을 만들면 망해요\n\n\ntidydata = pd.DataFrame({'sex':['male','female'],'rate':[0.5202526941657376,0.420708446866485]})\ntidydata\n\n\n\n\n\n\n\n\nsex\nrate\n\n\n\n\n0\nmale\n0.520253\n\n\n1\nfemale\n0.420708\n\n\n\n\n\n\n\n\nfig = ggplot(tidydata)\ncol = geom_col(aes(x='sex',y='rate',fill='sex'))\nfig + col\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
-  },
-  {
-    "objectID": "posts/06wk-2.html#b.-시각화1-전체합격률-시각화-pandas-고수",
-    "href": "posts/06wk-2.html#b.-시각화1-전체합격률-시각화-pandas-고수",
-    "title": "06wk-2: 막대그래프, 심슨의 역설 (1)",
-    "section": "B. 시각화1: 전체합격률 시각화 – pandas 고수",
-    "text": "B. 시각화1: 전체합격률 시각화 – pandas 고수\n\ndf.pivot_table(index='gender', columns='result', values='count', aggfunc=sum)\n\n/tmp/ipykernel_1871155/1414298521.py:1: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"sum\" instead.\n\n\n\n\n\n\n\n\nresult\nfail\npass\n\n\ngender\n\n\n\n\n\n\nfemale\n1063\n772\n\n\nmale\n1291\n1400\n\n\n\n\n\n\n\n\ndf.pivot_table(index='gender', columns='result', values='count', aggfunc=sum)\\\n.assign(rate = lambda _df: _df['pass'] / (_df['fail'] + _df['pass']))\\\n.reset_index()\n\n/tmp/ipykernel_1871155/3036569198.py:1: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"sum\" instead.\n\n\n\n\n\n\n\n\nresult\ngender\nfail\npass\nrate\n\n\n\n\n0\nfemale\n1063\n772\n0.420708\n\n\n1\nmale\n1291\n1400\n0.520253\n\n\n\n\n\n\n\n\ntidydata = df.pivot_table(index='gender', columns='result', values='count', aggfunc=sum)\\\n.assign(rate = lambda _df: _df['pass'] / (_df['fail'] + _df['pass']))\\\n.reset_index()\n\nfig = ggplot(tidydata) \ncol = geom_col(aes(x='gender',y='rate',fill='gender'))\nfig + col \n\n/tmp/ipykernel_1871155/1840989269.py:1: FutureWarning: The provided callable &lt;built-in function sum&gt; is currently using DataFrameGroupBy.sum. In a future version of pandas, the provided callable will be used directly. To keep current behavior pass the string \"sum\" instead.\n\n\n\n\n\n&lt;Figure Size: (640 x 480)&gt;"
   },
   {
     "objectID": "posts/03wk-1.html#a.-read-data",
