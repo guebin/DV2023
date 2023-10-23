@@ -210,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="imports" class="level1">
 <h1>2. Imports</h1>
-<div id="cell-4" class="cell" data-tags="[]" data-execution_count="19">
+<div id="cell-4" class="cell" data-tags="[]" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> plotnine <span class="im">import</span> <span class="op">*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1272,15 +1272,15 @@ Name: (A, ), dtype: int64</code></pre>
 </div>
 </div>
 <p>에너지 사용량은 2018년부터 2021년까지의 기간 동안 서울, 부산 등 여러 지역에 대해 정리되어 있으며, 아래 주소 형식으로 저장되어 있다.</p>
-<pre><code>https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Seoul2019.csv
+<pre><code>https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Seoul2018.csv
 https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Seoul2019.csv
 https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Seoul2020.csv
 https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Seoul2021.csv
 ...
+https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2018.csv
 https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2019.csv
 https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2020.csv
-https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv
-https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2022.csv</code></pre>
+https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv</code></pre>
 <p>아래의 <code>url</code>, <code>prov</code>를 참고하여 모든 자료를 불러온 뒤 <code>pd.concat()</code>을 이용하여 하나의 df로 합쳐라.</p>
 <div id="cell-50" class="cell" data-tags="[]" data-execution_count="306">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/</span><span class="sc">{}</span><span class="st">.csv'</span></span>
@@ -1294,66 +1294,75 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2022.csv<
 <p>올바르게 정리된 데이터프레임의 예시는 아래와 같다.</p>
 <p><img src="asdf_files/figure-html/cell-52-1-e7ec8fe6-b81e-4dea-b946-ab342fe78c59.png" class="img-fluid"></p>
 <p>(풀이)</p>
+<div id="cell-54" class="cell" data-tags="[]" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>url.<span class="bu">format</span>(prov[<span class="dv">0</span>]<span class="op">+</span><span class="st">'2018'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="7">
+<pre><code>'https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Seoul2018.csv'</code></pre>
+</div>
+</div>
+<div id="cell-55" class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(ur<span class="op">;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p><code>(2)</code> 의미상 숫자형이지만 문자형으로 입력이된 자료를 모두 전처리하라.</p>
 <p>(풀이)</p>
 <p><code>(3)</code> 열의 이름을 아래와 같이 바꾸라.</p>
-<div id="cell-57" class="cell" data-tags="[]" data-execution_count="174">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>name_dict <span class="op">=</span> {</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'년도'</span>: <span class="st">'Year'</span>,</span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'시도'</span>: <span class="st">'Prov'</span>,</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'지역'</span>: <span class="st">'Reg'</span>,</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'건물동수'</span>: <span class="st">'BldgCount'</span>,</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'연면적'</span>: <span class="st">'Area'</span>,</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'에너지사용량(TOE)/전기'</span>: <span class="st">'Elec'</span>,</span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'에너지사용량(TOE)/도시가스'</span>: <span class="st">'Gas'</span>,</span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'에너지사용량(TOE)/지역난방'</span>: <span class="st">'Heat'</span></span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-62" class="cell" data-tags="[]" data-execution_count="174">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>name_dict <span class="op">=</span> {</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'년도'</span>: <span class="st">'Year'</span>,</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'시도'</span>: <span class="st">'Prov'</span>,</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'지역'</span>: <span class="st">'Reg'</span>,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'건물동수'</span>: <span class="st">'BldgCount'</span>,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'연면적'</span>: <span class="st">'Area'</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'에너지사용량(TOE)/전기'</span>: <span class="st">'Elec'</span>,</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'에너지사용량(TOE)/도시가스'</span>: <span class="st">'Gas'</span>,</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'에너지사용량(TOE)/지역난방'</span>: <span class="st">'Heat'</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>(풀이)</p>
 <p><code>(4)</code> 아래와 같은 그림을 시각화 하라.</p>
-<div id="cell-60" class="cell" data-tags="[]" data-execution_count="365">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-65" class="cell" data-tags="[]" data-execution_count="365">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="asdf_files/figure-html/cell-61-1-25b4bfcf-106c-4382-b741-ed59c977c13f.png" class="img-fluid"></p>
+<p><img src="asdf_files/figure-html/cell-66-1-25b4bfcf-106c-4382-b741-ed59c977c13f.png" class="img-fluid"></p>
 <p>(풀이)</p>
 <p><code>(5)</code> <code>Prov</code>별로 총 에너지사용량이 많은 상위5개의 <code>Reg</code>을 찾고 아래와 같이 시각화 하라.</p>
-<div id="cell-64" class="cell" data-tags="[]" data-execution_count="366">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-69" class="cell" data-tags="[]" data-execution_count="366">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="asdf_files/figure-html/cell-65-1-20b38260-b005-4d39-8ce1-2ee9a593ddb9.png" class="img-fluid"></p>
+<p><img src="asdf_files/figure-html/cell-70-1-20b38260-b005-4d39-8ce1-2ee9a593ddb9.png" class="img-fluid"></p>
 <p>(풀이)</p>
 <p><code>(5)</code> (<code>Prov</code>,<code>Year</code>)별 전기에너지 사용량 비율을 구하고 아래와 같이 시각화 하라. + 제주를 제외한 지역으로 한정하고 시각화하라.</p>
-<div id="cell-70" class="cell" data-tags="[]" data-execution_count="364">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-75" class="cell" data-tags="[]" data-execution_count="364">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화예시</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><img src="asdf_files/figure-html/cell-71-1-b4b7f41b-cd4f-46dd-9f7c-6455be63f23f.png" class="img-fluid"></p>
+<p><img src="asdf_files/figure-html/cell-76-1-b4b7f41b-cd4f-46dd-9f7c-6455be63f23f.png" class="img-fluid"></p>
 <p>(풀이)</p>
 </section>
 <section id="pd.merge-의-이용" class="level1">
 <h1>5. <code>pd.merge()</code> 의 이용</h1>
 <p><code>before</code>에서 <code>after</code>로 가는 일반적인 방법이 있을까?</p>
-<div id="cell-77" class="cell" data-tags="[]" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/</span><span class="sc">{}</span><span class="st">.csv'</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>prov <span class="op">=</span> [<span class="st">'Seoul'</span>, <span class="st">'Busan'</span>, <span class="st">'Daegu'</span>, <span class="st">'Incheon'</span>, </span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gwangju'</span>, <span class="st">'Daejeon'</span>, <span class="st">'Ulsan'</span>, <span class="st">'Sejongsi'</span>, </span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gyeonggi-do'</span>, <span class="st">'Gangwon-do'</span>, <span class="st">'Chungcheongbuk-do'</span>, </span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Chungcheongnam-do'</span>, <span class="st">'Jeollabuk-do'</span>, <span class="st">'Jeollanam-do'</span>, </span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gyeongsangbuk-do'</span>, <span class="st">'Gyeongsangnam-do'</span>, <span class="st">'Jeju-do'</span>]</span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>name_dict <span class="op">=</span> {</span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'년도'</span>: <span class="st">'Year'</span>,</span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'시도'</span>: <span class="st">'Prov'</span>,</span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'지역'</span>: <span class="st">'Reg'</span>,</span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'건물동수'</span>: <span class="st">'BldgCount'</span>,</span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'연면적'</span>: <span class="st">'Area'</span>,</span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'에너지사용량(TOE)/전기'</span>: <span class="st">'Elec'</span>,</span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'에너지사용량(TOE)/도시가스'</span>: <span class="st">'Gas'</span>,</span>
-<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'에너지사용량(TOE)/지역난방'</span>: <span class="st">'Heat'</span></span>
-<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.concat([pd.read_csv(url.<span class="bu">format</span>(p<span class="op">+</span>y)).assign(년도<span class="op">=</span>y, 시도<span class="op">=</span>p) <span class="cf">for</span> p <span class="kw">in</span> prov <span class="cf">for</span> y <span class="kw">in</span> [<span class="st">'2018'</span>, <span class="st">'2019'</span>, <span class="st">'2020'</span>, <span class="st">'2021'</span>]]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-82" class="cell" data-tags="[]" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/</span><span class="sc">{}</span><span class="st">.csv'</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>prov <span class="op">=</span> [<span class="st">'Seoul'</span>, <span class="st">'Busan'</span>, <span class="st">'Daegu'</span>, <span class="st">'Incheon'</span>, </span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gwangju'</span>, <span class="st">'Daejeon'</span>, <span class="st">'Ulsan'</span>, <span class="st">'Sejongsi'</span>, </span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gyeonggi-do'</span>, <span class="st">'Gangwon-do'</span>, <span class="st">'Chungcheongbuk-do'</span>, </span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Chungcheongnam-do'</span>, <span class="st">'Jeollabuk-do'</span>, <span class="st">'Jeollanam-do'</span>, </span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gyeongsangbuk-do'</span>, <span class="st">'Gyeongsangnam-do'</span>, <span class="st">'Jeju-do'</span>]</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>name_dict <span class="op">=</span> {</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'년도'</span>: <span class="st">'Year'</span>,</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'시도'</span>: <span class="st">'Prov'</span>,</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'지역'</span>: <span class="st">'Reg'</span>,</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'건물동수'</span>: <span class="st">'BldgCount'</span>,</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'연면적'</span>: <span class="st">'Area'</span>,</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'에너지사용량(TOE)/전기'</span>: <span class="st">'Elec'</span>,</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'에너지사용량(TOE)/도시가스'</span>: <span class="st">'Gas'</span>,</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'에너지사용량(TOE)/지역난방'</span>: <span class="st">'Heat'</span></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.concat([pd.read_csv(url.<span class="bu">format</span>(p<span class="op">+</span>y)).assign(년도<span class="op">=</span>y, 시도<span class="op">=</span>p) <span class="cf">for</span> p <span class="kw">in</span> prov <span class="cf">for</span> y <span class="kw">in</span> [<span class="st">'2018'</span>, <span class="st">'2019'</span>, <span class="st">'2020'</span>, <span class="st">'2021'</span>]]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
@@ -1501,19 +1510,19 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2022.csv<
 </div>
 </div>
 </div>
-<div id="cell-78" class="cell" data-tags="[]" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>before <span class="op">=</span> df.assign(년도 <span class="op">=</span> df.년도.astype(<span class="bu">int</span>))<span class="op">\</span></span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>    .set_index([<span class="st">'년도'</span>,<span class="st">'시도'</span>,<span class="st">'지역'</span>]).applymap(<span class="kw">lambda</span> x: <span class="bu">str</span>(x).replace(<span class="st">','</span>,<span class="st">''</span>)).astype(<span class="bu">int</span>).reset_index()<span class="op">\</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    .rename(name_dict,axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>    .drop([<span class="st">'BldgCount'</span>,<span class="st">'Area'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>after <span class="op">=</span> before<span class="op">\</span></span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    .melt(id_vars<span class="op">=</span>[<span class="st">'Year'</span>,<span class="st">'Prov'</span>,<span class="st">'Reg'</span>]).rename({<span class="st">'variable'</span>:<span class="st">'Type'</span>,<span class="st">'value'</span>:<span class="st">'EnergyUse'</span>},axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    .pivot_table(index<span class="op">=</span>[<span class="st">'Year'</span>,<span class="st">'Prov'</span>,<span class="st">'Type'</span>],values<span class="op">=</span><span class="st">'EnergyUse'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>).reset_index()<span class="op">\</span></span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>    .set_index([<span class="st">'Year'</span>,<span class="st">'Prov'</span>,<span class="st">'Type'</span>]).unstack()<span class="op">\</span></span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    .assign(ElecRate <span class="op">=</span> <span class="kw">lambda</span> df: df[(<span class="st">'EnergyUse'</span>,<span class="st">'Elec'</span>)]<span class="op">/</span>(df[(<span class="st">'EnergyUse'</span>,<span class="st">'Elec'</span>)]<span class="op">+</span>df[(<span class="st">'EnergyUse'</span>,<span class="st">'Gas'</span>)]<span class="op">+</span>df[(<span class="st">'EnergyUse'</span>,<span class="st">'Heat'</span>)]))<span class="op">\</span></span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    .iloc[:,<span class="op">-</span><span class="dv">1</span>].reset_index().set_axis([<span class="st">'Year'</span>,<span class="st">'Prov'</span>,<span class="st">'ElecRate'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>display(<span class="st">'before'</span>,before)</span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>display(<span class="st">'after'</span>,after)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-83" class="cell" data-tags="[]" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>before <span class="op">=</span> df.assign(년도 <span class="op">=</span> df.년도.astype(<span class="bu">int</span>))<span class="op">\</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    .set_index([<span class="st">'년도'</span>,<span class="st">'시도'</span>,<span class="st">'지역'</span>]).applymap(<span class="kw">lambda</span> x: <span class="bu">str</span>(x).replace(<span class="st">','</span>,<span class="st">''</span>)).astype(<span class="bu">int</span>).reset_index()<span class="op">\</span></span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    .rename(name_dict,axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    .drop([<span class="st">'BldgCount'</span>,<span class="st">'Area'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>after <span class="op">=</span> before<span class="op">\</span></span>
+<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>    .melt(id_vars<span class="op">=</span>[<span class="st">'Year'</span>,<span class="st">'Prov'</span>,<span class="st">'Reg'</span>]).rename({<span class="st">'variable'</span>:<span class="st">'Type'</span>,<span class="st">'value'</span>:<span class="st">'EnergyUse'</span>},axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
+<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>    .pivot_table(index<span class="op">=</span>[<span class="st">'Year'</span>,<span class="st">'Prov'</span>,<span class="st">'Type'</span>],values<span class="op">=</span><span class="st">'EnergyUse'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>).reset_index()<span class="op">\</span></span>
+<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>    .set_index([<span class="st">'Year'</span>,<span class="st">'Prov'</span>,<span class="st">'Type'</span>]).unstack()<span class="op">\</span></span>
+<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>    .assign(ElecRate <span class="op">=</span> <span class="kw">lambda</span> df: df[(<span class="st">'EnergyUse'</span>,<span class="st">'Elec'</span>)]<span class="op">/</span>(df[(<span class="st">'EnergyUse'</span>,<span class="st">'Elec'</span>)]<span class="op">+</span>df[(<span class="st">'EnergyUse'</span>,<span class="st">'Gas'</span>)]<span class="op">+</span>df[(<span class="st">'EnergyUse'</span>,<span class="st">'Heat'</span>)]))<span class="op">\</span></span>
+<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>    .iloc[:,<span class="op">-</span><span class="dv">1</span>].reset_index().set_axis([<span class="st">'Year'</span>,<span class="st">'Prov'</span>,<span class="st">'ElecRate'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>display(<span class="st">'before'</span>,before)</span>
+<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>display(<span class="st">'after'</span>,after)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/tmp/ipykernel_3461069/2643872.py:2: FutureWarning: DataFrame.applymap has been deprecated. Use DataFrame.map instead.
   .set_index(['년도','시도','지역']).applymap(lambda x: str(x).replace(',','')).astype(int).reset_index()\</code></pre>
