@@ -252,13 +252,6 @@
     "text": "C. 미나드처럼 그리는게 왜 어려운가?\n- 몸무게, 키, 성별, 국적\n\ndf1=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/male1.csv')\ndf2=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/male2.csv')  \ndf3=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/female.csv') \ndf4=pd.read_csv('https://raw.githubusercontent.com/guebin/DV2022/master/posts/foreign.csv')\n\n- 미나드의 접근방법\n\n_df = pd.concat([pd.concat([df1,df2],axis=1).assign(g='m'),df3.assign(g='f')])\ndf = pd.concat([_df.assign(g2='korea'),df4.assign(g2='foreign')]).reset_index(drop=True)\ndf\n\n\n\n\n\n\n\n\nw\nh\ng\ng2\n\n\n\n\n0\n72.788217\n183.486773\nm\nkorea\n\n\n1\n66.606430\n173.599877\nm\nkorea\n\n\n2\n69.806324\n173.237903\nm\nkorea\n\n\n3\n67.449439\n173.223805\nm\nkorea\n\n\n4\n70.463183\n174.931946\nm\nkorea\n\n\n...\n...\n...\n...\n...\n\n\n1525\n78.154632\n188.324350\nm\nforeign\n\n\n1526\n74.754308\n183.017979\nf\nforeign\n\n\n1527\n91.196208\n190.100456\nm\nforeign\n\n\n1528\n87.770394\n187.987255\nm\nforeign\n\n\n1529\n88.021995\n193.456798\nm\nforeign\n\n\n\n\n1530 rows × 4 columns\n\n\n\n\nsns.scatterplot(\n    data=df,\n    x='w',\n    y='h',\n    hue='g',\n    style='g2'\n)\n\n&lt;Axes: xlabel='w', ylabel='h'&gt;\n\n\n\n\n\n- 어려운 점:\n\n센스부족: 센스가 없어서 hue/style을 이용하여 그룹을 구분할 생각을 못함\n개념부족: 타이디데이터 (=tidy dataframe, long form dataframe) 형태로 데이터를 정리할 생각을 못함\n코딩못함: 타이디데이터로 데이터를 변형하는 코드를 모름\n\n- 해결하는 방법:\n\n센스부족: 훌륭한 시각화를 많이 보면 해결할 수 있음.\n개념부족: tidydata에 대한 개념을 배우면 해결할 수 있음.\n코딩못함: 코딩공부열심히 (시각화 코드가 중요한게 아니고, pandas를 엄청 잘해야함)"
   },
   {
-    "objectID": "posts/mid-info.html",
-    "href": "posts/mid-info.html",
-    "title": "supp: 중간고사 관련 안내사항",
-    "section": "",
-    "text": "- 일시: 2023-10-30, 16:00~ 17:50\n- 시험시간 중 처음 20분은 장비점검시간으로 활용함 (단, 모든 사람이 준비될 경우 20분을 기다리지 않고 시작)\n\nNote: 따라서 1시간50분이 시험시간인 경우 실질적으로 문제를 풀고 답안을 제출할때 까지 쓸 수 있는 시간은 1시간30분입니다."
-  },
-  {
     "objectID": "posts/mid-info.html#a.-준비물",
     "href": "posts/mid-info.html#a.-준비물",
     "title": "supp: 중간고사 관련 안내사항",
