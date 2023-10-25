@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="최규빈">
-<meta name="dcterms.date" content="2023-10-23">
+<meta name="dcterms.date" content="2023-10-25">
 
 <title>DV2023 - 08wk-2: Pandas – groupby, 데이터프레임의 결합</title>
 <style>
@@ -75,8 +75,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -168,7 +166,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#a.-가장-빈번하게-사용하는-상황" id="toc-a.-가장-빈번하게-사용하는-상황" class="nav-link" data-scroll-target="#a.-가장-빈번하게-사용하는-상황">A. 가장 빈번하게 사용하는 상황</a></li>
   <li><a href="#b.-여러가지-파라메터" id="toc-b.-여러가지-파라메터" class="nav-link" data-scroll-target="#b.-여러가지-파라메터">B. 여러가지 파라메터</a></li>
   </ul></li>
-  <li><a href="#concat-merge-를-이용한-데이터-합치기" id="toc-concat-merge-를-이용한-데이터-합치기" class="nav-link" data-scroll-target="#concat-merge-를-이용한-데이터-합치기">4. <code>concat</code>, <code>merge</code> 를 이용한 데이터 합치기</a></li>
+  <li><a href="#concat-merge-를-이용한-데이터-합치기" id="toc-concat-merge-를-이용한-데이터-합치기" class="nav-link" data-scroll-target="#concat-merge-를-이용한-데이터-합치기">6. <code>concat</code>, <code>merge</code> 를 이용한 데이터 합치기</a></li>
+  <li><a href="#hw" id="toc-hw" class="nav-link" data-scroll-target="#hw">7. HW</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="08wk-2.out.ipynb" download="08wk-2.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
@@ -197,7 +196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 23, 2023</p>
+      <p class="date">October 25, 2023</p>
     </div>
   </div>
   
@@ -211,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://colab.research.google.com/github/guebin/DV2023/blob/main/posts/08wk-2.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
 <section id="강의영상" class="level1">
 <h1>1. 강의영상</h1>
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="????"></video></div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLQqh36zP38-y9urI5GRsnJd1ERI3k2K5B&amp;si=S_t6YESIDPyu9cQ_" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="imports" class="level1">
 <h1>2. Imports</h1>
@@ -225,10 +224,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a.-dataframegroupby" class="level2">
 <h2 class="anchored" data-anchor-id="a.-dataframegroupby">A. DataFrameGroupBy</h2>
 <p><code>-</code> <code>groupby</code> + <code>agg</code> 의 복습</p>
-<div id="cell-9" class="cell" data-tags="[]" data-execution_count="18">
+<div id="cell-9" class="cell" data-tags="[]" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'department'</span>:[<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>], <span class="st">'gender'</span>:[<span class="st">'male'</span>,<span class="st">'female'</span>,<span class="st">'male'</span>,<span class="st">'female'</span>],<span class="st">'count'</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>]})</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <div>
 
 
@@ -272,9 +271,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-10" class="cell" data-tags="[]" data-execution_count="20">
+<div id="cell-10" class="cell" data-tags="[]" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'department'</span>).agg({<span class="st">'count'</span>:<span class="st">'sum'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="20">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
@@ -305,22 +304,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 의문: 위의 코드에서 <code>df.groupby('department')</code>는 어떤 object일까?</p>
-<div id="cell-12" class="cell" data-tags="[]" data-execution_count="21">
+<div id="cell-12" class="cell" data-tags="[]" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> df.groupby(<span class="st">'department'</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="21">
-<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f56ce30cdc0&gt;</code></pre>
+<div class="cell-output cell-output-display" data-execution_count="9">
+<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f3d9461c9d0&gt;</code></pre>
 </div>
 </div>
-<div id="cell-13" class="cell" data-tags="[]" data-execution_count="61">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>(<span class="bu">dir</span>(g)) <span class="op">&amp;</span> {<span class="st">'__iter__'</span>} <span class="co"># iterable object -&gt; 대놓고 반복문쓰리는 의미</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="61">
+<div id="cell-13" class="cell" data-tags="[]" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">set</span>(<span class="bu">dir</span>(g)) <span class="op">&amp;</span> {<span class="st">'__iter__'</span>} <span class="co"># g는 반복문을 돌리기 유리하게 설계되어 있음</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="29">
 <pre><code>{'__iter__'}</code></pre>
 </div>
 </div>
-<div id="cell-14" class="cell" data-tags="[]" data-execution_count="62">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(g) <span class="co"># 반복인자는 아래와 같음 </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="62">
+<div id="cell-14" class="cell" data-tags="[]" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(g) <span class="co"># for문의 반복인자는 ('A',sub-dataframe)와 같은 형식의 tuple임</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>[('A',
     department  gender  count
   0          A    male      1
@@ -333,14 +332,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>오브젝트 <code>g</code>는</p>
 <ol type="1">
-<li>sub-dataframe 이 모여있는 묶음체이이다.</li>
+<li>sub-dataframe 이 모여있는 묶음체이다.</li>
 <li>반복문을 돌리기에 용이하도록 고안되어있다. (이때 각 반복인자는 <code>(묵음기준,sub-dataframe)</code>의 튜플로 이루어져 있음)</li>
 </ol>
 <p><code>-</code> 제가 이해하는 방식</p>
-<div id="cell-17" class="cell" data-tags="[]" data-execution_count="65">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dct <span class="op">=</span> {k: df <span class="cf">for</span> (k,df) <span class="kw">in</span> g}</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>dct</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="65">
+<div id="cell-17" class="cell" data-tags="[]" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dct <span class="op">=</span> {k:df <span class="cf">for</span> k,df <span class="kw">in</span> g}</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>dct </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>{'A':   department  gender  count
  0          A    male      1
  1          A  female      2,
@@ -349,7 +348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  3          B  female      1}</code></pre>
 </div>
 </div>
-<div id="cell-18" class="cell" data-tags="[]" data-execution_count="66">
+<div id="cell-18" class="cell" data-tags="[]" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>display(dct[<span class="st">'A'</span>])</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>display(dct[<span class="st">'B'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -419,14 +418,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="b.-g를-이용하는-방법" class="level2">
 <h2 class="anchored" data-anchor-id="b.-g를-이용하는-방법">B. <code>g</code>를 이용하는 방법</h2>
 <p><code># 예시1</code>: <code>g</code>를 이용하여 원래의 df를 복원하라.</p>
-<div id="cell-21" class="cell" data-tags="[]" data-execution_count="69">
+<div id="cell-21" class="cell" data-tags="[]" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'department'</span>:[<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>], <span class="st">'gender'</span>:[<span class="st">'male'</span>,<span class="st">'female'</span>,<span class="st">'male'</span>,<span class="st">'female'</span>],<span class="st">'count'</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>]})</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> df.groupby(<span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>(풀이)</p>
-<div id="cell-23" class="cell" data-tags="[]" data-execution_count="70">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pd.concat([df <span class="cf">for</span> (k,df) <span class="kw">in</span> g])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="70">
+<div id="cell-23" class="cell" data-tags="[]" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>pd.concat([df <span class="cf">for</span> _,df <span class="kw">in</span> g])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="44">
 <div>
 
 
@@ -472,10 +471,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><code>#</code></p>
 <p><code># 예시2</code>: <code>g</code>를 이용하여 아래와 동일한 기능을 하는 코드를 작성하라. (agg 함수 사용금지)</p>
-<div id="cell-26" class="cell" data-tags="[]" data-execution_count="71">
+<div id="cell-26" class="cell" data-tags="[]" data-execution_count="45">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'department'</span>:[<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>], <span class="st">'gender'</span>:[<span class="st">'male'</span>,<span class="st">'female'</span>,<span class="st">'male'</span>,<span class="st">'female'</span>],<span class="st">'count'</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>]})</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df.groupby(<span class="st">'department'</span>).agg({<span class="st">'count'</span>:<span class="st">'sum'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="71">
+<div class="cell-output cell-output-display" data-execution_count="45">
 <div>
 
 
@@ -506,12 +505,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>(풀이)</p>
-<div id="cell-28" class="cell" data-tags="[]" data-execution_count="72">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> df.groupby(<span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-28" class="cell" data-tags="[]" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> df.groupby(<span class="st">'department'</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>g</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="48">
+<pre><code>&lt;pandas.core.groupby.generic.DataFrameGroupBy object at 0x7f3d9461fdc0&gt;</code></pre>
 </div>
-<div id="cell-29" class="cell" data-tags="[]" data-execution_count="81">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(pd.Series({k:df[<span class="st">'count'</span>].<span class="bu">sum</span>() <span class="cf">for</span> k,df <span class="kw">in</span> g}))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="81">
+</div>
+<div id="cell-29" class="cell" data-tags="[]" data-execution_count="57">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>pd.DataFrame(pd.Series({k:df[<span class="st">'count'</span>].<span class="bu">sum</span>() <span class="cf">for</span> k,df <span class="kw">in</span> g}))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="57">
 <div>
 
 
@@ -539,10 +542,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><code>#</code></p>
 <p><code># 예시3</code>: 아래는 데이터프레임이 있다고 치자. 이 데이터프레임을 <code>class</code> 를 기준으로 그룹핑하여 sub-dataframe을 만들고 score가 높은 순서로 정렬하는 코드를 작성하라.</p>
-<div id="cell-32" class="cell" data-tags="[]" data-execution_count="87">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'class'</span>:[<span class="st">'A'</span>]<span class="op">*</span><span class="dv">5</span><span class="op">+</span>[<span class="st">'B'</span>]<span class="op">*</span><span class="dv">5</span>, <span class="st">'id'</span>:[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]<span class="op">*</span><span class="dv">2</span>, <span class="st">'score'</span>:[<span class="dv">60</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">90</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">90</span>,<span class="dv">95</span>,<span class="dv">95</span>]})</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="87">
+<div id="cell-32" class="cell" data-tags="[]" data-execution_count="58">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'class'</span>:[<span class="st">'A'</span>]<span class="op">*</span><span class="dv">5</span><span class="op">+</span>[<span class="st">'B'</span>]<span class="op">*</span><span class="dv">5</span>, <span class="st">'id'</span>:[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]<span class="op">*</span><span class="dv">2</span>, <span class="st">'score'</span>:[<span class="dv">60</span>,<span class="dv">20</span>,<span class="dv">40</span>,<span class="dv">60</span>,<span class="dv">90</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">90</span>,<span class="dv">95</span>,<span class="dv">95</span>]})</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="58">
 <div>
 
 
@@ -623,12 +626,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>(풀이)</p>
-<div id="cell-34" class="cell" data-tags="[]" data-execution_count="88">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> df.groupby(<span class="st">'class'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-35" class="cell" data-tags="[]" data-execution_count="92">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pd.concat([df.sort_values(<span class="st">'score'</span>,ascending <span class="op">=</span> <span class="va">False</span>) <span class="cf">for</span> _,df <span class="kw">in</span> g])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="92">
+<div id="cell-34" class="cell" data-tags="[]" data-execution_count="62">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>pd.concat([df.sort_values(<span class="st">'score'</span>,ascending<span class="op">=</span><span class="va">False</span>) <span class="cf">for</span> k,df <span class="kw">in</span> df.groupby(<span class="st">'class'</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="62">
 <div>
 
 
@@ -713,7 +713,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="concat" class="level1">
 <h1>4. <code>concat</code></h1>
-<div id="cell-38" class="cell" data-tags="[]" data-execution_count="95">
+<div id="cell-37" class="cell" data-tags="[]" data-execution_count="95">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="cf">pass</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -722,11 +722,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a.-가장-빈번하게-사용하는-상황" class="level2">
 <h2 class="anchored" data-anchor-id="a.-가장-빈번하게-사용하는-상황">A. 가장 빈번하게 사용하는 상황</h2>
 <p><code># 예시1</code> – <code>big</code> dataframe에 <code>groupby</code>+<code>agg</code>를 사용하여 <code>small</code> dataframe이 생긴경우</p>
-<div id="cell-42" class="cell" data-tags="[]" data-execution_count="99">
+<div id="cell-41" class="cell" data-tags="[]" data-execution_count="79">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>big <span class="op">=</span> pd.DataFrame({<span class="st">'department'</span>:[<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>], <span class="st">'gender'</span>:[<span class="st">'male'</span>,<span class="st">'female'</span>,<span class="st">'male'</span>,<span class="st">'female'</span>],<span class="st">'count'</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>]})</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>small <span class="op">=</span> pd.DataFrame({<span class="st">'department'</span>:[<span class="st">'A'</span>,<span class="st">'B'</span>], <span class="st">'total'</span>:[<span class="dv">3</span>,<span class="dv">4</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>small <span class="op">=</span> pd.DataFrame({<span class="st">'department'</span>:[<span class="st">'A'</span>,<span class="st">'B'</span>], <span class="st">'count_sum'</span>:[<span class="dv">3</span>,<span class="dv">4</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-43" class="cell" data-tags="[]" data-execution_count="100">
+<div id="cell-42" class="cell" data-tags="[]" data-execution_count="80">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>display(<span class="st">"big"</span>,big)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>display(<span class="st">"small"</span>,small)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -787,7 +787,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">department</th>
-<th data-quarto-table-cell-role="th">total</th>
+<th data-quarto-table-cell-role="th">count_sum</th>
 </tr>
 </thead>
 <tbody>
@@ -808,13 +808,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 정보를 종합하기 위해서는 아래와 같이 하면 된다.</p>
-<div id="cell-45" class="cell" data-tags="[]" data-execution_count="106">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small) <span class="co"># 개념을 위해서 추천하는 코드 </span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>big.merge(small) <span class="co"># 실제 사용하는 코드</span></span>
+<div id="cell-44" class="cell" data-tags="[]" data-execution_count="81">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>big.merge(small)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># pd.merge(small,big) # 보기싫게 나옴</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="co"># small.merge(big) # 보기싫게 나옴</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="106">
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>pd.merge(small,big)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>small.merge(big)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="81">
 <div>
 
 
@@ -823,39 +823,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="header">
 <th data-quarto-table-cell-role="th"></th>
 <th data-quarto-table-cell-role="th">department</th>
+<th data-quarto-table-cell-role="th">count_sum</th>
 <th data-quarto-table-cell-role="th">gender</th>
 <th data-quarto-table-cell-role="th">count</th>
-<th data-quarto-table-cell-role="th">total</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
 <td>A</td>
+<td>3</td>
 <td>male</td>
 <td>1</td>
-<td>3</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
 <td>A</td>
+<td>3</td>
 <td>female</td>
 <td>2</td>
-<td>3</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
 <td>B</td>
+<td>4</td>
 <td>male</td>
 <td>3</td>
-<td>4</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>B</td>
+<td>4</td>
 <td>female</td>
 <td>1</td>
-<td>4</td>
 </tr>
 </tbody>
 </table>
@@ -863,78 +863,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><strong>그런데 사실 아래는 같은 코드이다.</strong></p>
-<div id="cell-47" class="cell" data-tags="[]" data-execution_count="107">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>big.merge(small)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>big.merge(small,on<span class="op">=</span><span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="107">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">department</th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">count</th>
-<th data-quarto-table-cell-role="th">total</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>A</td>
-<td>male</td>
-<td>1</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>A</td>
-<td>female</td>
-<td>2</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>B</td>
-<td>male</td>
-<td>3</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>B</td>
-<td>female</td>
-<td>1</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<blockquote class="blockquote">
-<p>상황: 두 데이터프레임은 특정한 <strong>IndexLabel</strong>에 대하여 <strong>서로 다른 정보</strong>를 각각 정리한 상황</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>원리: (1) 연결고리파악: 두 데이터프레임에서 공통인 열(IndexLabel)을 찾는다. (2) 병합: 연결고리를 기준으로 데이터의 정보를 병합한다.</p>
-</blockquote>
+<p><code>-</code> merge에 대한 약간의 개념</p>
+<ul>
+<li>상황: 두 데이터프레임은 특정한 <strong>IndexLabel</strong>에 대하여 <strong>서로 다른 정보</strong>를 각각 정리한 상황</li>
+<li>원리: (1) 연결고리파악: 두 데이터프레임에서 공통인 열(IndexLabel)을 찾는다. (2) 병합: 연결고리를 기준으로 데이터의 정보를 병합한다.</li>
+</ul>
 <p><strong>이 예시의 경우</strong></p>
 <ul>
 <li>IndexLabel = 연결고리 = 공통의열 = <code>department</code></li>
-<li>서로다른정보들: 이 예제에서 big은 <code>department</code>에 대한 gender와 count를 정리하고 있음. 그리고 small은 <code>department</code>에 대한 <code>total</code>을 정리하고 있음. 이는 서로 다른 정보임.</li>
+<li>서로다른정보들: 이 예제에서 big은 <code>department</code>에 대한 <code>gender</code>와 <code>count</code>를 정리하고 있음. 그리고 small은 <code>department</code>에 대한 <code>count_sum</code>을 정리하고 있음. 이는 서로 다른 정보임.</li>
 </ul>
+<p><strong><em>배울게 좀 더 남음: 사실 아래는 같은 코드이다.</em></strong></p>
+<div id="cell-48" class="cell" data-tags="[]" data-execution_count="86">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small, on<span class="op">=</span><span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="86">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">department</th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">count</th>
+<th data-quarto-table-cell-role="th">count_sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>A</td>
+<td>male</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>A</td>
+<td>female</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>B</td>
+<td>male</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>B</td>
+<td>female</td>
+<td>1</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 <p><code>#</code></p>
 </section>
 <section id="b.-여러가지-파라메터" class="level2">
 <h2 class="anchored" data-anchor-id="b.-여러가지-파라메터">B. 여러가지 파라메터</h2>
 <p><code># 예시1</code> – on</p>
-<div id="cell-54" class="cell" data-tags="[]" data-execution_count="109">
+<div id="cell-52" class="cell" data-tags="[]" data-execution_count="92">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>big <span class="op">=</span> pd.DataFrame({<span class="st">'department'</span>:[<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>], <span class="st">'gender'</span>:[<span class="st">'male'</span>,<span class="st">'female'</span>,<span class="st">'male'</span>,<span class="st">'female'</span>],<span class="st">'count'</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>]})</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>small <span class="op">=</span> pd.DataFrame({<span class="st">'department'</span>:[<span class="st">'A'</span>,<span class="st">'B'</span>], <span class="st">'count'</span>:[<span class="dv">3</span>,<span class="dv">4</span>]})</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>small <span class="op">=</span> big.groupby(<span class="st">'department'</span>).agg({<span class="st">'count'</span>:<span class="st">'sum'</span>}).reset_index()</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>display(<span class="st">"big"</span>,big)</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>display(<span class="st">"small"</span>,small)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
@@ -1016,9 +1015,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 잘못된 코드</p>
-<div id="cell-56" class="cell" data-tags="[]" data-execution_count="111">
+<div id="cell-54" class="cell" data-tags="[]" data-execution_count="97">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="111">
+<div class="cell-output cell-output-display" data-execution_count="97">
 <div>
 
 
@@ -1039,62 +1038,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 올바른 코드</p>
-<div id="cell-58" class="cell" data-tags="[]" data-execution_count="112">
+<div id="cell-56" class="cell" data-tags="[]" data-execution_count="100">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small,on<span class="op">=</span><span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="112">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">department</th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">count_x</th>
-<th data-quarto-table-cell-role="th">count_y</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>A</td>
-<td>male</td>
-<td>1</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>A</td>
-<td>female</td>
-<td>2</td>
-<td>3</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>B</td>
-<td>male</td>
-<td>3</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>B</td>
-<td>female</td>
-<td>1</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<p><strong>그런데 사실 아래는 같은 코드이다.</strong></p>
-<div id="cell-60" class="cell" data-tags="[]" data-execution_count="113">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small,on<span class="op">=</span><span class="st">'department'</span>)</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small,left_on<span class="op">=</span><span class="st">'department'</span>,right_on<span class="op">=</span><span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="113">
+<div class="cell-output cell-output-display" data-execution_count="100">
 <div>
 
 
@@ -1144,9 +1090,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>*</code> 더(?) 올바른 코드 – 좀 더 제 스타일의 코드</p>
-<div id="cell-62" class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>big.merge(small.rename({<span class="st">'count'</span>:<span class="st">'sum'</span>},axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="119">
+<div id="cell-58" class="cell" data-tags="[]" data-execution_count="105">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small.rename({<span class="st">'count'</span>:<span class="st">'count_sum'</span>},axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="105">
 <div>
 
 
@@ -1157,7 +1103,60 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th">department</th>
 <th data-quarto-table-cell-role="th">gender</th>
 <th data-quarto-table-cell-role="th">count</th>
-<th data-quarto-table-cell-role="th">sum</th>
+<th data-quarto-table-cell-role="th">count_sum</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>A</td>
+<td>male</td>
+<td>1</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>A</td>
+<td>female</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>B</td>
+<td>male</td>
+<td>3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>B</td>
+<td>female</td>
+<td>1</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><strong><em>배울게 좀 더 남음: 사실 아래는 같은 코드이다.</em></strong></p>
+<div id="cell-60" class="cell" data-tags="[]" data-execution_count="108">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small,on<span class="op">=</span><span class="st">'department'</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small,left_on<span class="op">=</span><span class="st">'department'</span>, right_on<span class="op">=</span><span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="108">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">department</th>
+<th data-quarto-table-cell-role="th">gender</th>
+<th data-quarto-table-cell-role="th">count_x</th>
+<th data-quarto-table-cell-role="th">count_y</th>
 </tr>
 </thead>
 <tbody>
@@ -1197,7 +1196,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><code>#</code></p>
 <p><code># 예시2</code> – left_on, right_on</p>
-<div id="cell-65" class="cell" data-tags="[]" data-execution_count="121">
+<div id="cell-63" class="cell" data-tags="[]" data-execution_count="110">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>big <span class="op">=</span> pd.DataFrame({<span class="st">'department'</span>:[<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>], <span class="st">'gender'</span>:[<span class="st">'male'</span>,<span class="st">'female'</span>,<span class="st">'male'</span>,<span class="st">'female'</span>],<span class="st">'count'</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>]})</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>small <span class="op">=</span> pd.DataFrame({<span class="st">'dept'</span>:[<span class="st">'A'</span>,<span class="st">'B'</span>], <span class="st">'count'</span>:[<span class="dv">3</span>,<span class="dv">4</span>]})</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>display(<span class="st">"big"</span>,big)</span>
@@ -1281,11 +1280,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <ul>
-<li>공통의 열이 오히려 ‘count’</li>
+<li>공통의 열이 오히려 ‘count’ 이고 서로 다른 정보들은 ‘gender’,‘department’,‘dept’ 이다.</li>
 </ul>
-<div id="cell-67" class="cell" data-tags="[]" data-execution_count="122">
+<p><code>-</code> 잘못된 코드</p>
+<div id="cell-66" class="cell" data-tags="[]" data-execution_count="112">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="122">
+<div class="cell-output cell-output-display" data-execution_count="112">
 <div>
 
 
@@ -1313,9 +1313,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-68" class="cell" data-tags="[]" data-execution_count="123">
+<p><code>-</code> 올바른 코드</p>
+<div id="cell-68" class="cell" data-tags="[]" data-execution_count="126">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small,left_on<span class="op">=</span><span class="st">'department'</span>,right_on<span class="op">=</span><span class="st">'dept'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="123">
+<div class="cell-output cell-output-display" data-execution_count="126">
 <div>
 
 
@@ -1362,62 +1363,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>1</td>
 <td>B</td>
 <td>4</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="cell-69" class="cell" data-tags="[]" data-execution_count="124">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>pd.merge(small,big,left_on<span class="op">=</span><span class="st">'dept'</span>,right_on<span class="op">=</span><span class="st">'department'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="124">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">dept</th>
-<th data-quarto-table-cell-role="th">count_x</th>
-<th data-quarto-table-cell-role="th">department</th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">count_y</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>A</td>
-<td>3</td>
-<td>A</td>
-<td>male</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>A</td>
-<td>3</td>
-<td>A</td>
-<td>female</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>B</td>
-<td>4</td>
-<td>B</td>
-<td>male</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>B</td>
-<td>4</td>
-<td>B</td>
-<td>female</td>
-<td>1</td>
 </tr>
 </tbody>
 </table>
@@ -1426,38 +1371,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>*</code> 좀 더 제 스타일의 코드</p>
-<div id="cell-71" class="cell" data-tags="[]" data-execution_count="129">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>display(small.set_axis([<span class="st">'department'</span>,<span class="st">'sum'</span>],axis<span class="op">=</span><span class="dv">1</span>))</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>display(big)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">department</th>
-<th data-quarto-table-cell-role="th">sum</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>A</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>B</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-<div class="cell-output cell-output-display">
+<div id="cell-70" class="cell" data-tags="[]" data-execution_count="118">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small.set_axis([<span class="st">'department'</span>,<span class="st">'count_sum'</span>],axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="118">
 <div>
 
 
@@ -1468,53 +1384,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th data-quarto-table-cell-role="th">department</th>
 <th data-quarto-table-cell-role="th">gender</th>
 <th data-quarto-table-cell-role="th">count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>A</td>
-<td>male</td>
-<td>1</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>A</td>
-<td>female</td>
-<td>2</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>B</td>
-<td>male</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>B</td>
-<td>female</td>
-<td>1</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="cell-72" class="cell" data-tags="[]" data-execution_count="130">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>pd.merge(big,small.set_axis([<span class="st">'department'</span>,<span class="st">'sum'</span>],axis<span class="op">=</span><span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="130">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">department</th>
-<th data-quarto-table-cell-role="th">gender</th>
-<th data-quarto-table-cell-role="th">count</th>
-<th data-quarto-table-cell-role="th">sum</th>
+<th data-quarto-table-cell-role="th">count_sum</th>
 </tr>
 </thead>
 <tbody>
@@ -1554,17 +1424,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><code>#</code></p>
 <p><code># 예제3</code>: how</p>
-<div id="cell-75" class="cell" data-tags="[]" data-execution_count="131">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'dept'</span>:[<span class="st">'통계'</span>,<span class="st">'수학'</span>,<span class="st">'과학'</span>,<span class="st">'IAB'</span>], </span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'count'</span>:[<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">25</span>,<span class="dv">50</span>]</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'dept'</span>:[<span class="st">'통계'</span>,<span class="st">'수학'</span>,<span class="st">'과학'</span>,<span class="st">'신설학과'</span>], </span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'desc'</span>:[<span class="st">'통계학과는...'</span>,<span class="st">'수학과는...'</span>,<span class="st">'과학학과는...'</span>,<span class="st">'이 학과는 내년에 신설되 예정이고...'</span>]</span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>display(<span class="st">"df1"</span>,df1)</span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>display(<span class="st">"df2"</span>,df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-73" class="cell" data-tags="[]" data-execution_count="128">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'dept'</span>:[<span class="st">'통계'</span>,<span class="st">'수학'</span>,<span class="st">'과학'</span>,<span class="st">'IAB'</span>], </span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'count'</span>:[<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">25</span>,<span class="dv">50</span>]</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>df2 <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'dept'</span>:[<span class="st">'통계'</span>,<span class="st">'수학'</span>,<span class="st">'과학'</span>,<span class="st">'신설학과'</span>], </span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'desc'</span>:[<span class="st">'통계학과는...'</span>,<span class="st">'수학과는...'</span>,<span class="st">'과학학과는...'</span>,<span class="st">'이 학과는 내년에 신설될 예정이고...'</span>]</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>display(<span class="st">"df1"</span>,df1)</span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>display(<span class="st">"df2"</span>,df2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <pre><code>'df1'</code></pre>
 </div>
@@ -1640,7 +1510,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
 <td>신설학과</td>
-<td>이 학과는 내년에 신설되 예정이고...</td>
+<td>이 학과는 내년에 신설될 예정이고...</td>
 </tr>
 </tbody>
 </table>
@@ -1651,9 +1521,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>공통의열인 <code>dept</code>와 서로다른 정보인 <code>count</code>, <code>desc</code> 들의 이름이 예쁘게 정리되어 있어 <code>on</code>, <code>left_on</code>, <code>right_on</code> 와 같은 파라메터를 사용할 필요가 없다.</li>
 </ul>
-<div id="cell-77" class="cell" data-tags="[]" data-execution_count="137">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2) <span class="co"># IAB, 신설학과는 사라짐</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="137">
+<div id="cell-75" class="cell" data-tags="[]" data-execution_count="130">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2) <span class="co"># IAB, 신설학과는 사라짐</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="130">
 <div>
 
 
@@ -1692,11 +1562,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>-</code> 상황: IAB 학과는 df1에만, 신설학과는 df2에만 존재한다. <span class="math inline">\(\to\)</span> IAB와 신설학과를 처리하는 방식에 따라서 4가지 경우로 나누어진다.</p>
-<div id="cell-79" class="cell" data-tags="[]" data-execution_count="145">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 경우1: 두 학과 모두 제거 = 두 데이터프레임의 공통만 취함</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2)</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2,how<span class="op">=</span><span class="st">'inner'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="145">
+<div id="cell-77" class="cell" data-tags="[]" data-execution_count="133">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 경우1: 두 학과 모두 제거 = 두 데이터프레임의 공통만 취함</span></span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2)</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2,how<span class="op">=</span><span class="st">'inner'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="133">
 <div>
 
 
@@ -1734,11 +1604,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-80" class="cell" data-tags="[]" data-execution_count="146">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 경우2: IAB만 살림 = 왼쪽 데이터프레임에 포함된 모든 학과는 살림</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2)</span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2,how<span class="op">=</span><span class="st">'left'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="146">
+<div id="cell-78" class="cell" data-tags="[]" data-execution_count="134">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 경우2: IAB만 살림 = 왼쪽 데이터프레임에 포함된 모든 학과는 살림</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2,how<span class="op">=</span><span class="st">'left'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="134">
 <div>
 
 
@@ -1782,11 +1652,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-81" class="cell" data-tags="[]" data-execution_count="144">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 경우3: 신설학과만 살람 = 오른쪽 데이터프레임에 포함된 모든학과를 살람</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2)</span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2,how<span class="op">=</span><span class="st">'right'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="144">
+<div id="cell-79" class="cell" data-tags="[]" data-execution_count="138">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 경우3: 신설학과만 살람 = 오른쪽 데이터프레임에 포함된 모든학과를 살람</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2,how<span class="op">=</span><span class="st">'right'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="138">
 <div>
 
 
@@ -1822,7 +1692,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td data-quarto-table-cell-role="th">3</td>
 <td>신설학과</td>
 <td>NaN</td>
-<td>이 학과는 내년에 신설되 예정이고...</td>
+<td>이 학과는 내년에 신설될 예정이고...</td>
 </tr>
 </tbody>
 </table>
@@ -1830,11 +1700,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-82" class="cell" data-tags="[]" data-execution_count="147">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 경우4: 두 학과 모두 살림</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2)</span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2,how<span class="op">=</span><span class="st">'outer'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="147">
+<div id="cell-80" class="cell" data-tags="[]" data-execution_count="136">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 경우4: 두 학과 모두 살림</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2)</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>pd.merge(df1,df2,how<span class="op">=</span><span class="st">'outer'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="136">
 <div>
 
 
@@ -1876,7 +1746,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td data-quarto-table-cell-role="th">4</td>
 <td>신설학과</td>
 <td>NaN</td>
-<td>이 학과는 내년에 신설되 예정이고...</td>
+<td>이 학과는 내년에 신설될 예정이고...</td>
 </tr>
 </tbody>
 </table>
@@ -1887,16 +1757,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="concat-merge-를-이용한-데이터-합치기" class="level1">
-<h1>4. <code>concat</code>, <code>merge</code> 를 이용한 데이터 합치기</h1>
+<h1>6. <code>concat</code>, <code>merge</code> 를 이용한 데이터 합치기</h1>
 <p><code># 예제</code> – 전북대학교 통계학과 교과목</p>
 <p>주어진 자료가 아래와 같다.</p>
-<div id="cell-86" class="cell" data-tags="[]" data-execution_count="153">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df_course2023 <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>:[<span class="st">'최규빈'</span>]<span class="op">*</span><span class="dv">3</span><span class="op">+</span>[<span class="st">'최혜미'</span>]<span class="op">*</span><span class="dv">2</span><span class="op">+</span>[<span class="st">'이영미'</span>]<span class="op">+</span>[<span class="st">'양성준'</span>],</span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'year'</span>:[<span class="dv">2023</span>]<span class="op">*</span><span class="dv">7</span>,</span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'course'</span>:[<span class="st">'파이썬프로그래밍'</span>, <span class="st">'데이터시각화'</span>, <span class="st">'기계학습활용'</span>,<span class="st">'수리통계1'</span>, <span class="st">'수리통계2'</span>,<span class="st">'회귀분석1'</span>,<span class="st">'통계수학'</span>]})</span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>df_course2023</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="153">
+<div id="cell-84" class="cell" data-tags="[]" data-execution_count="140">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>df_course2023 <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>:[<span class="st">'최규빈'</span>]<span class="op">*</span><span class="dv">3</span><span class="op">+</span>[<span class="st">'최혜미'</span>]<span class="op">*</span><span class="dv">2</span><span class="op">+</span>[<span class="st">'이영미'</span>]<span class="op">+</span>[<span class="st">'양성준'</span>],</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'year'</span>:[<span class="dv">2023</span>]<span class="op">*</span><span class="dv">7</span>,</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'course'</span>:[<span class="st">'파이썬프로그래밍'</span>, <span class="st">'데이터시각화'</span>, <span class="st">'기계학습활용'</span>,<span class="st">'수리통계1'</span>, <span class="st">'수리통계2'</span>,<span class="st">'회귀분석1'</span>,<span class="st">'통계수학'</span>]})</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>df_course2023</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="140">
 <div>
 
 
@@ -1958,13 +1828,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-87" class="cell" data-tags="[]" data-execution_count="154">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df_course2024 <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>:[<span class="st">'최규빈'</span>,<span class="st">'이영미'</span>,<span class="st">'이영미'</span>,<span class="st">'양성준'</span>,<span class="st">'최혜미'</span>],</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'year'</span>:[<span class="dv">2024</span>]<span class="op">*</span><span class="dv">5</span>,</span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'course'</span>:[<span class="st">'기계학습활용'</span>,<span class="st">'수리통계1'</span>, <span class="st">'수리통계2'</span>,<span class="st">'회귀분석1'</span>,<span class="st">'통계수학'</span>]})</span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>df_course2024</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="154">
+<div id="cell-85" class="cell" data-tags="[]" data-execution_count="141">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>df_course2024 <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>:[<span class="st">'최규빈'</span>,<span class="st">'이영미'</span>,<span class="st">'이영미'</span>,<span class="st">'양성준'</span>,<span class="st">'최혜미'</span>],</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'year'</span>:[<span class="dv">2024</span>]<span class="op">*</span><span class="dv">5</span>,</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'course'</span>:[<span class="st">'기계학습활용'</span>,<span class="st">'수리통계1'</span>, <span class="st">'수리통계2'</span>,<span class="st">'회귀분석1'</span>,<span class="st">'통계수학'</span>]})</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>df_course2024</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="141">
 <div>
 
 
@@ -2014,58 +1884,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="cell-88" class="cell" data-tags="[]" data-execution_count="150">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>df_sex <span class="op">=</span> pd.DataFrame({<span class="st">'name'</span>:[<span class="st">'최규빈'</span>,<span class="st">'이영미'</span>,<span class="st">'양성준'</span>,<span class="st">'최혜미'</span>],</span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'sex'</span>:[<span class="st">'male'</span>,<span class="st">'female'</span>,<span class="st">'male'</span>,<span class="st">'female'</span>]})</span>
-<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>df_sex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="150">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">name</th>
-<th data-quarto-table-cell-role="th">sex</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>최규빈</td>
-<td>male</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>이영미</td>
-<td>female</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>양성준</td>
-<td>male</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>최혜미</td>
-<td>female</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div id="cell-89" class="cell" data-tags="[]" data-execution_count="157">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>df_score <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>:[<span class="st">'최규빈'</span>,<span class="st">'최규빈'</span>,<span class="st">'이영미'</span>,<span class="st">'이영미'</span>,<span class="st">'양성준'</span>,<span class="st">'양성준'</span>,<span class="st">'최혜미'</span>,<span class="st">'최혜미'</span>],</span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'year'</span>:[<span class="dv">2023</span>,<span class="dv">2024</span>]<span class="op">*</span><span class="dv">4</span>,</span>
-<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'score'</span>:[<span class="dv">1</span>, <span class="fl">1.2</span>, <span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>]})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-90" class="cell" data-tags="[]" data-execution_count="158">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>df_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="158">
+<div id="cell-86" class="cell" data-tags="[]" data-execution_count="142">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df_score <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'name'</span>:[<span class="st">'최규빈'</span>,<span class="st">'최규빈'</span>,<span class="st">'이영미'</span>,<span class="st">'이영미'</span>,<span class="st">'양성준'</span>,<span class="st">'양성준'</span>,<span class="st">'최혜미'</span>,<span class="st">'최혜미'</span>],</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'year'</span>:[<span class="dv">2023</span>,<span class="dv">2024</span>]<span class="op">*</span><span class="dv">4</span>,</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'score'</span>:[<span class="dv">1</span>, <span class="fl">1.2</span>, <span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">5</span>]})</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>df_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="142">
 <div>
 
 
@@ -2133,13 +1958,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<div id="cell-87" class="cell" data-tags="[]" data-execution_count="150">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df_sex <span class="op">=</span> pd.DataFrame({<span class="st">'name'</span>:[<span class="st">'최규빈'</span>,<span class="st">'이영미'</span>,<span class="st">'양성준'</span>,<span class="st">'최혜미'</span>],</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'sex'</span>:[<span class="st">'male'</span>,<span class="st">'female'</span>,<span class="st">'male'</span>,<span class="st">'female'</span>]})</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>df_sex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="150">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">name</th>
+<th data-quarto-table-cell-role="th">sex</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>최규빈</td>
+<td>male</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>이영미</td>
+<td>female</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>양성준</td>
+<td>male</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>최혜미</td>
+<td>female</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
 <p>주어진 정보를 바탕으로, 4개의 데이터 프레임을 결합하라.</p>
 <p>(풀이)</p>
-<div id="cell-93" class="cell" data-tags="[]" data-execution_count="162">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>pd.concat([df_course2023,df_course2024])<span class="op">\</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>.merge(df_score,on<span class="op">=</span>[<span class="st">'name'</span>,<span class="st">'year'</span>])<span class="op">\</span></span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>.merge(df_sex,on<span class="op">=</span><span class="st">'name'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="162">
+<div id="cell-90" class="cell" data-tags="[]" data-execution_count="152">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>pd.concat([df_course2023,df_course2024])<span class="op">\</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>.merge(df_score, on<span class="op">=</span>[<span class="st">'name'</span>,<span class="st">'year'</span>])<span class="op">\</span></span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>.merge(df_sex, on<span class="op">=</span><span class="st">'name'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="152">
 <div>
 
 
@@ -2258,6 +2126,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><code>#</code></p>
+</section>
+<section id="hw" class="level1">
+<h1>7. HW</h1>
+<p>없음</p>
 
 
 </section>
@@ -2610,7 +2482,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://utteranc.es/client.js" repo="guebin/DV2023" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
-<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 
