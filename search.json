@@ -1012,7 +1012,7 @@
     "href": "posts/mid.html",
     "title": "supp: 중간고사 성적분포",
     "section": "",
-    "text": "import pandas as pd\n\n\ns = pd.read_csv('mid.csv')['Score'].apply(lambda x: x if x!='미제출' else None)\ns.hist()\n\n&lt;Axes: &gt;\n\n\n\n\n\n\nlist(s.sort_values(ascending=False))\n\n['70',\n '70',\n '60',\n '50',\n '50',\n '50',\n '40',\n '40',\n '40',\n '40',\n '30',\n '30',\n '30',\n '20',\n '20',\n '20',\n '20',\n '20',\n '20',\n '20',\n '10',\n '10',\n '10',\n '10',\n '10',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n None,\n None,\n None]"
+    "text": "import pandas as pd\n\n\ns = pd.read_csv('https://raw.githubusercontent.com/guebin/DV2023/main/posts/mid.csv')['Score'].apply(lambda x: x if x!='미제출' else None)\ns.hist()\n\n&lt;Axes: &gt;\n\n\n\n\n\n\nlist(s.sort_values(ascending=False))\n\n['70',\n '70',\n '60',\n '50',\n '50',\n '50',\n '40',\n '40',\n '40',\n '40',\n '30',\n '30',\n '30',\n '20',\n '20',\n '20',\n '20',\n '20',\n '20',\n '20',\n '10',\n '10',\n '10',\n '10',\n '10',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n '0',\n None,\n None,\n None]"
   },
   {
     "objectID": "posts/02wk-1.html#a.-예비학습",
