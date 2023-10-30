@@ -186,10 +186,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">09wk-1: 중간고사</h1>
-  <div class="quarto-categories">
-    <div class="quarto-category">plotnine</div>
-  </div>
-  </div>
+</div>
 
 
 
@@ -216,8 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p><a href="https://colab.research.google.com/github/guebin/DV2023/blob/main/posts/09wk-1-mid.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
-<div id="b08513a7-b0a8-4203-bef4-98eb5bdf7276" class="cell" data-tags="[]" data-execution_count="1">
+<div id="b08513a7-b0a8-4203-bef4-98eb5bdf7276" class="cell" data-tags="[]" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt </span>
@@ -232,9 +228,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="에너지사용량-80점" class="level1 page-columns page-full">
 <h1>1. 에너지사용량 – 80점</h1>
 <p>아래는 2019년 서울의 에너지사용량을 불러오는 예시코드이다.</p>
-<div id="645489f9-745a-4a5f-bbe0-f387baef3374" class="cell" data-tags="[]" data-execution_count="4">
+<div id="645489f9-745a-4a5f-bbe0-f387baef3374" class="cell" data-tags="[]" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Seoul2019.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
+<div class="cell-output cell-output-display" data-execution_count="7">
 <div>
 
 
@@ -493,7 +489,7 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2019.csv
 https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2020.csv
 https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv</code></pre>
 <p>아래의 <code>url</code>, <code>prov</code>를 참고하여 모든 자료를 불러온 뒤 <code>pd.concat()</code>을 이용하여 하나의 df로 합쳐라.</p>
-<div id="bd4e758c-b243-416f-82ad-a91cd93284ab" class="cell" data-tags="[]" data-execution_count="5">
+<div id="bd4e758c-b243-416f-82ad-a91cd93284ab" class="cell" data-tags="[]" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/</span><span class="sc">{}</span><span class="st">.csv'</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>prov <span class="op">=</span> [<span class="st">'Seoul'</span>, <span class="st">'Busan'</span>, <span class="st">'Daegu'</span>, <span class="st">'Incheon'</span>, </span>
@@ -503,7 +499,7 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gyeongsangbuk-do'</span>, <span class="st">'Gyeongsangnam-do'</span>, <span class="st">'Jeju-do'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>의미상 숫자형이지만 문자형으로 입력이된 자료를 모두 전처리하고, 아래의 딕셔너리를 이용하여 열의 이름을 변환하라.</p>
-<div id="7ae97edf-8b68-4408-a2fd-15da95b6369a" class="cell" data-tags="[]" data-execution_count="46">
+<div id="7ae97edf-8b68-4408-a2fd-15da95b6369a" class="cell" data-tags="[]" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name_dict <span class="op">=</span> {</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'년도'</span>: <span class="st">'Year'</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'시도'</span>: <span class="st">'Prov'</span>,</span>
@@ -516,6 +512,7 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>올바르게 정리된 데이터프레임의 예시는 아래와 같다.</p>
+<hr>
 <p><img src="09wk-1-mid_files/figure-html/004b1561-710c-4fb0-9aa9-fc4f066dd533-1-fb277eb0-4784-41ef-b810-0bba510e98d9.png" class="img-fluid"></p>
 <section id="에너지-사용-추세-10점" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="에너지-사용-추세-10점"><code>(1)</code> 에너지 사용 추세 – 10점</h2>
@@ -542,7 +539,11 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <p><img src="09wk-1-mid_files/figure-html/0c574030-a78b-4114-a237-333a65d05cd0-1-9bceaea8-1b44-48dd-8791-f544a0e05443.png" class="img-fluid"></p>
 <p><strong>세부지침</strong></p>
 <p><code>1</code>. 2020년 대비 2021년의 전기에너지 사용 증가량은 아래와 같이 구한다.</p>
-<p><span class="math display">\[\text{서울의 전기에너지 사용 증가량} = \frac{\text{2021년 강남구의 전기에너지 사용량} + \dots + \text{2021년 중랑구의 전기에너지 사용량}}{\text{2020년 강남구의 전기에너지 사용량} + \dots + \text{2020년 중랑구의 전기에너지 사용량}}\]</span></p>
+<p><span class="math display">\[\text{서울의 전기에너지 사용 증가량} = \frac{\text{2021년 서울 전기에너지 사용량}-\text{2020년 서울 전기에너지 사용량}}{\text{2020년 서울 전기에너지 사용량}}\]</span></p>
+<ul>
+<li><span class="math inline">\(\text{서울의 2021년 전기에너지 사용 증가량}= \text{2021년 강남구의 전기에너지 사용량} + \dots + \text{2021년 중랑구의 전기에너지 사용량}\)</span></li>
+<li><span class="math inline">\(\text{서울의 2020년 전기에너지 사용 증가량}= \text{2020년 강남구의 전기에너지 사용량} + \dots + \text{2020년 중랑구의 전기에너지 사용량}\)</span></li>
+</ul>
 <p><code>2</code>. 전기에너지의 사용량이 증가한 상위5개의 지역 중 가장 많이 증가한 2개의 지역은 색깔과 투명도로 하이라이팅 한다. (구체적 코드는 hint를 참고할 것)</p>
 <p><strong>힌트</strong></p>
 <p><code>-</code> 정리된 자료의 형태는 아래와 같아야 한다.</p>
@@ -578,10 +579,10 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <section id="fifa-90점" class="level1">
 <h1>2. FIFA – 90점</h1>
 <p>아래는 FIFA22 자료를 불러오는 코드이다.</p>
-<div id="641ed4ec-b388-44b2-9d23-96f164dc9605" class="cell" data-tags="[]" data-execution_count="80">
+<div id="641ed4ec-b388-44b2-9d23-96f164dc9605" class="cell" data-tags="[]" data-execution_count="83">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>).drop([<span class="st">'Loaned From'</span>,<span class="st">'Marking'</span>],axis<span class="op">=</span><span class="dv">1</span>).dropna()</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="80">
+<div class="cell-output cell-output-display" data-execution_count="83">
 <div>
 
 
@@ -741,7 +742,7 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 </div>
 </div>
 <p>아래의 딕셔너리를 이용하여 <code>Position</code>열을 변환하고 물음에 답하라.</p>
-<div id="3e5c2967-e0cd-47ce-8510-b422a72e9868" class="cell" data-tags="[]" data-execution_count="29">
+<div id="3e5c2967-e0cd-47ce-8510-b422a72e9868" class="cell" data-tags="[]" data-execution_count="84">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>position_dict <span class="op">=</span> {</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'GOALKEEPER'</span>:{<span class="st">'GK'</span>},</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'DEFENDER'</span>:{<span class="st">'CB'</span>,<span class="st">'RCB'</span>,<span class="st">'LCB'</span>,<span class="st">'RB'</span>,<span class="st">'LB'</span>,<span class="st">'RWB'</span>,<span class="st">'LWB'</span>},</span>
@@ -751,7 +752,7 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RES'</span>:{<span class="st">'RES'</span>}</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>position_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="29">
+<div class="cell-output cell-output-display" data-execution_count="84">
 <pre><code>{'GOALKEEPER': {'GK'},
  'DEFENDER': {'CB', 'LB', 'LCB', 'LWB', 'RB', 'RCB', 'RWB'},
  'MIDFIELDER': {'CAM',
@@ -778,14 +779,15 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <p><strong>세부지침</strong></p>
 <p><code>1</code>. <code>Value</code>와 <code>Wage</code>는 log값을 취하여 시각화 하라.</p>
 <p><code>2</code>. <code>geom_point</code>를 사용할 시<code>alpha=0.2</code>, <code>size=0.1</code>, <code>position='jitter'</code>로 설정하라.</p>
+<p><code>3</code>. <code>SUB</code>와 <code>RES</code> 포지션은 제외하고 시각화 할 것</p>
 </section>
 <section id="골키퍼-능력치별-로그급여-추세-10점" class="level2">
 <h2 class="anchored" data-anchor-id="골키퍼-능력치별-로그급여-추세-10점"><code>(2)</code> 골키퍼 능력치별 로그급여 추세 – 10점</h2>
 <p>아래의 리스트는 골키퍼와 관련된 능력치이다.</p>
-<div id="33ce5daf-8c87-4e49-a7ee-30809810cd67" class="cell" data-tags="[]" data-execution_count="74">
+<div id="33ce5daf-8c87-4e49-a7ee-30809810cd67" class="cell" data-tags="[]" data-execution_count="92">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>gkstats <span class="op">=</span> [<span class="st">'GKDiving'</span>,<span class="st">'GKHandling'</span>, <span class="st">'GKKicking'</span>, <span class="st">'GKPositioning'</span>, <span class="st">'GKReflexes'</span>]</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>gkstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="74">
+<div class="cell-output cell-output-display" data-execution_count="92">
 <pre><code>['GKDiving', 'GKHandling', 'GKKicking', 'GKPositioning', 'GKReflexes']</code></pre>
 </div>
 </div>
@@ -799,10 +801,10 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <section id="gkability에-따른-골키퍼의-overall-예측-20점" class="level2">
 <h2 class="anchored" data-anchor-id="gkability에-따른-골키퍼의-overall-예측-20점"><code>(3)</code> “GKAbility”에 따른 골키퍼의 Overall 예측 – 20점</h2>
 <p>아래의 리스트는 골키퍼와 관련된 능력치이다.</p>
-<div id="f7897087-8c46-4855-808a-5a5add1db199" class="cell" data-tags="[]" data-execution_count="74">
+<div id="f7897087-8c46-4855-808a-5a5add1db199" class="cell" data-tags="[]" data-execution_count="95">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>gkstats <span class="op">=</span> [<span class="st">'GKDiving'</span>,<span class="st">'GKHandling'</span>, <span class="st">'GKKicking'</span>, <span class="st">'GKPositioning'</span>, <span class="st">'GKReflexes'</span>]</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>gkstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="74">
+<div class="cell-output cell-output-display" data-execution_count="95">
 <pre><code>['GKDiving', 'GKHandling', 'GKKicking', 'GKPositioning', 'GKReflexes']</code></pre>
 </div>
 </div>
@@ -822,11 +824,11 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <section id="포워드와-수비수의-기술별-가치-평가-25점" class="level2">
 <h2 class="anchored" data-anchor-id="포워드와-수비수의-기술별-가치-평가-25점"><code>(4)</code> 포워드와 수비수의 기술별 가치 평가 – 25점</h2>
 <p>아래는 축구선수의 능력치와 관련이 있는 column들의 리스트이다. (골키퍼 관련 능력치는 제외하였음)</p>
-<div id="3143913c-b295-4107-93b1-d37eabfa356d" class="cell" data-tags="[]" data-execution_count="100">
+<div id="3143913c-b295-4107-93b1-d37eabfa356d" class="cell" data-tags="[]" data-execution_count="103">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>abilities_list <span class="op">=</span> [<span class="st">'Crossing'</span>, <span class="st">'Finishing'</span>, <span class="st">'HeadingAccuracy'</span>, <span class="st">'ShortPassing'</span>, <span class="st">'Volleys'</span>, <span class="st">'Dribbling'</span>, <span class="st">'Curve'</span>, <span class="st">'FKAccuracy'</span>, <span class="st">'LongPassing'</span>, <span class="st">'BallControl'</span>, <span class="st">'Acceleration'</span>, <span class="st">'SprintSpeed'</span>, <span class="st">'Agility'</span>, <span class="st">'Reactions'</span>, <span class="st">'Balance'</span>, <span class="st">'ShotPower'</span>, <span class="st">'Jumping'</span>, <span class="st">'Stamina'</span>, <span class="st">'Strength'</span>, <span class="st">'LongShots'</span>, <span class="st">'Aggression'</span>, <span class="st">'Interceptions'</span>, <span class="st">'Positioning'</span>, <span class="st">'Vision'</span>, <span class="st">'Penalties'</span>, <span class="st">'Composure'</span>, <span class="st">'StandingTackle'</span>, <span class="st">'SlidingTackle'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>아래는 위의 <code>abilities_list</code>을 적당한 카테고리로 묶은 것이다.</p>
-<div id="71a844b1-d137-49c4-92bb-26dd70c6cf3b" class="cell" data-tags="[]" data-execution_count="101">
+<div id="71a844b1-d137-49c4-92bb-26dd70c6cf3b" class="cell" data-tags="[]" data-execution_count="104">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>abilities_categories <span class="op">=</span> {</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"FinishingSkills"</span>: [<span class="st">'Finishing'</span>, <span class="st">'HeadingAccuracy'</span>, <span class="st">'Volleys'</span>, <span class="st">'LongShots'</span>, <span class="st">'Positioning'</span>, <span class="st">'Vision'</span>, <span class="st">'Penalties'</span>, <span class="st">'ShotPower'</span>, <span class="st">'Jumping'</span>],</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"BallControl_Passing"</span>: [<span class="st">'Dribbling'</span>, <span class="st">'Curve'</span>, <span class="st">'Crossing'</span>,<span class="st">'ShortPassing'</span>, <span class="st">'LongPassing'</span>, <span class="st">'BallControl'</span>,<span class="st">'FKAccuracy'</span>],</span>
@@ -993,9 +995,6 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <li>원영: 130~150 사이의 값들은 (b) 이미지 보다 (a) 이미지에서 훨씬 많은 빈도로 나타난다.</li>
 <li>리즈: (a) 이미지를 (b) 이미지로 바꾸는 기법을 histogram equalization 이라고 하며, 그 원리는 (c)와 같은 히스토그램을 (d)와 같은 히스토그램으로 바꾸는 것이다.</li>
 </ul>
-<blockquote class="blockquote">
-<p>답안예시: 유진,레이</p>
-</blockquote>
 </section>
 <section id="엔스콤의-플랏-5점" class="level2">
 <h2 class="anchored" data-anchor-id="엔스콤의-플랏-5점"><code>(3)</code> 엔스콤의 플랏 – 5점</h2>
@@ -1068,8 +1067,11 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <h2 class="anchored" data-anchor-id="산점도의-해석들-5점"><code>(5)</code> 산점도의 해석들 – 5점</h2>
 <p>아래는 <code>문제 4</code>에 제시된 산점도와 그 해석들이다. 옳은 해석을 모두 골라라.</p>
 <blockquote class="blockquote">
-<p>답안예시: 해석1,해석2,해석3</p>
+<p>답: 해석1, 해석2, 해석3</p>
 </blockquote>
+<ul>
+<li>해석4가 틀린이유: 상관계수가 0근처라면 FinishingSkill의 붉은 추세선이 x축과 거의 평행해야 한다.</li>
+</ul>
 <p><strong>4-(1)</strong></p>
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
