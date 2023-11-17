@@ -1,0 +1,32 @@
+---
+title: "데이터 시각화 (2023)"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: table
+  categories: true
+  sort-ui: false
+  filter-ui: false
+page-layout: full
+title-block-banner: false
+---
+
+**질문하는 방법**
+
+- 카카오톡: [질문하러 가기](http://pf.kakao.com/_xeexnxdG/chat) // 학기종료이후 폐쇄함
+- 이메일: <guebin@jbnu.ac.kr>
+- 직접방문: 자연과학대학 본관 205호 
+- Zoom: *카카오톡이나 이메일로 미리 시간을 정할 것*
+- LMS쪽지: <https://ieilms.jbnu.ac.kr/>
+
+**기출문제**
+
+- 2021-중간: <https://guebin.github.io/DV2021/2021/11/08/midsol.html>
+- 2021-기말: <https://guebin.github.io/DV2021/2021/12/03/데이터시각화-기말고사.html>, [1~2번 풀이](https://guebin.github.io/DV2021/2021/12/20/데이터시각화-기말고사풀이.html)
+- 2022-중간: <https://guebin.github.io/DV2022/posts/2022-10-30-9wk-1-mid.html>
+- 2022-기말: <https://guebin.github.io/DV2022/posts/2022-12-19-final.html>
+
+**공지사항** 
+
+- 휴강: 9월27일(60), 10월2일(120), 10월9일(120), 11월6일(60)
+- 보충: supp-1(75), supp-2(30), 중간고사 지연제출함 관련공지(35)
