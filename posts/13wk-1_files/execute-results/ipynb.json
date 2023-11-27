@@ -1,0 +1,10 @@
+{
+  "hash": "d88900154a43e953359b54727feb0dcd",
+  "result": {
+    "markdown": "---\ntitle: \"13wk-1: Plotly \"\nauthor: \"최규빈\"\ndate: \"11/22/2023\"\ndraft: true\nexecute: \n  enabled: true\n  cache: false\n  freeze: false\ncategories:\n  - plotly\n---\n\n::: {#b9465fad-cc6b-46ad-813b-c5ac7199696c .cell tags='[]' execution_count=1}\n``` {.python .cell-code}\nimport numpy as np\nimport pandas as pd\n#---#\nimport plotly.express as px\nimport plotly.io as pio\n```\n:::\n\n\n::: {#75b8b10c-43cf-4f6c-b3d5-0d4054d76bee .cell tags='[]' execution_count=2}\n``` {.python .cell-code}\npd.options.plotting.backend = \"plotly\"\npio.templates.default = \"plotly_white\"\n```\n:::\n\n\n---\njupyter:\n  kernelspec:\n    display_name: Python 3 (ipykernel)\n    language: python\n    name: python3\n  language_info:\n    codemirror_mode:\n      name: ipython\n      version: 3\n    file_extension: .py\n    mimetype: text/x-python\n    name: python\n    nbconvert_exporter: python\n    pygments_lexer: ipython3\n    version: 3.10.13\n---\n",
+    "supporting": [
+      "13wk-1_files/figure-ipynb"
+    ],
+    "filters": []
+  }
+}
