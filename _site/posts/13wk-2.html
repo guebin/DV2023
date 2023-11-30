@@ -75,6 +75,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -164,6 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#a.-s.map" id="toc-a.-s.map" class="nav-link" data-scroll-target="#a.-s.map">A. <code>s.map()</code></a></li>
   <li><a href="#b.-df.map-df.applymap" id="toc-b.-df.map-df.applymap" class="nav-link" data-scroll-target="#b.-df.map-df.applymap">B. <code>df.map()</code> = <code>df.applymap()</code></a></li>
   </ul></li>
+  <li><a href="#hw" id="toc-hw" class="nav-link" data-scroll-target="#hw">5. HW</a></li>
   </ul>
 <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="13wk-2.out.ipynb" download="13wk-2.out.ipynb"><i class="bi bi-journal-code"></i>Jupyter</a></li></ul></div></nav>
     </div>
@@ -206,7 +209,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><a href="https://colab.research.google.com/github/guebin/DV2023/blob/main/posts/13wk-2.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
 <section id="강의영상" class="level1">
 <h1>1. 강의영상</h1>
-<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLQqh36zP38-zXG48IUJyVy56_cRtuoouw&amp;si=bdS9406FYe3tYpuf" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="????"></video></div>
 </section>
 <section id="imports" class="level1">
 <h1>2. Imports</h1>
@@ -220,10 +223,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a.-motive" class="level2">
 <h2 class="anchored" data-anchor-id="a.-motive">A. Motive</h2>
 <p><code>-</code> 아래와 같은 상황이 있었다. (05wk-2의 숙제)</p>
-<div id="2e676a1e-79b5-43d2-bbc8-6d12a5aad752" class="cell" data-tags="[]" data-execution_count="315">
+<div id="2e676a1e-79b5-43d2-bbc8-6d12a5aad752" class="cell" data-tags="[]" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'A'</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>]})</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="315">
+<div class="cell-output cell-output-display" data-execution_count="2">
 <div>
 
 
@@ -257,16 +260,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<div id="5d93f62f-78b7-4343-9fa9-a48a44121176" class="cell" data-tags="[]" data-execution_count="317">
+<div id="5d93f62f-78b7-4343-9fa9-a48a44121176" class="cell" data-tags="[]" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'A'</span>]].<span class="bu">apply</span>(np.mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="317">
+<div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>A    2.5
 dtype: float64</code></pre>
 </div>
 </div>
-<div id="6cd54e47-4aaa-4276-b216-75effe1dfd0c" class="cell" data-tags="[]" data-execution_count="319">
+<div id="6cd54e47-4aaa-4276-b216-75effe1dfd0c" class="cell" data-tags="[]" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'A'</span>].<span class="bu">apply</span>(np.mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="319">
+<div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>0    1.0
 1    2.0
 2    3.0
@@ -285,19 +288,19 @@ Name: A, dtype: float64</code></pre>
 </ol>
 <p>쓸모있는건 1 뿐이다.</p>
 <p><code># 예제1</code> – <code>s.apply</code> + 스칼라입력, 스칼라출력</p>
-<div id="cc4bb6de" class="cell" data-tags="[]" data-execution_count="320">
+<div id="cc4bb6de" class="cell" data-tags="[]" data-execution_count="197">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="320">
+<div class="cell-output cell-output-display" data-execution_count="197">
 <pre><code>0    1
 1    2
 2    3
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="95721c5a-0952-47f2-96d4-605863d91f32" class="cell" data-tags="[]" data-execution_count="321">
+<div id="95721c5a-0952-47f2-96d4-605863d91f32" class="cell" data-tags="[]" data-execution_count="198">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="op">-</span>x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="321">
+<div class="cell-output cell-output-display" data-execution_count="198">
 <pre><code>0   -1
 1   -2
 2   -3
@@ -309,18 +312,18 @@ dtype: int64</code></pre>
 2 -&gt; -2
 3 -&gt; -3 </code></pre>
 <p>코드로는 아래와 같은 느낌</p>
-<div id="97cfa4a4-98f7-4887-b1d7-3a8ebd3888ab" class="cell" data-tags="[]" data-execution_count="324">
+<div id="97cfa4a4-98f7-4887-b1d7-3a8ebd3888ab" class="cell" data-tags="[]" data-execution_count="199">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>[(<span class="kw">lambda</span> x: <span class="op">-</span>x)(i) <span class="cf">for</span> i <span class="kw">in</span> s]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="324">
+<div class="cell-output cell-output-display" data-execution_count="199">
 <pre><code>[-1, -2, -3]</code></pre>
 </div>
 </div>
 <p><code>#</code></p>
 <p><code># 예제2</code> – <code>s.apply</code> + 벡터입력/스칼라출력(집계함수) // 가능은한데 사실상 스칼라입력,스칼라출력으로 해석해야함</p>
-<div id="e61b8986-9825-42b2-9953-1081c18e504b" class="cell" data-tags="[]" data-execution_count="325">
+<div id="e61b8986-9825-42b2-9953-1081c18e504b" class="cell" data-tags="[]" data-execution_count="207">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="325">
+<div class="cell-output cell-output-display" data-execution_count="207">
 <pre><code>0    1
 1    2
 2    3
@@ -352,19 +355,19 @@ dtype: int64</code></pre>
 </div>
 <p><code>#</code></p>
 <p><code># 예제3</code> – <code>s.apply</code> + 벡터입력/벡터출력 // 가능은 한데 사실상 스칼라입력,스칼라출력 함수로 해석해야함</p>
-<div id="315e2769-57a4-4358-b3af-a86586f90faa" class="cell" data-tags="[]" data-execution_count="334">
+<div id="315e2769-57a4-4358-b3af-a86586f90faa" class="cell" data-tags="[]" data-execution_count="202">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>])</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="334">
+<div class="cell-output cell-output-display" data-execution_count="202">
 <pre><code>0    1
 1    2
 2    3
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="f1aa6661-8915-4455-be76-2be26553dcad" class="cell" data-tags="[]" data-execution_count="335">
+<div id="f1aa6661-8915-4455-be76-2be26553dcad" class="cell" data-tags="[]" data-execution_count="206">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x<span class="op">-</span>np.mean(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="335">
+<div class="cell-output cell-output-display" data-execution_count="206">
 <pre><code>0    0.0
 1    0.0
 2    0.0
@@ -396,10 +399,10 @@ dtype: float64</code></pre>
 </ol>
 <p>쓸모있는건 1,2 모두이다.</p>
 <p><code># 예제1</code> – <code>df.apply</code> + 스칼라입력, 스칼라출력 (불가능)</p>
-<div id="114f432e-6cab-42bc-8782-2f7e14c97ff1" class="cell" data-tags="[]" data-execution_count="400">
+<div id="114f432e-6cab-42bc-8782-2f7e14c97ff1" class="cell" data-tags="[]" data-execution_count="209">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'X'</span>:[<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.3</span>],<span class="st">'Y'</span>:[<span class="op">-</span><span class="fl">0.1</span>,<span class="op">-</span><span class="fl">0.2</span>,<span class="op">-</span><span class="fl">0.3</span>]})</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="400">
+<div class="cell-output cell-output-display" data-execution_count="209">
 <div>
 
 
@@ -433,17 +436,17 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="f64bcffa-86a7-46a1-88f7-df63aea361ca" class="cell" data-tags="[]" data-execution_count="401">
+<div id="f64bcffa-86a7-46a1-88f7-df63aea361ca" class="cell" data-tags="[]" data-execution_count="210">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="st">'pos'</span> <span class="cf">if</span> x<span class="op">&gt;</span><span class="dv">0</span> <span class="cf">else</span> <span class="st">'neg'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>ValueError: The truth value of a Series is ambiguous. Use a.empty, a.bool(), a.item(), a.any() or a.all().</code></pre>
 </div>
 </div>
 <p><code># 예제2</code> – <code>df.apply</code> + 스칼라입력,스칼라출력? 벡터입력,벡터출력!!</p>
-<div id="952e14cb-5452-4472-a9de-e532bd524b67" class="cell" data-tags="[]" data-execution_count="362">
+<div id="952e14cb-5452-4472-a9de-e532bd524b67" class="cell" data-tags="[]" data-execution_count="211">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'X'</span>:[<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.3</span>],<span class="st">'Y'</span>:[<span class="op">-</span><span class="fl">0.1</span>,<span class="op">-</span><span class="fl">0.2</span>,<span class="op">-</span><span class="fl">0.3</span>]})</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="362">
+<div class="cell-output cell-output-display" data-execution_count="211">
 <div>
 
 
@@ -477,9 +480,9 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="36989783-c858-4bbb-9845-ac4c753c8cb0" class="cell" data-tags="[]" data-execution_count="363">
+<div id="36989783-c858-4bbb-9845-ac4c753c8cb0" class="cell" data-tags="[]" data-execution_count="218">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span>) <span class="co"># 이건 스칼라입력, 스칼라출력 아니고 벡터입력 벡터출력으로 컴퓨터가 해석함</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="363">
+<div class="cell-output cell-output-display" data-execution_count="218">
 <div>
 
 
@@ -517,9 +520,9 @@ dtype: float64</code></pre>
 <pre><code>df['X'] -&gt; (df['X'])**2
 df['Y'] -&gt; (df['Y'])**2</code></pre>
 <p>코드로는 아래의 느낌이다.</p>
-<div id="97b6373b-dfb6-4edc-abb5-4f1cc548f50b" class="cell" data-tags="[]" data-execution_count="365">
+<div id="97b6373b-dfb6-4edc-abb5-4f1cc548f50b" class="cell" data-tags="[]" data-execution_count="221">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>[(<span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span>)(df[i]) <span class="cf">for</span> i <span class="kw">in</span> df]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="365">
+<div class="cell-output cell-output-display" data-execution_count="221">
 <pre><code>[0    0.01
  1    0.04
  2    0.09
@@ -532,10 +535,10 @@ df['Y'] -&gt; (df['Y'])**2</code></pre>
 </div>
 <p><code>#</code></p>
 <p><code># 예제3</code> – <code>df.apply</code> + 벡터입력,스칼라출력(집계함수)</p>
-<div id="6b872348-b62a-4d1b-8738-0b3dd78c22e0" class="cell" data-tags="[]" data-execution_count="366">
+<div id="6b872348-b62a-4d1b-8738-0b3dd78c22e0" class="cell" data-tags="[]" data-execution_count="222">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'X'</span>:[<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.3</span>],<span class="st">'Y'</span>:[<span class="op">-</span><span class="fl">0.1</span>,<span class="op">-</span><span class="fl">0.2</span>,<span class="op">-</span><span class="fl">0.3</span>]})</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="366">
+<div class="cell-output cell-output-display" data-execution_count="222">
 <div>
 
 
@@ -579,10 +582,10 @@ dtype: float64</code></pre>
 </div>
 <p><code>#</code></p>
 <p><code># 예제4</code> – <code>df.apply</code> + 벡터입력,스칼라출력(집계함수)</p>
-<div id="93d3d168-e8d0-4ee0-a5f8-e2a65e0e9aab" class="cell" data-tags="[]" data-execution_count="372">
+<div id="93d3d168-e8d0-4ee0-a5f8-e2a65e0e9aab" class="cell" data-tags="[]" data-execution_count="237">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'X'</span>:[<span class="fl">0.1</span>,<span class="fl">0.2</span>,<span class="fl">0.3</span>],<span class="st">'Y'</span>:[<span class="op">-</span><span class="fl">0.1</span>,<span class="op">-</span><span class="fl">0.2</span>,<span class="op">-</span><span class="fl">0.3</span>]})</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="372">
+<div class="cell-output cell-output-display" data-execution_count="237">
 <div>
 
 
@@ -616,9 +619,9 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="52ee1b6a-3018-4550-8cb3-5fe433f9897c" class="cell" data-tags="[]" data-execution_count="374">
+<div id="52ee1b6a-3018-4550-8cb3-5fe433f9897c" class="cell" data-tags="[]" data-execution_count="238">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">apply</span>(np.<span class="bu">sum</span>,axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="374">
+<div class="cell-output cell-output-display" data-execution_count="238">
 <pre><code>0    0.0
 1    0.0
 2    0.0
@@ -630,10 +633,10 @@ dtype: float64</code></pre>
 </blockquote>
 <p><code>#</code></p>
 <p><code># 예제5</code> – <code>df.apply</code> + 벡터입력,벡터출력</p>
-<div id="21e68450-6c12-4405-8be2-9d04b6fc9d08" class="cell" data-tags="[]" data-execution_count="377">
+<div id="21e68450-6c12-4405-8be2-9d04b6fc9d08" class="cell" data-tags="[]" data-execution_count="257">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'X'</span>:[<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>],<span class="st">'Y'</span>:[<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>]})</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="377">
+<div class="cell-output cell-output-display" data-execution_count="257">
 <div>
 
 
@@ -667,9 +670,9 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="b8495b52-3e7b-4e29-bf8f-f282cfa62884" class="cell" data-tags="[]" data-execution_count="378">
+<div id="b8495b52-3e7b-4e29-bf8f-f282cfa62884" class="cell" data-tags="[]" data-execution_count="259">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x<span class="op">-</span>np.mean(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="378">
+<div class="cell-output cell-output-display" data-execution_count="259">
 <div>
 
 
@@ -703,9 +706,9 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="60d2f011-632a-4320-956e-5795bcd4b17f" class="cell" data-tags="[]" data-execution_count="379">
+<div id="60d2f011-632a-4320-956e-5795bcd4b17f" class="cell" data-tags="[]" data-execution_count="260">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x<span class="op">-</span>np.mean(x),axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="379">
+<div class="cell-output cell-output-display" data-execution_count="260">
 <div>
 
 
@@ -741,10 +744,10 @@ dtype: float64</code></pre>
 </div>
 <p><code>#</code></p>
 <p><code># 예제6</code> – <code>df.apply</code> + 벡터입력, 벡터출력</p>
-<div id="a22809a0-90d5-458a-b556-fe755858eda4" class="cell" data-tags="[]" data-execution_count="382">
+<div id="a22809a0-90d5-458a-b556-fe755858eda4" class="cell" data-tags="[]" data-execution_count="264">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'X'</span>:[ <span class="fl">3.285</span>,  <span class="fl">0.328</span>, <span class="op">-</span><span class="fl">1.261</span>],<span class="st">'Y'</span>:[ <span class="fl">1.068</span>,  <span class="fl">0.145</span>, <span class="op">-</span><span class="fl">0.222</span>]})</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="382">
+<div class="cell-output cell-output-display" data-execution_count="264">
 <div>
 
 
@@ -778,9 +781,9 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="0fda0cb4-6ee2-4bcc-89bb-6f86b8a4f2be" class="cell" data-tags="[]" data-execution_count="397">
+<div id="0fda0cb4-6ee2-4bcc-89bb-6f86b8a4f2be" class="cell" data-tags="[]" data-execution_count="273">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">apply</span>(np.sort)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="397">
+<div class="cell-output cell-output-display" data-execution_count="273">
 <div>
 
 
@@ -814,9 +817,9 @@ dtype: float64</code></pre>
 </div>
 </div>
 </div>
-<div id="bd39f8e7-4edb-4260-b758-69f5d30ade2e" class="cell" data-tags="[]" data-execution_count="398">
+<div id="bd39f8e7-4edb-4260-b758-69f5d30ade2e" class="cell" data-tags="[]" data-execution_count="278">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">apply</span>(np.sort, axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="398">
+<div class="cell-output cell-output-display" data-execution_count="278">
 <pre><code>0      [1.068, 3.285]
 1      [0.145, 0.328]
 2    [-1.261, -0.222]
@@ -876,10 +879,10 @@ dtype: object</code></pre>
 </ol>
 <p>쓸모있는건 1,4 이다. 특히 4는 특정상황에서 매우 쓸모있음</p>
 <p><code># 예제1</code> – <code>s.map</code> + 스칼라입력,스칼라출력</p>
-<div id="fdef7271-fc80-441e-9909-609b8dcb297d" class="cell" data-tags="[]" data-execution_count="405">
+<div id="fdef7271-fc80-441e-9909-609b8dcb297d" class="cell" data-tags="[]" data-execution_count="281">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'A'</span>])</span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="405">
+<div class="cell-output cell-output-display" data-execution_count="281">
 <pre><code>0    A
 1    B
 2    B
@@ -888,9 +891,9 @@ dtype: object</code></pre>
 dtype: object</code></pre>
 </div>
 </div>
-<div id="a66d975d-c47d-4579-bb57-d1b7cfaf2ca8" class="cell" data-tags="[]" data-execution_count="408">
+<div id="a66d975d-c47d-4579-bb57-d1b7cfaf2ca8" class="cell" data-tags="[]" data-execution_count="282">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">map</span>(<span class="kw">lambda</span> x: x.lower())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="408">
+<div class="cell-output cell-output-display" data-execution_count="282">
 <pre><code>0    a
 1    b
 2    b
@@ -901,10 +904,10 @@ dtype: object</code></pre>
 </div>
 <p><code>#</code></p>
 <p><code># 예제2</code> – <code>s.map</code> + 스칼라입력,스칼라출력</p>
-<div id="0215c9e0-12f3-45c8-abca-7d44fa91c33b" class="cell" data-tags="[]" data-execution_count="409">
+<div id="0215c9e0-12f3-45c8-abca-7d44fa91c33b" class="cell" data-tags="[]" data-execution_count="283">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>])</span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="409">
+<div class="cell-output cell-output-display" data-execution_count="283">
 <pre><code>0    1
 1    3
 2    4
@@ -912,9 +915,9 @@ dtype: object</code></pre>
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="ee2b7b13-777f-4f91-a48f-f48f3556743a" class="cell" data-tags="[]" data-execution_count="412">
+<div id="ee2b7b13-777f-4f91-a48f-f48f3556743a" class="cell" data-tags="[]" data-execution_count="284">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">map</span>(<span class="kw">lambda</span> x: x<span class="op">**</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="412">
+<div class="cell-output cell-output-display" data-execution_count="284">
 <pre><code>0     1
 1     9
 2    16
@@ -924,10 +927,10 @@ dtype: int64</code></pre>
 </div>
 <p><code>#</code></p>
 <p><code># 예제3</code> – <code>s.map</code> + 벡터입력,스칼라출력 // 가능은한데 사실 스칼라입력,스칼라출력으로 해석해야함</p>
-<div id="ff1bbe2e-7a76-44dd-8e04-7b88588926c1" class="cell" data-tags="[]" data-execution_count="413">
+<div id="ff1bbe2e-7a76-44dd-8e04-7b88588926c1" class="cell" data-tags="[]" data-execution_count="285">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>])</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="413">
+<div class="cell-output cell-output-display" data-execution_count="285">
 <pre><code>0    1
 1    3
 2    4
@@ -935,9 +938,9 @@ dtype: int64</code></pre>
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="5dbfe9a3-052c-44dc-903c-6e2014ae7226" class="cell" data-tags="[]" data-execution_count="416">
+<div id="5dbfe9a3-052c-44dc-903c-6e2014ae7226" class="cell" data-tags="[]" data-execution_count="161">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">map</span>(np.<span class="bu">sum</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="416">
+<div class="cell-output cell-output-display" data-execution_count="161">
 <pre><code>0    1
 1    3
 2    4
@@ -947,10 +950,10 @@ dtype: int64</code></pre>
 </div>
 <p><code>#</code></p>
 <p><code># 예제4</code> – <code>s.map</code> + 벡터입력,벡터출력 // 가능은한데 사실 스칼라입력,스칼라출력으로 해석해야함</p>
-<div id="3db924ed-1b21-44c9-bcd7-f70c26d12b2f" class="cell" data-tags="[]" data-execution_count="417">
+<div id="3db924ed-1b21-44c9-bcd7-f70c26d12b2f" class="cell" data-tags="[]" data-execution_count="287">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">2</span>])</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="417">
+<div class="cell-output cell-output-display" data-execution_count="287">
 <pre><code>0    1
 1    3
 2    4
@@ -958,9 +961,9 @@ dtype: int64</code></pre>
 dtype: int64</code></pre>
 </div>
 </div>
-<div id="c4b047a8-6bbc-4d52-bdee-d19133e9178d" class="cell" data-tags="[]" data-execution_count="418">
+<div id="c4b047a8-6bbc-4d52-bdee-d19133e9178d" class="cell" data-tags="[]" data-execution_count="289">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">map</span>(<span class="kw">lambda</span> x: x<span class="op">-</span>np.mean(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="418">
+<div class="cell-output cell-output-display" data-execution_count="289">
 <pre><code>0    0.0
 1    0.0
 2    0.0
@@ -970,10 +973,10 @@ dtype: float64</code></pre>
 </div>
 <p><code>#</code></p>
 <p><code># 예제5</code> – <code>s.map</code> + 딕셔너리</p>
-<div id="6b7b3386-25ac-433b-837e-16c84878ae48" class="cell" data-tags="[]" data-execution_count="419">
+<div id="6b7b3386-25ac-433b-837e-16c84878ae48" class="cell" data-tags="[]" data-execution_count="290">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> pd.Series([<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'A'</span>])</span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>s</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="419">
+<div class="cell-output cell-output-display" data-execution_count="290">
 <pre><code>0    A
 1    B
 2    B
@@ -982,9 +985,9 @@ dtype: float64</code></pre>
 dtype: object</code></pre>
 </div>
 </div>
-<div id="4e939093-2806-4da8-be48-4f99909a6a0d" class="cell" data-tags="[]" data-execution_count="420">
+<div id="4e939093-2806-4da8-be48-4f99909a6a0d" class="cell" data-tags="[]" data-execution_count="292">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>s.<span class="bu">map</span>({<span class="st">'A'</span>:<span class="st">'A+'</span>,<span class="st">'B'</span>:<span class="st">'B0'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="420">
+<div class="cell-output cell-output-display" data-execution_count="292">
 <pre><code>0    A+
 1    B0
 2    B0
@@ -997,40 +1000,6 @@ dtype: object</code></pre>
 </section>
 <section id="b.-df.map-df.applymap" class="level2">
 <h2 class="anchored" data-anchor-id="b.-df.map-df.applymap">B. <code>df.map()</code> = <code>df.applymap()</code></h2>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-코랩실습자를 위한 주의사항1
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>코랩에서 실습할경우</p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">map</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>이 동작하지 않고 대신 아래와 같이 applymap을 사용해야 합니다.</p>
-<div class="sourceCode" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>df.applymap() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>이것은 코랩에서 기본으로 설치되어있는 pandas의 버전이 너무 낮아서 생기는 문제입니다. 따라서 코랩을 쓰시는 분들은 아래의 강의노트들을 <code>df.applymap()</code>으로 바꿔서 실습하시기 바랍니다.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-코랩실습자를 위한 주의사항2
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>만약 코랩에서도 <code>df.map()</code>을 사용하시려면 pandas를 높은버전으로 새로 설치하고 사용하시면 됩니다. 즉</p>
-<pre><code>1. 코랩커널재시작 (컴퓨터 다시 할당)
-2. `import pandas as pd` 를 하기 전에 `!pip install pandas -U`를 이용하여 판다스를 최신버전으로 재설치 
-3. 판다스를 임포트 하고 (`import pandas as pd`) 실습</code></pre>
-<p>와 같이 하시면 됩니다.</p>
-</div>
-</div>
 <p><code>-</code> 가능한 형태는 아래와 같다.</p>
 <ol type="1">
 <li>변환함수(스칼라입력,스칼라출력): 로그, 제곱</li>
@@ -1038,10 +1007,10 @@ dtype: object</code></pre>
 </ol>
 <p>1만 쓸모있다. 여기에서 <code>df.map(변환함수)</code> 꼴은 사실 <code>df.applymap(변환함수)</code>와 가능이 같다.</p>
 <p><code># 예제1</code> – <code>df.map</code> + 스칼라입력,스칼라출력</p>
-<div id="6bb7d5c8-022b-47f1-8dec-c891b4a5da20" class="cell" data-tags="[]" data-execution_count="421">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'A'</span>:[<span class="dv">2143</span>,<span class="dv">2143</span>],<span class="st">'B'</span>:[<span class="st">'-'</span>,<span class="dv">3456</span>]})</span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="421">
+<div id="6bb7d5c8-022b-47f1-8dec-c891b4a5da20" class="cell" data-tags="[]" data-execution_count="313">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'A'</span>:[<span class="dv">2143</span>,<span class="dv">2143</span>],<span class="st">'B'</span>:[<span class="st">'-'</span>,<span class="dv">3456</span>]})</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="313">
 <div>
 
 
@@ -1070,9 +1039,9 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="b2717f07-aab3-48c4-99d3-040814e9d65e" class="cell" data-tags="[]" data-execution_count="424">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">map</span>(<span class="kw">lambda</span> x: <span class="dv">0</span> <span class="cf">if</span> x <span class="op">==</span> <span class="st">'-'</span> <span class="cf">else</span> <span class="bu">int</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="424">
+<div id="b2717f07-aab3-48c4-99d3-040814e9d65e" class="cell" data-tags="[]" data-execution_count="314">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">map</span>(<span class="kw">lambda</span> x: <span class="dv">0</span> <span class="cf">if</span> x <span class="op">==</span> <span class="st">'-'</span> <span class="cf">else</span> x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="314">
 <div>
 
 
@@ -1103,10 +1072,10 @@ dtype: object</code></pre>
 </div>
 <p><code>#</code></p>
 <p><code># 예제2</code> – <code>df.map</code> + 벡터입력,벡터출력 // 불가능해</p>
-<div id="e8cc61df-3581-4e0e-9228-2edcb836b5be" class="cell" data-tags="[]" data-execution_count="425">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'A'</span>:np.random.randn(<span class="dv">5</span>), <span class="st">'B'</span>:np.random.randn(<span class="dv">5</span>)<span class="op">+</span><span class="dv">5</span>})</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="425">
+<div id="e8cc61df-3581-4e0e-9228-2edcb836b5be" class="cell" data-tags="[]" data-execution_count="293">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'A'</span>:np.random.randn(<span class="dv">5</span>), <span class="st">'B'</span>:np.random.randn(<span class="dv">5</span>)<span class="op">+</span><span class="dv">5</span>})</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="293">
 <div>
 
 
@@ -1121,28 +1090,28 @@ dtype: object</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>-0.492970</td>
-<td>4.764690</td>
+<td>-0.474722</td>
+<td>4.616944</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>0.570927</td>
-<td>4.648409</td>
+<td>-0.123587</td>
+<td>5.941885</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>-2.335092</td>
-<td>4.777753</td>
+<td>1.011905</td>
+<td>2.960560</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>-1.338590</td>
-<td>4.074131</td>
+<td>0.306291</td>
+<td>3.769737</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>0.209329</td>
-<td>4.954991</td>
+<td>-1.231884</td>
+<td>6.354306</td>
 </tr>
 </tbody>
 </table>
@@ -1150,18 +1119,18 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="94b4082b-74ae-4324-a421-e558b55bae53" class="cell" data-tags="[]" data-execution_count="426">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">map</span>(np.sort) <span class="co"># 불가능..</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="94b4082b-74ae-4324-a421-e558b55bae53" class="cell" data-tags="[]" data-execution_count="297">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">map</span>(np.sort) <span class="co"># 불가능..</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>AxisError: axis -1 is out of bounds for array of dimension 0</code></pre>
 </div>
 </div>
 <p><code>#</code></p>
 <p><code># 예제3</code> – <code>df.map</code> + 벡터입력,스칼라출력(집계함수) // 가능하긴한데 사실 스칼라입력,스칼라출력으로 해석해야함</p>
-<div id="9fd2ee9a-31e4-4722-8555-e8f7b474ec88" class="cell" data-tags="[]" data-execution_count="427">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'A'</span>:np.random.randn(<span class="dv">5</span>), <span class="st">'B'</span>:np.random.randn(<span class="dv">5</span>)<span class="op">+</span><span class="dv">5</span>})</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="427">
+<div id="9fd2ee9a-31e4-4722-8555-e8f7b474ec88" class="cell" data-tags="[]" data-execution_count="300">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'A'</span>:np.random.randn(<span class="dv">5</span>), <span class="st">'B'</span>:np.random.randn(<span class="dv">5</span>)<span class="op">+</span><span class="dv">5</span>})</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="300">
 <div>
 
 
@@ -1176,28 +1145,28 @@ dtype: object</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>2.091820</td>
-<td>5.673932</td>
+<td>-0.331755</td>
+<td>4.738557</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>-1.030416</td>
-<td>4.207077</td>
+<td>1.064457</td>
+<td>3.152778</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>-1.662383</td>
-<td>6.173190</td>
+<td>1.096634</td>
+<td>2.535014</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>1.518275</td>
-<td>4.348644</td>
+<td>0.586018</td>
+<td>5.692224</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>1.164216</td>
-<td>3.955827</td>
+<td>-1.619656</td>
+<td>5.566970</td>
 </tr>
 </tbody>
 </table>
@@ -1205,9 +1174,9 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="9f26d949-2712-4268-bf04-9a1c4221d57c" class="cell" data-tags="[]" data-execution_count="428">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">map</span>(np.mean) <span class="co"># 사실상 스칼라입력,스칼라출력으로 봐야함</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="428">
+<div id="9f26d949-2712-4268-bf04-9a1c4221d57c" class="cell" data-tags="[]" data-execution_count="303">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">map</span>(np.mean) <span class="co"># 사실상 스칼라입력,스칼라출력으로 봐야함</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="303">
 <div>
 
 
@@ -1222,28 +1191,28 @@ dtype: object</code></pre>
 <tbody>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">0</td>
-<td>2.091820</td>
-<td>5.673932</td>
+<td>-0.331755</td>
+<td>4.738557</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">1</td>
-<td>-1.030416</td>
-<td>4.207077</td>
+<td>1.064457</td>
+<td>3.152778</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">2</td>
-<td>-1.662383</td>
-<td>6.173190</td>
+<td>1.096634</td>
+<td>2.535014</td>
 </tr>
 <tr class="even">
 <td data-quarto-table-cell-role="th">3</td>
-<td>1.518275</td>
-<td>4.348644</td>
+<td>0.586018</td>
+<td>5.692224</td>
 </tr>
 <tr class="odd">
 <td data-quarto-table-cell-role="th">4</td>
-<td>1.164216</td>
-<td>3.955827</td>
+<td>-1.619656</td>
+<td>5.566970</td>
 </tr>
 </tbody>
 </table>
@@ -1253,10 +1222,10 @@ dtype: object</code></pre>
 </div>
 <p><code>#</code></p>
 <p><code># 예제4</code> – <code>df.map</code> + 딕셔너리 // 불가능</p>
-<div id="063f1149-77cc-4c5c-8bf6-f62f4e8d5c71" class="cell" data-tags="[]" data-execution_count="429">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'guebin'</span>:[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>],<span class="st">'hynn'</span>:[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>]})</span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="429">
+<div id="063f1149-77cc-4c5c-8bf6-f62f4e8d5c71" class="cell" data-tags="[]" data-execution_count="307">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'guebin'</span>:[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>],<span class="st">'hynn'</span>:[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>]})</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="307">
 <div>
 
 
@@ -1305,16 +1274,124 @@ dtype: object</code></pre>
 </div>
 </div>
 </div>
-<div id="a1809966-7aa8-4c5a-a8a6-6d094928db83" class="cell" data-tags="[]" data-execution_count="434">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">map</span>({<span class="dv">0</span>:<span class="st">'fail'</span>,<span class="dv">1</span>:<span class="st">'pass'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="a1809966-7aa8-4c5a-a8a6-6d094928db83" class="cell" data-tags="[]" data-execution_count="310">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>df.<span class="bu">map</span>({<span class="dv">0</span>:<span class="st">'fail'</span>,<span class="dv">1</span>:<span class="st">'pass'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>TypeError: the first argument must be callable</code></pre>
 </div>
 </div>
 <p><code>#</code></p>
-
-
 </section>
+</section>
+<section id="hw" class="level1">
+<h1>5. HW</h1>
+<p>아래의 자료가 있다고 하자.</p>
+<div id="933c70fc-265d-4b74-a29f-0b5391b68e03" class="cell" data-tags="[]" data-execution_count="437">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({<span class="st">'guebin'</span>:[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">1</span>],<span class="st">'hynn'</span>:[<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>]})</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="437">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">guebin</th>
+<th data-quarto-table-cell-role="th">hynn</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>이 자료를 <code>lambda</code>와 <code>df.applymap</code>을 이용하여 아래와 같이 변경하라.</p>
+<div id="a8d8d709-54b3-4c1f-8797-601e67b94ec8" class="cell" data-tags="[]" data-execution_count="439">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="439">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">guebin</th>
+<th data-quarto-table-cell-role="th">hynn</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>fail</td>
+<td>fail</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>pass</td>
+<td>pass</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>fail</td>
+<td>pass</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>pass</td>
+<td>pass</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>fail</td>
+<td>pass</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>pass</td>
+<td>pass</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1665,6 +1742,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <script src="https://utteranc.es/client.js" repo="guebin/DV2023" issue-term="pathname" theme="github-light" crossorigin="anonymous" async="">
 </script>
 </div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 
