@@ -1012,14 +1012,23 @@ dtype: object</code></pre>
 <p>이 동작하지 않고 대신 아래와 같이 applymap을 사용해야 합니다.</p>
 <div class="sourceCode" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>df.applymap() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>이것은 코랩에서 기본으로 설치되어있는 pandas의 버전이 너무 낮아서 생기는 문제입니다. 따라서 코랩을 쓰시는 분들은 아래의 강의노트들을 <code>df.applymap()</code>으로 바꿔서 실습하시기 바랍니다.</p>
-<section id="코랩실습자를-위한-주의사항2" class="level3">
-<h3 class="anchored" data-anchor-id="코랩실습자를-위한-주의사항2">코랩실습자를 위한 주의사항2</h3>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+코랩실습자를 위한 주의사항2
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>만약 코랩에서도 <code>df.map()</code>을 사용하시려면 pandas를 높은버전으로 새로 설치하고 사용하시면 됩니다. 즉</p>
 <pre><code>1. 코랩커널재시작 (컴퓨터 다시 할당)
 2. `import pandas as pd` 를 하기 전에 `!pip install pandas -U`를 이용하여 판다스를 최신버전으로 재설치 
 3. 판다스를 임포트 하고 (`import pandas as pd`) 실습</code></pre>
 <p>와 같이 하시면 됩니다.</p>
-</section>
 </div>
 </div>
 <p><code>-</code> 가능한 형태는 아래와 같다.</p>
