@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -102,9 +102,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-
-<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -213,7 +210,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="nyctaxi-자료-분석-dashboard-100점" class="level1">
 <h1>1. NYCTaxi 자료 분석 (dashboard) – 100점</h1>
 <p>아래는 NYCTaxi자료에서 기본적인 전처리를 수행한 데이터프레임이다.</p>
-<div id="ad7ea102-8a81-40ec-afee-1e9087a8a442" class="cell" data-execution_count="3">
+<div id="ad7ea102-8a81-40ec-afee-1e9087a8a442" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"https://raw.githubusercontent.com/guebin/DV2023/main/posts/NYCTaxi.csv"</span>).assign(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    log_trip_duration <span class="op">=</span> <span class="kw">lambda</span> df: np.log(df.trip_duration),</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    pickup_datetime <span class="op">=</span> <span class="kw">lambda</span> df: df.pickup_datetime.<span class="bu">apply</span>(pd.to_datetime),</span>
@@ -228,143 +225,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    dayofweek <span class="op">=</span> <span class="kw">lambda</span> df: df.pickup_datetime.dt.dayofweek</span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>df_small <span class="op">=</span> df[::<span class="dv">100</span>].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="fb77d9ad-6fdd-44e6-8f0b-814755f3dd6b" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_small <span class="op">=</span> df[::<span class="dv">100</span>].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>df_small.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-display" data-execution_count="4">
-<div>
-
-
-<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
-<thead>
-<tr class="header">
-<th data-quarto-table-cell-role="th"></th>
-<th data-quarto-table-cell-role="th">id</th>
-<th data-quarto-table-cell-role="th">vendor_id</th>
-<th data-quarto-table-cell-role="th">pickup_datetime</th>
-<th data-quarto-table-cell-role="th">dropoff_datetime</th>
-<th data-quarto-table-cell-role="th">passenger_count</th>
-<th data-quarto-table-cell-role="th">pickup_longitude</th>
-<th data-quarto-table-cell-role="th">pickup_latitude</th>
-<th data-quarto-table-cell-role="th">dropoff_longitude</th>
-<th data-quarto-table-cell-role="th">dropoff_latitude</th>
-<th data-quarto-table-cell-role="th">store_and_fwd_flag</th>
-<th data-quarto-table-cell-role="th">trip_duration</th>
-<th data-quarto-table-cell-role="th">log_trip_duration</th>
-<th data-quarto-table-cell-role="th">dist</th>
-<th data-quarto-table-cell-role="th">speed</th>
-<th data-quarto-table-cell-role="th">pickup_hour</th>
-<th data-quarto-table-cell-role="th">dropoff_hour</th>
-<th data-quarto-table-cell-role="th">dayofweek</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">0</td>
-<td>id2875421</td>
-<td>B</td>
-<td>2016-03-14 17:24:55</td>
-<td>2016-03-14 17:32:30</td>
-<td>1</td>
-<td>-73.982155</td>
-<td>40.767937</td>
-<td>-73.964630</td>
-<td>40.765602</td>
-<td>N</td>
-<td>455</td>
-<td>6.120297</td>
-<td>0.017680</td>
-<td>0.000039</td>
-<td>17</td>
-<td>17</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">1</td>
-<td>id3667993</td>
-<td>B</td>
-<td>2016-01-03 04:18:57</td>
-<td>2016-01-03 04:27:03</td>
-<td>1</td>
-<td>-73.980522</td>
-<td>40.730530</td>
-<td>-73.997993</td>
-<td>40.746220</td>
-<td>N</td>
-<td>486</td>
-<td>6.186209</td>
-<td>0.023482</td>
-<td>0.000048</td>
-<td>4</td>
-<td>4</td>
-<td>6</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">2</td>
-<td>id2002463</td>
-<td>B</td>
-<td>2016-01-14 12:28:56</td>
-<td>2016-01-14 12:37:17</td>
-<td>1</td>
-<td>-73.965652</td>
-<td>40.768398</td>
-<td>-73.960068</td>
-<td>40.779308</td>
-<td>N</td>
-<td>501</td>
-<td>6.216606</td>
-<td>0.012256</td>
-<td>0.000024</td>
-<td>12</td>
-<td>12</td>
-<td>3</td>
-</tr>
-<tr class="even">
-<td data-quarto-table-cell-role="th">3</td>
-<td>id1635353</td>
-<td>B</td>
-<td>2016-03-04 23:20:58</td>
-<td>2016-03-04 23:49:29</td>
-<td>5</td>
-<td>-73.985092</td>
-<td>40.759190</td>
-<td>-73.962151</td>
-<td>40.709850</td>
-<td>N</td>
-<td>1711</td>
-<td>7.444833</td>
-<td>0.054412</td>
-<td>0.000032</td>
-<td>23</td>
-<td>23</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td data-quarto-table-cell-role="th">4</td>
-<td>id1850636</td>
-<td>A</td>
-<td>2016-02-05 00:21:28</td>
-<td>2016-02-05 00:52:24</td>
-<td>1</td>
-<td>-73.994537</td>
-<td>40.750439</td>
-<td>-74.025719</td>
-<td>40.631100</td>
-<td>N</td>
-<td>1856</td>
-<td>7.526179</td>
-<td>0.123345</td>
-<td>0.000066</td>
-<td>0</td>
-<td>0</td>
-<td>4</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
 </div>
 <p>주어진 자료를 이용하여 (1)-(3)에 해당하는 시각화를 대시보드로 구현하고, 홈페이지를 남겨라. 답안 예시는 아래와 같다.</p>
 <p><code>(답안)</code></p>
@@ -383,43 +243,43 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-with-filename-file">
 <pre><strong>NYCTaxi.qmd</strong></pre>
 </div>
-<div class="sourceCode" id="cb5" data-filename="NYCTaxi.qmd"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">title:</span> <span class="st">"NYCTaxi"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">author:</span> <span class="st">"최규빈(2021-43052)"</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">format:</span> dashboard</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">execute:</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enabled:</span> true</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">cache:</span> false</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">freeze:</span> false</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 여기에 온갖코드를 넣음.</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 1-(1),(2),(3) 에 대응하는 plotly figure를 아래와 같은 이름으로 저장</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># fig1 = ...</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># fig2 = ...</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="co"># fig3 = ...</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 기말고사1-(1),(2)</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 요일,시간에 따른 평균속력 시각화        </span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="fu">fig1.show()</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 요일,시간에 따른 평균이동거리 시각화        </span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="fu">fig2.show()</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 기말고사1-(3)</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 속력별 경로 시각화</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="fu">fig3.show()</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4" data-filename="NYCTaxi.qmd"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">title:</span> <span class="st">"NYCTaxi"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">author:</span> <span class="st">"최규빈(2021-43052)"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">format:</span> dashboard</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">execute:</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enabled:</span> true</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">cache:</span> false</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">freeze:</span> false</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 여기에 온갖코드를 넣음.</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 1-(1),(2),(3) 에 대응하는 plotly figure를 아래와 같은 이름으로 저장</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># fig1 = ...</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># fig2 = ...</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># fig3 = ...</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 기말고사1-(1),(2)</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 요일,시간에 따른 평균속력 시각화        </span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="fu">fig1.show()</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 요일,시간에 따른 평균이동거리 시각화        </span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="fu">fig2.show()</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="co"># 기말고사1-(3)</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 속력별 경로 시각화</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="fu">fig3.show()</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="요일시간에-따른-평균속력-시각화-25점" class="level2">
 <h2 class="anchored" data-anchor-id="요일시간에-따른-평균속력-시각화-25점"><code>(1)</code> 요일,시간에 따른 평균속력 시각화 – 25점</h2>
@@ -447,9 +307,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p><strong>힌트</strong>: 아래의 코드를 관찰하세요</p>
 <div id="af7e5828-c6b9-4be2-af26-5ca27b4ded51" class="cell" data-execution_count="15">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>speed <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>])</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.qcut(speed,<span class="dv">4</span>))</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.qcut(speed,<span class="dv">4</span>,labels<span class="op">=</span>[<span class="st">'매우느림'</span>,<span class="st">'조금느림'</span>,<span class="st">'조금빠름'</span>,<span class="st">'매우빠름'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>speed <span class="op">=</span> pd.Series([<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">4</span>])</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.qcut(speed,<span class="dv">4</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pd.qcut(speed,<span class="dv">4</span>,labels<span class="op">=</span>[<span class="st">'매우느림'</span>,<span class="st">'조금느림'</span>,<span class="st">'조금빠름'</span>,<span class="st">'매우빠름'</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0    (0.999, 1.75]
 1    (0.999, 1.75]
