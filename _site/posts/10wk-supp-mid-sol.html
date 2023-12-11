@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.322">
+<meta name="generator" content="quarto-1.4.520">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -24,7 +24,7 @@ ul.task-list li input[type="checkbox"] {
 }
 /* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span { line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
@@ -59,7 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
@@ -81,12 +81,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   "collapse-after": 3,
   "panel-placement": "end",
   "type": "overlay",
-  "limit": 20,
+  "limit": 50,
   "keyboard-shortcut": [
     "f",
     "/",
     "s"
   ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -95,13 +96,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -114,7 +116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../index.html">
@@ -212,6 +214,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 </header>
+
 
 <p><a href="https://colab.research.google.com/github/guebin/DV2023/blob/main/posts/09wk-1-mid.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" style="text-align: left"></a></p>
 <div id="b08513a7-b0a8-4203-bef4-98eb5bdf7276" class="cell" data-tags="[]" data-execution_count="161">
@@ -694,7 +697,11 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">"Energy Usage Trend from 2018 to 2021"</span>)</span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="294">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-7-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -718,10 +725,11 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>line <span class="op">=</span> geom_line(aes(x<span class="op">=</span><span class="st">'Year'</span>,y<span class="op">=</span><span class="st">'EnergyUse'</span>,color<span class="op">=</span><span class="st">'EnergyType'</span>,linetype<span class="op">=</span><span class="st">'EnergyType'</span>))</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> line <span class="op">+</span> point</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-8-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="295">
-<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -742,14 +750,14 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <p><code>-</code> 정리된 자료의 형태는 아래와 같아야 한다.</p>
 <p><img src="10wk-supp-mid-sol_files/figure-html/8c5895ac-dbe0-4f3a-904e-80ecb28d20f3-1-f0e6e145-0fa8-4edf-b60b-d16e034ebf4d.png" class="img-fluid"></p>
 <p><code>-</code> 그림안에 text를 넣기위해서 <code>geom_text</code>를 시용한다. 위의 데이터가 정리되었다는 전제하에 구체적인 시각화 코드는 아래와 같다.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">'Rank&lt;5'</span>))</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'Rank'</span>,y<span class="op">=</span><span class="st">'ElecUseInc'</span>,fill<span class="op">=</span><span class="st">'Top2'</span>,alpha<span class="op">=</span><span class="st">'Top2'</span>))</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> geom_text(aes(x<span class="op">=</span><span class="st">'Rank'</span>,y<span class="op">=</span><span class="st">'ElecUseInc'</span>,label<span class="op">=</span><span class="st">'Prov'</span>))</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> col <span class="op">+</span> text <span class="op">+</span> scale_alpha_manual(values<span class="op">=</span>{<span class="va">True</span>: <span class="dv">1</span>, <span class="va">False</span>: <span class="fl">0.2</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">'Rank&lt;5'</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'Rank'</span>,y<span class="op">=</span><span class="st">'ElecUseInc'</span>,fill<span class="op">=</span><span class="st">'Top2'</span>,alpha<span class="op">=</span><span class="st">'Top2'</span>))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> geom_text(aes(x<span class="op">=</span><span class="st">'Rank'</span>,y<span class="op">=</span><span class="st">'ElecUseInc'</span>,label<span class="op">=</span><span class="st">'Prov'</span>))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> col <span class="op">+</span> text <span class="op">+</span> scale_alpha_manual(values<span class="op">=</span>{<span class="va">True</span>: <span class="dv">1</span>, <span class="va">False</span>: <span class="fl">0.2</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 <p><code>(풀이)</code></p>
 <div id="05ea81ef-d707-46fa-91ce-2f5f957c6a52" class="cell" data-tags="[]" data-execution_count="296">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span><span class="st">'Prov'</span>,columns<span class="op">=</span><span class="st">'Year'</span>,values<span class="op">=</span><span class="st">'Elec'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span><span class="st">'Prov'</span>,columns<span class="op">=</span><span class="st">'Year'</span>,values<span class="op">=</span><span class="st">'Elec'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="296">
 <div>
 
@@ -898,20 +906,21 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 </div>
 </div>
 <div id="28237863-fdb9-48c7-ae09-a463b1fc3dab" class="cell" data-tags="[]" data-execution_count="297">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.pivot_table(index<span class="op">=</span><span class="st">'Prov'</span>,columns<span class="op">=</span><span class="st">'Year'</span>,values<span class="op">=</span><span class="st">'Elec'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>)<span class="op">\</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>.assign(ElecUseInc <span class="op">=</span> <span class="kw">lambda</span> df: (df[<span class="dv">2021</span>]<span class="op">-</span>df[<span class="dv">2020</span>])<span class="op">/</span>df[<span class="dv">2020</span>]).loc[:,<span class="st">'ElecUseInc'</span>].reset_index()<span class="op">\</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>.sort_values(<span class="st">'ElecUseInc'</span>,ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)<span class="op">\</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>.<span class="bu">eval</span>(<span class="st">'Rank=index'</span>).<span class="bu">eval</span>(<span class="st">'Top2= Rank&lt;2'</span>)</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">'Rank&lt;5'</span>))</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'Rank'</span>,y<span class="op">=</span><span class="st">'ElecUseInc'</span>,fill<span class="op">=</span><span class="st">'Top2'</span>,alpha<span class="op">=</span><span class="st">'Top2'</span>))</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> geom_text(aes(x<span class="op">=</span><span class="st">'Rank'</span>,y<span class="op">=</span><span class="st">'ElecUseInc'</span>,label<span class="op">=</span><span class="st">'Prov'</span>))</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> col <span class="op">+</span> text <span class="op">+</span> scale_alpha_manual(values<span class="op">=</span>{<span class="va">True</span>: <span class="dv">1</span>, <span class="va">False</span>: <span class="fl">0.2</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.pivot_table(index<span class="op">=</span><span class="st">'Prov'</span>,columns<span class="op">=</span><span class="st">'Year'</span>,values<span class="op">=</span><span class="st">'Elec'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>)<span class="op">\</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>.assign(ElecUseInc <span class="op">=</span> <span class="kw">lambda</span> df: (df[<span class="dv">2021</span>]<span class="op">-</span>df[<span class="dv">2020</span>])<span class="op">/</span>df[<span class="dv">2020</span>]).loc[:,<span class="st">'ElecUseInc'</span>].reset_index()<span class="op">\</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>.sort_values(<span class="st">'ElecUseInc'</span>,ascending<span class="op">=</span><span class="va">False</span>).reset_index(drop<span class="op">=</span><span class="va">True</span>)<span class="op">\</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>.<span class="bu">eval</span>(<span class="st">'Rank=index'</span>).<span class="bu">eval</span>(<span class="st">'Top2= Rank&lt;2'</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">'Rank&lt;5'</span>))</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'Rank'</span>,y<span class="op">=</span><span class="st">'ElecUseInc'</span>,fill<span class="op">=</span><span class="st">'Top2'</span>,alpha<span class="op">=</span><span class="st">'Top2'</span>))</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> geom_text(aes(x<span class="op">=</span><span class="st">'Rank'</span>,y<span class="op">=</span><span class="st">'ElecUseInc'</span>,label<span class="op">=</span><span class="st">'Prov'</span>))</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> col <span class="op">+</span> text <span class="op">+</span> scale_alpha_manual(values<span class="op">=</span>{<span class="va">True</span>: <span class="dv">1</span>, <span class="va">False</span>: <span class="fl">0.2</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-10-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="297">
-<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -927,18 +936,19 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <hr>
 <p><code>(풀이)</code></p>
 <div id="050539f7-9e00-4a75-bc8a-e3ca31699037" class="cell" data-tags="[]" data-execution_count="298">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> df.<span class="bu">eval</span>(<span class="st">'EUB = (Elec + Gas + Heat)/BldgCount'</span>).loc[:,[<span class="st">'Year'</span>,<span class="st">'Prov'</span>,<span class="st">'Reg'</span>,<span class="st">'EUB'</span>]].groupby([<span class="st">'Year'</span>])</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> pd.concat([df.sort_values(<span class="st">'EUB'</span>,ascending<span class="op">=</span><span class="va">False</span>).iloc[:<span class="dv">15</span>].reset_index(drop<span class="op">=</span><span class="va">True</span>).<span class="bu">eval</span>(<span class="st">'Rank=index'</span>) <span class="cf">for</span> k,df <span class="kw">in</span> g]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'Rank'</span>,y<span class="op">=</span><span class="st">'EUB'</span>,fill<span class="op">=</span><span class="st">'Prov'</span>))</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'Year'</span>)</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> col <span class="op">+</span> facet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>g <span class="op">=</span> df.<span class="bu">eval</span>(<span class="st">'EUB = (Elec + Gas + Heat)/BldgCount'</span>).loc[:,[<span class="st">'Year'</span>,<span class="st">'Prov'</span>,<span class="st">'Reg'</span>,<span class="st">'EUB'</span>]].groupby([<span class="st">'Year'</span>])</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> pd.concat([df.sort_values(<span class="st">'EUB'</span>,ascending<span class="op">=</span><span class="va">False</span>).iloc[:<span class="dv">15</span>].reset_index(drop<span class="op">=</span><span class="va">True</span>).<span class="bu">eval</span>(<span class="st">'Rank=index'</span>) <span class="cf">for</span> k,df <span class="kw">in</span> g]).reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'Rank'</span>,y<span class="op">=</span><span class="st">'EUB'</span>,fill<span class="op">=</span><span class="st">'Prov'</span>))</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'Year'</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> col <span class="op">+</span> facet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-11-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="298">
-<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -955,22 +965,23 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <hr>
 <p><code>(풀이)</code></p>
 <div id="e9af96b8-78ac-4eb6-800f-d52a45773089" class="cell" data-tags="[]" data-execution_count="299">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.assign(Metro <span class="op">=</span> df.Prov.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x <span class="kw">in</span> [<span class="st">'Seoul'</span>,<span class="st">'Gyeonggi-do'</span>,<span class="st">'Incheon'</span>]))<span class="op">\</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>.pivot_table(index<span class="op">=</span>[<span class="st">'Metro'</span>,<span class="st">'Year'</span>],values<span class="op">=</span>[<span class="st">'Elec'</span>,<span class="st">'Gas'</span>,<span class="st">'Heat'</span>],aggfunc<span class="op">=</span><span class="st">'sum'</span>)<span class="op">\</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>.<span class="bu">eval</span>(<span class="st">'ElecRate = Elec/(Elec+Gas+Heat)'</span>).rename({<span class="st">'Elec'</span>:<span class="st">'ElecUse'</span>},axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'ElecUse'</span>,<span class="st">'ElecRate'</span>]].stack().reset_index()<span class="op">\</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>.set_axis([<span class="st">'Metro'</span>,<span class="st">'Year'</span>,<span class="st">'MsrType'</span>,<span class="st">'Amount'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="co"># #---#</span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata)</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>line <span class="op">=</span> geom_line(aes(x<span class="op">=</span><span class="st">'Year'</span>,y<span class="op">=</span><span class="st">'Amount'</span>,color<span class="op">=</span><span class="st">'Metro'</span>))</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'Year'</span>,y<span class="op">=</span><span class="st">'Amount'</span>,color<span class="op">=</span><span class="st">'Metro'</span>))</span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'MsrType'</span>,scales<span class="op">=</span><span class="st">'free'</span>)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> line <span class="op">+</span> point <span class="op">+</span> facet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.assign(Metro <span class="op">=</span> df.Prov.<span class="bu">apply</span>(<span class="kw">lambda</span> x: x <span class="kw">in</span> [<span class="st">'Seoul'</span>,<span class="st">'Gyeonggi-do'</span>,<span class="st">'Incheon'</span>]))<span class="op">\</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>.pivot_table(index<span class="op">=</span>[<span class="st">'Metro'</span>,<span class="st">'Year'</span>],values<span class="op">=</span>[<span class="st">'Elec'</span>,<span class="st">'Gas'</span>,<span class="st">'Heat'</span>],aggfunc<span class="op">=</span><span class="st">'sum'</span>)<span class="op">\</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>.<span class="bu">eval</span>(<span class="st">'ElecRate = Elec/(Elec+Gas+Heat)'</span>).rename({<span class="st">'Elec'</span>:<span class="st">'ElecUse'</span>},axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'ElecUse'</span>,<span class="st">'ElecRate'</span>]].stack().reset_index()<span class="op">\</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>.set_axis([<span class="st">'Metro'</span>,<span class="st">'Year'</span>,<span class="st">'MsrType'</span>,<span class="st">'Amount'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># #---#</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>line <span class="op">=</span> geom_line(aes(x<span class="op">=</span><span class="st">'Year'</span>,y<span class="op">=</span><span class="st">'Amount'</span>,color<span class="op">=</span><span class="st">'Metro'</span>))</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'Year'</span>,y<span class="op">=</span><span class="st">'Amount'</span>,color<span class="op">=</span><span class="st">'Metro'</span>))</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'MsrType'</span>,scales<span class="op">=</span><span class="st">'free'</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> line <span class="op">+</span> point <span class="op">+</span> facet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-12-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-12-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="299">
-<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -979,8 +990,8 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <h1>2. FIFA – 90점</h1>
 <p>아래는 FIFA22 자료를 불러오는 코드이다.</p>
 <div id="641ed4ec-b388-44b2-9d23-96f164dc9605" class="cell" data-tags="[]" data-execution_count="246">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>).drop([<span class="st">'Loaned From'</span>,<span class="st">'Marking'</span>],axis<span class="op">=</span><span class="dv">1</span>).dropna()</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2021/master/_notebooks/2021-10-25-FIFA22_official_data.csv'</span>).drop([<span class="st">'Loaned From'</span>,<span class="st">'Marking'</span>],axis<span class="op">=</span><span class="dv">1</span>).dropna()</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="246">
 <div>
 
@@ -1142,15 +1153,15 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 </div>
 <p>아래의 딕셔너리를 이용하여 <code>Position</code>열을 변환하고 물음에 답하라.</p>
 <div id="3e5c2967-e0cd-47ce-8510-b422a72e9868" class="cell" data-tags="[]" data-execution_count="247">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>position_dict <span class="op">=</span> {</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'GOALKEEPER'</span>:{<span class="st">'GK'</span>},</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'DEFENDER'</span>:{<span class="st">'CB'</span>,<span class="st">'RCB'</span>,<span class="st">'LCB'</span>,<span class="st">'RB'</span>,<span class="st">'LB'</span>,<span class="st">'RWB'</span>,<span class="st">'LWB'</span>},</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'MIDFIELDER'</span>:{<span class="st">'CM'</span>,<span class="st">'RCM'</span>,<span class="st">'LCM'</span>,<span class="st">'CDM'</span>,<span class="st">'RDM'</span>,<span class="st">'LDM'</span>,<span class="st">'CAM'</span>,<span class="st">'RAM'</span>,<span class="st">'LAM'</span>,<span class="st">'RM'</span>,<span class="st">'LM'</span>},</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'FORWARD'</span>:{<span class="st">'ST'</span>,<span class="st">'CF'</span>,<span class="st">'RF'</span>,<span class="st">'LF'</span>,<span class="st">'RW'</span>,<span class="st">'LW'</span>,<span class="st">'RS'</span>,<span class="st">'LS'</span>},</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SUB'</span>:{<span class="st">'SUB'</span>},</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RES'</span>:{<span class="st">'RES'</span>}</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>position_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>position_dict <span class="op">=</span> {</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'GOALKEEPER'</span>:{<span class="st">'GK'</span>},</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'DEFENDER'</span>:{<span class="st">'CB'</span>,<span class="st">'RCB'</span>,<span class="st">'LCB'</span>,<span class="st">'RB'</span>,<span class="st">'LB'</span>,<span class="st">'RWB'</span>,<span class="st">'LWB'</span>},</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'MIDFIELDER'</span>:{<span class="st">'CM'</span>,<span class="st">'RCM'</span>,<span class="st">'LCM'</span>,<span class="st">'CDM'</span>,<span class="st">'RDM'</span>,<span class="st">'LDM'</span>,<span class="st">'CAM'</span>,<span class="st">'RAM'</span>,<span class="st">'LAM'</span>,<span class="st">'RM'</span>,<span class="st">'LM'</span>},</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'FORWARD'</span>:{<span class="st">'ST'</span>,<span class="st">'CF'</span>,<span class="st">'RF'</span>,<span class="st">'LF'</span>,<span class="st">'RW'</span>,<span class="st">'LW'</span>,<span class="st">'RS'</span>,<span class="st">'LS'</span>},</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'SUB'</span>:{<span class="st">'SUB'</span>},</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'RES'</span>:{<span class="st">'RES'</span>}</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>position_dict</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="247">
 <pre><code>{'GOALKEEPER': {'GK'},
  'DEFENDER': {'CB', 'LB', 'LCB', 'LWB', 'RB', 'RCB', 'RWB'},
@@ -1182,24 +1193,25 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <hr>
 <p><code>(풀이)</code></p>
 <div id="6a2e62a6-ed41-437c-94d6-d3200a59726c" class="cell" data-tags="[]" data-execution_count="248">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.assign(</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>).<span class="bu">eval</span>(<span class="st">'logValue = log(Value)'</span>).<span class="bu">eval</span>(<span class="st">'logWage = log(Wage)'</span>)<span class="op">\</span></span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'Position'</span>,<span class="st">'Age'</span>,<span class="st">'logValue'</span>,<span class="st">'logWage'</span>]].melt(id_vars<span class="op">=</span>[<span class="st">'Position'</span>,<span class="st">'Age'</span>])<span class="op">\</span></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>.set_axis([<span class="st">'Position'</span>,<span class="st">'Age'</span>,<span class="st">'FinancialMetric'</span>,<span class="st">'LogAmount'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"(Position != 'SUB') and (Position != 'RES')"</span>))</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'Age'</span>,y<span class="op">=</span><span class="st">'LogAmount'</span>,color<span class="op">=</span><span class="st">'FinancialMetric'</span>),alpha<span class="op">=</span><span class="fl">0.2</span>,size<span class="op">=</span><span class="fl">0.1</span>,position<span class="op">=</span><span class="st">'jitter'</span>)</span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'Age'</span>,y<span class="op">=</span><span class="st">'LogAmount'</span>,color<span class="op">=</span><span class="st">'FinancialMetric'</span>))</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'Position'</span>)</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> smooth <span class="op">+</span> facet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.assign(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>).<span class="bu">eval</span>(<span class="st">'logValue = log(Value)'</span>).<span class="bu">eval</span>(<span class="st">'logWage = log(Wage)'</span>)<span class="op">\</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'Position'</span>,<span class="st">'Age'</span>,<span class="st">'logValue'</span>,<span class="st">'logWage'</span>]].melt(id_vars<span class="op">=</span>[<span class="st">'Position'</span>,<span class="st">'Age'</span>])<span class="op">\</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>.set_axis([<span class="st">'Position'</span>,<span class="st">'Age'</span>,<span class="st">'FinancialMetric'</span>,<span class="st">'LogAmount'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"(Position != 'SUB') and (Position != 'RES')"</span>))</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'Age'</span>,y<span class="op">=</span><span class="st">'LogAmount'</span>,color<span class="op">=</span><span class="st">'FinancialMetric'</span>),alpha<span class="op">=</span><span class="fl">0.2</span>,size<span class="op">=</span><span class="fl">0.1</span>,position<span class="op">=</span><span class="st">'jitter'</span>)</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'Age'</span>,y<span class="op">=</span><span class="st">'LogAmount'</span>,color<span class="op">=</span><span class="st">'FinancialMetric'</span>))</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'Position'</span>)</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> smooth <span class="op">+</span> facet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-15-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-15-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="248">
-<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -1207,8 +1219,8 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <h2 class="anchored" data-anchor-id="골키퍼-능력치별-로그급여-추세-10점"><code>(2)</code> 골키퍼 능력치별 로그급여 추세 – 10점</h2>
 <p>아래의 리스트는 골키퍼와 관련된 능력치이다.</p>
 <div id="33ce5daf-8c87-4e49-a7ee-30809810cd67" class="cell" data-tags="[]" data-execution_count="249">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>gkstats <span class="op">=</span> [<span class="st">'GKDiving'</span>,<span class="st">'GKHandling'</span>, <span class="st">'GKKicking'</span>, <span class="st">'GKPositioning'</span>, <span class="st">'GKReflexes'</span>]</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>gkstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>gkstats <span class="op">=</span> [<span class="st">'GKDiving'</span>,<span class="st">'GKHandling'</span>, <span class="st">'GKKicking'</span>, <span class="st">'GKPositioning'</span>, <span class="st">'GKReflexes'</span>]</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>gkstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="249">
 <pre><code>['GKDiving', 'GKHandling', 'GKKicking', 'GKPositioning', 'GKReflexes']</code></pre>
 </div>
@@ -1222,21 +1234,21 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <hr>
 <p><code>(풀이)</code></p>
 <div id="dd15dd16-452d-4687-b4a6-39b29a6ab8cc" class="cell" data-tags="[]" data-execution_count="251">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.assign(</span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>).<span class="bu">eval</span>(<span class="st">'logWage = log(Wage)'</span>).query(<span class="st">"Position=='GOALKEEPER'"</span>)<span class="op">\</span></span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'Age'</span>,<span class="st">'logWage'</span>]<span class="op">+</span>gkstats]<span class="op">\</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>.melt(id_vars<span class="op">=</span>[<span class="st">'Age'</span>,<span class="st">'logWage'</span>])<span class="op">\</span></span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>.set_axis([<span class="st">'Age'</span>,<span class="st">'logWage'</span>,<span class="st">'AbilType'</span>,<span class="st">'Abil'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>tidydata</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata)</span>
-<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'Abil'</span>,y<span class="op">=</span><span class="st">'logWage'</span>,color<span class="op">=</span><span class="st">'AbilType'</span>),alpha<span class="op">=</span><span class="fl">0.5</span>,size<span class="op">=</span><span class="fl">0.5</span>,position<span class="op">=</span><span class="st">'jitter'</span>)</span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'Abil'</span>,y<span class="op">=</span><span class="st">'logWage'</span>,color<span class="op">=</span><span class="st">'AbilType'</span>))</span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'AbilType'</span>)</span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> facet <span class="op">+</span> smooth </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.assign(</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>).<span class="bu">eval</span>(<span class="st">'logWage = log(Wage)'</span>).query(<span class="st">"Position=='GOALKEEPER'"</span>)<span class="op">\</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'Age'</span>,<span class="st">'logWage'</span>]<span class="op">+</span>gkstats]<span class="op">\</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>.melt(id_vars<span class="op">=</span>[<span class="st">'Age'</span>,<span class="st">'logWage'</span>])<span class="op">\</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>.set_axis([<span class="st">'Age'</span>,<span class="st">'logWage'</span>,<span class="st">'AbilType'</span>,<span class="st">'Abil'</span>],axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>tidydata</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'Abil'</span>,y<span class="op">=</span><span class="st">'logWage'</span>,color<span class="op">=</span><span class="st">'AbilType'</span>),alpha<span class="op">=</span><span class="fl">0.5</span>,size<span class="op">=</span><span class="fl">0.5</span>,position<span class="op">=</span><span class="st">'jitter'</span>)</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'Abil'</span>,y<span class="op">=</span><span class="st">'logWage'</span>,color<span class="op">=</span><span class="st">'AbilType'</span>))</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'AbilType'</span>)</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> facet <span class="op">+</span> smooth </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb2/anaconda3/envs/ag/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
 /home/cgb2/anaconda3/envs/ag/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
@@ -1245,10 +1257,11 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 /home/cgb2/anaconda3/envs/ag/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-17-output-2.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-17-output-2.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="251">
-<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -1256,8 +1269,8 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <h2 class="anchored" data-anchor-id="gkability에-따른-골키퍼의-overall-예측-20점"><code>(3)</code> “GKAbility”에 따른 골키퍼의 Overall 예측 – 20점</h2>
 <p>아래의 리스트는 골키퍼와 관련된 능력치이다.</p>
 <div id="f7897087-8c46-4855-808a-5a5add1db199" class="cell" data-tags="[]" data-execution_count="252">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>gkstats <span class="op">=</span> [<span class="st">'GKDiving'</span>,<span class="st">'GKHandling'</span>, <span class="st">'GKKicking'</span>, <span class="st">'GKPositioning'</span>, <span class="st">'GKReflexes'</span>]</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>gkstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>gkstats <span class="op">=</span> [<span class="st">'GKDiving'</span>,<span class="st">'GKHandling'</span>, <span class="st">'GKKicking'</span>, <span class="st">'GKPositioning'</span>, <span class="st">'GKReflexes'</span>]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>gkstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="252">
 <pre><code>['GKDiving', 'GKHandling', 'GKKicking', 'GKPositioning', 'GKReflexes']</code></pre>
 </div>
@@ -1269,33 +1282,34 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <p><code>1</code>. <code>ID=212198</code>인 선수 <code>Bruno Fernandes</code>의 경우 <code>GKAbility</code>를 아래와 같이 계산할 수 있다.</p>
 <p><span class="math display">\[\text{Bruno Fernandes의 GKAbility} = \frac{\text{Bruno Fernandes의 GKDiving} + \dots + \text{Bruno Fernandes의 GKReflexes}}{5}\]</span></p>
 <p><code>2</code>. 시각화를 위한 세부옵션은 아래의 코드를 참고하라.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'GKAbility'</span>,y<span class="op">=</span><span class="st">'Overall'</span>,size<span class="op">=</span><span class="st">'logWage'</span>,alpha<span class="op">=</span><span class="st">'logWage'</span>,color<span class="op">=</span><span class="st">'Position'</span>),position<span class="op">=</span><span class="st">'jitter'</span>)</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'GKAbility'</span>,y<span class="op">=</span><span class="st">'Overall'</span>),linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'Position'</span>,scales<span class="op">=</span><span class="st">'free'</span>)</span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> smooth <span class="op">+</span> facet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'GKAbility'</span>,y<span class="op">=</span><span class="st">'Overall'</span>,size<span class="op">=</span><span class="st">'logWage'</span>,alpha<span class="op">=</span><span class="st">'logWage'</span>,color<span class="op">=</span><span class="st">'Position'</span>),position<span class="op">=</span><span class="st">'jitter'</span>)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'GKAbility'</span>,y<span class="op">=</span><span class="st">'Overall'</span>),linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'Position'</span>,scales<span class="op">=</span><span class="st">'free'</span>)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> smooth <span class="op">+</span> facet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 <p><code>(풀이)</code></p>
 <div id="223a7020-60ba-41ae-a02e-72908809a865" class="cell" data-tags="[]" data-execution_count="253">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.assign(</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>).<span class="bu">eval</span>(<span class="st">'logWage = log(Wage)'</span>)<span class="op">\</span></span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>.query(<span class="st">"Position=='GOALKEEPER' or Position=='FORWARD'"</span>)<span class="op">\</span></span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'Position'</span>,<span class="st">'logWage'</span>,<span class="st">'Overall'</span>]<span class="op">+</span>gkstats]<span class="op">\</span></span>
-<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>.assign(GKAbility <span class="op">=</span> <span class="kw">lambda</span> df: df.loc[:,<span class="st">'GKDiving'</span>:<span class="st">'GKReflexes'</span>].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>))</span>
-<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
-<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata)</span>
-<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'GKAbility'</span>,y<span class="op">=</span><span class="st">'Overall'</span>,size<span class="op">=</span><span class="st">'logWage'</span>,alpha<span class="op">=</span><span class="st">'logWage'</span>,color<span class="op">=</span><span class="st">'Position'</span>),position<span class="op">=</span><span class="st">'jitter'</span>)</span>
-<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'GKAbility'</span>,y<span class="op">=</span><span class="st">'Overall'</span>),linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
-<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'Position'</span>,scales<span class="op">=</span><span class="st">'free'</span>)</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> smooth <span class="op">+</span> facet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.assign(</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>).<span class="bu">eval</span>(<span class="st">'logWage = log(Wage)'</span>)<span class="op">\</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>.query(<span class="st">"Position=='GOALKEEPER' or Position=='FORWARD'"</span>)<span class="op">\</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'Position'</span>,<span class="st">'logWage'</span>,<span class="st">'Overall'</span>]<span class="op">+</span>gkstats]<span class="op">\</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>.assign(GKAbility <span class="op">=</span> <span class="kw">lambda</span> df: df.loc[:,<span class="st">'GKDiving'</span>:<span class="st">'GKReflexes'</span>].<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata)</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'GKAbility'</span>,y<span class="op">=</span><span class="st">'Overall'</span>,size<span class="op">=</span><span class="st">'logWage'</span>,alpha<span class="op">=</span><span class="st">'logWage'</span>,color<span class="op">=</span><span class="st">'Position'</span>),position<span class="op">=</span><span class="st">'jitter'</span>)</span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'GKAbility'</span>,y<span class="op">=</span><span class="st">'Overall'</span>),linetype<span class="op">=</span><span class="st">'dashed'</span>)</span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'Position'</span>,scales<span class="op">=</span><span class="st">'free'</span>)</span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">+</span> point <span class="op">+</span> smooth <span class="op">+</span> facet</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-19-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="253">
-<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
@@ -1303,17 +1317,17 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <h2 class="anchored" data-anchor-id="포워드와-수비수의-기술별-가치-평가-25점"><code>(4)</code> 포워드와 수비수의 기술별 가치 평가 – 25점</h2>
 <p>아래는 축구선수의 능력치와 관련이 있는 column들의 리스트이다. (골키퍼 관련 능력치는 제외하였음)</p>
 <div id="3143913c-b295-4107-93b1-d37eabfa356d" class="cell" data-tags="[]" data-execution_count="254">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>abilities_list <span class="op">=</span> [<span class="st">'Crossing'</span>, <span class="st">'Finishing'</span>, <span class="st">'HeadingAccuracy'</span>, <span class="st">'ShortPassing'</span>, <span class="st">'Volleys'</span>, <span class="st">'Dribbling'</span>, <span class="st">'Curve'</span>, <span class="st">'FKAccuracy'</span>, <span class="st">'LongPassing'</span>, <span class="st">'BallControl'</span>, <span class="st">'Acceleration'</span>, <span class="st">'SprintSpeed'</span>, <span class="st">'Agility'</span>, <span class="st">'Reactions'</span>, <span class="st">'Balance'</span>, <span class="st">'ShotPower'</span>, <span class="st">'Jumping'</span>, <span class="st">'Stamina'</span>, <span class="st">'Strength'</span>, <span class="st">'LongShots'</span>, <span class="st">'Aggression'</span>, <span class="st">'Interceptions'</span>, <span class="st">'Positioning'</span>, <span class="st">'Vision'</span>, <span class="st">'Penalties'</span>, <span class="st">'Composure'</span>, <span class="st">'StandingTackle'</span>, <span class="st">'SlidingTackle'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>abilities_list <span class="op">=</span> [<span class="st">'Crossing'</span>, <span class="st">'Finishing'</span>, <span class="st">'HeadingAccuracy'</span>, <span class="st">'ShortPassing'</span>, <span class="st">'Volleys'</span>, <span class="st">'Dribbling'</span>, <span class="st">'Curve'</span>, <span class="st">'FKAccuracy'</span>, <span class="st">'LongPassing'</span>, <span class="st">'BallControl'</span>, <span class="st">'Acceleration'</span>, <span class="st">'SprintSpeed'</span>, <span class="st">'Agility'</span>, <span class="st">'Reactions'</span>, <span class="st">'Balance'</span>, <span class="st">'ShotPower'</span>, <span class="st">'Jumping'</span>, <span class="st">'Stamina'</span>, <span class="st">'Strength'</span>, <span class="st">'LongShots'</span>, <span class="st">'Aggression'</span>, <span class="st">'Interceptions'</span>, <span class="st">'Positioning'</span>, <span class="st">'Vision'</span>, <span class="st">'Penalties'</span>, <span class="st">'Composure'</span>, <span class="st">'StandingTackle'</span>, <span class="st">'SlidingTackle'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>아래는 위의 <code>abilities_list</code>을 적당한 카테고리로 묶은 것이다.</p>
 <div id="71a844b1-d137-49c4-92bb-26dd70c6cf3b" class="cell" data-tags="[]" data-execution_count="255">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>abilities_categories <span class="op">=</span> {</span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"FinishingSkills"</span>: [<span class="st">'Finishing'</span>, <span class="st">'HeadingAccuracy'</span>, <span class="st">'Volleys'</span>, <span class="st">'LongShots'</span>, <span class="st">'Positioning'</span>, <span class="st">'Vision'</span>, <span class="st">'Penalties'</span>, <span class="st">'ShotPower'</span>, <span class="st">'Jumping'</span>],</span>
-<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"BallControl_Passing"</span>: [<span class="st">'Dribbling'</span>, <span class="st">'Curve'</span>, <span class="st">'Crossing'</span>,<span class="st">'ShortPassing'</span>, <span class="st">'LongPassing'</span>, <span class="st">'BallControl'</span>,<span class="st">'FKAccuracy'</span>],</span>
-<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Speed_Stamina"</span>: [<span class="st">'Acceleration'</span>, <span class="st">'SprintSpeed'</span>, <span class="st">'Agility'</span>, <span class="st">'Stamina'</span>],</span>
-<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Reactions_PhysicalAttributes"</span>: [<span class="st">'Reactions'</span>, <span class="st">'Balance'</span>, <span class="st">'Strength'</span>, <span class="st">'Composure'</span>],</span>
-<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"DefensiveSkills"</span>: [<span class="st">'Aggression'</span>, <span class="st">'Interceptions'</span>, <span class="st">'StandingTackle'</span>, <span class="st">'SlidingTackle'</span>]</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>abilities_categories <span class="op">=</span> {</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">"FinishingSkills"</span>: [<span class="st">'Finishing'</span>, <span class="st">'HeadingAccuracy'</span>, <span class="st">'Volleys'</span>, <span class="st">'LongShots'</span>, <span class="st">'Positioning'</span>, <span class="st">'Vision'</span>, <span class="st">'Penalties'</span>, <span class="st">'ShotPower'</span>, <span class="st">'Jumping'</span>],</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"BallControl_Passing"</span>: [<span class="st">'Dribbling'</span>, <span class="st">'Curve'</span>, <span class="st">'Crossing'</span>,<span class="st">'ShortPassing'</span>, <span class="st">'LongPassing'</span>, <span class="st">'BallControl'</span>,<span class="st">'FKAccuracy'</span>],</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Speed_Stamina"</span>: [<span class="st">'Acceleration'</span>, <span class="st">'SprintSpeed'</span>, <span class="st">'Agility'</span>, <span class="st">'Stamina'</span>],</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Reactions_PhysicalAttributes"</span>: [<span class="st">'Reactions'</span>, <span class="st">'Balance'</span>, <span class="st">'Strength'</span>, <span class="st">'Composure'</span>],</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"DefensiveSkills"</span>: [<span class="st">'Aggression'</span>, <span class="st">'Interceptions'</span>, <span class="st">'StandingTackle'</span>, <span class="st">'SlidingTackle'</span>]</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>선수들의 여러 능력치를 <code>abilities_categories</code>에 따라 통합하고 각 스킬 카테고리별로 선수의 능력치의 평균을 구하여 <code>SkillValueCategories</code>값에 저장하라. 정리된 자료의 예시는 아래와 같다.</p>
 <p><img src="10wk-supp-mid-sol_files/figure-html/c9f24126-80dc-4096-b143-3e3fb3adb1c5-1-46ff6bfd-875c-40d3-b9d9-a7f795d896fa.png" class="img-fluid"></p>
@@ -1326,20 +1340,20 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <p>마지막 row의 SkillValueCategories의 값은 아래와 같이 구하였다.</p>
 <p><span class="math display">\[14.250 = \frac{\text{259646선수의 Aggression}+\dots+\text{259646선수의 SlidingTackle}}{4}=\frac{24+6+14+13}{4} \]</span></p>
 <div id="b6f5f449-2595-41c3-b089-e2722b99d65e" class="cell" data-tags="[]" data-execution_count="256">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">24</span><span class="op">+</span><span class="dv">6</span><span class="op">+</span><span class="dv">14</span><span class="op">+</span><span class="dv">13</span>)<span class="op">/</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>(<span class="dv">24</span><span class="op">+</span><span class="dv">6</span><span class="op">+</span><span class="dv">14</span><span class="op">+</span><span class="dv">13</span>)<span class="op">/</span><span class="dv">4</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="256">
 <pre><code>14.25</code></pre>
 </div>
 </div>
 <p><code>-</code> 시각화를 위해 아래의 코드를 참고하라.</p>
-<div class="sourceCode" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"Position=='FORWARD' or Position=='DEFENDER'"</span>))</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'SkillValueCategories'</span>,y<span class="op">=</span><span class="st">'logValue'</span>,color<span class="op">=</span><span class="st">'Position'</span>),alpha<span class="op">=</span><span class="fl">0.05</span>,size<span class="op">=</span><span class="fl">0.05</span>)</span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'SkillValueCategories'</span>,y<span class="op">=</span><span class="st">'logValue'</span>,color<span class="op">=</span><span class="st">'Position'</span>))</span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'SkillTypeCategories'</span>)</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> (fig <span class="op">+</span> point <span class="op">+</span> smooth <span class="op">+</span> facet).draw()</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>fig.set_dpi(<span class="dv">150</span>)</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">8</span>,<span class="dv">5</span>)</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"Position=='FORWARD' or Position=='DEFENDER'"</span>))</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'SkillValueCategories'</span>,y<span class="op">=</span><span class="st">'logValue'</span>,color<span class="op">=</span><span class="st">'Position'</span>),alpha<span class="op">=</span><span class="fl">0.05</span>,size<span class="op">=</span><span class="fl">0.05</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'SkillValueCategories'</span>,y<span class="op">=</span><span class="st">'logValue'</span>,color<span class="op">=</span><span class="st">'Position'</span>))</span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'SkillTypeCategories'</span>)</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> (fig <span class="op">+</span> point <span class="op">+</span> smooth <span class="op">+</span> facet).draw()</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>fig.set_dpi(<span class="dv">150</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">8</span>,<span class="dv">5</span>)</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1351,7 +1365,7 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 </div>
 <div class="callout-body-container callout-body">
 <p>많은 학생들이 지적하였는데요, 이 문제의 경우는 각 능력치 통합에 필요한 열의 개수가 차이가 있어서 문제예시에 표현된 데이터프레임을 그대로 사용하기 보다 <code>SkillType</code>, <code>SkillValue</code> 열을 제거한뒤 중복된 row를 제거하고 시각화하는 것이 더 올바릅니다. 즉 표에 보이는 데이터가 <code>tidydata</code>로 되어있다면</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>tidydata.drop([<span class="st">'SkillType'</span>,<span class="st">'SkillValue'</span>],axis<span class="op">=</span><span class="dv">1</span>).drop_duplicates() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>tidydata.drop([<span class="st">'SkillType'</span>,<span class="st">'SkillValue'</span>],axis<span class="op">=</span><span class="dv">1</span>).drop_duplicates() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>와 같이 변환해준뒤에 시각화를 하는게 더 정확합니다.</p>
 <p>제가 문제를 낼때</p>
 <p><span class="math display">\[14.250 = \frac{\text{259646선수의 Aggression}+\dots+\text{259646선수의 SlidingTackle}}{4}=\frac{24+6+14+13}{4} \]</span></p>
@@ -1361,57 +1375,65 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <hr>
 <p><code>(풀이1)</code></p>
 <div id="2a5b0594-c955-4ec2-9f48-0e25f98a675d" class="cell" data-tags="[]" data-execution_count="289">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>big <span class="op">=</span> df.assign(</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>).<span class="bu">eval</span>(<span class="st">'logValue=log(Value)'</span>)<span class="op">\</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'ID'</span>,<span class="st">'Position'</span>,<span class="st">'logValue'</span>]<span class="op">+</span>abilities_list]<span class="op">\</span></span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>.melt(id_vars<span class="op">=</span>[<span class="st">'Position'</span>,<span class="st">'ID'</span>,<span class="st">'logValue'</span>])<span class="op">\</span></span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>.rename({<span class="st">'variable'</span>:<span class="st">'SkillType'</span>,<span class="st">'value'</span>:<span class="st">'SkillValue'</span>},axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>.assign(</span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>     SkillTypeCategories <span class="op">=</span> <span class="kw">lambda</span> df: df.SkillType.<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> abilities_categories.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop())</span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>small <span class="op">=</span> big.groupby([<span class="st">'ID'</span>,<span class="st">'SkillTypeCategories'</span>]).agg({<span class="st">'SkillValue'</span>:<span class="st">'mean'</span>},axis<span class="op">=</span><span class="dv">1</span>).reset_index().rename({<span class="st">'SkillValue'</span>:<span class="st">'SkillValueCategories'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> big.merge(small)<span class="co">#.drop(['SkillType','SkillValue'],axis=1).drop_duplicates() </span></span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"Position=='FORWARD' or Position=='DEFENDER'"</span>))</span>
-<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'SkillValueCategories'</span>,y<span class="op">=</span><span class="st">'logValue'</span>,color<span class="op">=</span><span class="st">'Position'</span>),alpha<span class="op">=</span><span class="fl">0.05</span>,size<span class="op">=</span><span class="fl">0.05</span>)</span>
-<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'SkillValueCategories'</span>,y<span class="op">=</span><span class="st">'logValue'</span>,color<span class="op">=</span><span class="st">'Position'</span>))</span>
-<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'SkillTypeCategories'</span>)</span>
-<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> (fig <span class="op">+</span> point <span class="op">+</span> smooth <span class="op">+</span> facet).draw()</span>
-<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>fig.set_dpi(<span class="dv">150</span>)</span>
-<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">8</span>,<span class="dv">5</span>)</span>
-<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>big <span class="op">=</span> df.assign(</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>).<span class="bu">eval</span>(<span class="st">'logValue=log(Value)'</span>)<span class="op">\</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'ID'</span>,<span class="st">'Position'</span>,<span class="st">'logValue'</span>]<span class="op">+</span>abilities_list]<span class="op">\</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>.melt(id_vars<span class="op">=</span>[<span class="st">'Position'</span>,<span class="st">'ID'</span>,<span class="st">'logValue'</span>])<span class="op">\</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>.rename({<span class="st">'variable'</span>:<span class="st">'SkillType'</span>,<span class="st">'value'</span>:<span class="st">'SkillValue'</span>},axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>.assign(</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>     SkillTypeCategories <span class="op">=</span> <span class="kw">lambda</span> df: df.SkillType.<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> abilities_categories.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop())</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>small <span class="op">=</span> big.groupby([<span class="st">'ID'</span>,<span class="st">'SkillTypeCategories'</span>]).agg({<span class="st">'SkillValue'</span>:<span class="st">'mean'</span>},axis<span class="op">=</span><span class="dv">1</span>).reset_index().rename({<span class="st">'SkillValue'</span>:<span class="st">'SkillValueCategories'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> big.merge(small)<span class="co">#.drop(['SkillType','SkillValue'],axis=1).drop_duplicates() </span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"Position=='FORWARD' or Position=='DEFENDER'"</span>))</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'SkillValueCategories'</span>,y<span class="op">=</span><span class="st">'logValue'</span>,color<span class="op">=</span><span class="st">'Position'</span>),alpha<span class="op">=</span><span class="fl">0.05</span>,size<span class="op">=</span><span class="fl">0.05</span>)</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'SkillValueCategories'</span>,y<span class="op">=</span><span class="st">'logValue'</span>,color<span class="op">=</span><span class="st">'Position'</span>))</span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'SkillTypeCategories'</span>)</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> (fig <span class="op">+</span> point <span class="op">+</span> smooth <span class="op">+</span> facet).draw()</span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>fig.set_dpi(<span class="dv">150</span>)</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">8</span>,<span class="dv">5</span>)</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="289">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-23-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-23-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p><code>(풀이2)</code> – merge를 죽어도 쓰기 싫다면..</p>
 <div id="d56e3f8e-e46e-4165-a83d-8fbeb035926a" class="cell" data-tags="[]" data-execution_count="257">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.assign(</span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>).<span class="bu">eval</span>(<span class="st">'logValue=log(Value)'</span>)<span class="op">\</span></span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'ID'</span>,<span class="st">'Position'</span>,<span class="st">'logValue'</span>]<span class="op">+</span>abilities_list]<span class="op">\</span></span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>.melt(id_vars<span class="op">=</span>[<span class="st">'Position'</span>,<span class="st">'ID'</span>,<span class="st">'logValue'</span>])<span class="op">\</span></span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>.rename({<span class="st">'variable'</span>:<span class="st">'SkillType'</span>,<span class="st">'value'</span>:<span class="st">'SkillValue'</span>},axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>.assign(</span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>     SkillTypeCategories <span class="op">=</span> <span class="kw">lambda</span> df: df.SkillType.<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> abilities_categories.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop())</span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>).pivot_table(index<span class="op">=</span>[<span class="st">'ID'</span>,<span class="st">'logValue'</span>,<span class="st">'Position'</span>,<span class="st">'SkillTypeCategories'</span>],values<span class="op">=</span><span class="st">'SkillValue'</span>)<span class="op">\</span></span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>.reset_index().rename({<span class="st">'SkillValue'</span>:<span class="st">'SkillValueCategories'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"Position=='FORWARD' or Position=='DEFENDER'"</span>))</span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'SkillValueCategories'</span>,y<span class="op">=</span><span class="st">'logValue'</span>,color<span class="op">=</span><span class="st">'Position'</span>),alpha<span class="op">=</span><span class="fl">0.3</span>,size<span class="op">=</span><span class="fl">0.05</span>)</span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'SkillValueCategories'</span>,y<span class="op">=</span><span class="st">'logValue'</span>,color<span class="op">=</span><span class="st">'Position'</span>))</span>
-<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'SkillTypeCategories'</span>)</span>
-<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> (fig <span class="op">+</span> point <span class="op">+</span> smooth <span class="op">+</span> facet).draw()</span>
-<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>fig.set_dpi(<span class="dv">150</span>)</span>
-<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">8</span>,<span class="dv">5</span>)</span>
-<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.assign(</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>).<span class="bu">eval</span>(<span class="st">'logValue=log(Value)'</span>)<span class="op">\</span></span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'ID'</span>,<span class="st">'Position'</span>,<span class="st">'logValue'</span>]<span class="op">+</span>abilities_list]<span class="op">\</span></span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>.melt(id_vars<span class="op">=</span>[<span class="st">'Position'</span>,<span class="st">'ID'</span>,<span class="st">'logValue'</span>])<span class="op">\</span></span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>.rename({<span class="st">'variable'</span>:<span class="st">'SkillType'</span>,<span class="st">'value'</span>:<span class="st">'SkillValue'</span>},axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>.assign(</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>     SkillTypeCategories <span class="op">=</span> <span class="kw">lambda</span> df: df.SkillType.<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> abilities_categories.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop())</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>).pivot_table(index<span class="op">=</span>[<span class="st">'ID'</span>,<span class="st">'logValue'</span>,<span class="st">'Position'</span>,<span class="st">'SkillTypeCategories'</span>],values<span class="op">=</span><span class="st">'SkillValue'</span>)<span class="op">\</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>.reset_index().rename({<span class="st">'SkillValue'</span>:<span class="st">'SkillValueCategories'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"Position=='FORWARD' or Position=='DEFENDER'"</span>))</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>point <span class="op">=</span> geom_point(aes(x<span class="op">=</span><span class="st">'SkillValueCategories'</span>,y<span class="op">=</span><span class="st">'logValue'</span>,color<span class="op">=</span><span class="st">'Position'</span>),alpha<span class="op">=</span><span class="fl">0.3</span>,size<span class="op">=</span><span class="fl">0.05</span>)</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>smooth <span class="op">=</span> geom_smooth(aes(x<span class="op">=</span><span class="st">'SkillValueCategories'</span>,y<span class="op">=</span><span class="st">'logValue'</span>,color<span class="op">=</span><span class="st">'Position'</span>))</span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'SkillTypeCategories'</span>)</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> (fig <span class="op">+</span> point <span class="op">+</span> smooth <span class="op">+</span> facet).draw()</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>fig.set_dpi(<span class="dv">150</span>)</span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">8</span>,<span class="dv">5</span>)</span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="257">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-24-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-24-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1423,65 +1445,73 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <p><strong>세부지침</strong></p>
 <p><code>1</code>. <code>logValue</code>는 <code>pd.qcut</code>을 이용하여 분할하고 이때 <code>q=10</code>으로 설정하라.</p>
 <p><code>2</code>. 시각화를 위해 아래의 코드를 사용하라.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"Position=='FORWARD'"</span>)) </span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'logValueCut'</span>,y<span class="op">=</span><span class="st">'SkillValueCategories'</span>,fill<span class="op">=</span><span class="st">'logValueCut'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'SkillTypeCategories'</span>)</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> (fig <span class="op">+</span> col <span class="op">+</span> facet <span class="op">+</span> theme(axis_text_x<span class="op">=</span>element_blank(), axis_ticks<span class="op">=</span>element_blank())).draw()</span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>fig.set_dpi(<span class="dv">150</span>)</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">8</span>,<span class="dv">5</span>)</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"Position=='FORWARD'"</span>)) </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'logValueCut'</span>,y<span class="op">=</span><span class="st">'SkillValueCategories'</span>,fill<span class="op">=</span><span class="st">'logValueCut'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'SkillTypeCategories'</span>)</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> (fig <span class="op">+</span> col <span class="op">+</span> facet <span class="op">+</span> theme(axis_text_x<span class="op">=</span>element_blank(), axis_ticks<span class="op">=</span>element_blank())).draw()</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>fig.set_dpi(<span class="dv">150</span>)</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">8</span>,<span class="dv">5</span>)</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <hr>
 <p><code>(풀이1)</code></p>
 <div id="c57626b1-00c4-4c66-92b8-925b70e2d093" class="cell" data-tags="[]" data-execution_count="280">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>big <span class="op">=</span> df.assign(</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>).assign(logValueCut<span class="op">=</span> <span class="kw">lambda</span> df: pd.qcut(np.log(df.Value),q<span class="op">=</span><span class="dv">10</span>))<span class="op">\</span></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'ID'</span>,<span class="st">'Position'</span>,<span class="st">'logValueCut'</span>]<span class="op">+</span>abilities_list]<span class="op">\</span></span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>.melt(id_vars<span class="op">=</span>[<span class="st">'Position'</span>,<span class="st">'ID'</span>,<span class="st">'logValueCut'</span>])<span class="op">\</span></span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>.rename({<span class="st">'variable'</span>:<span class="st">'SkillType'</span>,<span class="st">'value'</span>:<span class="st">'SkillValue'</span>},axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>.assign(</span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>     SkillTypeCategories <span class="op">=</span> <span class="kw">lambda</span> df: df.SkillType.<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> abilities_categories.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop())</span>
-<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>small <span class="op">=</span> big.groupby([<span class="st">'ID'</span>,<span class="st">'SkillTypeCategories'</span>]).agg({<span class="st">'SkillValue'</span>:<span class="st">'mean'</span>}).reset_index().rename({<span class="st">'SkillValue'</span>:<span class="st">'SkillValueCategories'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> big.merge(small)<span class="co">#.drop(['SkillType','SkillValue'],axis=1).drop_duplicates()</span></span>
-<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
-<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"Position=='FORWARD'"</span>)) </span>
-<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'logValueCut'</span>,y<span class="op">=</span><span class="st">'SkillValueCategories'</span>,fill<span class="op">=</span><span class="st">'logValueCut'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span>
-<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'SkillTypeCategories'</span>)</span>
-<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> (fig <span class="op">+</span> col <span class="op">+</span> facet <span class="op">+</span> theme(axis_text_x<span class="op">=</span>element_blank(), axis_ticks<span class="op">=</span>element_blank())).draw()</span>
-<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a>fig.set_dpi(<span class="dv">150</span>)</span>
-<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">8</span>,<span class="dv">5</span>)</span>
-<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>big <span class="op">=</span> df.assign(</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>).assign(logValueCut<span class="op">=</span> <span class="kw">lambda</span> df: pd.qcut(np.log(df.Value),q<span class="op">=</span><span class="dv">10</span>))<span class="op">\</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'ID'</span>,<span class="st">'Position'</span>,<span class="st">'logValueCut'</span>]<span class="op">+</span>abilities_list]<span class="op">\</span></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>.melt(id_vars<span class="op">=</span>[<span class="st">'Position'</span>,<span class="st">'ID'</span>,<span class="st">'logValueCut'</span>])<span class="op">\</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>.rename({<span class="st">'variable'</span>:<span class="st">'SkillType'</span>,<span class="st">'value'</span>:<span class="st">'SkillValue'</span>},axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
+<span id="cb36-9"><a href="#cb36-9" aria-hidden="true" tabindex="-1"></a>.assign(</span>
+<span id="cb36-10"><a href="#cb36-10" aria-hidden="true" tabindex="-1"></a>     SkillTypeCategories <span class="op">=</span> <span class="kw">lambda</span> df: df.SkillType.<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> abilities_categories.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop())</span>
+<span id="cb36-11"><a href="#cb36-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb36-12"><a href="#cb36-12" aria-hidden="true" tabindex="-1"></a>small <span class="op">=</span> big.groupby([<span class="st">'ID'</span>,<span class="st">'SkillTypeCategories'</span>]).agg({<span class="st">'SkillValue'</span>:<span class="st">'mean'</span>}).reset_index().rename({<span class="st">'SkillValue'</span>:<span class="st">'SkillValueCategories'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb36-13"><a href="#cb36-13" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> big.merge(small)<span class="co">#.drop(['SkillType','SkillValue'],axis=1).drop_duplicates()</span></span>
+<span id="cb36-14"><a href="#cb36-14" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb36-15"><a href="#cb36-15" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"Position=='FORWARD'"</span>)) </span>
+<span id="cb36-16"><a href="#cb36-16" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'logValueCut'</span>,y<span class="op">=</span><span class="st">'SkillValueCategories'</span>,fill<span class="op">=</span><span class="st">'logValueCut'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span>
+<span id="cb36-17"><a href="#cb36-17" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'SkillTypeCategories'</span>)</span>
+<span id="cb36-18"><a href="#cb36-18" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> (fig <span class="op">+</span> col <span class="op">+</span> facet <span class="op">+</span> theme(axis_text_x<span class="op">=</span>element_blank(), axis_ticks<span class="op">=</span>element_blank())).draw()</span>
+<span id="cb36-19"><a href="#cb36-19" aria-hidden="true" tabindex="-1"></a>fig.set_dpi(<span class="dv">150</span>)</span>
+<span id="cb36-20"><a href="#cb36-20" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">8</span>,<span class="dv">5</span>)</span>
+<span id="cb36-21"><a href="#cb36-21" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="280">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-25-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p><code>(풀이2)</code> – merge를 죽어도 쓰기 싫다면..</p>
 <div id="c5166df9-0211-4be0-9c14-3780bd9a3baa" class="cell" data-tags="[]" data-execution_count="288">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.assign(</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>).assign(logValueCut<span class="op">=</span> <span class="kw">lambda</span> df: pd.qcut(np.log(df.Value),q<span class="op">=</span><span class="dv">10</span>))<span class="op">\</span></span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'ID'</span>,<span class="st">'Position'</span>,<span class="st">'logValueCut'</span>]<span class="op">+</span>abilities_list]<span class="op">\</span></span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>.melt(id_vars<span class="op">=</span>[<span class="st">'Position'</span>,<span class="st">'ID'</span>,<span class="st">'logValueCut'</span>])<span class="op">\</span></span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>.rename({<span class="st">'variable'</span>:<span class="st">'SkillType'</span>,<span class="st">'value'</span>:<span class="st">'SkillValue'</span>},axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
-<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>.assign(</span>
-<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>     SkillTypeCategories <span class="op">=</span> <span class="kw">lambda</span> df: df.SkillType.<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> abilities_categories.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop())</span>
-<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>).pivot_table(index<span class="op">=</span>[<span class="st">'ID'</span>,<span class="st">'Position'</span>,<span class="st">'logValueCut'</span>,<span class="st">'SkillTypeCategories'</span>],values<span class="op">=</span><span class="st">'SkillValue'</span>)<span class="op">\</span></span>
-<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>.reset_index().rename({<span class="st">'SkillValue'</span>:<span class="st">'SkillValueCategories'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
-<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"Position=='FORWARD'"</span>)) </span>
-<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'logValueCut'</span>,y<span class="op">=</span><span class="st">'SkillValueCategories'</span>,fill<span class="op">=</span><span class="st">'logValueCut'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span>
-<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'SkillTypeCategories'</span>)</span>
-<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> (fig <span class="op">+</span> col <span class="op">+</span> facet <span class="op">+</span> theme(axis_text_x<span class="op">=</span>element_blank(), axis_ticks<span class="op">=</span>element_blank())).draw()</span>
-<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>fig.set_dpi(<span class="dv">150</span>)</span>
-<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">8</span>,<span class="dv">5</span>)</span>
-<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.assign(</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>    Position <span class="op">=</span> df.Position.<span class="bu">str</span>.split(<span class="st">'&gt;'</span>).<span class="bu">str</span>[<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> position_dict.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop()),</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    Value <span class="op">=</span> df.Value.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>),</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    Wage <span class="op">=</span> df.Wage.<span class="bu">str</span>[<span class="dv">1</span>:].<span class="bu">str</span>.replace(<span class="st">'M'</span>,<span class="st">'*1000000'</span>).<span class="bu">str</span>.replace(<span class="st">'K'</span>,<span class="st">'*1000'</span>).<span class="bu">apply</span>(<span class="bu">eval</span>)</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>).assign(logValueCut<span class="op">=</span> <span class="kw">lambda</span> df: pd.qcut(np.log(df.Value),q<span class="op">=</span><span class="dv">10</span>))<span class="op">\</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>.loc[:,[<span class="st">'ID'</span>,<span class="st">'Position'</span>,<span class="st">'logValueCut'</span>]<span class="op">+</span>abilities_list]<span class="op">\</span></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>.melt(id_vars<span class="op">=</span>[<span class="st">'Position'</span>,<span class="st">'ID'</span>,<span class="st">'logValueCut'</span>])<span class="op">\</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>.rename({<span class="st">'variable'</span>:<span class="st">'SkillType'</span>,<span class="st">'value'</span>:<span class="st">'SkillValue'</span>},axis<span class="op">=</span><span class="dv">1</span>)<span class="op">\</span></span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>.assign(</span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>     SkillTypeCategories <span class="op">=</span> <span class="kw">lambda</span> df: df.SkillType.<span class="bu">apply</span>(<span class="kw">lambda</span> x: [k <span class="cf">for</span> k,v <span class="kw">in</span> abilities_categories.items() <span class="cf">if</span> x <span class="kw">in</span> v].pop())</span>
+<span id="cb37-11"><a href="#cb37-11" aria-hidden="true" tabindex="-1"></a>).pivot_table(index<span class="op">=</span>[<span class="st">'ID'</span>,<span class="st">'Position'</span>,<span class="st">'logValueCut'</span>,<span class="st">'SkillTypeCategories'</span>],values<span class="op">=</span><span class="st">'SkillValue'</span>)<span class="op">\</span></span>
+<span id="cb37-12"><a href="#cb37-12" aria-hidden="true" tabindex="-1"></a>.reset_index().rename({<span class="st">'SkillValue'</span>:<span class="st">'SkillValueCategories'</span>},axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb37-13"><a href="#cb37-13" aria-hidden="true" tabindex="-1"></a><span class="co">#---#</span></span>
+<span id="cb37-14"><a href="#cb37-14" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> ggplot(tidydata.query(<span class="st">"Position=='FORWARD'"</span>)) </span>
+<span id="cb37-15"><a href="#cb37-15" aria-hidden="true" tabindex="-1"></a>col <span class="op">=</span> geom_col(aes(x<span class="op">=</span><span class="st">'logValueCut'</span>,y<span class="op">=</span><span class="st">'SkillValueCategories'</span>,fill<span class="op">=</span><span class="st">'logValueCut'</span>),position<span class="op">=</span><span class="st">'dodge'</span>)</span>
+<span id="cb37-16"><a href="#cb37-16" aria-hidden="true" tabindex="-1"></a>facet <span class="op">=</span> facet_wrap(<span class="st">'SkillTypeCategories'</span>)</span>
+<span id="cb37-17"><a href="#cb37-17" aria-hidden="true" tabindex="-1"></a>fig <span class="op">=</span> (fig <span class="op">+</span> col <span class="op">+</span> facet <span class="op">+</span> theme(axis_text_x<span class="op">=</span>element_blank(), axis_ticks<span class="op">=</span>element_blank())).draw()</span>
+<span id="cb37-18"><a href="#cb37-18" aria-hidden="true" tabindex="-1"></a>fig.set_dpi(<span class="dv">150</span>)</span>
+<span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>fig.set_size_inches(<span class="dv">8</span>,<span class="dv">5</span>)</span>
+<span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>fig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="288">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-26-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 </section>
@@ -1492,13 +1522,13 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <h2 class="anchored" data-anchor-id="심슨의-역설-10점"><code>(1)</code> 심슨의 역설 – 10점</h2>
 <p>다음은 농구선수 A,B 의 시즌별 자유투 성공률이다.</p>
 <div id="ebb96aa4-daa2-428a-a527-0a9d96409d77" class="cell" data-tags="[]" data-execution_count="784">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Player'</span>: [<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>], </span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Season'</span>: [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>]<span class="op">*</span><span class="dv">2</span>,</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Status'</span>: [<span class="st">'Success'</span>,<span class="st">'Failure'</span>]<span class="op">*</span><span class="dv">4</span>,</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Count'</span>: [<span class="dv">7</span>,<span class="dv">3</span>,<span class="va">None</span>,<span class="va">None</span>,<span class="va">None</span>,<span class="va">None</span>,<span class="dv">4</span>,<span class="dv">0</span>]</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Player'</span>: [<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>], </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Season'</span>: [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>]<span class="op">*</span><span class="dv">2</span>,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Status'</span>: [<span class="st">'Success'</span>,<span class="st">'Failure'</span>]<span class="op">*</span><span class="dv">4</span>,</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Count'</span>: [<span class="dv">7</span>,<span class="dv">3</span>,<span class="va">None</span>,<span class="va">None</span>,<span class="va">None</span>,<span class="va">None</span>,<span class="dv">4</span>,<span class="dv">0</span>]</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="784">
 <div>
 
@@ -1580,15 +1610,15 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <p><code>(풀이)</code></p>
 <p><strong><em>Step1: 예시만들기</em></strong></p>
 <div id="23236547-2881-4053-a8a3-ee8740c6c0f2" class="cell" data-tags="[]" data-execution_count="338">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Player'</span>: [<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>], </span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Season'</span>: [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>]<span class="op">*</span><span class="dv">2</span>,</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Status'</span>: [<span class="st">'Success'</span>,<span class="st">'Failure'</span>]<span class="op">*</span><span class="dv">4</span>,</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Count'</span>: [<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">950</span>,<span class="dv">50</span>,<span class="dv">8</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">0</span>]</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame({</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Player'</span>: [<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'A'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>,<span class="st">'B'</span>], </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Season'</span>: [<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>]<span class="op">*</span><span class="dv">2</span>,</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Status'</span>: [<span class="st">'Success'</span>,<span class="st">'Failure'</span>]<span class="op">*</span><span class="dv">4</span>,</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Count'</span>: [<span class="dv">7</span>,<span class="dv">3</span>,<span class="dv">950</span>,<span class="dv">50</span>,<span class="dv">8</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">0</span>]</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div id="9468e3c4-12a9-4ccd-b754-26dde97e9cb6" class="cell" data-tags="[]" data-execution_count="339">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span><span class="st">'Player'</span>,columns<span class="op">=</span>[<span class="st">'Season'</span>,<span class="st">'Status'</span>],values<span class="op">=</span><span class="st">'Count'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df.pivot_table(index<span class="op">=</span><span class="st">'Player'</span>,columns<span class="op">=</span>[<span class="st">'Season'</span>,<span class="st">'Status'</span>],values<span class="op">=</span><span class="st">'Count'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="339">
 <div>
 
@@ -1638,65 +1668,71 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 </div>
 <p>시즌별 성공률은 A가 낮지만</p>
 <div id="b73942df-fe52-4bb3-affd-2c664bf9686b" class="cell" data-tags="[]" data-execution_count="357">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시즌1</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>{<span class="st">'A'</span>:<span class="dv">7</span><span class="op">/</span>(<span class="dv">3</span><span class="op">+</span><span class="dv">7</span>), <span class="st">'B'</span>:<span class="dv">8</span><span class="op">/</span>(<span class="dv">2</span><span class="op">+</span><span class="dv">8</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시즌1</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>{<span class="st">'A'</span>:<span class="dv">7</span><span class="op">/</span>(<span class="dv">3</span><span class="op">+</span><span class="dv">7</span>), <span class="st">'B'</span>:<span class="dv">8</span><span class="op">/</span>(<span class="dv">2</span><span class="op">+</span><span class="dv">8</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="357">
 <pre><code>{'A': 0.7, 'B': 0.8}</code></pre>
 </div>
 </div>
 <div id="ea31d516-1f6d-46d0-9715-ddff0eba13b1" class="cell" data-tags="[]" data-execution_count="358">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시즌2</span></span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>{<span class="st">'A'</span>:<span class="dv">950</span><span class="op">/</span>(<span class="dv">50</span><span class="op">+</span><span class="dv">950</span>), <span class="st">'B'</span>:<span class="dv">4</span><span class="op">/</span>(<span class="dv">0</span><span class="op">+</span><span class="dv">4</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 시즌2</span></span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>{<span class="st">'A'</span>:<span class="dv">950</span><span class="op">/</span>(<span class="dv">50</span><span class="op">+</span><span class="dv">950</span>), <span class="st">'B'</span>:<span class="dv">4</span><span class="op">/</span>(<span class="dv">0</span><span class="op">+</span><span class="dv">4</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="358">
 <pre><code>{'A': 0.95, 'B': 1.0}</code></pre>
 </div>
 </div>
 <p>전체 성공률은 A가 높다.</p>
 <div id="9ac4756d-49a5-4953-94cc-827bf8f4cee0" class="cell" data-tags="[]" data-execution_count="359">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">'A'</span>:(<span class="dv">7</span><span class="op">+</span><span class="dv">950</span>)<span class="op">/</span>(<span class="dv">3</span><span class="op">+</span><span class="dv">7</span><span class="op">+</span><span class="dv">50</span><span class="op">+</span><span class="dv">950</span>), <span class="st">'B'</span>:(<span class="dv">8</span><span class="op">+</span><span class="dv">4</span>)<span class="op">/</span>(<span class="dv">2</span><span class="op">+</span><span class="dv">8</span><span class="op">+</span><span class="dv">0</span><span class="op">+</span><span class="dv">4</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>{<span class="st">'A'</span>:(<span class="dv">7</span><span class="op">+</span><span class="dv">950</span>)<span class="op">/</span>(<span class="dv">3</span><span class="op">+</span><span class="dv">7</span><span class="op">+</span><span class="dv">50</span><span class="op">+</span><span class="dv">950</span>), <span class="st">'B'</span>:(<span class="dv">8</span><span class="op">+</span><span class="dv">4</span>)<span class="op">/</span>(<span class="dv">2</span><span class="op">+</span><span class="dv">8</span><span class="op">+</span><span class="dv">0</span><span class="op">+</span><span class="dv">4</span>)}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="359">
 <pre><code>{'A': 0.9475247524752475, 'B': 0.8571428571428571}</code></pre>
 </div>
 </div>
 <p><strong><em>Step2: 시각화</em></strong></p>
 <div id="5d9ae22f-71ef-472e-8919-387efc8dc825" class="cell" data-tags="[]" data-execution_count="344">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.pivot_table(index<span class="op">=</span>[<span class="st">'Player'</span>,<span class="st">'Season'</span>],columns<span class="op">=</span><span class="st">'Status'</span>,values<span class="op">=</span><span class="st">'Count'</span>)<span class="op">\</span></span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>.<span class="bu">eval</span>(<span class="st">'Rate = Success/(Failure+Success)'</span>)[<span class="st">'Rate'</span>].reset_index()</span>
-<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>ggplot(tidydata) <span class="op">+</span> geom_col(aes(x<span class="op">=</span><span class="st">'Player'</span>,y<span class="op">=</span><span class="st">'Rate'</span>,fill<span class="op">=</span><span class="st">'Player'</span>))<span class="op">+</span>facet_wrap(<span class="st">'Season'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.pivot_table(index<span class="op">=</span>[<span class="st">'Player'</span>,<span class="st">'Season'</span>],columns<span class="op">=</span><span class="st">'Status'</span>,values<span class="op">=</span><span class="st">'Count'</span>)<span class="op">\</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>.<span class="bu">eval</span>(<span class="st">'Rate = Success/(Failure+Success)'</span>)[<span class="st">'Rate'</span>].reset_index()</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>ggplot(tidydata) <span class="op">+</span> geom_col(aes(x<span class="op">=</span><span class="st">'Player'</span>,y<span class="op">=</span><span class="st">'Rate'</span>,fill<span class="op">=</span><span class="st">'Player'</span>))<span class="op">+</span>facet_wrap(<span class="st">'Season'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-33-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-33-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="344">
-<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 <div id="2a110e09-9c38-4387-8aa5-3088d0578edd" class="cell" data-tags="[]" data-execution_count="347">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.pivot_table(index<span class="op">=</span><span class="st">'Player'</span>,columns<span class="op">=</span><span class="st">'Status'</span>,values<span class="op">=</span><span class="st">'Count'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>)<span class="op">\</span></span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>.<span class="bu">eval</span>(<span class="st">'Rate = Success/(Failure+Success)'</span>)[<span class="st">'Rate'</span>].reset_index()</span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>tidydata</span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>ggplot(tidydata) <span class="op">+</span> geom_col(aes(x<span class="op">=</span><span class="st">'Player'</span>,y<span class="op">=</span><span class="st">'Rate'</span>,fill<span class="op">=</span><span class="st">'Player'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>tidydata <span class="op">=</span> df.pivot_table(index<span class="op">=</span><span class="st">'Player'</span>,columns<span class="op">=</span><span class="st">'Status'</span>,values<span class="op">=</span><span class="st">'Count'</span>,aggfunc<span class="op">=</span><span class="st">'sum'</span>)<span class="op">\</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>.<span class="bu">eval</span>(<span class="st">'Rate = Success/(Failure+Success)'</span>)[<span class="st">'Rate'</span>].reset_index()</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>tidydata</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>ggplot(tidydata) <span class="op">+</span> geom_col(aes(x<span class="op">=</span><span class="st">'Player'</span>,y<span class="op">=</span><span class="st">'Rate'</span>,fill<span class="op">=</span><span class="st">'Player'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-34-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-34-output-1.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="347">
-<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 </section>
 <section id="histogram-equalization-5점" class="level2">
 <h2 class="anchored" data-anchor-id="histogram-equalization-5점"><code>(2)</code> Histogram Equalization – 5점</h2>
 <div id="b0e92d13-8f23-4190-8820-f09ce79fc2ee" class="cell" data-tags="[]" data-execution_count="22">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Unequalized_Hawkes_Bay_NZ.jpg/300px-Unequalized_Hawkes_Bay_NZ.jpg'</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>img_before <span class="op">=</span> np.array(PIL.Image.<span class="bu">open</span>(io.BytesIO(requests.get(url).content)))</span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>img_after <span class="op">=</span> cv2.equalizeHist(img_before)</span>
-<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].imshow(img_before,cmap<span class="op">=</span><span class="st">'gray'</span>,vmax<span class="op">=</span><span class="dv">255</span>,vmin<span class="op">=</span><span class="dv">0</span>)<span class="op">;</span> ax[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">"(a) before: image"</span>)</span>
-<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].imshow(img_after,cmap<span class="op">=</span><span class="st">'gray'</span>,vmax<span class="op">=</span><span class="dv">255</span>,vmin<span class="op">=</span><span class="dv">0</span>)<span class="op">;</span> ax[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">"(b) after: image"</span>)</span>
-<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].hist(img_before.reshape(<span class="op">-</span><span class="dv">1</span>), bins<span class="op">=</span><span class="dv">255</span>)<span class="op">;</span> ax[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">"(c) before: histogram"</span>)</span>
-<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].hist(img_after.reshape(<span class="op">-</span><span class="dv">1</span>), bins<span class="op">=</span><span class="dv">255</span>)<span class="op">;</span> ax[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">"(d) after: histogram"</span>)</span>
-<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>url <span class="op">=</span> <span class="st">'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Unequalized_Hawkes_Bay_NZ.jpg/300px-Unequalized_Hawkes_Bay_NZ.jpg'</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>img_before <span class="op">=</span> np.array(PIL.Image.<span class="bu">open</span>(io.BytesIO(requests.get(url).content)))</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>img_after <span class="op">=</span> cv2.equalizeHist(img_before)</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>fig,ax <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">0</span>].imshow(img_before,cmap<span class="op">=</span><span class="st">'gray'</span>,vmax<span class="op">=</span><span class="dv">255</span>,vmin<span class="op">=</span><span class="dv">0</span>)<span class="op">;</span> ax[<span class="dv">0</span>,<span class="dv">0</span>].set_title(<span class="st">"(a) before: image"</span>)</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>,<span class="dv">1</span>].imshow(img_after,cmap<span class="op">=</span><span class="st">'gray'</span>,vmax<span class="op">=</span><span class="dv">255</span>,vmin<span class="op">=</span><span class="dv">0</span>)<span class="op">;</span> ax[<span class="dv">0</span>,<span class="dv">1</span>].set_title(<span class="st">"(b) after: image"</span>)</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">0</span>].hist(img_before.reshape(<span class="op">-</span><span class="dv">1</span>), bins<span class="op">=</span><span class="dv">255</span>)<span class="op">;</span> ax[<span class="dv">1</span>,<span class="dv">0</span>].set_title(<span class="st">"(c) before: histogram"</span>)</span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>,<span class="dv">1</span>].hist(img_after.reshape(<span class="op">-</span><span class="dv">1</span>), bins<span class="op">=</span><span class="dv">255</span>)<span class="op">;</span> ax[<span class="dv">1</span>,<span class="dv">1</span>].set_title(<span class="st">"(d) after: histogram"</span>)</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-35-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-35-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>위의 그림을 올바르게 해석한 사람을 모두 고르라. (모두 맞출 경우만 정답으로 인정)</p>
@@ -1723,25 +1759,29 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <section id="엔스콤의-플랏-5점" class="level2">
 <h2 class="anchored" data-anchor-id="엔스콤의-플랏-5점"><code>(3)</code> 엔스콤의 플랏 – 5점</h2>
 <div id="a1602661-1b18-4c3d-80d2-c2052b98eb7e" class="cell" data-tags="[]" data-execution_count="24">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">5</span>]</span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> [<span class="fl">8.04</span>, <span class="fl">6.95</span>, <span class="fl">7.58</span>, <span class="fl">8.81</span>, <span class="fl">8.33</span>, <span class="fl">9.96</span>, <span class="fl">7.24</span>, <span class="fl">4.26</span>, <span class="fl">10.84</span>, <span class="fl">4.82</span>, <span class="fl">5.68</span>]</span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> [<span class="fl">9.14</span>, <span class="fl">8.14</span>, <span class="fl">8.74</span>, <span class="fl">8.77</span>, <span class="fl">9.26</span>, <span class="fl">8.10</span>, <span class="fl">6.13</span>, <span class="fl">3.10</span>, <span class="fl">9.13</span>, <span class="fl">7.26</span>, <span class="fl">4.74</span>]</span>
-<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>y3 <span class="op">=</span> [<span class="fl">7.46</span>, <span class="fl">6.77</span>, <span class="fl">12.74</span>, <span class="fl">7.11</span>, <span class="fl">7.81</span>, <span class="fl">8.84</span>, <span class="fl">6.08</span>, <span class="fl">5.39</span>, <span class="fl">8.15</span>, <span class="fl">6.42</span>, <span class="fl">5.73</span>]</span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>x4 <span class="op">=</span> [<span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">19</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>]</span>
-<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>y4 <span class="op">=</span> [<span class="fl">6.58</span>, <span class="fl">5.76</span>, <span class="fl">7.71</span>, <span class="fl">8.84</span>, <span class="fl">8.47</span>, <span class="fl">7.04</span>, <span class="fl">5.25</span>, <span class="fl">12.50</span>, <span class="fl">5.56</span>, <span class="fl">7.91</span>, <span class="fl">6.89</span>]</span>
-<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>fig, ((ax1,ax2),(ax3,ax4)) <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x,y1,<span class="st">'.'</span>) </span>
-<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"(a)"</span>)</span>
-<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>ax2.plot(x,y2,<span class="st">'.'</span>) </span>
-<span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"(b)"</span>)</span>
-<span id="cb59-12"><a href="#cb59-12" aria-hidden="true" tabindex="-1"></a>ax3.plot(x,y3,<span class="st">'.'</span>)<span class="op">;</span> ax3.plot(x[<span class="dv">2</span>],y3[<span class="dv">2</span>],<span class="st">'o'</span>,color<span class="op">=</span><span class="st">'C1'</span>) </span>
-<span id="cb59-13"><a href="#cb59-13" aria-hidden="true" tabindex="-1"></a>ax3.set_title(<span class="st">"(c)"</span>)</span>
-<span id="cb59-14"><a href="#cb59-14" aria-hidden="true" tabindex="-1"></a>ax4.plot(x4,y4,<span class="st">'.'</span>)<span class="op">;</span> ax4.plot(x4[<span class="op">-</span><span class="dv">4</span>],y4[<span class="op">-</span><span class="dv">4</span>],<span class="st">'o'</span>,color<span class="op">=</span><span class="st">'C1'</span>)</span>
-<span id="cb59-15"><a href="#cb59-15" aria-hidden="true" tabindex="-1"></a>ax4.set_title(<span class="st">"(d)"</span>)</span>
-<span id="cb59-16"><a href="#cb59-16" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">"Anscombe's quartet"</span>,size<span class="op">=</span><span class="dv">15</span>)</span>
-<span id="cb59-17"><a href="#cb59-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> [<span class="dv">10</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">6</span>, <span class="dv">4</span>, <span class="dv">12</span>, <span class="dv">7</span>, <span class="dv">5</span>]</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>y1 <span class="op">=</span> [<span class="fl">8.04</span>, <span class="fl">6.95</span>, <span class="fl">7.58</span>, <span class="fl">8.81</span>, <span class="fl">8.33</span>, <span class="fl">9.96</span>, <span class="fl">7.24</span>, <span class="fl">4.26</span>, <span class="fl">10.84</span>, <span class="fl">4.82</span>, <span class="fl">5.68</span>]</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>y2 <span class="op">=</span> [<span class="fl">9.14</span>, <span class="fl">8.14</span>, <span class="fl">8.74</span>, <span class="fl">8.77</span>, <span class="fl">9.26</span>, <span class="fl">8.10</span>, <span class="fl">6.13</span>, <span class="fl">3.10</span>, <span class="fl">9.13</span>, <span class="fl">7.26</span>, <span class="fl">4.74</span>]</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>y3 <span class="op">=</span> [<span class="fl">7.46</span>, <span class="fl">6.77</span>, <span class="fl">12.74</span>, <span class="fl">7.11</span>, <span class="fl">7.81</span>, <span class="fl">8.84</span>, <span class="fl">6.08</span>, <span class="fl">5.39</span>, <span class="fl">8.15</span>, <span class="fl">6.42</span>, <span class="fl">5.73</span>]</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>x4 <span class="op">=</span> [<span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">19</span>, <span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">8</span>]</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>y4 <span class="op">=</span> [<span class="fl">6.58</span>, <span class="fl">5.76</span>, <span class="fl">7.71</span>, <span class="fl">8.84</span>, <span class="fl">8.47</span>, <span class="fl">7.04</span>, <span class="fl">5.25</span>, <span class="fl">12.50</span>, <span class="fl">5.56</span>, <span class="fl">7.91</span>, <span class="fl">6.89</span>]</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>fig, ((ax1,ax2),(ax3,ax4)) <span class="op">=</span> plt.subplots(<span class="dv">2</span>,<span class="dv">2</span>)</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>ax1.plot(x,y1,<span class="st">'.'</span>) </span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>ax1.set_title(<span class="st">"(a)"</span>)</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>ax2.plot(x,y2,<span class="st">'.'</span>) </span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>ax2.set_title(<span class="st">"(b)"</span>)</span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>ax3.plot(x,y3,<span class="st">'.'</span>)<span class="op">;</span> ax3.plot(x[<span class="dv">2</span>],y3[<span class="dv">2</span>],<span class="st">'o'</span>,color<span class="op">=</span><span class="st">'C1'</span>) </span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>ax3.set_title(<span class="st">"(c)"</span>)</span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>ax4.plot(x4,y4,<span class="st">'.'</span>)<span class="op">;</span> ax4.plot(x4[<span class="op">-</span><span class="dv">4</span>],y4[<span class="op">-</span><span class="dv">4</span>],<span class="st">'o'</span>,color<span class="op">=</span><span class="st">'C1'</span>)</span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>ax4.set_title(<span class="st">"(d)"</span>)</span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">"Anscombe's quartet"</span>,size<span class="op">=</span><span class="dv">15</span>)</span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-36-output-1.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-36-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
 </div>
 </div>
 <p>위의 그림을 올바르게 해석한 사람을 모두 고르라. (모두 맞출경우만 정답으로 인정)</p>
@@ -1768,10 +1808,10 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <section id="아이스크림을-많이-먹으면-걸리는-병-5점" class="level2">
 <h2 class="anchored" data-anchor-id="아이스크림을-많이-먹으면-걸리는-병-5점"><code>(4)</code> 아이스크림을 많이 먹으면 걸리는 병 – 5점</h2>
 <div id="19032366-cfb4-44fe-a0ee-33e09b749856" class="cell" data-tags="[]" data-execution_count="26">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/icecream.csv'</span>)</span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>ggplot(data<span class="op">=</span>df.assign(temp<span class="op">=</span>pd.cut(df.temp,[<span class="op">-</span>np.inf,<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">30</span>,np.inf])))<span class="op">\</span></span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a><span class="op">+</span>geom_point(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,color<span class="op">=</span><span class="st">'temp'</span>))<span class="op">\</span></span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="op">+</span>geom_smooth(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,color<span class="op">=</span><span class="st">'temp'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>df<span class="op">=</span>pd.read_csv(<span class="st">'https://raw.githubusercontent.com/guebin/DV2022/master/posts/icecream.csv'</span>)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>ggplot(data<span class="op">=</span>df.assign(temp<span class="op">=</span>pd.cut(df.temp,[<span class="op">-</span>np.inf,<span class="dv">0</span>,<span class="dv">5</span>,<span class="dv">10</span>,<span class="dv">15</span>,<span class="dv">20</span>,<span class="dv">25</span>,<span class="dv">30</span>,np.inf])))<span class="op">\</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="op">+</span>geom_point(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,color<span class="op">=</span><span class="st">'temp'</span>))<span class="op">\</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="op">+</span>geom_smooth(aes(x<span class="op">=</span><span class="st">'icecream'</span>,y<span class="op">=</span><span class="st">'disease'</span>,color<span class="op">=</span><span class="st">'temp'</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>/home/cgb2/anaconda3/envs/ag/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
 /home/cgb2/anaconda3/envs/ag/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.
@@ -1782,10 +1822,11 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 /home/cgb2/anaconda3/envs/ag/lib/python3.10/site-packages/plotnine/stats/smoothers.py:330: PlotnineWarning: Confidence intervals are not yet implemented for lowess smoothings.</code></pre>
 </div>
 <div class="cell-output cell-output-display">
-<p><img src="10wk-supp-mid-sol_files/figure-html/cell-37-output-2.png" class="img-fluid"></p>
+<div>
+<figure class="figure">
+<p><img src="10wk-supp-mid-sol_files/figure-html/cell-37-output-2.png" class="img-fluid figure-img"></p>
+</figure>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="26">
-<pre><code>&lt;Figure Size: (640 x 480)&gt;</code></pre>
 </div>
 </div>
 <p>아래의 그림을 보고 올바르게 해석한 사람을 모두 고르라. (모두 맞출경우만 정답으로 인정)</p>
@@ -1820,7 +1861,7 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="10wk-supp-mid-sol_files/figure-html/4853654b-9ddb-4965-bf42-c03b55a51155-1-e6dae371-9291-4628-8ae6-cd09d7b26d5a.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">4-(1)의 그림</figcaption>
+<figcaption class="margin-caption">4-(1)의 그림</figcaption>
 </figure>
 </div>
 <p><code>해석1</code>: 모든 포지션에 대하여, (Age,logValue)는 음의 상관계수값을 가지며 (Age,logWage)는 양의 상관계수값을 가진다.</p>
@@ -1828,7 +1869,7 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="10wk-supp-mid-sol_files/figure-html/29c4dc31-9970-43ff-bace-ee20ba8627cf-1-47d67bcc-5b2a-4448-87ff-7be1be2869d0.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">4-(2)의 그림</figcaption>
+<figcaption class="margin-caption">4-(2)의 그림</figcaption>
 </figure>
 </div>
 <p><code>해석2</code>: [GKDiving,…,GKReflexes]는 모두 logWage와 양의 상관계수값을 가진다.</p>
@@ -1836,7 +1877,7 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="10wk-supp-mid-sol_files/figure-html/704cc867-21d4-4992-b18b-d3dee98300c0-1-0781c708-d427-405c-afde-64ee6f729a44.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">4-(3)의 그림</figcaption>
+<figcaption class="margin-caption">4-(3)의 그림</figcaption>
 </figure>
 </div>
 <p><code>해석3</code>: GOALKEEPER 포지션의 경우 GKAbility를 이용하여 Overall을 추정하는 것이 합리적이지만 FORWARD 포지션의 경우 GKAbility를 이용하여 Overall을 추정하는 것은 합리적이지 않다.</p>
@@ -1844,7 +1885,7 @@ https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/Busan2021.csv<
 <div class="quarto-figure quarto-figure-center page-columns page-full">
 <figure class="figure page-columns page-full">
 <p><img src="10wk-supp-mid-sol_files/figure-html/3a7394db-c77e-434f-b1d0-4270c09b9cf9-1-d48e8b31-62d1-42d3-9bf5-ba93a2bb4df3.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption margin-caption">4-(4)의 그림</figcaption>
+<figcaption class="margin-caption">4-(4)의 그림</figcaption>
 </figure>
 </div>
 <p><code>해석4</code>: 수비수 포지션의 경우 FinishingSkills 과 logValue 사이의 상관계수 값은 거의 0에 가깝다.</p>
@@ -2000,15 +2041,45 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       }
     }
     stripColumnClz(note)
-    if (id.startsWith('sec-')) {
+    const typesetMath = (el) => {
+      if (window.MathJax) {
+        // MathJax Typeset
+        window.MathJax.typeset([el]);
+      } else if (window.katex) {
+        // KaTeX Render
+        var mathElements = el.getElementsByClassName("math");
+        var macros = [];
+        for (var i = 0; i < mathElements.length; i++) {
+          var texText = mathElements[i].firstChild;
+          if (mathElements[i].tagName == "SPAN") {
+            window.katex.render(texText.data, mathElements[i], {
+              displayMode: mathElements[i].classList.contains('display'),
+              throwOnError: false,
+              macros: macros,
+              fleqn: false
+            });
+          }
+        }
+      }
+    }
+    if (id === null || id.startsWith('sec-')) {
       // Special case sections, only their first couple elements
       const container = document.createElement("div");
       if (note.children && note.children.length > 2) {
-        for (let i = 0; i < 2; i++) {
-          container.appendChild(note.children[i].cloneNode(true));
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
         }
+        typesetMath(container);
         return container.innerHTML
       } else {
+        typesetMath(note);
         return note.innerHTML;
       }
     } else {
@@ -2017,6 +2088,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (anchorLink) {
         anchorLink.remove();
       }
+      typesetMath(note);
       return note.innerHTML;
     }
   }
@@ -2059,6 +2131,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             instance.show();
           });
         }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
       }
     }, function(instance) {
     });
@@ -2134,7 +2229,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     window.addEventListener(
       "resize",
       throttle(() => {
-        console.log("RESIZE");
         elRect = undefined;
         if (selectedAnnoteEl) {
           selectCodeLines(selectedAnnoteEl);
