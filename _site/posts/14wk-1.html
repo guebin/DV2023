@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="최규빈">
-<meta name="dcterms.date" content="2023-12-04">
+<meta name="dcterms.date" content="2023-12-11">
 
 <title>DV2023 - 14wk-1: Quarto – 대시보드 만들기</title>
 <style>
@@ -188,7 +188,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">December 4, 2023</p>
+      <p class="date">December 11, 2023</p>
     </div>
   </div>
   
@@ -202,9 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="강의영상" class="level1">
 <h1>1. 강의영상</h1>
-<div id="21f55218-b38e-40d8-aa99-db10dd823cff" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">pass</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/playlist?list=PLQqh36zP38-xy02ziUmb8KH3Mfh_ypUM6&amp;si=mxTWFOUZvv2qokdW" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 </section>
 <section id="시각화수업-강의계획" class="level1">
 <h1>2. 시각화수업 강의계획</h1>
@@ -277,7 +275,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="c.-깃헙레포지토리와-서버컴퓨터의-연결" class="level2">
 <h2 class="anchored" data-anchor-id="c.-깃헙레포지토리와-서버컴퓨터의-연결">C. 깃헙레포지토리와 서버컴퓨터의 연결</h2>
 <p><code>-</code> clone</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>레포지토리주소<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="op">&lt;</span>레포지토리주소<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>파일들이 잘 있는지 확인</p>
 <p><code>-</code> 토큰생성 및 저장</p>
 <p>아래의 주소로 접속하여</p>
@@ -285,9 +283,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>토큰을 생성한다. 토큰이 생성되면 토큰을 복사한뒤 저장한다.</p>
 <p><code>-</code> push</p>
 <p>레포지토리내의 README.md 파일을 수정해보고 아래를 입력</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> .</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> .</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>이후에 유저이름 입력하고 비밀번호는 복사해둔 토큰을 사용한다. 깃헙에 제대로 업로드 되었는지 확인한다.</p>
 </section>
 <section id="d.-배포" class="level2">
@@ -299,152 +297,152 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-with-filename-file">
 <pre><strong>quarto.yml</strong></pre>
 </div>
-<div class="sourceCode" id="cb4" data-filename="quarto.yml"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">project:</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">type:</span> website</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">output-dir:</span> docs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3" data-filename="quarto.yml"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">project:</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="ex">type:</span> website</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="ex">output-dir:</span> docs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 클론한 레포지토리에 <code>Energy.qmd</code> 파일을 생성하고 아래의 내용을 복사.</p>
 <div class="code-with-filename">
 <div class="code-with-filename-file">
 <pre><strong>Energy.qmd</strong></pre>
 </div>
-<div class="sourceCode" id="cb5" data-filename="Energy.qmd"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">title:</span> <span class="st">"에너지사용량 자료 분석"</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">author:</span> <span class="st">"본인이름~"</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">format:</span> dashboard</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">execute:</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enabled:</span> true</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">cache:</span> false</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">freeze:</span> false</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">error:</span> true</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> numpy as np</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> pandas as pd</span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> plotly.express as px</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> plotly.io as pio</span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> json</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> requests</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="ex">pd.options.plotting.backend</span> = <span class="st">"plotly"</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="ex">pio.templates.default</span> = <span class="st">"plotly_white"</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="ex">global_dict</span> = json.loads<span class="er">(</span><span class="ex">requests.get</span><span class="er">(</span><span class="st">'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-provinces-2018-geo.json'</span><span class="kw">)</span><span class="ex">.text</span><span class="kw">)</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="ex">local_dict</span> = json.loads<span class="er">(</span><span class="ex">requests.get</span><span class="er">(</span><span class="st">'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-municipalities-2018-geo.json'</span><span class="kw">)</span><span class="ex">.text</span><span class="kw">)</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="co">#--#</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="ex">url</span> = <span class="st">'https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/{}.csv'</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="ex">prov</span> = [<span class="st">'Seoul'</span>, <span class="st">'Busan'</span>, <span class="st">'Daegu'</span>, <span class="st">'Incheon'</span>, </span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gwangju'</span><span class="ex">,</span> <span class="st">'Daejeon'</span>, <span class="st">'Ulsan'</span>, <span class="st">'Sejongsi'</span>, </span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gyeonggi-do'</span><span class="ex">,</span> <span class="st">'Gangwon-do'</span>, <span class="st">'Chungcheongbuk-do'</span>, </span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Chungcheongnam-do'</span><span class="ex">,</span> <span class="st">'Jeollabuk-do'</span>, <span class="st">'Jeollanam-do'</span>, </span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gyeongsangbuk-do'</span><span class="ex">,</span> <span class="st">'Gyeongsangnam-do'</span>, <span class="st">'Jeju-do'</span>]</span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="fu">df</span> = pd.concat<span class="er">(</span><span class="ex">[pd.read_csv</span><span class="er">(</span><span class="ex">url.format</span><span class="er">(</span><span class="ex">p+y</span><span class="kw">))</span><span class="ex">.assign</span><span class="er">(</span><span class="ex">년도=y,</span> 시도=p<span class="kw">)</span> <span class="cf">for</span> p <span class="kw">in</span> prov for y in [<span class="st">'2018'</span>, <span class="st">'2019'</span>, <span class="st">'2020'</span>, <span class="st">'2021'</span>]]<span class="kw">)</span><span class="ex">.reset_index</span><span class="er">(</span><span class="va">drop</span><span class="op">=</span>True<span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="ex">.assign</span><span class="er">(</span><span class="ex">년도</span> = lambda df: df.년도.astype<span class="er">(</span><span class="ex">int</span><span class="kw">))</span><span class="dt">\</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="ex">.set_index</span><span class="er">(</span><span class="ex">[</span><span class="st">'년도'</span><span class="ex">,</span><span class="st">'시도'</span><span class="ex">,</span><span class="st">'지역'</span><span class="ex">]</span><span class="kw">)</span><span class="ex">.applymap</span><span class="er">(</span><span class="ex">lambda</span> x: int<span class="er">(</span><span class="ex">str</span><span class="er">(</span><span class="ex">x</span><span class="kw">)</span><span class="ex">.replace</span><span class="er">(</span><span class="st">','</span><span class="ex">,</span><span class="st">''</span><span class="kw">)))</span><span class="dt">\</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="fu">.reset_index()</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="ex">df_global</span> = pd.DataFrame<span class="er">(</span><span class="ex">[l[</span><span class="st">'properties'</span><span class="ex">]</span> for l in global_dict<span class="pp">[</span><span class="st">'features'</span><span class="pp">]</span>]<span class="kw">)</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="ex">df_local</span> = pd.DataFrame<span class="er">(</span><span class="ex">[l[</span><span class="st">'properties'</span><span class="ex">]</span> for l in local_dict<span class="pp">[</span><span class="st">'features'</span><span class="pp">]</span>]<span class="kw">)</span></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="ex">df_json</span> = df_local.set_index<span class="er">(</span><span class="st">'name'</span><span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="ex">.rename</span><span class="er">(</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>    <span class="ex">{name:name.split</span><span class="er">(</span><span class="st">'시'</span><span class="kw">)</span><span class="ex">[-1]</span> for name in df_local<span class="pp">[</span><span class="st">'name'</span><span class="pp">]</span> if <span class="er">(</span><span class="st">'시'</span> in name<span class="kw">)</span> <span class="ex">and</span> <span class="er">(</span><span class="st">'구'</span> in name<span class="kw">)</span> <span class="ex">and</span> <span class="er">(</span><span class="ex">len</span><span class="er">(</span><span class="ex">name</span><span class="kw">)</span><span class="op">&gt;</span>3<span class="kw">)</span><span class="er">}</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span><span class="fu">.reset_index()</span><span class="dt">\</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a><span class="ex">.drop</span><span class="er">(</span><span class="ex">[</span><span class="st">'base_year'</span><span class="ex">,</span><span class="st">'name_eng'</span><span class="ex">],axis=1</span><span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a><span class="ex">.rename</span><span class="er">(</span><span class="dt">{</span><span class="st">'name'</span><span class="dt">:</span><span class="st">'name_local'</span><span class="op">,</span><span class="st">'code'</span><span class="dt">:</span><span class="st">'code_local'</span><span class="dt">}</span><span class="ex">,axis=1</span><span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a><span class="ex">.assign</span><span class="er">(</span><span class="ex">code</span> = lambda df: df<span class="pp">[</span><span class="st">'code_local'</span><span class="pp">]</span>.str<span class="pp">[</span><span class="ss">:2</span><span class="pp">]</span><span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="ex">.merge</span><span class="er">(</span><span class="ex">df_global.drop</span><span class="er">(</span><span class="ex">[</span><span class="st">'base_year'</span><span class="ex">,</span><span class="st">'name_eng'</span><span class="ex">],axis=1</span><span class="kw">))</span></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a><span class="ex">df_left</span> = df.assign<span class="er">(</span></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>    <span class="ex">시도</span> = lambda df: df.시도.map<span class="er">(</span><span class="ex">{l[</span><span class="st">'properties'</span><span class="ex">][</span><span class="st">'name_eng'</span><span class="ex">]:l[</span><span class="st">'properties'</span><span class="ex">][</span><span class="st">'name'</span><span class="ex">]</span> for l in global_dict<span class="pp">[</span><span class="st">'features'</span><span class="pp">]</span>}<span class="kw">)</span></span>
-<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span><span class="ex">.assign</span><span class="er">(</span><span class="ex">on</span> = lambda df: df.시도 + <span class="st">'-'</span> + df.지역<span class="kw">)</span></span>
-<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a><span class="ex">df_right</span> = df_json.assign<span class="er">(</span><span class="ex">on</span> = lambda df: df.name + <span class="st">'-'</span> + df.name_local<span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a><span class="ex">.drop</span><span class="er">(</span><span class="ex">[</span><span class="st">'name_local'</span><span class="ex">,</span><span class="st">'name'</span><span class="ex">],axis=1</span><span class="kw">)</span></span>
-<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="ex">df2</span> = df_left.merge<span class="er">(</span></span>
-<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    <span class="ex">df_right.set_index</span><span class="er">(</span><span class="st">'on'</span><span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    <span class="ex">.rename</span><span class="er">(</span><span class="ex">{</span><span class="st">'인천광역시-남구'</span><span class="ex">:</span><span class="st">'인천광역시-미추홀구'</span><span class="ex">}</span><span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">.reset_index()</span></span>
-<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span><span class="ex">.drop</span><span class="er">(</span><span class="ex">[</span><span class="st">'on'</span><span class="ex">],axis=1</span><span class="kw">)</span></span>
-<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
-<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a><span class="co"># 데이터탐색</span></span>
-<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
-<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 에너지사용량 자료 </span></span>
-<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> itables </span>
-<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="ex">itables.show</span><span class="er">(</span><span class="ex">df2,showIndex=False</span><span class="kw">)</span></span>
-<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
-<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화 {orientation="columns" scrolling="true"}</span></span>
-<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a><span class="co">## Column {width=50%}</span></span>
-<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
-<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 2018년도 전기사용량 (전국)</span></span>
-<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="ex">fig</span> = px.choropleth_mapbox<span class="er">(</span></span>
-<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a>    <span class="ex">geojson</span> = local_dict,</span>
-<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>    <span class="ex">featureidkey</span> = <span class="st">'properties.code'</span>,</span>
-<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>    <span class="ex">data_frame</span> = df2.query<span class="er">(</span><span class="st">'년도 == 2018'</span><span class="kw">)</span><span class="ex">,</span></span>
-<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>    <span class="ex">locations</span> = <span class="st">'code_local'</span>,</span>
-<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>    <span class="ex">color</span> = <span class="st">'에너지사용량(TOE)/전기'</span>,</span>
-<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>    <span class="ex">hover_data</span> = <span class="pp">[</span><span class="st">'시도'</span><span class="ss">,</span><span class="st">'지역'</span><span class="pp">]</span>,</span>
-<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
-<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>    <span class="va">mapbox_style</span><span class="op">=</span><span class="st">"carto-positron"</span>,</span>
-<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>    <span class="ex">range_color</span> = <span class="pp">[</span><span class="ss">0,200000</span><span class="pp">]</span>,</span>
-<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>    <span class="va">center</span><span class="op">=</span>{<span class="st">"lat"</span>: <span class="ex">36,</span> <span class="st">"lon"</span>: 127.5}, </span>
-<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>    <span class="va">zoom</span><span class="op">=</span>6,</span>
-<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span></span>
-<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="ex">fig.show</span><span class="er">(</span><span class="va">config</span><span class="op">=</span>{<span class="st">'scrollZoom'</span>:False}<span class="kw">)</span></span>
-<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
-<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="co">## Column {width=50%}</span></span>
-<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
-<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 2018~2019년도 전기사용량 (서울)</span></span>
-<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="ex">seoul_dict</span> = local_dict.copy<span class="er">(</span><span class="kw">)</span> </span>
-<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a><span class="va">seoul_dict</span><span class="op">[</span><span class="st">'features'</span><span class="op">]</span> <span class="ex">=</span> [l for l in seoul_dict<span class="pp">[</span><span class="st">'features'</span><span class="pp">]</span> if l<span class="pp">[</span><span class="st">'properties'</span><span class="pp">][</span><span class="st">'code'</span><span class="pp">][</span><span class="ss">:2</span><span class="pp">]</span> == <span class="st">'11'</span>]</span>
-<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="ex">fig</span> = px.choropleth_mapbox<span class="er">(</span></span>
-<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a>    <span class="ex">geojson</span> = seoul_dict,</span>
-<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>    <span class="ex">featureidkey</span> = <span class="st">'properties.code'</span>,</span>
-<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a>    <span class="ex">data_frame</span> = df2,</span>
-<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a>    <span class="ex">locations</span> = <span class="st">'code_local'</span>,</span>
-<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a>    <span class="ex">color</span> = <span class="st">'에너지사용량(TOE)/전기'</span>,</span>
-<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a>    <span class="va">animation_frame</span><span class="op">=</span> <span class="st">'년도'</span><span class="ex">,</span></span>
-<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>    <span class="ex">hover_data</span> = <span class="pp">[</span><span class="st">'시도'</span><span class="ss">,</span><span class="st">'지역'</span><span class="pp">]</span>,</span>
-<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
-<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a>    <span class="va">mapbox_style</span><span class="op">=</span><span class="st">"carto-positron"</span>,</span>
-<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a>    <span class="ex">range_color</span> = <span class="pp">[</span><span class="ss">0,400000</span><span class="pp">]</span>,</span>
-<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a>    <span class="va">center</span><span class="op">=</span>{<span class="st">"lat"</span>: <span class="ex">37.5642135,</span> <span class="st">"lon"</span>: 127.0016985},</span>
-<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a>    <span class="va">zoom</span><span class="op">=</span>9,</span>
-<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span></span>
-<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a><span class="ex">fig.show</span><span class="er">(</span><span class="va">config</span><span class="op">=</span>{<span class="st">'scrollZoom'</span>:False}<span class="kw">)</span></span>
-<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
-<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
-<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 2018~2019년도 에너지사용량 (전국)</span></span>
-<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a><span class="ex">fig</span> = df2.drop<span class="er">(</span><span class="ex">[</span><span class="st">'code_local'</span><span class="ex">,</span><span class="st">'code'</span><span class="ex">],axis=1</span><span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="ex">.set_index</span><span class="er">(</span><span class="ex">[</span><span class="st">'년도'</span><span class="ex">,</span><span class="st">'시도'</span><span class="ex">,</span><span class="st">'지역'</span><span class="ex">,</span><span class="st">'건물동수'</span><span class="ex">,</span><span class="st">'연면적'</span><span class="ex">]</span><span class="kw">)</span><span class="fu">.stack().reset_index()</span><span class="dt">\</span></span>
-<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a><span class="ex">.rename</span><span class="er">(</span><span class="ex">{</span><span class="st">'level_5'</span><span class="ex">:</span><span class="st">'에너지종류'</span><span class="ex">,</span> 0:<span class="st">'에너지사용량'</span>},axis=1<span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="ex">.assign</span><span class="er">(</span><span class="ex">에너지종류</span> = lambda df: df<span class="pp">[</span><span class="st">'에너지종류'</span><span class="pp">]</span>.str.split<span class="er">(</span><span class="st">'/'</span><span class="kw">)</span><span class="ex">.str[-1]</span><span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="ex">.groupby</span><span class="er">(</span><span class="ex">[</span><span class="st">'년도'</span><span class="ex">,</span><span class="st">'시도'</span><span class="ex">,</span><span class="st">'에너지종류'</span><span class="ex">]</span><span class="kw">)</span><span class="ex">.agg</span><span class="er">(</span><span class="ex">{</span><span class="st">'에너지사용량'</span><span class="ex">:</span><span class="st">'sum'</span><span class="ex">}</span><span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a><span class="fu">.stack().reset_index()</span><span class="dt">\</span></span>
-<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a><span class="ex">.rename</span><span class="er">(</span><span class="ex">{0:</span><span class="st">'에너지사용량'</span><span class="ex">},axis=1</span><span class="kw">)</span><span class="dt">\</span></span>
-<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a><span class="ex">.plot.area</span><span class="er">(</span></span>
-<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>    <span class="va">x</span><span class="op">=</span><span class="st">'년도'</span>,y=<span class="st">'에너지사용량'</span>,</span>
-<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>    <span class="va">color</span><span class="op">=</span><span class="st">'시도'</span>,</span>
-<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>    <span class="va">facet_col</span><span class="op">=</span><span class="st">'에너지종류'</span></span>
-<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span></span>
-<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a><span class="ex">fig.update_layout</span><span class="er">(</span></span>
-<span id="cb5-126"><a href="#cb5-126" aria-hidden="true" tabindex="-1"></a>    <span class="va">xaxis_domain</span><span class="op">=</span>[0.0, <span class="ex">0.25],</span></span>
-<span id="cb5-127"><a href="#cb5-127" aria-hidden="true" tabindex="-1"></a>    <span class="va">xaxis2_domain</span><span class="op">=</span>[0.35, <span class="ex">0.60],</span></span>
-<span id="cb5-128"><a href="#cb5-128" aria-hidden="true" tabindex="-1"></a>    <span class="va">xaxis3_domain</span><span class="op">=</span>[0.70, <span class="ex">0.95]</span></span>
-<span id="cb5-129"><a href="#cb5-129" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span></span>
-<span id="cb5-130"><a href="#cb5-130" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4" data-filename="Energy.qmd"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">title:</span> <span class="st">"에너지사용량 자료 분석"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">author:</span> <span class="st">"본인이름~"</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">format:</span> dashboard</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="ex">execute:</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="ex">enabled:</span> true</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="ex">cache:</span> false</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="ex">freeze:</span> false</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="ex">error:</span> true</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="ex">---</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> numpy as np</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> pandas as pd</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> plotly.express as px</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> plotly.io as pio</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> json</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> requests</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="ex">pd.options.plotting.backend</span> = <span class="st">"plotly"</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="ex">pio.templates.default</span> = <span class="st">"plotly_white"</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="ex">global_dict</span> = json.loads<span class="er">(</span><span class="ex">requests.get</span><span class="er">(</span><span class="st">'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-provinces-2018-geo.json'</span><span class="kw">)</span><span class="ex">.text</span><span class="kw">)</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="ex">local_dict</span> = json.loads<span class="er">(</span><span class="ex">requests.get</span><span class="er">(</span><span class="st">'https://raw.githubusercontent.com/southkorea/southkorea-maps/master/kostat/2018/json/skorea-municipalities-2018-geo.json'</span><span class="kw">)</span><span class="ex">.text</span><span class="kw">)</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="co">#--#</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="ex">url</span> = <span class="st">'https://raw.githubusercontent.com/guebin/DV2022/main/posts/Energy/{}.csv'</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="ex">prov</span> = [<span class="st">'Seoul'</span>, <span class="st">'Busan'</span>, <span class="st">'Daegu'</span>, <span class="st">'Incheon'</span>, </span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gwangju'</span><span class="ex">,</span> <span class="st">'Daejeon'</span>, <span class="st">'Ulsan'</span>, <span class="st">'Sejongsi'</span>, </span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gyeonggi-do'</span><span class="ex">,</span> <span class="st">'Gangwon-do'</span>, <span class="st">'Chungcheongbuk-do'</span>, </span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Chungcheongnam-do'</span><span class="ex">,</span> <span class="st">'Jeollabuk-do'</span>, <span class="st">'Jeollanam-do'</span>, </span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        <span class="st">'Gyeongsangbuk-do'</span><span class="ex">,</span> <span class="st">'Gyeongsangnam-do'</span>, <span class="st">'Jeju-do'</span>]</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a><span class="fu">df</span> = pd.concat<span class="er">(</span><span class="ex">[pd.read_csv</span><span class="er">(</span><span class="ex">url.format</span><span class="er">(</span><span class="ex">p+y</span><span class="kw">))</span><span class="ex">.assign</span><span class="er">(</span><span class="ex">년도=y,</span> 시도=p<span class="kw">)</span> <span class="cf">for</span> p <span class="kw">in</span> prov for y in [<span class="st">'2018'</span>, <span class="st">'2019'</span>, <span class="st">'2020'</span>, <span class="st">'2021'</span>]]<span class="kw">)</span><span class="ex">.reset_index</span><span class="er">(</span><span class="va">drop</span><span class="op">=</span>True<span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="ex">.assign</span><span class="er">(</span><span class="ex">년도</span> = lambda df: df.년도.astype<span class="er">(</span><span class="ex">int</span><span class="kw">))</span><span class="dt">\</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="ex">.set_index</span><span class="er">(</span><span class="ex">[</span><span class="st">'년도'</span><span class="ex">,</span><span class="st">'시도'</span><span class="ex">,</span><span class="st">'지역'</span><span class="ex">]</span><span class="kw">)</span><span class="ex">.applymap</span><span class="er">(</span><span class="ex">lambda</span> x: int<span class="er">(</span><span class="ex">str</span><span class="er">(</span><span class="ex">x</span><span class="kw">)</span><span class="ex">.replace</span><span class="er">(</span><span class="st">','</span><span class="ex">,</span><span class="st">''</span><span class="kw">)))</span><span class="dt">\</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="fu">.reset_index()</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a><span class="ex">df_global</span> = pd.DataFrame<span class="er">(</span><span class="ex">[l[</span><span class="st">'properties'</span><span class="ex">]</span> for l in global_dict<span class="pp">[</span><span class="st">'features'</span><span class="pp">]</span>]<span class="kw">)</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="ex">df_local</span> = pd.DataFrame<span class="er">(</span><span class="ex">[l[</span><span class="st">'properties'</span><span class="ex">]</span> for l in local_dict<span class="pp">[</span><span class="st">'features'</span><span class="pp">]</span>]<span class="kw">)</span></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="ex">df_json</span> = df_local.set_index<span class="er">(</span><span class="st">'name'</span><span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a><span class="ex">.rename</span><span class="er">(</span></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="ex">{name:name.split</span><span class="er">(</span><span class="st">'시'</span><span class="kw">)</span><span class="ex">[-1]</span> for name in df_local<span class="pp">[</span><span class="st">'name'</span><span class="pp">]</span> if <span class="er">(</span><span class="st">'시'</span> in name<span class="kw">)</span> <span class="ex">and</span> <span class="er">(</span><span class="st">'구'</span> in name<span class="kw">)</span> <span class="ex">and</span> <span class="er">(</span><span class="ex">len</span><span class="er">(</span><span class="ex">name</span><span class="kw">)</span><span class="op">&gt;</span>3<span class="kw">)</span><span class="er">}</span></span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span><span class="fu">.reset_index()</span><span class="dt">\</span></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="ex">.drop</span><span class="er">(</span><span class="ex">[</span><span class="st">'base_year'</span><span class="ex">,</span><span class="st">'name_eng'</span><span class="ex">],axis=1</span><span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="ex">.rename</span><span class="er">(</span><span class="dt">{</span><span class="st">'name'</span><span class="dt">:</span><span class="st">'name_local'</span><span class="op">,</span><span class="st">'code'</span><span class="dt">:</span><span class="st">'code_local'</span><span class="dt">}</span><span class="ex">,axis=1</span><span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="ex">.assign</span><span class="er">(</span><span class="ex">code</span> = lambda df: df<span class="pp">[</span><span class="st">'code_local'</span><span class="pp">]</span>.str<span class="pp">[</span><span class="ss">:2</span><span class="pp">]</span><span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="ex">.merge</span><span class="er">(</span><span class="ex">df_global.drop</span><span class="er">(</span><span class="ex">[</span><span class="st">'base_year'</span><span class="ex">,</span><span class="st">'name_eng'</span><span class="ex">],axis=1</span><span class="kw">))</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="ex">df_left</span> = df.assign<span class="er">(</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>    <span class="ex">시도</span> = lambda df: df.시도.map<span class="er">(</span><span class="ex">{l[</span><span class="st">'properties'</span><span class="ex">][</span><span class="st">'name_eng'</span><span class="ex">]:l[</span><span class="st">'properties'</span><span class="ex">][</span><span class="st">'name'</span><span class="ex">]</span> for l in global_dict<span class="pp">[</span><span class="st">'features'</span><span class="pp">]</span>}<span class="kw">)</span></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span><span class="ex">.assign</span><span class="er">(</span><span class="ex">on</span> = lambda df: df.시도 + <span class="st">'-'</span> + df.지역<span class="kw">)</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="ex">df_right</span> = df_json.assign<span class="er">(</span><span class="ex">on</span> = lambda df: df.name + <span class="st">'-'</span> + df.name_local<span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a><span class="ex">.drop</span><span class="er">(</span><span class="ex">[</span><span class="st">'name_local'</span><span class="ex">,</span><span class="st">'name'</span><span class="ex">],axis=1</span><span class="kw">)</span></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="ex">df2</span> = df_left.merge<span class="er">(</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>    <span class="ex">df_right.set_index</span><span class="er">(</span><span class="st">'on'</span><span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>    <span class="ex">.rename</span><span class="er">(</span><span class="ex">{</span><span class="st">'인천광역시-남구'</span><span class="ex">:</span><span class="st">'인천광역시-미추홀구'</span><span class="ex">}</span><span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">.reset_index()</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span><span class="ex">.drop</span><span class="er">(</span><span class="ex">[</span><span class="st">'on'</span><span class="ex">],axis=1</span><span class="kw">)</span></span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a><span class="co"># 데이터탐색</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 에너지사용량 자료 </span></span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a><span class="ex">import</span> itables </span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a><span class="ex">itables.show</span><span class="er">(</span><span class="ex">df2,showIndex=False</span><span class="kw">)</span></span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a><span class="co"># 시각화 {orientation="columns" scrolling="true"}</span></span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a><span class="co">## Column {width=50%}</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 2018년도 전기사용량 (전국)</span></span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a><span class="ex">fig</span> = px.choropleth_mapbox<span class="er">(</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>    <span class="ex">geojson</span> = local_dict,</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>    <span class="ex">featureidkey</span> = <span class="st">'properties.code'</span>,</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>    <span class="ex">data_frame</span> = df2.query<span class="er">(</span><span class="st">'년도 == 2018'</span><span class="kw">)</span><span class="ex">,</span></span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>    <span class="ex">locations</span> = <span class="st">'code_local'</span>,</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>    <span class="ex">color</span> = <span class="st">'에너지사용량(TOE)/전기'</span>,</span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>    <span class="ex">hover_data</span> = <span class="pp">[</span><span class="st">'시도'</span><span class="ss">,</span><span class="st">'지역'</span><span class="pp">]</span>,</span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>    <span class="va">mapbox_style</span><span class="op">=</span><span class="st">"carto-positron"</span>,</span>
+<span id="cb4-81"><a href="#cb4-81" aria-hidden="true" tabindex="-1"></a>    <span class="ex">range_color</span> = <span class="pp">[</span><span class="ss">0,200000</span><span class="pp">]</span>,</span>
+<span id="cb4-82"><a href="#cb4-82" aria-hidden="true" tabindex="-1"></a>    <span class="va">center</span><span class="op">=</span>{<span class="st">"lat"</span>: <span class="ex">36,</span> <span class="st">"lon"</span>: 127.5}, </span>
+<span id="cb4-83"><a href="#cb4-83" aria-hidden="true" tabindex="-1"></a>    <span class="va">zoom</span><span class="op">=</span>6,</span>
+<span id="cb4-84"><a href="#cb4-84" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span></span>
+<span id="cb4-85"><a href="#cb4-85" aria-hidden="true" tabindex="-1"></a><span class="ex">fig.show</span><span class="er">(</span><span class="va">config</span><span class="op">=</span>{<span class="st">'scrollZoom'</span>:False}<span class="kw">)</span></span>
+<span id="cb4-86"><a href="#cb4-86" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
+<span id="cb4-87"><a href="#cb4-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-88"><a href="#cb4-88" aria-hidden="true" tabindex="-1"></a><span class="co">## Column {width=50%}</span></span>
+<span id="cb4-89"><a href="#cb4-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-90"><a href="#cb4-90" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
+<span id="cb4-91"><a href="#cb4-91" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 2018~2019년도 전기사용량 (서울)</span></span>
+<span id="cb4-92"><a href="#cb4-92" aria-hidden="true" tabindex="-1"></a><span class="ex">seoul_dict</span> = local_dict.copy<span class="er">(</span><span class="kw">)</span> </span>
+<span id="cb4-93"><a href="#cb4-93" aria-hidden="true" tabindex="-1"></a><span class="va">seoul_dict</span><span class="op">[</span><span class="st">'features'</span><span class="op">]</span> <span class="ex">=</span> [l for l in seoul_dict<span class="pp">[</span><span class="st">'features'</span><span class="pp">]</span> if l<span class="pp">[</span><span class="st">'properties'</span><span class="pp">][</span><span class="st">'code'</span><span class="pp">][</span><span class="ss">:2</span><span class="pp">]</span> == <span class="st">'11'</span>]</span>
+<span id="cb4-94"><a href="#cb4-94" aria-hidden="true" tabindex="-1"></a><span class="ex">fig</span> = px.choropleth_mapbox<span class="er">(</span></span>
+<span id="cb4-95"><a href="#cb4-95" aria-hidden="true" tabindex="-1"></a>    <span class="ex">geojson</span> = seoul_dict,</span>
+<span id="cb4-96"><a href="#cb4-96" aria-hidden="true" tabindex="-1"></a>    <span class="ex">featureidkey</span> = <span class="st">'properties.code'</span>,</span>
+<span id="cb4-97"><a href="#cb4-97" aria-hidden="true" tabindex="-1"></a>    <span class="ex">data_frame</span> = df2,</span>
+<span id="cb4-98"><a href="#cb4-98" aria-hidden="true" tabindex="-1"></a>    <span class="ex">locations</span> = <span class="st">'code_local'</span>,</span>
+<span id="cb4-99"><a href="#cb4-99" aria-hidden="true" tabindex="-1"></a>    <span class="ex">color</span> = <span class="st">'에너지사용량(TOE)/전기'</span>,</span>
+<span id="cb4-100"><a href="#cb4-100" aria-hidden="true" tabindex="-1"></a>    <span class="va">animation_frame</span><span class="op">=</span> <span class="st">'년도'</span><span class="ex">,</span></span>
+<span id="cb4-101"><a href="#cb4-101" aria-hidden="true" tabindex="-1"></a>    <span class="ex">hover_data</span> = <span class="pp">[</span><span class="st">'시도'</span><span class="ss">,</span><span class="st">'지역'</span><span class="pp">]</span>,</span>
+<span id="cb4-102"><a href="#cb4-102" aria-hidden="true" tabindex="-1"></a>    <span class="co">#---#</span></span>
+<span id="cb4-103"><a href="#cb4-103" aria-hidden="true" tabindex="-1"></a>    <span class="va">mapbox_style</span><span class="op">=</span><span class="st">"carto-positron"</span>,</span>
+<span id="cb4-104"><a href="#cb4-104" aria-hidden="true" tabindex="-1"></a>    <span class="ex">range_color</span> = <span class="pp">[</span><span class="ss">0,400000</span><span class="pp">]</span>,</span>
+<span id="cb4-105"><a href="#cb4-105" aria-hidden="true" tabindex="-1"></a>    <span class="va">center</span><span class="op">=</span>{<span class="st">"lat"</span>: <span class="ex">37.5642135,</span> <span class="st">"lon"</span>: 127.0016985},</span>
+<span id="cb4-106"><a href="#cb4-106" aria-hidden="true" tabindex="-1"></a>    <span class="va">zoom</span><span class="op">=</span>9,</span>
+<span id="cb4-107"><a href="#cb4-107" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span></span>
+<span id="cb4-108"><a href="#cb4-108" aria-hidden="true" tabindex="-1"></a><span class="ex">fig.show</span><span class="er">(</span><span class="va">config</span><span class="op">=</span>{<span class="st">'scrollZoom'</span>:False}<span class="kw">)</span></span>
+<span id="cb4-109"><a href="#cb4-109" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span>
+<span id="cb4-110"><a href="#cb4-110" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-111"><a href="#cb4-111" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span><span class="ex">{python}</span></span>
+<span id="cb4-112"><a href="#cb4-112" aria-hidden="true" tabindex="-1"></a><span class="co">#| title: 2018~2019년도 에너지사용량 (전국)</span></span>
+<span id="cb4-113"><a href="#cb4-113" aria-hidden="true" tabindex="-1"></a><span class="ex">fig</span> = df2.drop<span class="er">(</span><span class="ex">[</span><span class="st">'code_local'</span><span class="ex">,</span><span class="st">'code'</span><span class="ex">],axis=1</span><span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-114"><a href="#cb4-114" aria-hidden="true" tabindex="-1"></a><span class="ex">.set_index</span><span class="er">(</span><span class="ex">[</span><span class="st">'년도'</span><span class="ex">,</span><span class="st">'시도'</span><span class="ex">,</span><span class="st">'지역'</span><span class="ex">,</span><span class="st">'건물동수'</span><span class="ex">,</span><span class="st">'연면적'</span><span class="ex">]</span><span class="kw">)</span><span class="fu">.stack().reset_index()</span><span class="dt">\</span></span>
+<span id="cb4-115"><a href="#cb4-115" aria-hidden="true" tabindex="-1"></a><span class="ex">.rename</span><span class="er">(</span><span class="ex">{</span><span class="st">'level_5'</span><span class="ex">:</span><span class="st">'에너지종류'</span><span class="ex">,</span> 0:<span class="st">'에너지사용량'</span>},axis=1<span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-116"><a href="#cb4-116" aria-hidden="true" tabindex="-1"></a><span class="ex">.assign</span><span class="er">(</span><span class="ex">에너지종류</span> = lambda df: df<span class="pp">[</span><span class="st">'에너지종류'</span><span class="pp">]</span>.str.split<span class="er">(</span><span class="st">'/'</span><span class="kw">)</span><span class="ex">.str[-1]</span><span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-117"><a href="#cb4-117" aria-hidden="true" tabindex="-1"></a><span class="ex">.groupby</span><span class="er">(</span><span class="ex">[</span><span class="st">'년도'</span><span class="ex">,</span><span class="st">'시도'</span><span class="ex">,</span><span class="st">'에너지종류'</span><span class="ex">]</span><span class="kw">)</span><span class="ex">.agg</span><span class="er">(</span><span class="ex">{</span><span class="st">'에너지사용량'</span><span class="ex">:</span><span class="st">'sum'</span><span class="ex">}</span><span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-118"><a href="#cb4-118" aria-hidden="true" tabindex="-1"></a><span class="fu">.stack().reset_index()</span><span class="dt">\</span></span>
+<span id="cb4-119"><a href="#cb4-119" aria-hidden="true" tabindex="-1"></a><span class="ex">.rename</span><span class="er">(</span><span class="ex">{0:</span><span class="st">'에너지사용량'</span><span class="ex">},axis=1</span><span class="kw">)</span><span class="dt">\</span></span>
+<span id="cb4-120"><a href="#cb4-120" aria-hidden="true" tabindex="-1"></a><span class="ex">.plot.area</span><span class="er">(</span></span>
+<span id="cb4-121"><a href="#cb4-121" aria-hidden="true" tabindex="-1"></a>    <span class="va">x</span><span class="op">=</span><span class="st">'년도'</span>,y=<span class="st">'에너지사용량'</span>,</span>
+<span id="cb4-122"><a href="#cb4-122" aria-hidden="true" tabindex="-1"></a>    <span class="va">color</span><span class="op">=</span><span class="st">'시도'</span>,</span>
+<span id="cb4-123"><a href="#cb4-123" aria-hidden="true" tabindex="-1"></a>    <span class="va">facet_col</span><span class="op">=</span><span class="st">'에너지종류'</span></span>
+<span id="cb4-124"><a href="#cb4-124" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span></span>
+<span id="cb4-125"><a href="#cb4-125" aria-hidden="true" tabindex="-1"></a><span class="ex">fig.update_layout</span><span class="er">(</span></span>
+<span id="cb4-126"><a href="#cb4-126" aria-hidden="true" tabindex="-1"></a>    <span class="va">xaxis_domain</span><span class="op">=</span>[0.0, <span class="ex">0.25],</span></span>
+<span id="cb4-127"><a href="#cb4-127" aria-hidden="true" tabindex="-1"></a>    <span class="va">xaxis2_domain</span><span class="op">=</span>[0.35, <span class="ex">0.60],</span></span>
+<span id="cb4-128"><a href="#cb4-128" aria-hidden="true" tabindex="-1"></a>    <span class="va">xaxis3_domain</span><span class="op">=</span>[0.70, <span class="ex">0.95]</span></span>
+<span id="cb4-129"><a href="#cb4-129" aria-hidden="true" tabindex="-1"></a><span class="kw">)</span></span>
+<span id="cb4-130"><a href="#cb4-130" aria-hidden="true" tabindex="-1"></a><span class="kw">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>-</code> 터미널에서 아래를 입력</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render Energy.qmd </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="ex">quarto</span> render Energy.qmd </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>-</code> local에 docs폴더 밑에 어떠한 파일들이 생성됨. 클릭해서 확인. 이 파일들을 github으로 push</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> .</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> add .</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> .</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> push </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><code>-</code> 아래와 같이 <code>Settings</code> &gt;<code>Pages</code> &gt; <code>Build and deployment</code> &gt; <code>Brach</code> 에서 경로를 <code>main/docs</code>로 변경하고 save</p>
 <p><img src="14wk-1_files/figure-html/fe579dd8-8d98-441c-9617-f78ea66cfbec-1-e9be2fd5-a9b4-4d73-ba34-b3e5ae6dc66c.png" class="img-fluid"></p>
 </section>
